@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { ModalsProvider } from '@mantine/modals';
+import { SnackbarProvider } from 'meridian/snackbar';
+import { I18nProvider } from 'meridian/i18n';
+import { createStore } from 'meridian/state';
+import { HomePage } from 'meridian/home';
+import AppThemeProvider from './ThemeProvider';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+    <Provider store={createStore()}>
+        <I18nProvider>
+            <AppThemeProvider>
+                <ModalsProvider>
+                  <SnackbarProvider>
+                      <HomePage />
+                  </SnackbarProvider>
+                </ModalsProvider>
+            </AppThemeProvider>
+        </I18nProvider>
+    </Provider>
+);
 
 export default App;

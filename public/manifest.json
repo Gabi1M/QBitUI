@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "QBitUI",
+  "name": "Sleek minimal qBitTorrent UI",
   "icons": [
     {
       "src": "favicon.ico",

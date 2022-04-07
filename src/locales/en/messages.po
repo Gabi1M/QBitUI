@@ -1,0 +1,313 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-03-21 22:49+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:69
+msgid "Add new torrents"
+msgstr "Add new torrents"
+
+#: src/meridian/home/homePage.tsx:107
+#: src/meridian/home/homePage.tsx:108
+#: src/meridian/home/homePage.tsx:109
+msgid "All"
+msgstr "All"
+
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:27
+msgid "Also delete files"
+msgstr "Also delete files"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:29
+msgid "Alternative webui"
+msgstr "Alternative webui"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:30
+msgid "Alternative webui path"
+msgstr "Alternative webui path"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:17
+msgid "Append .!qb extension to incomplete files"
+msgstr "Append .!qb extension to incomplete files"
+
+#: src/meridian/settings/modals/useSettingsModal.tsx:15
+msgid "Auto refresh"
+msgstr "Auto refresh"
+
+#: src/meridian/settings/modals/useSettingsModal.tsx:17
+msgid "Auto refresh interval"
+msgstr "Auto refresh interval"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:20
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:59
+msgid "Automatic torrent management"
+msgstr "Automatic torrent management"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:27
+msgid "Autorun"
+msgstr "Autorun"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:26
+msgid "Autorun program when torrent finishes"
+msgstr "Autorun program when torrent finishes"
+
+#: src/meridian/categories/modals/useCategoriesModal.tsx:47
+#: src/meridian/home/homePage.tsx:37
+#: src/meridian/home/homePage.tsx:108
+#: src/meridian/torrent/card.tsx:56
+msgid "Categories"
+msgstr "Categories"
+
+#: src/meridian/torrent/card.tsx:113
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:54
+#: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:28
+msgid "Category"
+msgstr "Category"
+
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:43
+msgid "Create new category"
+msgstr "Create new category"
+
+#: src/meridian/tags/modals/useCreateTagModal.tsx:30
+msgid "Create new tag"
+msgstr "Create new tag"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:58
+msgid "Create subfolder"
+msgstr "Create subfolder"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:13
+msgid "Create subfolder for torrents with multiple files"
+msgstr "Create subfolder for torrents with multiple files"
+
+#: src/meridian/transferInfo/card.tsx:35
+#~ msgid "Current speeds"
+#~ msgstr "Current speeds"
+
+#: src/meridian/torrent/card.tsx:52
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:28
+msgid "Delete"
+msgstr "Delete"
+
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:37
+msgid "Delete torrents"
+msgstr "Delete torrents"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:14
+msgid "Do not start the download automatically"
+msgstr "Do not start the download automatically"
+
+#: src/meridian/torrent/card.tsx:100
+#: src/meridian/transferInfo/card.tsx:16
+msgid "Download speed"
+msgstr "Download speed"
+
+#: src/meridian/generic/dropzone.tsx:26
+msgid "Drag torrent files here or click to select files"
+msgstr "Drag torrent files here or click to select files"
+
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:42
+msgid "Edit category"
+msgstr "Edit category"
+
+#: src/meridian/i18n/types.ts:10
+msgid "English"
+msgstr "English"
+
+#: src/meridian/home/homePage.tsx:106
+msgid "Enter a name"
+msgstr "Enter a name"
+
+#: src/meridian/home/homePage.tsx:105
+msgid "Filters"
+msgstr "Filters"
+
+#: src/meridian/torrent/card.tsx:44
+msgid "Force download"
+msgstr "Force download"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:25
+msgid "Keep incomplete torrents in"
+msgstr "Keep incomplete torrents in"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:24
+msgid "Keep incomplete torrents in temporary directory"
+msgstr "Keep incomplete torrents in temporary directory"
+
+#: src/meridian/i18n/languagePicker.tsx:44
+msgid "Language"
+msgstr "Language"
+
+#: src/meridian/torrent/card.tsx:89
+msgid "Leechers"
+msgstr "Leechers"
+
+#: src/meridian/home/homePage.tsx:106
+#: src/meridian/tags/modals/useCreateTagModal.tsx:20
+msgid "Name"
+msgstr "Name"
+
+#: src/meridian/tags/modals/useTagsModal.tsx:21
+#: src/meridian/tags/modals/useTagsModal.tsx:35
+msgid "New"
+msgstr "New"
+
+#: src/meridian/home/homePage.tsx:103
+msgid "No Torrents"
+msgstr "No Torrents"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:54
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:55
+msgid "None selected"
+msgstr "None selected"
+
+#: src/meridian/torrent/card.tsx:36
+msgid "Pause"
+msgstr "Pause"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:16
+msgid "Pre-allocate disk space for all files"
+msgstr "Pre-allocate disk space for all files"
+
+#: src/meridian/home/homePage.tsx:33
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:40
+msgid "Preferences"
+msgstr "Preferences"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:15
+msgid "Public settings"
+msgstr "Public settings"
+
+#: src/meridian/torrent/card.tsx:93
+msgid "Ratio"
+msgstr "Ratio"
+
+#: src/meridian/torrent/card.tsx:48
+msgid "Recheck"
+msgstr "Recheck"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:21
+msgid "Relocate torrent when category changes"
+msgstr "Relocate torrent when category changes"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:23
+msgid "Relocate torrent when it changes"
+msgstr "Relocate torrent when it changes"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:22
+msgid "Relocate torrent when save path changes"
+msgstr "Relocate torrent when save path changes"
+
+#: src/meridian/torrent/card.tsx:40
+msgid "Resume"
+msgstr "Resume"
+
+#: src/meridian/i18n/types.ts:11
+msgid "Romanian"
+msgstr "Romanian"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:31
+msgid "Save"
+msgstr "Save"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:19
+#: src/meridian/torrent/card.tsx:77
+msgid "Save path"
+msgstr "Save path"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:18
+msgid "Saving management"
+msgstr "Saving management"
+
+#: src/meridian/torrent/card.tsx:85
+msgid "Seeders"
+msgstr "Seeders"
+
+#: src/meridian/transferInfo/card.tsx:45
+#~ msgid "Session summary"
+#~ msgstr "Session summary"
+
+#: src/meridian/torrent/card.tsx:81
+msgid "Size"
+msgstr "Size"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:57
+msgid "Skip checking"
+msgstr "Skip checking"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:56
+msgid "Start paused"
+msgstr "Start paused"
+
+#: src/meridian/home/homePage.tsx:107
+msgid "States"
+msgstr "States"
+
+#: src/meridian/torrent/card.tsx:70
+msgid "Status"
+msgstr "Status"
+
+#: src/meridian/tags/modals/useCreateTagModal.tsx:21
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:60
+msgid "Submit"
+msgstr "Submit"
+
+#: src/meridian/tags/modals/useCreateTagModal.tsx:20
+#~ msgid "Tag name"
+#~ msgstr "Tag name"
+
+#: src/meridian/home/homePage.tsx:41
+#: src/meridian/home/homePage.tsx:109
+#: src/meridian/tags/modals/useTagsModal.tsx:44
+#: src/meridian/torrent/card.tsx:60
+#: src/meridian/torrent/card.tsx:123
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:55
+msgid "Tags"
+msgstr "Tags"
+
+#: src/meridian/home/homePage.tsx:103
+msgid "Torrents"
+msgstr "Torrents"
+
+#: src/meridian/settings/modals/useSettingsModal.tsx:14
+msgid "Torrents per page"
+msgstr "Torrents per page"
+
+#: src/meridian/transferInfo/card.tsx:24
+msgid "Total downloaded"
+msgstr "Total downloaded"
+
+#: src/meridian/transferInfo/card.tsx:27
+msgid "Total uploaded"
+msgstr "Total uploaded"
+
+#: src/meridian/transferInfo/card.tsx:38
+msgid "Transfer info"
+msgstr "Transfer info"
+
+#: src/meridian/torrent/card.tsx:103
+#: src/meridian/transferInfo/card.tsx:19
+msgid "Upload speed"
+msgstr "Upload speed"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:28
+msgid "Web UI"
+msgstr "Web UI"
+
+#: src/meridian/home/homePage.tsx:29
+#: src/meridian/settings/modals/useSettingsModal.tsx:27
+msgid "WebUI Settings"
+msgstr "WebUI Settings"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:12
+msgid "When adding a torrent"
+msgstr "When adding a torrent"

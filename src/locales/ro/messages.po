@@ -1,0 +1,313 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-03-21 22:49+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ro\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:69
+msgid "Add new torrents"
+msgstr "Adauga torente noi"
+
+#: src/meridian/home/homePage.tsx:107
+#: src/meridian/home/homePage.tsx:108
+#: src/meridian/home/homePage.tsx:109
+msgid "All"
+msgstr "Toate"
+
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:27
+msgid "Also delete files"
+msgstr "Sterge fisierele de pe disc"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:29
+msgid "Alternative webui"
+msgstr "Interfata alternativa"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:30
+msgid "Alternative webui path"
+msgstr "Cale interfata alternativa"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:17
+msgid "Append .!qb extension to incomplete files"
+msgstr "Atribuie extensia .!qb la fisierele incomplete"
+
+#: src/meridian/settings/modals/useSettingsModal.tsx:15
+msgid "Auto refresh"
+msgstr "Reimprospatare automata"
+
+#: src/meridian/settings/modals/useSettingsModal.tsx:17
+msgid "Auto refresh interval"
+msgstr "Interval reimprospatare automata"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:20
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:59
+msgid "Automatic torrent management"
+msgstr "Gestionare automata a torentelor"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:27
+msgid "Autorun"
+msgstr "Cale program pornire automata"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:26
+msgid "Autorun program when torrent finishes"
+msgstr "Porneste automat un program cand torentul finalizeaza"
+
+#: src/meridian/categories/modals/useCategoriesModal.tsx:47
+#: src/meridian/home/homePage.tsx:37
+#: src/meridian/home/homePage.tsx:108
+#: src/meridian/torrent/card.tsx:56
+msgid "Categories"
+msgstr "Categorii"
+
+#: src/meridian/torrent/card.tsx:113
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:54
+#: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:28
+msgid "Category"
+msgstr "Categorie"
+
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:43
+msgid "Create new category"
+msgstr "Creaza o categorie noua"
+
+#: src/meridian/tags/modals/useCreateTagModal.tsx:30
+msgid "Create new tag"
+msgstr "Creaza o eticheta noua"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:58
+msgid "Create subfolder"
+msgstr "Creaza subdirector"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:13
+msgid "Create subfolder for torrents with multiple files"
+msgstr "Creaza subdirector pentru torentele cu mai multe fisiere"
+
+#: src/meridian/transferInfo/card.tsx:35
+#~ msgid "Current speeds"
+#~ msgstr "Viteze curente"
+
+#: src/meridian/torrent/card.tsx:52
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:28
+msgid "Delete"
+msgstr "Sterge"
+
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:37
+msgid "Delete torrents"
+msgstr "Sterge torente"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:14
+msgid "Do not start the download automatically"
+msgstr "Nu porni automat descarcarea"
+
+#: src/meridian/torrent/card.tsx:100
+#: src/meridian/transferInfo/card.tsx:16
+msgid "Download speed"
+msgstr "Viteza descarcare"
+
+#: src/meridian/generic/dropzone.tsx:26
+msgid "Drag torrent files here or click to select files"
+msgstr "Trage fisierele aici sau click pentru a selecta"
+
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:42
+msgid "Edit category"
+msgstr "Modifica categoria"
+
+#: src/meridian/i18n/types.ts:10
+msgid "English"
+msgstr "Engleza"
+
+#: src/meridian/home/homePage.tsx:106
+msgid "Enter a name"
+msgstr "Introdu un nume"
+
+#: src/meridian/home/homePage.tsx:105
+msgid "Filters"
+msgstr "Filtre"
+
+#: src/meridian/torrent/card.tsx:44
+msgid "Force download"
+msgstr "Descarca fortat"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:25
+msgid "Keep incomplete torrents in"
+msgstr "Pastreaza torentele incomplete in"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:24
+msgid "Keep incomplete torrents in temporary directory"
+msgstr "Pastreaza torentele incomplete in director temporar"
+
+#: src/meridian/i18n/languagePicker.tsx:44
+msgid "Language"
+msgstr "Limba"
+
+#: src/meridian/torrent/card.tsx:89
+msgid "Leechers"
+msgstr "Leechers"
+
+#: src/meridian/home/homePage.tsx:106
+#: src/meridian/tags/modals/useCreateTagModal.tsx:20
+msgid "Name"
+msgstr "Nume"
+
+#: src/meridian/tags/modals/useTagsModal.tsx:21
+#: src/meridian/tags/modals/useTagsModal.tsx:35
+msgid "New"
+msgstr "Adauga"
+
+#: src/meridian/home/homePage.tsx:103
+msgid "No Torrents"
+msgstr "Niciun torent"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:54
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:55
+msgid "None selected"
+msgstr "Nimic selectat"
+
+#: src/meridian/torrent/card.tsx:36
+msgid "Pause"
+msgstr "Pauza"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:16
+msgid "Pre-allocate disk space for all files"
+msgstr "Pre-aloca spatiu pentru fisiere"
+
+#: src/meridian/home/homePage.tsx:33
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:40
+msgid "Preferences"
+msgstr "Preferinte"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:15
+msgid "Public settings"
+msgstr "Setari publice"
+
+#: src/meridian/torrent/card.tsx:93
+msgid "Ratio"
+msgstr "Ratio"
+
+#: src/meridian/torrent/card.tsx:48
+msgid "Recheck"
+msgstr "Verifica"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:21
+msgid "Relocate torrent when category changes"
+msgstr "Muta torentul cand se schimba categoria"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:23
+msgid "Relocate torrent when it changes"
+msgstr "Muta torentul cand se schimba"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:22
+msgid "Relocate torrent when save path changes"
+msgstr "Muta torentul cand se schimba calea"
+
+#: src/meridian/torrent/card.tsx:40
+msgid "Resume"
+msgstr "Porneste"
+
+#: src/meridian/i18n/types.ts:11
+msgid "Romanian"
+msgstr "Romana"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:31
+msgid "Save"
+msgstr "Salveaza"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:19
+#: src/meridian/torrent/card.tsx:77
+msgid "Save path"
+msgstr "Cale"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:18
+msgid "Saving management"
+msgstr "Gestionarea salvarii"
+
+#: src/meridian/torrent/card.tsx:85
+msgid "Seeders"
+msgstr "Seeders"
+
+#: src/meridian/transferInfo/card.tsx:45
+#~ msgid "Session summary"
+#~ msgstr "Sumar sesiune"
+
+#: src/meridian/torrent/card.tsx:81
+msgid "Size"
+msgstr "Dimensiune"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:57
+msgid "Skip checking"
+msgstr "Nu verifica"
+
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:56
+msgid "Start paused"
+msgstr "Nu porni automat descarcarea"
+
+#: src/meridian/home/homePage.tsx:107
+msgid "States"
+msgstr "Statusuri"
+
+#: src/meridian/torrent/card.tsx:70
+msgid "Status"
+msgstr "Status"
+
+#: src/meridian/tags/modals/useCreateTagModal.tsx:21
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:60
+msgid "Submit"
+msgstr "Confirma"
+
+#: src/meridian/tags/modals/useCreateTagModal.tsx:20
+#~ msgid "Tag name"
+#~ msgstr "Nume eticheta"
+
+#: src/meridian/home/homePage.tsx:41
+#: src/meridian/home/homePage.tsx:109
+#: src/meridian/tags/modals/useTagsModal.tsx:44
+#: src/meridian/torrent/card.tsx:60
+#: src/meridian/torrent/card.tsx:123
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:55
+msgid "Tags"
+msgstr "Etichete"
+
+#: src/meridian/home/homePage.tsx:103
+msgid "Torrents"
+msgstr "Torente"
+
+#: src/meridian/settings/modals/useSettingsModal.tsx:14
+msgid "Torrents per page"
+msgstr "Torente pe pagina"
+
+#: src/meridian/transferInfo/card.tsx:24
+msgid "Total downloaded"
+msgstr "Total descarcare"
+
+#: src/meridian/transferInfo/card.tsx:27
+msgid "Total uploaded"
+msgstr "Total incarcare"
+
+#: src/meridian/transferInfo/card.tsx:38
+msgid "Transfer info"
+msgstr "Transfer"
+
+#: src/meridian/torrent/card.tsx:103
+#: src/meridian/transferInfo/card.tsx:19
+msgid "Upload speed"
+msgstr "Viteza incarcare"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:28
+msgid "Web UI"
+msgstr "Interfata"
+
+#: src/meridian/home/homePage.tsx:29
+#: src/meridian/settings/modals/useSettingsModal.tsx:27
+msgid "WebUI Settings"
+msgstr "Setari interfata"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:12
+msgid "When adding a torrent"
+msgstr "Cand se adauga un torent"
