@@ -16,3 +16,20 @@ export const removeDuplicatesFromArray = <T>(array: T[]) =>
 export const truncateLongText = (text: string, maxLength: number = 30) => {
     return text.length < maxLength ? text : `${text.slice(0, maxLength - 3)}...`
 }
+
+export const calculateEtaString = (eta: number) => {
+    if (eta < 60) {
+        return eta.toString();
+    }
+
+    if (eta < 3600) {
+        const minutes = Math.floor(eta / 60);
+        const seconds = eta % 60;
+        return `${minutes}:${seconds}`;
+    }
+
+    const hours = Math.floor(eta / 3600);
+    const remainingMinutes = Math.floor((eta - hours * 3600) / 60)
+    const remainingSeconds = eta % 60;
+    return `${hours}:${remainingMinutes}:${remainingSeconds}`;
+}

@@ -3,7 +3,7 @@ import { t } from '@lingui/macro';
 import { TorrentInfo } from 'meridian/models';
 import { Card, ContextMenuItem } from 'meridian/generic';
 import { CardItemProps } from 'meridian/generic/card';
-import { bytesToSize } from 'meridian/utils';
+import { bytesToSize, calculateEtaString } from 'meridian/utils';
 import { StateToStringMapping } from './types';
 import { BoxMultiple, Download, FileCheck, PlayerPause, PlayerPlay, Tag, Trash } from 'tabler-icons-react';
 import { useForceDownloadTorrents, usePauseTorrents, useRecheckTorrents, useResumeTorrents } from './hooks';
@@ -104,6 +104,13 @@ const useTorrentCardItemGroups = (torrent: TorrentInfo) => React.useMemo(() => {
             value: bytesToSize(torrent.upspeed)
         }
     ]
+
+    if (torrent.progress !== 1) {
+        row3.push({
+            name: t`Remaining time`,
+            value: calculateEtaString(torrent.eta),
+        })
+    }
 
     const row4: CardItemProps[] = [];
 
