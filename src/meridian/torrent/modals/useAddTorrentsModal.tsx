@@ -51,12 +51,59 @@ const AddTorrentsModal = () => {
     return (
         <>
             <Dropzone files={files} onDrop={setFiles} onRemove={onRemoveFile} />
-            <Select mt='md' label={t`Category`} placeholder={t`None selected`} value={data.category?.name} data={categories ? Object.keys(categories).map(category => ({value: category, label: category})) : []} onChange={value => updateData('category', categories?.[value as string])} />
-            <MultiSelect mt='md' label={t`Tags`} placeholder={t`None selected`} value={data.tags} data={tags ? tags.map(tag => ({value: tag, label: tag})) : []} onChange={value => updateData('tags', value)} />
-            <Checkbox mt='md' label={t`Start paused`} checked={data.paused} onChange={event => updateData('paused', event.target.checked)} />
-            <Checkbox mt='md' label={t`Skip checking`} checked={data.skipChecking} onChange={event => updateData('skipChecking', event.target.checked)} />
-            <Checkbox mt='md' label={t`Create subfolder`} checked={data.rootFolder} onChange={event => updateData('rootFolder', event.target.checked)} />
-            <Checkbox mt='md' label={t`Automatic torrent management`} checked={data.autoTMM} onChange={event => updateData('autoTMM', event.target.checked)} />
+            <Select
+                mt='md'
+                label={t`Category`}
+                placeholder={t`None selected`}
+                value={data.category?.name}
+                data={
+                    categories
+                        ? Object.keys(categories).map(category => ({
+                              value: category,
+                              label: category,
+                          }))
+                        : []
+                }
+                onChange={value =>
+                    updateData('category', categories?.[value as string])
+                }
+            />
+            <MultiSelect
+                mt='md'
+                label={t`Tags`}
+                placeholder={t`None selected`}
+                value={data.tags}
+                data={tags ? tags.map(tag => ({ value: tag, label: tag })) : []}
+                onChange={value => updateData('tags', value)}
+            />
+            <Checkbox
+                mt='md'
+                label={t`Start paused`}
+                checked={data.paused}
+                onChange={event => updateData('paused', event.target.checked)}
+            />
+            <Checkbox
+                mt='md'
+                label={t`Skip checking`}
+                checked={data.skipChecking}
+                onChange={event =>
+                    updateData('skipChecking', event.target.checked)
+                }
+            />
+            <Checkbox
+                mt='md'
+                label={t`Create subfolder`}
+                checked={data.rootFolder}
+                onChange={event =>
+                    updateData('rootFolder', event.target.checked)
+                }
+            />
+            <Checkbox
+                mt='md'
+                label={t`Automatic torrent management`}
+                checked={data.autoTMM}
+                onChange={event => updateData('autoTMM', event.target.checked)}
+            />
             <Button mt='md' fullWidth onClick={onSubmit}>{t`Submit`}</Button>
         </>
     );
@@ -65,11 +112,12 @@ const AddTorrentsModal = () => {
 const useAddTorrentsModal = () => {
     const modals = useModals();
 
-    return () => modals.openModal({
-        title: t`Add new torrents`,
-        children: <AddTorrentsModal />,
-        centered: true,
-    });
+    return () =>
+        modals.openModal({
+            title: t`Add new torrents`,
+            children: <AddTorrentsModal />,
+            centered: true,
+        });
 };
 
 export default useAddTorrentsModal;

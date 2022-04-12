@@ -6,9 +6,9 @@ import { createSetSettingsAction, selectSettings } from 'meridian/settings';
 import { Language, LanguageIcon, LanguageName } from './types';
 
 interface ItemProps {
-    icon: string,
-    label: string,
-    value: string,
+    icon: string;
+    label: string;
+    value: string;
 }
 
 const getLanguageItems = (): ItemProps[] => {
@@ -16,16 +16,16 @@ const getLanguageItems = (): ItemProps[] => {
     return languages.map(language => ({
         icon: LanguageIcon[language],
         label: LanguageName[language],
-        value: language
-    }))
-}
+        value: language,
+    }));
+};
 
 const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
     ({ icon, label, ...others }: ItemProps, ref) => (
         <div ref={ref} {...others}>
             <Group noWrap>
                 <Avatar size='xs' src={icon} />
-                <Text size="sm">{label}</Text>
+                <Text size='sm'>{label}</Text>
             </Group>
         </div>
     )
@@ -37,12 +37,24 @@ const LanguagePicker = () => {
     const data = getLanguageItems();
 
     const onChange = (value: string) => {
-        dispatch(createSetSettingsAction({ ...settings, language: value as Language }))
-    }
+        dispatch(
+            createSetSettingsAction({
+                ...settings,
+                language: value as Language,
+            })
+        );
+    };
 
     return (
-        <Select label={t`Language`} icon={<Avatar size='xs' src={LanguageIcon[settings.language]} />} value={settings.language} itemComponent={SelectItem} data={data} onChange={onChange} />
-    )
+        <Select
+            label={t`Language`}
+            icon={<Avatar size='xs' src={LanguageIcon[settings.language]} />}
+            value={settings.language}
+            itemComponent={SelectItem}
+            data={data}
+            onChange={onChange}
+        />
+    );
 };
 
 export default LanguagePicker;

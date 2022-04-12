@@ -1,9 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, MultiSelect, TextInput, Title, Text, createStyles } from '@mantine/core';
+import {
+    Box,
+    MultiSelect,
+    TextInput,
+    Title,
+    Text,
+    createStyles,
+} from '@mantine/core';
 import { t } from '@lingui/macro';
 import { TorrentFilters, TorrentState } from 'meridian/models';
-import { createSetTorrentFiltersAction, selectTorrentFilters } from 'meridian/torrentFilters';
+import {
+    createSetTorrentFiltersAction,
+    selectTorrentFilters,
+} from 'meridian/torrentFilters';
 import { selectTorrents } from 'meridian/torrent';
 import { selectCategories } from 'meridian/categories';
 import { selectTags } from 'meridian/tags';
@@ -19,12 +29,20 @@ const DrawerContent = () => {
     const tags = useSelector(selectTags);
     const dispatch = useDispatch();
 
-    const onTorrentFilterChanged = React.useCallback((field: keyof TorrentFilters, value: string | string[] | TorrentState[]) => {
-        dispatch(createSetTorrentFiltersAction({
-            ...torrentFilters,
-            [field]: value
-        }))
-    }, [dispatch, torrentFilters]);
+    const onTorrentFilterChanged = React.useCallback(
+        (
+            field: keyof TorrentFilters,
+            value: string | string[] | TorrentState[]
+        ) => {
+            dispatch(
+                createSetTorrentFiltersAction({
+                    ...torrentFilters,
+                    [field]: value,
+                })
+            );
+        },
+        [dispatch, torrentFilters]
+    );
 
     const onStateFilterChanged = React.useCallback(
         (value: TorrentStateDescription[]) => {
@@ -60,15 +78,46 @@ const DrawerContent = () => {
         <>
             <TransferInfoCard />
             <Box className={styles.classes.space}>
-                <Text size='xl'>{torrents?.length ? `${torrents.length} ${t`Torrents`}` : t`No Torrents`}</Text>
+                <Text size='xl'>
+                    {torrents?.length
+                        ? `${torrents.length} ${t`Torrents`}`
+                        : t`No Torrents`}
+                </Text>
             </Box>
             <Title order={4} align='center'>{t`Filters`}</Title>
-            <TextInput label={t`Name`} placeholder={t`Enter a name`} value={torrentFilters.name} onChange={value => onTorrentFilterChanged('name', value.target.value)} />
-            <MultiSelect label={t`States`} placeholder={t`All`} value={torrentStateDescriptions} data={Object.values(TorrentStateDescription)} onChange={onStateFilterChanged} />
-            <MultiSelect label={t`Categories`} placeholder={t`All`} value={torrentFilters.categories} data={categories ? Object.values(categories).map(x => x.name) : []} onChange={value => onTorrentFilterChanged('categories', value)} />
-            <MultiSelect label={t`Tags`} placeholder={t`All`} value={torrentFilters.tags} data={tags ?? []} onChange={value => onTorrentFilterChanged('tags', value)} />
+            <TextInput
+                label={t`Name`}
+                placeholder={t`Enter a name`}
+                value={torrentFilters.name}
+                onChange={value =>
+                    onTorrentFilterChanged('name', value.target.value)
+                }
+            />
+            <MultiSelect
+                label={t`States`}
+                placeholder={t`All`}
+                value={torrentStateDescriptions}
+                data={Object.values(TorrentStateDescription)}
+                onChange={onStateFilterChanged}
+            />
+            <MultiSelect
+                label={t`Categories`}
+                placeholder={t`All`}
+                value={torrentFilters.categories}
+                data={
+                    categories ? Object.values(categories).map(x => x.name) : []
+                }
+                onChange={value => onTorrentFilterChanged('categories', value)}
+            />
+            <MultiSelect
+                label={t`Tags`}
+                placeholder={t`All`}
+                value={torrentFilters.tags}
+                data={tags ?? []}
+                onChange={value => onTorrentFilterChanged('tags', value)}
+            />
         </>
-    )
+    );
 };
 
 const useStyles = createStyles({
@@ -78,6 +127,6 @@ const useStyles = createStyles({
         alignItems: 'center',
         justifyContent: 'center',
     },
-})
+});
 
 export default DrawerContent;

@@ -10,6 +10,6 @@ const SnackbarProvider = ({ children }: Props) => (
         {children}
         <Toaster />
     </>
-)
+);
 
 export default SnackbarProvider;

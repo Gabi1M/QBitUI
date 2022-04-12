@@ -1,6 +1,13 @@
 import React from 'react';
 import { t } from '@lingui/macro';
-import { ActionIcon, Box, Button, createStyles, Group, Text } from '@mantine/core';
+import {
+    ActionIcon,
+    Box,
+    Button,
+    createStyles,
+    Group,
+    Text,
+} from '@mantine/core';
 import { useModals } from '@mantine/modals';
 import { useDeleteResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
@@ -17,11 +24,11 @@ const CategoriesModal = () => {
     const openEditCategoryModal = useEditCategoryModal();
     const deleteCategories = useDeleteResource(Resource.CATEGORIES);
 
-    if(!categories) {
+    if (!categories) {
         return (
-            <>
-                <Button fullWidth mt='md' onClick={openCreateCategoryModal}>New</Button>
-            </>
+            <Button fullWidth mt='md' onClick={openCreateCategoryModal}>
+                New
+            </Button>
         );
     }
 
@@ -31,29 +38,42 @@ const CategoriesModal = () => {
                 <Group mt='md'>
                     <Text>{categories[category].name}</Text>
                     <Box className={styles.classes.space} />
-                    <ActionIcon onClick={() => openEditCategoryModal(categories[category])}><Edit /></ActionIcon>
-                    <ActionIcon onClick={() => deleteCategories([categories[category]])}><Trash /></ActionIcon>
+                    <ActionIcon
+                        onClick={() =>
+                            openEditCategoryModal(categories[category])
+                        }
+                    >
+                        <Edit />
+                    </ActionIcon>
+                    <ActionIcon
+                        onClick={() => deleteCategories([categories[category]])}
+                    >
+                        <Trash />
+                    </ActionIcon>
                 </Group>
             ))}
-            <Button fullWidth mt='md' onClick={openCreateCategoryModal}>New</Button>
+            <Button fullWidth mt='md' onClick={openCreateCategoryModal}>
+                New
+            </Button>
         </>
-    )
+    );
 };
 
 const useCategoriesModal = () => {
     const modals = useModals();
 
-    return () => modals.openModal({
-        title: t`Categories`,
-        children: <CategoriesModal />,
-        centered: true,
-    });
+    return () =>
+        modals.openModal({
+            title: t`Categories`,
+            children: <CategoriesModal />,
+            centered: true,
+        });
 };
 
 const useStyles = createStyles({
     space: {
         flexGrow: 1,
-    }
-})
+    },
+});
 
 export default useCategoriesModal;

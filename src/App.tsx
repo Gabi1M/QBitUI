@@ -12,9 +12,9 @@ const App = () => (
         <I18nProvider>
             <AppThemeProvider>
                 <ModalsProvider>
-                  <SnackbarProvider>
-                      <HomePage />
-                  </SnackbarProvider>
+                    <SnackbarProvider>
+                        <HomePage />
+                    </SnackbarProvider>
                 </ModalsProvider>
             </AppThemeProvider>
         </I18nProvider>

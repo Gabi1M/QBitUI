@@ -1,4 +1,4 @@
-import { Icons } from "meridian/icons";
+import { Icons } from 'meridian/icons';
 import { t } from '@lingui/macro';
 
 export enum Language {
@@ -14,4 +14,4 @@ export const LanguageName = {
 export const LanguageIcon = {
     [Language.ENGLISH]: Icons.UNITED_STATES,
     [Language.ROMANIAN]: Icons.ROMANIA,
-}
+};

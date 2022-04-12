@@ -10,7 +10,6 @@ interface Props {
     category: Category;
 }
 
-
 const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
     const modals = useModals();
     const [category, setCategory] = React.useState(categoryToEdit);
@@ -28,9 +27,24 @@ const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
 
     return (
         <>
-            <TextInput label='Name' value={category.name} onChange={(event) => onValueChanged(event.target.value.toString(), 'name')} />
-            <TextInput mt='md' label='Save path' value={category.savePath} onChange={(event) => onValueChanged(event.target.value.toString(), 'savePath')} />
-            <Button mt='md' fullWidth onClick={onSubmit}>Submit</Button>
+            <TextInput
+                label='Name'
+                value={category.name}
+                onChange={event =>
+                    onValueChanged(event.target.value.toString(), 'name')
+                }
+            />
+            <TextInput
+                mt='md'
+                label='Save path'
+                value={category.savePath}
+                onChange={event =>
+                    onValueChanged(event.target.value.toString(), 'savePath')
+                }
+            />
+            <Button mt='md' fullWidth onClick={onSubmit}>
+                Submit
+            </Button>
         </>
     );
 };
@@ -38,11 +52,12 @@ const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
 const useEditCategoryModal = () => {
     const modals = useModals();
 
-    return (category: Category) => modals.openModal({
-        title: t`Edit category`,
-        children: <EditCategoryModal category={category} />,
-        centered: true,
-    });
+    return (category: Category) =>
+        modals.openModal({
+            title: t`Edit category`,
+            children: <EditCategoryModal category={category} />,
+            centered: true,
+        });
 };
 
 export default useEditCategoryModal;

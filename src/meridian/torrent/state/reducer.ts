@@ -20,17 +20,17 @@ interface TorrentAction extends BaseAction {
     hashes: string[];
 }
 
-export interface PauseTorrentsAction extends TorrentAction {}
+export type PauseTorrentsAction = TorrentAction;
 
-export interface ResumeTorrentsAction extends TorrentAction {}
+export type ResumeTorrentsAction = TorrentAction;
 
 export interface DeleteTorrentsAction extends TorrentAction {
     deleteFiles: boolean;
 }
 
-export interface ForceDownloadTorrentsAction extends TorrentAction {}
+export type ForceDownloadTorrentsAction = TorrentAction;
 
-export interface RecheckTorrentsAction extends TorrentAction {}
+export type RecheckTorrentsAction = TorrentAction;
 
 export interface SetTorrentCategoryAction extends TorrentAction {
     categoryName: string;

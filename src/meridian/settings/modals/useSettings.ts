@@ -1,7 +1,7 @@
 import React from 'react';
 import { Settings } from 'meridian/models';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSettings, createSetSettingsAction } from 'meridian/settings';
+import { selectSettings, createSetSettingsAction } from '../state';
 
 const useSettings = () => {
     const settings = useSelector(selectSettings);

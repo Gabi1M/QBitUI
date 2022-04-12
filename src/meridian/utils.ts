@@ -13,9 +13,8 @@ export const bytesToSize = (bytes: number, decimals = 2) => {
 export const removeDuplicatesFromArray = <T>(array: T[]) =>
     Array.from(new Set(array));
 
-export const truncateLongText = (text: string, maxLength: number = 30) => {
-    return text.length < maxLength ? text : `${text.slice(0, maxLength - 3)}...`
-}
+export const truncateLongText = (text: string, maxLength = 30) =>
+    text.length < maxLength ? text : `${text.slice(0, maxLength - 3)}...`;
 
 export const calculateEtaString = (eta: number) => {
     if (eta < 60) {
@@ -29,7 +28,7 @@ export const calculateEtaString = (eta: number) => {
     }
 
     const hours = Math.floor(eta / 3600);
-    const remainingMinutes = Math.floor((eta - hours * 3600) / 60)
+    const remainingMinutes = Math.floor((eta - hours * 3600) / 60);
     const remainingSeconds = eta % 60;
     return `${hours}:${remainingMinutes}:${remainingSeconds}`;
-}
+};

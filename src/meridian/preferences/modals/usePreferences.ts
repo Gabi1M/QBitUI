@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Preferences } from 'meridian/models';
-import { selectPreferences } from 'meridian/preferences';
 import { Resource, createResourceSetAction } from 'meridian/resource';
+import { selectPreferences } from '../state';
 
 const usePreferences = () => {
     const selectedPreferences = useSelector(selectPreferences);

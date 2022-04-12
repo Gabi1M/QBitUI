@@ -11,7 +11,6 @@ const defaultCategory: Category = {
     savePath: '',
 };
 
-
 const CreateCategoryModal = () => {
     const modals = useModals();
     const [category, setCategory] = React.useState(defaultCategory);
@@ -29,9 +28,25 @@ const CreateCategoryModal = () => {
 
     return (
         <>
-            <TextInput mt='md' label='Name' value={category.name} onChange={(event) => onValueChanged(event.target.value.toString(), 'name')} />
-            <TextInput mt='md' label='Save path' value={category.savePath} onChange={(event) => onValueChanged(event.target.value.toString(), 'savePath')} />
-            <Button mt='md' fullWidth onClick={onSubmit}>Submit</Button>
+            <TextInput
+                mt='md'
+                label='Name'
+                value={category.name}
+                onChange={event =>
+                    onValueChanged(event.target.value.toString(), 'name')
+                }
+            />
+            <TextInput
+                mt='md'
+                label='Save path'
+                value={category.savePath}
+                onChange={event =>
+                    onValueChanged(event.target.value.toString(), 'savePath')
+                }
+            />
+            <Button mt='md' fullWidth onClick={onSubmit}>
+                Submit
+            </Button>
         </>
     );
 };
@@ -39,11 +54,12 @@ const CreateCategoryModal = () => {
 const useCreateCategoryModal = () => {
     const modals = useModals();
 
-    return () => modals.openModal({
-        title: t`Create new category`,
-        children: <CreateCategoryModal />,
-        centered: true,
-    });
+    return () =>
+        modals.openModal({
+            title: t`Create new category`,
+            children: <CreateCategoryModal />,
+            centered: true,
+        });
 };
 
 export default useCreateCategoryModal;

@@ -1,4 +1,11 @@
-import { ActionIcon, Box, createStyles, Drawer, Header, useMantineTheme } from '@mantine/core';
+import {
+    ActionIcon,
+    Box,
+    createStyles,
+    Drawer,
+    Header,
+    useMantineTheme,
+} from '@mantine/core';
 import React, { useState } from 'react';
 import { Menu2 } from 'tabler-icons-react';
 import ColorSchemeToggle from './colorSchemeToggle';
@@ -19,8 +26,8 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
                 className={styles.classes.drawer}
                 opened={opened}
                 onClose={() => setOpened(false)}
-                title="QBitUI"
-                padding="xl"
+                title='QBitUI'
+                padding='xl'
                 size='sm'
             >
                 {drawerContent}
@@ -34,13 +41,11 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
                     <ColorSchemeToggle />
                     {headerRightContent}
                 </Header>
-                <Box className={styles.classes.content}>
-                    {children}
-                </Box>
+                <Box className={styles.classes.content}>{children}</Box>
             </div>
         </>
     );
-}
+};
 
 const useStyles = () => {
     const theme = useMantineTheme();
@@ -67,12 +72,15 @@ const useStyles = () => {
             overflow: 'scroll',
             flex: 1,
             flexDirection: 'column',
-            backgroundColor: theme.colorScheme === 'light' ? theme.white : theme.colors.dark[5],
+            backgroundColor:
+                theme.colorScheme === 'light'
+                    ? theme.white
+                    : theme.colors.dark[5],
         },
         space: {
             flexGrow: 1,
-        }
+        },
     })();
-}
+};
 
 export default DrawerPage;

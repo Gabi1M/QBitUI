@@ -12,12 +12,14 @@ interface Props {
     control?: React.ReactElement;
 }
 
-const ContextMenu = ({ items, control }: Props) => {
-    return (
-        <Menu control={control}>
-            {items.map(item => <Menu.Item key={item.text} icon={item.icon} onClick={item.callback}>{item.text}</Menu.Item>)}
-        </Menu>
-    )
-};
+const ContextMenu = ({ items, control }: Props) => (
+    <Menu control={control}>
+        {items.map(item => (
+            <Menu.Item key={item.text} icon={item.icon} onClick={item.callback}>
+                {item.text}
+            </Menu.Item>
+        ))}
+    </Menu>
+);
 
 export default ContextMenu;

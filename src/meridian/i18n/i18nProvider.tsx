@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { i18n } from '@lingui/core';
 import { I18nProvider as LibProvider } from '@lingui/react';
 import { selectSettings } from 'meridian/settings';
-import { messages as enMessages } from '../../locales/en/messages';
-import { messages as roMessages } from '../../locales/ro/messages';
+import { messages as enMessages } from 'locales/en/messages';
+import { messages as roMessages } from 'locales/ro/messages';
 import { Language } from './types';
 
 interface Props {

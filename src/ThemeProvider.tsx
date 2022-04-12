@@ -12,10 +12,13 @@ export const getThemeRef = () => themeRef;
 
 const ThemeProvider = ({ children }: Props) => {
     const settings = useSelector(selectSettings);
-    const theme: MantineThemeOverride = React.useMemo(() => ({colorScheme: settings.darkMode ? 'dark' : 'light'}), [settings]);
+    const theme: MantineThemeOverride = React.useMemo(
+        () => ({ colorScheme: settings.darkMode ? 'dark' : 'light' }),
+        [settings]
+    );
     themeRef = theme;
 
-    return <MantineProvider theme={theme}>{children}</MantineProvider>
+    return <MantineProvider theme={theme}>{children}</MantineProvider>;
 };
 
 export default ThemeProvider;

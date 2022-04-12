@@ -17,7 +17,11 @@ const CreateTagModal = () => {
 
     return (
         <>
-            <TextInput label={t`Name`} value={tagName} onChange={(event) => setTagName(event.target.value)} />
+            <TextInput
+                label={t`Name`}
+                value={tagName}
+                onChange={event => setTagName(event.target.value)}
+            />
             <Button mt='md' fullWidth onClick={onSubmit}>{t`Submit`}</Button>
         </>
     );
@@ -26,11 +30,12 @@ const CreateTagModal = () => {
 const useCreateTagModal = () => {
     const modals = useModals();
 
-    return () => modals.openModal({
-        title: t`Create new tag`,
-        children: <CreateTagModal />,
-        centered: true,
-    });
+    return () =>
+        modals.openModal({
+            title: t`Create new tag`,
+            children: <CreateTagModal />,
+            centered: true,
+        });
 };
 
 export default useCreateTagModal;
