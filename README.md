@@ -1,27 +1,7 @@
 # QBitUI
 
-Minimalist web interface for qBitTorrent
-
-# Features
-
-- Basic torrent management: `Add`, `Pause`, `Resume`, `Force download`, `Recheck`, `Delete`, `Set category`, `Set tags`
-- Basic qBitTorrent preferences management
-- Category manager: Add new categories, edit and delete existing ones
-- Tag manager: Add new tags and delete existing ones
-- Torrent filtering on: `Name`, `State`, `Category`, `Tags`
-- Transfer info overview for the active session
-- Torrent pagination
-- Light / Dark theme
-- Support for multiple languages: English and Romanian so far
-- Responsive mobile interface
-
-# Next steps
-
-- Add authentication support
-- Add support for the majority of qBitTorrent's settings
-- Add support for displaying torrent details, trackers, files etc.
-- Add support for managing multiple torrents at once
-- Add support for many more languages
+Minimalist web interface for qBitTorrent.
+Implemented using `React`, `Typescript` and `Mantine`.
 
 # Screenshots
 
@@ -58,6 +38,31 @@ Light theme
 
 <img width="500" src="https://user-images.githubusercontent.com/45296166/163039456-f3ddf4e3-9249-4818-ab5f-66d292072437.png" />
 
+# Features
+
+- Basic torrent management: `Add`, `Pause`, `Resume`, `Force download`, `Recheck`, `Delete`, `Set category`, `Set tags`
+- Basic qBitTorrent preferences management
+- Category manager: Add new categories, edit and delete existing ones
+- Tag manager: Add new tags and delete existing ones
+- Torrent filtering on: `Name`, `State`, `Category`, `Tags`
+- Transfer info overview for the active session
+- Torrent pagination
+- Light / Dark theme
+- Support for multiple languages: English and Romanian so far
+- Responsive mobile interface
+
+# Next steps
+
+- Add authentication support
+- Add support for the majority of qBitTorrent's settings
+- Add support for displaying torrent details, trackers, files etc.
+- Add support for managing multiple torrents at once
+- Add support for many more languages
+
+# Known issues
+
+- Authentication is not yet implemented, so it will only work if qBitTorrent is configured to not require authentication. This will be the next major feature.
+
 # Developing
 
 - Clone the repo
@@ -80,4 +85,5 @@ If you'd like to contribute, open an `Issue` or a `Pull Request` 😊
 # Credits
 
 - [qBitTorrent](https://www.qbittorrent.org/)
+- [Mantine](https://mantine.dev/)
 - [VueTorrent](https://github.com/WDaan/VueTorrent) for the overall layout
