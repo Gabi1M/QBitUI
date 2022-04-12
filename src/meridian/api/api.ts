@@ -1,11 +1,4 @@
 import {
-    categories,
-    preferences as mockPreferences,
-    tags,
-    torrents,
-    transferInfo,
-} from 'meridian/mockedData';
-import {
     Category,
     ConnectionSettings,
     LoginResponse,
@@ -51,8 +44,6 @@ enum RequestMethod {
     GET = 'GET',
     POST = 'POST',
 }
-
-const shouldUseMock = () => process.env.REACT_APP_MOCK_ENABLED === 'true';
 
 export class Api {
     private static instance: Api | null;
@@ -152,10 +143,6 @@ export class Api {
         hashes: string[],
         additionalData?: Record<string, string>
     ) {
-        if (shouldUseMock()) {
-            return 'Ok.';
-        }
-
         return Api.postJSON<string>(`${this.baseUrl}/${action}`, {
             hashes: hashes.join('|'),
             ...additionalData,
@@ -163,10 +150,6 @@ export class Api {
     }
 
     async login() {
-        if (shouldUseMock()) {
-            return Promise.resolve(LoginResponse.SUCCESS);
-        }
-
         return Api.getJSON<LoginResponse>(
             `${this.baseUrl}/${ApiPath.LOGIN}`,
             new URLSearchParams({
@@ -177,18 +160,10 @@ export class Api {
     }
 
     async version() {
-        if (shouldUseMock()) {
-            return '1.0.0';
-        }
-
         return Api.getJSON<string>(`${this.baseUrl}/${ApiPath.VERSION}`);
     }
 
     async apiVersion() {
-        if (shouldUseMock()) {
-            return '1.0.0';
-        }
-
         return Api.getJSON<string>(`${this.baseUrl}/${ApiPath.API_VERSION}`);
     }
 
@@ -261,40 +236,24 @@ export class Api {
     }
 
     async torrents() {
-        if (shouldUseMock()) {
-            return Promise.resolve(torrents as TorrentInfo[]);
-        }
-
         return Api.getJSON<TorrentInfo[]>(
             `${this.baseUrl}/${ApiPath.TORRENTS}`
         );
     }
 
     async transferInfo() {
-        if (shouldUseMock()) {
-            return transferInfo as TransferInfo;
-        }
-
         return Api.getJSON<TransferInfo>(
             `${this.baseUrl}/${ApiPath.TRANSFER_INFO}`
         );
     }
 
     async preferences() {
-        if (shouldUseMock()) {
-            return Promise.resolve(mockPreferences);
-        }
-
         return Api.getJSON<Preferences>(
             `${this.baseUrl}/${ApiPath.PREFERENCES}`
         );
     }
 
     async setPreferences(preferences: Preferences) {
-        if (shouldUseMock()) {
-            return 'Ok.';
-        }
-
         return Api.postJSON<string>(
             `${this.baseUrl}/${ApiPath.SET_PREFERENCES}`,
             {
@@ -304,10 +263,6 @@ export class Api {
     }
 
     async categories() {
-        if (shouldUseMock()) {
-            return Promise.resolve(categories);
-        }
-
         return Api.getJSON<Record<string, Category>>(
             `${this.baseUrl}/${ApiPath.CATEGORIES}`
         );
@@ -320,10 +275,6 @@ export class Api {
         category: Category;
         editExisting: boolean;
     }) {
-        if (shouldUseMock()) {
-            return Promise.resolve('Ok');
-        }
-
         return Api.postJSON<string>(
             `${this.baseUrl}/${
                 editExisting ? ApiPath.EDIT_CATEGORY : ApiPath.CREATE_CATEGORY
@@ -336,10 +287,6 @@ export class Api {
     }
 
     async removeCategories(categories: Category[]) {
-        if (shouldUseMock()) {
-            return Promise.resolve('Ok');
-        }
-
         return Api.postJSON<string>(
             `${this.baseUrl}/${ApiPath.REMOVE_CATEGORIES}`,
             {
@@ -349,28 +296,16 @@ export class Api {
     }
 
     async tags() {
-        if (shouldUseMock()) {
-            return Promise.resolve(tags);
-        }
-
         return Api.getJSON<string[]>(`${this.baseUrl}/${ApiPath.TAGS}`);
     }
 
     async createTags(tagsToCreate: string[]) {
-        if (shouldUseMock()) {
-            return Promise.resolve('Ok');
-        }
-
         return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.CREATE_TAGS}`, {
             tags: tagsToCreate.join(','),
         });
     }
 
     async deleteTags(tagsToDelete: string[]) {
-        if (shouldUseMock()) {
-            return Promise.resolve('Ok');
-        }
-
         return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.DELETE_TAGS}`, {
             tags: tagsToDelete.join(','),
         });

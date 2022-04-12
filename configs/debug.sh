@@ -1,3 +1,2 @@
-export REACT_APP_MOCK_ENABLED="false"
 export REACT_APP_API_URL="http://192.168.0.189:8080"
 export DEPLOY_PATH=""
