@@ -1,46 +1,83 @@
-# Getting Started with Create React App
+# QBitUI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Minimalist web interface for qBitTorrent
 
-## Available Scripts
+# Features
 
-In the project directory, you can run:
+- Basic torrent management: `Add`, `Pause`, `Resume`, `Force download`, `Recheck`, `Delete`, `Set category`, `Set tags`
+- Basic qBitTorrent preferences management
+- Category manager: Add new categories, edit and delete existing ones
+- Tag manager: Add new tags and delete existing ones
+- Torrent filtering on: `Name`, `State`, `Category`, `Tags`
+- Transfer info overview for the active session
+- Torrent pagination
+- Light / Dark theme
+- Support for multiple languages: English and Romanian so far
+- Responsive mobile interface
 
-### `npm start`
+# Next steps
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Add authentication support
+- Add support for the majority of qBitTorrent's settings
+- Add support for displaying torrent details, trackers, files etc.
+- Add support for managing multiple torrents at once
+- Add support for many more languages
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Screenshots
 
-### `npm test`
+Home page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039247-d66c2410-b904-416c-8a48-671bc3fe3853.png" />
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039412-c8bc3fe4-45ab-45bb-be8a-abb32e213e38.png" />
 
-### `npm run build`
+Add torrents modal
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039421-2f467656-c1bf-4516-b9e6-3f72ce514315.png" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+WebUI settings modal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039430-8e0eb193-6829-4a81-a25b-075b62f75579.png" />
 
-### `npm run eject`
+qBitTorrent preferences modal
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039437-b5c7e55c-d0aa-4574-b531-549a8d307b9a.png" />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Categories modal
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039443-ff0de2d1-dd83-46ed-8021-30d775f7b4f9.png" />
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Tags modal
 
-## Learn More
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039446-3d7326e9-8fa9-4496-a3dd-2b9302d1b177.png" />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Side drawer with general information + filters
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039450-14a1afdf-c772-48cd-a788-5864de3a3b1d.png" />
+
+Light theme
+
+<img width="500" src="https://user-images.githubusercontent.com/45296166/163039456-f3ddf4e3-9249-4818-ab5f-66d292072437.png" />
+
+# Developing
+
+- Clone the repo
+- `yarn install` to install the dependencies
+- `yarn start` to start the development server
+
+# Building
+
+Just run `yarn build` and the built files will be generated in the `build` directory.
+
+# Deploying
+
+Running `yarn deploy` will build the app and copy the resulted files in the specified location (e.g. the configured qBitTorrent webui path)
+
+# Contributions
+
+Suggestions and improvements are most welcome
+If you'd like to contribute, open an `Issue` or a `Pull Request` 😊
+
+# Credits
+
+- [qBitTorrent](https://www.qbittorrent.org/)
+- [VueTorrent](https://github.com/WDaan/VueTorrent) for the overall layout
