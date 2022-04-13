@@ -53,15 +53,10 @@ Light theme
 
 # Next steps
 
-- Add authentication support
 - Add support for the majority of qBitTorrent's settings
 - Add support for displaying torrent details, trackers, files etc.
 - Add support for managing multiple torrents at once
 - Add support for many more languages
-
-# Known issues
-
-- Authentication is not yet implemented, so it will only work if qBitTorrent is configured to not require authentication. This will be the next major feature.
 
 # Developing
 
