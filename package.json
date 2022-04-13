@@ -40,6 +40,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "yarn eslint . --ext ts --ext tsx",
+    "fix": "yarn lint --fix",
     "extract": "lingui extract",
     "compile": "lingui compile",
     "deploy": "./deploy.sh"

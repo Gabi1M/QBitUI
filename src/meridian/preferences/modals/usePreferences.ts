@@ -25,6 +25,10 @@ const usePreferences = () => {
 
     const onSave = React.useCallback(() => {
         if (preferences) {
+            if (changedPreferences.web_ui_password === '') {
+                changedPreferences.web_ui_password = undefined;
+            }
+
             dispatch(
                 createResourceSetAction(
                     Resource.PREFERENCES,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { t } from '@lingui/macro';
-import { Button, Switch, Text, TextInput } from '@mantine/core';
+import { Button, PasswordInput, Switch, Text, TextInput } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 import usePreferences from './usePreferences';
 
@@ -178,6 +178,50 @@ const PreferencesModal = () => {
                     }
                 />
             ) : null}
+            <Switch
+                mt='md'
+                label={t`Bypass authentication for subnets`}
+                checked={
+                    preferences?.bypass_auth_subnet_whitelist_enabled || false
+                }
+                onChange={value =>
+                    updatePreferencesKey(
+                        'bypass_auth_subnet_whitelist_enabled',
+                        value.target.checked
+                    )
+                }
+            />
+            {preferences?.bypass_auth_subnet_whitelist_enabled ? (
+                <TextInput
+                    mt='md'
+                    label={t`Bypassed subnets`}
+                    value={preferences?.bypass_auth_subnet_whitelist || ''}
+                    onChange={value =>
+                        updatePreferencesKey(
+                            'bypass_auth_subnet_whitelist',
+                            value.target.value
+                        )
+                    }
+                />
+            ) : null}
+            <TextInput
+                autoComplete='new-password'
+                mt='md'
+                label={t`Username`}
+                value={preferences?.web_ui_username || ''}
+                onChange={value =>
+                    updatePreferencesKey('web_ui_username', value.target.value)
+                }
+            />
+            <PasswordInput
+                autoComplete='new-password'
+                mt='md'
+                label={t`Password`}
+                value={preferences?.web_ui_password || ''}
+                onChange={value =>
+                    updatePreferencesKey('web_ui_password', value.target.value)
+                }
+            />
             <Button mt='md' fullWidth onClick={onSave}>{t`Save`}</Button>
         </>
     );

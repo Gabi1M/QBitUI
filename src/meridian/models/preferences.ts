@@ -141,4 +141,5 @@ export type Preferences = Partial<{
     web_ui_upnp: boolean;
     web_ui_use_custom_http_headers_enabled: boolean;
     web_ui_username: string;
+    web_ui_password: string;
 }>;
