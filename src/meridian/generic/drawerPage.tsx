@@ -1,11 +1,13 @@
 import {
     ActionIcon,
+    Avatar,
     Box,
     createStyles,
     Drawer,
     Header,
     useMantineTheme,
 } from '@mantine/core';
+import { Icons } from 'meridian/icons';
 import React, { useState } from 'react';
 import { Menu2 } from 'tabler-icons-react';
 import ColorSchemeToggle from './colorSchemeToggle';
@@ -34,6 +36,7 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
             </Drawer>
             <div className={styles.classes.root}>
                 <Header className={styles.classes.header} height={50}>
+                    <Avatar size='md' src={Icons.LOGO} />
                     <ActionIcon onClick={() => setOpened(true)}>
                         <Menu2 />
                     </ActionIcon>

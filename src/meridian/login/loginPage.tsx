@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Avatar,
     Box,
     Button,
     createStyles,
@@ -9,6 +10,7 @@ import {
 } from '@mantine/core';
 import { Page } from 'meridian/generic';
 import { useLogin } from 'meridian/hooks';
+import { Icons } from 'meridian/icons';
 
 const LoginPage = () => {
     const styles = useStyles();
@@ -23,6 +25,9 @@ const LoginPage = () => {
         <Page>
             <Box className={styles.classes.root}>
                 <Paper withBorder shadow='md' p={30} mt={30} radius='md'>
+                    <Box className={styles.classes.logo}>
+                        <Avatar size='xl' src={Icons.LOGO} />
+                    </Box>
                     <TextInput
                         label='Username'
                         placeholder='Enter your username'
@@ -54,6 +59,10 @@ const useStyles = createStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    logo: {
+        display: 'flex',
+        justifyContent: 'center',
     },
 });
 
