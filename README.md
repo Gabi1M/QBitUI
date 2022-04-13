@@ -1,4 +1,7 @@
-# QBitUI
+<img src="https://user-images.githubusercontent.com/45296166/163167814-d3b9c968-a8c9-4bad-b965-39cdf6f1da7b.png" />
+
+# QBitUI!
+
 
 Minimalist web interface for qBitTorrent.
 Implemented using `React`, `Typescript` and `Mantine`.
