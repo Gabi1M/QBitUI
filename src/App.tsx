@@ -4,7 +4,7 @@ import { ModalsProvider } from '@mantine/modals';
 import { SnackbarProvider } from 'meridian/snackbar';
 import { I18nProvider } from 'meridian/i18n';
 import { createStore } from 'meridian/state';
-import { HomePage } from 'meridian/home';
+import { AppRouter } from 'meridian/navigation';
 import AppThemeProvider from './ThemeProvider';
 
 const App = () => (
@@ -13,7 +13,7 @@ const App = () => (
             <AppThemeProvider>
                 <ModalsProvider>
                     <SnackbarProvider>
-                        <HomePage />
+                        <AppRouter />
                     </SnackbarProvider>
                 </ModalsProvider>
             </AppThemeProvider>

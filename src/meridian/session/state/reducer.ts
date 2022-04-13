@@ -17,7 +17,9 @@ export const sessionReducer = (
                 loggedIn: true,
             };
         }
-        case SessionActions.LOGIN_FAIL: {
+        case SessionActions.LOGIN_FAIL:
+        case SessionActions.LOGOUT_SUCCESS:
+        case SessionActions.LOGOUT_FAIL: {
             return {
                 ...state,
                 loggedIn: false,

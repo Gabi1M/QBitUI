@@ -6,6 +6,8 @@ import {
     TorrentInfo,
     TransferInfo,
 } from 'meridian/models';
+import { history } from 'meridian/navigation/history';
+import { AppRoutes } from 'meridian/navigation/types';
 import {
     Resource,
     SetResourceParams,
@@ -16,6 +18,7 @@ import { AddTorrentsFormDataScheme, AddTorrentsParams } from './types';
 
 enum ApiPath {
     LOGIN = 'auth/login',
+    LOGOUT = 'auth/logout',
     VERSION = 'app/version',
     API_VERSION = 'app/webapiVersion',
     ADD_TORRENTS = 'torrents/add',
@@ -60,8 +63,6 @@ export class Api {
     static getInstance() {
         if (!Api.instance) {
             Api.instance = new Api({
-                username: 'gabi',
-                password: 'getin1',
                 url: process.env.REACT_APP_API_URL || '',
             });
         }
@@ -74,10 +75,13 @@ export class Api {
 
         const response = await fetch(finalUrl, {
             method: RequestMethod.GET,
-            credentials: 'include',
+            credentials: 'same-origin',
         });
 
         if (response.status !== 200) {
+            if (response.status === 403) {
+                history.replace(AppRoutes.LOGIN);
+            }
             throw new Error(
                 `GET request for ${finalUrl} failed with status: ${response.status}`
             );
@@ -97,12 +101,15 @@ export class Api {
     ) {
         const response = await fetch(url, {
             method: RequestMethod.POST,
-            credentials: 'include',
-            referrerPolicy: 'strict-origin-when-cross-origin',
+            credentials: 'same-origin',
+            // referrerPolicy: 'strict-origin-when-cross-origin',
             body: new URLSearchParams(Object.entries(data)),
         });
 
         if (response.status !== 200) {
+            if (response.status === 403) {
+                history.replace(AppRoutes.LOGIN);
+            }
             throw new Error(
                 `POST request for ${url} failed with status: ${response.status}`
             );
@@ -149,14 +156,15 @@ export class Api {
         });
     }
 
-    async login() {
-        return Api.getJSON<LoginResponse>(
-            `${this.baseUrl}/${ApiPath.LOGIN}`,
-            new URLSearchParams({
-                username: this.connectionSettings.username,
-                password: this.connectionSettings.password,
-            })
-        );
+    async login(username: string, password: string) {
+        return Api.postJSON<LoginResponse>(`${this.baseUrl}/${ApiPath.LOGIN}`, {
+            username,
+            password,
+        });
+    }
+
+    async logout() {
+        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.LOGOUT}`, {});
     }
 
     async version() {

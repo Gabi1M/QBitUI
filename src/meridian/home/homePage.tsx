@@ -1,6 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { BoxMultiple, Edit, Plus, Settings, Tag } from 'tabler-icons-react';
+import {
+    BoxMultiple,
+    Edit,
+    Plus,
+    Settings,
+    Tag,
+    User,
+} from 'tabler-icons-react';
 import { ActionIcon, Box, createStyles, Pagination } from '@mantine/core';
 import { t } from '@lingui/macro';
 import { TorrentCard, useAddTorrentsModal } from 'meridian/torrent';
@@ -10,6 +17,7 @@ import { selectSettings, useSettingsModal } from 'meridian/settings';
 import { usePreferencesModal } from 'meridian/preferences';
 import { useCategoriesModal } from 'meridian/categories';
 import { useTagsModal } from 'meridian/tags';
+import { useLogout } from 'meridian/hooks';
 import useFetchTimer from './useFetchTimer';
 import useFilteredTorrents from './useFilteredTorrents';
 import usePagination from './usePagination';
@@ -21,6 +29,7 @@ const HeaderRightContent = () => {
     const openPreferencesModal = usePreferencesModal();
     const openCategoriesModal = useCategoriesModal();
     const openTagsModal = useTagsModal();
+    const logout = useLogout();
     const items: ContextMenuItem[] = [
         {
             text: t`WebUI Settings`,
@@ -41,6 +50,11 @@ const HeaderRightContent = () => {
             text: t`Tags`,
             icon: <Tag />,
             callback: openTagsModal,
+        },
+        {
+            text: t`Logout`,
+            icon: <User />,
+            callback: logout,
         },
     ];
     return (
