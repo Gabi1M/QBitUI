@@ -10,7 +10,7 @@ import {
 import { Icons } from 'meridian/icons';
 import React, { useState } from 'react';
 import { Menu2 } from 'tabler-icons-react';
-import ColorSchemeToggle from './colorSchemeToggle';
+import { ColorSchemeToggle } from './colorSchemeToggle';
 
 interface Props {
     children: React.ReactNode;
@@ -28,7 +28,7 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
                 className={styles.classes.drawer}
                 opened={opened}
                 onClose={() => setOpened(false)}
-                title='QBitUI'
+                title={<Avatar size='md' src={Icons.LOGO} />}
                 padding='xl'
                 size='sm'
             >
@@ -36,7 +36,6 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
             </Drawer>
             <div className={styles.classes.root}>
                 <Header className={styles.classes.header} height={50}>
-                    <Avatar size='md' src={Icons.LOGO} />
                     <ActionIcon onClick={() => setOpened(true)}>
                         <Menu2 />
                     </ActionIcon>

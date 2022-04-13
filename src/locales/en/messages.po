@@ -62,7 +62,7 @@ msgstr "Autorun program when torrent finishes"
 
 #: src/meridian/categories/modals/useCategoriesModal.tsx:67
 #: src/meridian/home/drawerContent.tsx:104
-#: src/meridian/home/homePage.tsx:36
+#: src/meridian/home/homePage.tsx:45
 #: src/meridian/torrent/card.tsx:89
 msgid "Categories"
 msgstr "Categories"
@@ -127,6 +127,14 @@ msgstr "English"
 msgid "Enter a name"
 msgstr "Enter a name"
 
+#: src/meridian/login/loginPage.tsx:44
+msgid "Enter your password"
+msgstr "Enter your password"
+
+#: src/meridian/login/loginPage.tsx:37
+msgid "Enter your username"
+msgstr "Enter your username"
+
 #: src/meridian/generic/dropzone.tsx:37
 msgid "Failed to select files. Drag here or click to select again."
 msgstr "Failed to select files. Drag here or click to select again."
@@ -159,6 +167,10 @@ msgstr "Language"
 msgid "Leechers"
 msgstr "Leechers"
 
+#: src/meridian/home/homePage.tsx:55
+msgid "Logout"
+msgstr "Logout"
+
 #: src/meridian/home/drawerContent.tsx:89
 #: src/meridian/tags/modals/useCreateTagModal.tsx:21
 msgid "Name"
@@ -178,6 +190,10 @@ msgstr "No Torrents"
 msgid "None selected"
 msgstr "None selected"
 
+#: src/meridian/login/loginPage.tsx:43
+msgid "Password"
+msgstr "Password"
+
 #: src/meridian/torrent/card.tsx:64
 msgid "Pause"
 msgstr "Pause"
@@ -186,7 +202,7 @@ msgstr "Pause"
 msgid "Pre-allocate disk space for all files"
 msgstr "Pre-allocate disk space for all files"
 
-#: src/meridian/home/homePage.tsx:31
+#: src/meridian/home/homePage.tsx:40
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:191
 msgid "Preferences"
 msgstr "Preferences"
@@ -248,6 +264,10 @@ msgstr "Seeders"
 #~ msgid "Session summary"
 #~ msgstr "Session summary"
 
+#: src/meridian/login/loginPage.tsx:58
+msgid "Sign in"
+msgstr "Sign in"
+
 #: src/meridian/torrent/card.tsx:127
 msgid "Size"
 msgstr "Size"
@@ -278,13 +298,17 @@ msgstr "Submit"
 #~ msgstr "Tag name"
 
 #: src/meridian/home/drawerContent.tsx:113
-#: src/meridian/home/homePage.tsx:41
+#: src/meridian/home/homePage.tsx:50
 #: src/meridian/tags/modals/useTagsModal.tsx:60
 #: src/meridian/torrent/card.tsx:94
 #: src/meridian/torrent/card.tsx:174
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:73
 msgid "Tags"
 msgstr "Tags"
+
+#: src/meridian/login/loginPage.tsx:54
+msgid "Theme"
+msgstr "Theme"
 
 #: src/meridian/home/drawerContent.tsx:83
 msgid "Torrents"
@@ -311,14 +335,26 @@ msgstr "Transfer info"
 msgid "Upload speed"
 msgstr "Upload speed"
 
+#: src/meridian/login/loginPage.tsx:36
+msgid "Username"
+msgstr "Username"
+
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:156
 msgid "Web UI"
 msgstr "Web UI"
 
-#: src/meridian/home/homePage.tsx:26
+#: src/meridian/home/homePage.tsx:35
 #: src/meridian/settings/modals/useSettingsModal.tsx:54
 msgid "WebUI Settings"
 msgstr "WebUI Settings"
+
+#: src/meridian/login/loginPage.tsx:33
+msgid "Welcome to QBitUI"
+msgstr "Welcome to QBitUI"
+
+#: src/meridian/login/loginPage.tsx:32
+#~ msgid "Welcome to QBitUI!"
+#~ msgstr "Welcome to QBitUI!"
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:12
 msgid "When adding a torrent"
