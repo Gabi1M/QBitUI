@@ -1,9 +1,11 @@
 import { BaseAction } from 'meridian/resource';
-import { SessionActions } from './actions';
+import { SessionActions, SetVersionsAction } from './actions';
 import { SessionState } from './types';
 
 const initialState: SessionState = {
     loggedIn: false,
+    version: '',
+    apiVersion: '',
 };
 
 export const sessionReducer = (
@@ -23,6 +25,14 @@ export const sessionReducer = (
             return {
                 ...state,
                 loggedIn: false,
+            };
+        }
+        case SessionActions.SET_VERSIONS: {
+            const setVersionsAction = action as SetVersionsAction;
+            return {
+                ...state,
+                version: setVersionsAction.version,
+                apiVersion: setVersionsAction.apiVersion,
             };
         }
         default: {

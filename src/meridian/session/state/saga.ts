@@ -10,6 +10,8 @@ import {
 } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
 import {
+    createFetchVersionsAction,
+    createSetVersionsAction,
     LoginAction,
     loginFailAction,
     loginSuccessAction,
@@ -32,6 +34,7 @@ function* loginSaga(action: LoginAction) {
             yield put(createResourceFetchAction(Resource.CATEGORIES));
             yield put(createResourceFetchAction(Resource.TAGS));
             yield put(createResourceFetchAction(Resource.PREFERENCES));
+            yield put(createFetchVersionsAction());
 
             history.replace(AppRoutes.HOME);
         } else {
@@ -57,9 +60,22 @@ function* logoutSaga(action: BaseAction) {
     }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function* fetchVersionsSaga(action: BaseAction) {
+    const api = Api.getInstance();
+    try {
+        const version: string = yield apply(api, api.version, []);
+        const apiVersion: string = yield apply(api, api.apiVersion, []);
+        yield put(createSetVersionsAction(version, apiVersion));
+    } catch (error) {
+        yield put(createSetVersionsAction('unknown', 'unknown'));
+    }
+}
+
 function* sessionSaga() {
     yield takeLatest(SessionActions.LOGIN, loginSaga);
     yield takeLatest(SessionActions.LOGOUT, logoutSaga);
+    yield takeLatest(SessionActions.FETCH_VERSIONS, fetchVersionsSaga);
 }
 
 export default sessionSaga;

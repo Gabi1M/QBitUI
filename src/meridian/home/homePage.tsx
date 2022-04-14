@@ -7,6 +7,7 @@ import {
     Settings,
     Tag,
     User,
+    InfoCircle,
 } from 'tabler-icons-react';
 import { ActionIcon, Box, createStyles, Pagination } from '@mantine/core';
 import { t } from '@lingui/macro';
@@ -18,6 +19,7 @@ import { usePreferencesModal } from 'meridian/preferences';
 import { useCategoriesModal } from 'meridian/categories';
 import { useTagsModal } from 'meridian/tags';
 import { useLogout } from 'meridian/hooks';
+import useAboutModal from 'meridian/useAboutModal';
 import useFetchTimer from './useFetchTimer';
 import useFilteredTorrents from './useFilteredTorrents';
 import usePagination from './usePagination';
@@ -29,6 +31,7 @@ const HeaderRightContent = () => {
     const openPreferencesModal = usePreferencesModal();
     const openCategoriesModal = useCategoriesModal();
     const openTagsModal = useTagsModal();
+    const openAboutModal = useAboutModal();
     const logout = useLogout();
     const items: ContextMenuItem[] = [
         {
@@ -50,6 +53,11 @@ const HeaderRightContent = () => {
             text: t`Tags`,
             icon: <Tag />,
             callback: openTagsModal,
+        },
+        {
+            text: t`About`,
+            icon: <InfoCircle />,
+            callback: openAboutModal,
         },
         {
             text: t`Logout`,

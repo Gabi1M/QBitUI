@@ -1,6 +1,7 @@
 import { LocalStorage, LocalStorageKey } from 'meridian/localStorage';
 import { Settings, TorrentFilters } from 'meridian/models';
 import { createResourceFetchAction, Resource } from 'meridian/resource';
+import { createFetchVersionsAction } from 'meridian/session';
 import { createSetSettingsAction } from 'meridian/settings';
 import { createSetTorrentFiltersAction } from 'meridian/torrentFilters';
 import { apply, call, put } from 'redux-saga/effects';
@@ -29,6 +30,7 @@ function* startupSaga() {
     yield put(createResourceFetchAction(Resource.CATEGORIES));
     yield put(createResourceFetchAction(Resource.TAGS));
     yield put(createResourceFetchAction(Resource.PREFERENCES));
+    yield put(createFetchVersionsAction());
 }
 
 export default startupSaga;
