@@ -40,7 +40,12 @@ const Card = ({
     const { width } = useWindowSize();
 
     return (
-        <LibCard {...props} withBorder radius='md'>
+        <LibCard
+            {...props}
+            className={styles.classes.card}
+            withBorder
+            radius='md'
+        >
             <div className={styles.classes.inner}>
                 <div>
                     <Text size='xl' className={styles.classes.label}>
@@ -145,7 +150,9 @@ const CardItem = ({ name, value, type = 'default' }: CardItemProps) => {
 const useStyles = createStyles(theme => ({
     card: {
         backgroundColor:
-            theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+            theme.colorScheme === 'dark'
+                ? theme.colors.dark[7]
+                : theme.colors.cyan[1],
     },
 
     label: {

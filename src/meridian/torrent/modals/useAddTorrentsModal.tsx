@@ -20,6 +20,8 @@ const AddTorrentsModal = () => {
     const [data, setData] = React.useState<AddTorrentsParams>({
         urls: [],
         torrents: [],
+        rootFolder: true,
+        autoTMM: true,
     });
     const [files, setFiles] = React.useState<File[]>([]);
 
