@@ -1,4 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectTorrentFilters } from 'meridian/torrentFilters';
+import { selectSettings } from 'meridian/settings';
 
 type PaginationResult<T> = {
     numberOfPages: number;
@@ -12,6 +15,12 @@ const usePagination = <T>(
     itemsPerPage: number
 ): PaginationResult<T> => {
     const [page, setPage] = React.useState(1);
+    const torrentFilters = useSelector(selectTorrentFilters);
+    const settings = useSelector(selectSettings);
+
+    React.useEffect(() => {
+        setPage(1);
+    }, [torrentFilters, settings.torrentsPerPage]);
 
     if (!items) {
         return {
@@ -22,7 +31,9 @@ const usePagination = <T>(
         };
     }
 
-    const numberOfPages = Math.floor(items.length / itemsPerPage) + 1;
+    const numberOfPages =
+        Math.floor(items.length / itemsPerPage) +
+        (items.length % itemsPerPage === 0 ? 0 : 1);
     const currentItems = items.slice(
         (page - 1) * itemsPerPage,
         page * itemsPerPage
