@@ -1,6 +1,6 @@
 import React from 'react';
 import { t } from '@lingui/macro';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useModals } from '@mantine/modals';
 import { Button, Checkbox, MultiSelect, Select } from '@mantine/core';
 import { selectCategories } from 'meridian/categories';
@@ -10,9 +10,11 @@ import { Category } from 'meridian/models';
 import { useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
 import { Dropzone } from 'meridian/generic';
+import { showSnackbarAction } from 'meridian/snackbar';
 
 const AddTorrentsModal = () => {
     const modals = useModals();
+    const dispatch = useDispatch();
     const categories = useSelector(selectCategories);
     const tags = useSelector(selectTags);
     const addTorrents = useCreateResource(Resource.TORRENT);
@@ -42,16 +44,30 @@ const AddTorrentsModal = () => {
         setFiles(files.filter(x => x.name !== file.name));
     };
 
-    const onSubmit = React.useCallback(() => {
-        addTorrents({
-            ...data,
-            torrents: files,
-        });
-        modals.closeAll();
-    }, [modals, data, files, addTorrents]);
+    const onSubmit = React.useCallback(
+        (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            if (!files?.length) {
+                dispatch(
+                    showSnackbarAction(
+                        t`Cannot add torrent without files!`,
+                        'error',
+                        2000
+                    )
+                );
+                return;
+            }
+            addTorrents({
+                ...data,
+                torrents: files,
+            });
+            modals.closeAll();
+        },
+        [dispatch, modals, data, files, addTorrents]
+    );
 
     return (
-        <>
+        <form onSubmit={onSubmit}>
             <Dropzone files={files} onDrop={setFiles} onRemove={onRemoveFile} />
             <Select
                 mt='md'
@@ -106,8 +122,8 @@ const AddTorrentsModal = () => {
                 checked={data.autoTMM}
                 onChange={event => updateData('autoTMM', event.target.checked)}
             />
-            <Button mt='md' fullWidth onClick={onSubmit}>{t`Submit`}</Button>
-        </>
+            <Button type='submit' mt='md' fullWidth>{t`Submit`}</Button>
+        </form>
     );
 };
 

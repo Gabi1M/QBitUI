@@ -21,13 +21,24 @@ const LoginPage = () => {
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
     const onClick = React.useCallback(
-        () => login(username, password),
+        (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            login(username, password);
+        },
         [username, password]
     );
     return (
         <Page>
             <Box className={styles.classes.root}>
-                <Paper withBorder shadow='md' p={30} mt={30} radius='md'>
+                <Paper
+                    component='form'
+                    onSubmit={onClick}
+                    withBorder
+                    shadow='md'
+                    p={30}
+                    mt={30}
+                    radius='md'
+                >
                     <Box mb={15} className={styles.classes.logo}>
                         <Avatar size='xl' src={Icons.LOGO} />
                         <Text size='xl'>{t`Welcome to QBitUI`}</Text>
@@ -54,7 +65,7 @@ const LoginPage = () => {
                         <Text weight={500} size='sm'>{t`Theme`}</Text>
                         <SegmentedColorSchemeToggle />
                     </Box>
-                    <Button onClick={onClick} fullWidth mt='xl'>
+                    <Button type='submit' fullWidth mt='xl'>
                         {t`Sign in`}
                     </Button>
                 </Paper>
