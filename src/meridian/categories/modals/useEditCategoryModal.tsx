@@ -18,22 +18,19 @@ const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
     const onValueChanged = (value: string, field: keyof Category) =>
         setCategory({ ...category, [field]: value });
 
-    const onSubmit = React.useCallback(() => {
-        if (category.savePath !== '') {
-            createCategory({ category, editExisting: true });
-            modals.closeAll();
-        }
-    }, [modals, category, createCategory]);
+    const onSubmit = React.useCallback(
+        (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            if (category.savePath !== '') {
+                createCategory({ category, editExisting: true });
+                modals.closeAll();
+            }
+        },
+        [modals, category, createCategory]
+    );
 
     return (
-        <>
-            <TextInput
-                label='Name'
-                value={category.name}
-                onChange={event =>
-                    onValueChanged(event.target.value.toString(), 'name')
-                }
-            />
+        <form onSubmit={onSubmit}>
             <TextInput
                 mt='md'
                 label='Save path'
@@ -42,10 +39,10 @@ const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
                     onValueChanged(event.target.value.toString(), 'savePath')
                 }
             />
-            <Button mt='md' fullWidth onClick={onSubmit}>
+            <Button type='submit' mt='md' fullWidth>
                 Submit
             </Button>
-        </>
+        </form>
     );
 };
 
@@ -54,7 +51,7 @@ const useEditCategoryModal = () => {
 
     return (category: Category) =>
         modals.openModal({
-            title: t`Edit category`,
+            title: `${t`Edit`} ${category.name}`,
             children: <EditCategoryModal category={category} />,
             centered: true,
         });

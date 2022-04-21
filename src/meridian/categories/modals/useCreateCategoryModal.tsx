@@ -19,15 +19,19 @@ const CreateCategoryModal = () => {
     const onValueChanged = (value: string, field: keyof Category) =>
         setCategory({ ...category, [field]: value });
 
-    const onSubmit = React.useCallback(() => {
-        if (category.name !== '' && category.savePath !== '') {
-            createCategory({ category });
-            modals.closeAll();
-        }
-    }, [modals, category, createCategory]);
+    const onSubmit = React.useCallback(
+        (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            if (category.name !== '' && category.savePath !== '') {
+                createCategory({ category });
+                modals.closeAll();
+            }
+        },
+        [modals, category, createCategory]
+    );
 
     return (
-        <>
+        <form onSubmit={onSubmit}>
             <TextInput
                 mt='md'
                 label='Name'
@@ -44,10 +48,10 @@ const CreateCategoryModal = () => {
                     onValueChanged(event.target.value.toString(), 'savePath')
                 }
             />
-            <Button mt='md' fullWidth onClick={onSubmit}>
+            <Button type='submit' mt='md' fullWidth>
                 Submit
             </Button>
-        </>
+        </form>
     );
 };
 
