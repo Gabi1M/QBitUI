@@ -3,6 +3,8 @@ import { t } from '@lingui/macro';
 import { ActionIcon, Badge, Group, Text } from '@mantine/core';
 import { Dropzone as LibDropzone, DropzoneStatus } from '@mantine/dropzone';
 import { X } from 'tabler-icons-react';
+import { truncateLongText } from 'meridian/utils';
+import useWindowSize from './useWindowSize';
 
 interface FileBadgeProps {
     file: File;
@@ -10,6 +12,7 @@ interface FileBadgeProps {
 }
 
 const FileBadge = ({ file, onRemove }: FileBadgeProps) => {
+    const { width } = useWindowSize();
     const removeButton = (
         <ActionIcon
             onClick={() => onRemove(file)}
@@ -24,7 +27,7 @@ const FileBadge = ({ file, onRemove }: FileBadgeProps) => {
 
     return (
         <Badge mb={5} fullWidth size='lg' rightSection={removeButton}>
-            {file.name}
+            {width < 400 ? truncateLongText(file.name) : file.name}
         </Badge>
     );
 };
