@@ -12,6 +12,9 @@ const AboutModal = () => {
     return (
         <Box className={styles.classes.logo}>
             <Avatar size='xl' src={Icons.LOGO} />
+            <Text mt='lg' size='lg'>
+                Version {process.env.REACT_APP_VERSION}
+            </Text>
             <Anchor<'a'>
                 href='https://www.qbittorrent.org/'
                 mt='lg'
