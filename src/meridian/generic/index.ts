@@ -8,4 +8,5 @@ export {
     SegmentedColorSchemeToggle,
 } from './colorSchemeToggle';
 export { default as useWindowSize } from './useWindowSize';
+export { default as Affix } from './affix';
 export type { ContextMenuItem } from './contextMenu';

@@ -13,7 +13,12 @@ import { ActionIcon, Box, createStyles, Pagination } from '@mantine/core';
 import { t } from '@lingui/macro';
 import { TorrentCard, useAddTorrentsModal } from 'meridian/torrent';
 import { TorrentInfo } from 'meridian/models';
-import { ContextMenu, ContextMenuItem, DrawerPage } from 'meridian/generic';
+import {
+    Affix,
+    ContextMenu,
+    ContextMenuItem,
+    DrawerPage,
+} from 'meridian/generic';
 import { selectSettings, useSettingsModal } from 'meridian/settings';
 import { usePreferencesModal } from 'meridian/preferences';
 import { useCategoriesModal } from 'meridian/categories';
@@ -114,6 +119,7 @@ const HomePage = () => {
                     total={numberOfPages}
                 />
             ) : null}
+            <Affix />
         </DrawerPage>
     );
 };
