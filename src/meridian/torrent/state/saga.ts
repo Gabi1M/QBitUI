@@ -156,12 +156,12 @@ function* addTorrentsTagsSaga(action: AddTorrentsTagsAction) {
     try {
         yield apply(api, api.addTorrentsTags, [action.hashes, action.tags]);
         yield put(
-            showSnackbarAction('Tags set successfully!', 'success', 2000)
+            showSnackbarAction(t`Tags set successfully!`, 'success', 2000)
         );
         yield delay(2000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
-        yield put(showSnackbarAction('Failed to set tags!', 'error', 2000));
+        yield put(showSnackbarAction(t`Failed to set tags!`, 'error', 2000));
     }
 }
 
@@ -170,12 +170,12 @@ function* removeTorrentsTagsSaga(action: RemoveTorrentsTagsAction) {
     try {
         yield apply(api, api.removeTorrentsTags, [action.hashes, action.tags]);
         yield put(
-            showSnackbarAction('Tags removed successfully!', 'success', 2000)
+            showSnackbarAction(t`Tags removed successfully!`, 'success', 2000)
         );
         yield delay(2000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
-        yield put(showSnackbarAction('Failed to remove tags!', 'error', 2000));
+        yield put(showSnackbarAction(t`Failed to remove tags!`, 'error', 2000));
     }
 }
 
@@ -184,10 +184,12 @@ function* setTorrentSaga(action: ResourceSetAction<Resource.TORRENT>) {
         yield call(createSetResourceSaga(Resource.TORRENT), action);
         yield put(createResourceFetchAction(Resource.TORRENT));
         yield put(
-            showSnackbarAction('Torrents added successfully!', 'success', 2000)
+            showSnackbarAction(t`Torrents added successfully!`, 'success', 2000)
         );
     } catch (error) {
-        yield put(showSnackbarAction('Failed to add torrents!', 'error', 2000));
+        yield put(
+            showSnackbarAction(t`Failed to add torrents!`, 'error', 2000)
+        );
     }
 }
 

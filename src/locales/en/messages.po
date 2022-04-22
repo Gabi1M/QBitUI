@@ -160,6 +160,21 @@ msgstr "Enter your password"
 msgid "Enter your username"
 msgstr "Enter your username"
 
+#: src/meridian/tags/state/saga.ts:21
+#: src/meridian/tags/state/saga.ts:21
+msgid "Failed to add tags!"
+msgstr "Failed to add tags!"
+
+#: src/meridian/torrent/state/saga.ts:191
+#: src/meridian/torrent/state/saga.ts:191
+msgid "Failed to add torrents!"
+msgstr "Failed to add torrents!"
+
+#: src/meridian/tags/state/saga.ts:32
+#: src/meridian/tags/state/saga.ts:32
+msgid "Failed to delete tags!"
+msgstr "Failed to delete tags!"
+
 #: src/meridian/torrent/state/saga.ts:82
 #: src/meridian/torrent/state/saga.ts:82
 msgid "Failed to delete torrents!"
@@ -169,6 +184,11 @@ msgstr "Failed to delete torrents!"
 #: src/meridian/torrent/state/saga.ts:39
 msgid "Failed to pause torrents!"
 msgstr "Failed to pause torrents!"
+
+#: src/meridian/torrent/state/saga.ts:178
+#: src/meridian/torrent/state/saga.ts:178
+msgid "Failed to remove tags!"
+msgstr "Failed to remove tags!"
 
 #: src/meridian/torrent/state/saga.ts:59
 #: src/meridian/torrent/state/saga.ts:59
@@ -188,6 +208,11 @@ msgstr "Failed to select files. Drag here or click to select again."
 #: src/meridian/torrent/state/saga.ts:149
 msgid "Failed to set category!"
 msgstr "Failed to set category!"
+
+#: src/meridian/torrent/state/saga.ts:164
+#: src/meridian/torrent/state/saga.ts:164
+msgid "Failed to set tags!"
+msgstr "Failed to set tags!"
 
 #: src/meridian/torrent/state/saga.ts:103
 #: src/meridian/torrent/state/saga.ts:103
@@ -405,6 +430,26 @@ msgstr "Submit"
 msgid "Tags"
 msgstr "Tags"
 
+#: src/meridian/tags/state/saga.ts:18
+#: src/meridian/tags/state/saga.ts:18
+msgid "Tags added successfully!"
+msgstr "Tags added successfully!"
+
+#: src/meridian/tags/state/saga.ts:29
+#: src/meridian/tags/state/saga.ts:29
+msgid "Tags deleted successfully!"
+msgstr "Tags deleted successfully!"
+
+#: src/meridian/torrent/state/saga.ts:173
+#: src/meridian/torrent/state/saga.ts:173
+msgid "Tags removed successfully!"
+msgstr "Tags removed successfully!"
+
+#: src/meridian/torrent/state/saga.ts:159
+#: src/meridian/torrent/state/saga.ts:159
+msgid "Tags set successfully!"
+msgstr "Tags set successfully!"
+
 #: src/meridian/login/loginPage.tsx:65
 msgid "Theme"
 msgstr "Theme"
@@ -413,6 +458,11 @@ msgstr "Theme"
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:24
 msgid "Torrents"
 msgstr "Torrents"
+
+#: src/meridian/torrent/state/saga.ts:187
+#: src/meridian/torrent/state/saga.ts:187
+msgid "Torrents added successfully!"
+msgstr "Torrents added successfully!"
 
 #: src/meridian/torrent/state/saga.ts:73
 #: src/meridian/torrent/state/saga.ts:73

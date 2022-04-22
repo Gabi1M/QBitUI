@@ -156,6 +156,21 @@ msgstr "Introduceti parola"
 msgid "Enter your username"
 msgstr "Introduceti utilizatorul"
 
+#: src/meridian/tags/state/saga.ts:21
+#: src/meridian/tags/state/saga.ts:21
+msgid "Failed to add tags!"
+msgstr "Adaugarea etichetelor a esuat!"
+
+#: src/meridian/torrent/state/saga.ts:191
+#: src/meridian/torrent/state/saga.ts:191
+msgid "Failed to add torrents!"
+msgstr "Adaugarea torentelor a esuat!"
+
+#: src/meridian/tags/state/saga.ts:32
+#: src/meridian/tags/state/saga.ts:32
+msgid "Failed to delete tags!"
+msgstr "Stergerea etichetelor a esuat!"
+
 #: src/meridian/torrent/state/saga.ts:82
 #: src/meridian/torrent/state/saga.ts:82
 msgid "Failed to delete torrents!"
@@ -165,6 +180,11 @@ msgstr "Nu s-au putut sterge torentele!"
 #: src/meridian/torrent/state/saga.ts:39
 msgid "Failed to pause torrents!"
 msgstr "Nu s-au putut opri torentele!"
+
+#: src/meridian/torrent/state/saga.ts:178
+#: src/meridian/torrent/state/saga.ts:178
+msgid "Failed to remove tags!"
+msgstr "Eliminarea etichetelor a esuat!"
 
 #: src/meridian/torrent/state/saga.ts:59
 #: src/meridian/torrent/state/saga.ts:59
@@ -184,6 +204,11 @@ msgstr "Incarcarea a esuat. Trage sau click pentru a incerca din nou."
 #: src/meridian/torrent/state/saga.ts:149
 msgid "Failed to set category!"
 msgstr "Nu s-a putut seta categoria!"
+
+#: src/meridian/torrent/state/saga.ts:164
+#: src/meridian/torrent/state/saga.ts:164
+msgid "Failed to set tags!"
+msgstr "Adaugarea etichetelor a esuat!"
 
 #: src/meridian/torrent/state/saga.ts:103
 #: src/meridian/torrent/state/saga.ts:103
@@ -397,6 +422,26 @@ msgstr "Confirma"
 msgid "Tags"
 msgstr "Etichete"
 
+#: src/meridian/tags/state/saga.ts:18
+#: src/meridian/tags/state/saga.ts:18
+msgid "Tags added successfully!"
+msgstr "Etichetele au fost adaugate cu succes!"
+
+#: src/meridian/tags/state/saga.ts:29
+#: src/meridian/tags/state/saga.ts:29
+msgid "Tags deleted successfully!"
+msgstr "Etichetele au fost sterse cu succes!"
+
+#: src/meridian/torrent/state/saga.ts:173
+#: src/meridian/torrent/state/saga.ts:173
+msgid "Tags removed successfully!"
+msgstr "Etichetele au fost eliminate cu succes!"
+
+#: src/meridian/torrent/state/saga.ts:159
+#: src/meridian/torrent/state/saga.ts:159
+msgid "Tags set successfully!"
+msgstr "Etichetele au fost adaugate cu succes!"
+
 #: src/meridian/login/loginPage.tsx:65
 msgid "Theme"
 msgstr "Interfata"
@@ -405,6 +450,11 @@ msgstr "Interfata"
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:24
 msgid "Torrents"
 msgstr "Torente"
+
+#: src/meridian/torrent/state/saga.ts:187
+#: src/meridian/torrent/state/saga.ts:187
+msgid "Torrents added successfully!"
+msgstr "Torentele au fost adaugate cu succes!"
 
 #: src/meridian/torrent/state/saga.ts:73
 #: src/meridian/torrent/state/saga.ts:73
