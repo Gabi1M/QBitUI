@@ -33,6 +33,9 @@ const ThemeProvider = ({ children }: Props) => {
         [settings]
     );
     themeRef = theme;
+    document.body.style.backgroundColor = settings.darkMode
+        ? '#2C2E33'
+        : '#FFFFFF';
 
     return <MantineProvider theme={theme}>{children}</MantineProvider>;
 };

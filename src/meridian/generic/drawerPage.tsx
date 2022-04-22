@@ -5,7 +5,6 @@ import {
     createStyles,
     Drawer,
     Header,
-    useMantineTheme,
 } from '@mantine/core';
 import { Icons } from 'meridian/icons';
 import React, { useState } from 'react';
@@ -23,7 +22,7 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
     const [opened, setOpened] = useState(false);
 
     return (
-        <>
+        <Box className={styles.classes.content}>
             <Drawer
                 className={styles.classes.drawer}
                 opened={opened}
@@ -34,55 +33,42 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
             >
                 {drawerContent}
             </Drawer>
-            <div className={styles.classes.root}>
-                <Header className={styles.classes.header} height={50}>
-                    <ActionIcon onClick={() => setOpened(true)}>
-                        <Menu2 />
-                    </ActionIcon>
-                    <Box className={styles.classes.space} />
-                    <ColorSchemeToggle />
-                    {headerRightContent}
-                </Header>
-                <Box className={styles.classes.content}>{children}</Box>
-            </div>
-        </>
+            <Header className={styles.classes.header} height={50}>
+                <ActionIcon onClick={() => setOpened(true)}>
+                    <Menu2 />
+                </ActionIcon>
+                <Box className={styles.classes.space} />
+                <ColorSchemeToggle />
+                {headerRightContent}
+            </Header>
+            {children}
+        </Box>
     );
 };
 
-const useStyles = () => {
-    const theme = useMantineTheme();
-
-    return createStyles({
-        root: {
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-        },
-        header: {
-            display: 'flex',
-            alignItems: 'center',
-            paddingLeft: 10,
-            paddingRight: 10,
-        },
-        drawer: {
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 1,
-        },
-        content: {
-            display: 'flex',
-            overflow: 'scroll',
-            flex: 1,
-            flexDirection: 'column',
-            backgroundColor:
-                theme.colorScheme === 'light'
-                    ? theme.white
-                    : theme.colors.dark[5],
-        },
-        space: {
-            flexGrow: 1,
-        },
-    })();
-};
+const useStyles = createStyles(theme => ({
+    header: {
+        display: 'flex',
+        alignItems: 'center',
+        paddingLeft: 10,
+        paddingRight: 10,
+        position: 'sticky',
+    },
+    drawer: {
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+    },
+    space: {
+        flexGrow: 1,
+    },
+    content: {
+        backgroundColor:
+            theme.colorScheme === 'light' ? theme.white : theme.colors.dark[5],
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+    },
+}));
 
 export default DrawerPage;
