@@ -83,6 +83,16 @@ msgstr "Nu se pot adauga torente noi fara fisiere!"
 msgid "Categories"
 msgstr "Categorii"
 
+#: src/meridian/categories/state/saga.ts:21
+#: src/meridian/categories/state/saga.ts:21
+msgid "Categories added successfully!"
+msgstr "Categoriile au fost adaugate cu succes!"
+
+#: src/meridian/categories/state/saga.ts:41
+#: src/meridian/categories/state/saga.ts:41
+msgid "Categories deleted successfully!"
+msgstr "Categoriile au fost sterse cu succes!"
+
 #: src/meridian/torrent/card.tsx:166
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:74
 #: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:29
@@ -156,8 +166,13 @@ msgstr "Introduceti parola"
 msgid "Enter your username"
 msgstr "Introduceti utilizatorul"
 
-#: src/meridian/tags/state/saga.ts:21
-#: src/meridian/tags/state/saga.ts:21
+#: src/meridian/categories/state/saga.ts:28
+#: src/meridian/categories/state/saga.ts:28
+msgid "Failed to add categories!"
+msgstr "Adaugarea categoriilor a esuat!"
+
+#: src/meridian/tags/state/saga.ts:23
+#: src/meridian/tags/state/saga.ts:23
 msgid "Failed to add tags!"
 msgstr "Adaugarea etichetelor a esuat!"
 
@@ -166,8 +181,13 @@ msgstr "Adaugarea etichetelor a esuat!"
 msgid "Failed to add torrents!"
 msgstr "Adaugarea torentelor a esuat!"
 
-#: src/meridian/tags/state/saga.ts:32
-#: src/meridian/tags/state/saga.ts:32
+#: src/meridian/categories/state/saga.ts:48
+#: src/meridian/categories/state/saga.ts:48
+msgid "Failed to delete categories!"
+msgstr "Stergerea categoriilor a esuat!"
+
+#: src/meridian/tags/state/saga.ts:35
+#: src/meridian/tags/state/saga.ts:35
 msgid "Failed to delete tags!"
 msgstr "Stergerea etichetelor a esuat!"
 
@@ -422,13 +442,13 @@ msgstr "Confirma"
 msgid "Tags"
 msgstr "Etichete"
 
-#: src/meridian/tags/state/saga.ts:18
-#: src/meridian/tags/state/saga.ts:18
+#: src/meridian/tags/state/saga.ts:20
+#: src/meridian/tags/state/saga.ts:20
 msgid "Tags added successfully!"
 msgstr "Etichetele au fost adaugate cu succes!"
 
-#: src/meridian/tags/state/saga.ts:29
-#: src/meridian/tags/state/saga.ts:29
+#: src/meridian/tags/state/saga.ts:32
+#: src/meridian/tags/state/saga.ts:32
 msgid "Tags deleted successfully!"
 msgstr "Etichetele au fost sterse cu succes!"
 

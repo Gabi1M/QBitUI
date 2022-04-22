@@ -2,6 +2,7 @@ import { t } from '@lingui/macro';
 import {
     createDeleteResourceSaga,
     createFetchResourceSaga,
+    createResourceFetchAction,
     createSetResourceSaga,
     Resource,
     ResourceDeleteAction,
@@ -14,6 +15,7 @@ import { TagsActions } from './reducer';
 function* setTagsSaga(action: ResourceSetAction<Resource.TAGS>) {
     try {
         yield call(createSetResourceSaga(Resource.TAGS), action);
+        yield put(createResourceFetchAction(Resource.TAGS));
         yield put(
             showSnackbarAction(t`Tags added successfully!`, 'success', 2000)
         );
@@ -25,6 +27,7 @@ function* setTagsSaga(action: ResourceSetAction<Resource.TAGS>) {
 function* deleteTagsSaga(action: ResourceDeleteAction<Resource.TAGS>) {
     try {
         yield call(createDeleteResourceSaga(Resource.TAGS), action);
+        yield put(createResourceFetchAction(Resource.TAGS));
         yield put(
             showSnackbarAction(t`Tags deleted successfully!`, 'success', 2000)
         );

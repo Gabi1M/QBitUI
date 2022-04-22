@@ -83,6 +83,16 @@ msgstr "Cannot add torrent without files!"
 msgid "Categories"
 msgstr "Categories"
 
+#: src/meridian/categories/state/saga.ts:21
+#: src/meridian/categories/state/saga.ts:21
+msgid "Categories added successfully!"
+msgstr "Categories added successfully!"
+
+#: src/meridian/categories/state/saga.ts:41
+#: src/meridian/categories/state/saga.ts:41
+msgid "Categories deleted successfully!"
+msgstr "Categories deleted successfully!"
+
 #: src/meridian/torrent/card.tsx:166
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:74
 #: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:29
@@ -160,8 +170,13 @@ msgstr "Enter your password"
 msgid "Enter your username"
 msgstr "Enter your username"
 
-#: src/meridian/tags/state/saga.ts:21
-#: src/meridian/tags/state/saga.ts:21
+#: src/meridian/categories/state/saga.ts:28
+#: src/meridian/categories/state/saga.ts:28
+msgid "Failed to add categories!"
+msgstr "Failed to add categories!"
+
+#: src/meridian/tags/state/saga.ts:23
+#: src/meridian/tags/state/saga.ts:23
 msgid "Failed to add tags!"
 msgstr "Failed to add tags!"
 
@@ -170,8 +185,13 @@ msgstr "Failed to add tags!"
 msgid "Failed to add torrents!"
 msgstr "Failed to add torrents!"
 
-#: src/meridian/tags/state/saga.ts:32
-#: src/meridian/tags/state/saga.ts:32
+#: src/meridian/categories/state/saga.ts:48
+#: src/meridian/categories/state/saga.ts:48
+msgid "Failed to delete categories!"
+msgstr "Failed to delete categories!"
+
+#: src/meridian/tags/state/saga.ts:35
+#: src/meridian/tags/state/saga.ts:35
 msgid "Failed to delete tags!"
 msgstr "Failed to delete tags!"
 
@@ -430,13 +450,13 @@ msgstr "Submit"
 msgid "Tags"
 msgstr "Tags"
 
-#: src/meridian/tags/state/saga.ts:18
-#: src/meridian/tags/state/saga.ts:18
+#: src/meridian/tags/state/saga.ts:20
+#: src/meridian/tags/state/saga.ts:20
 msgid "Tags added successfully!"
 msgstr "Tags added successfully!"
 
-#: src/meridian/tags/state/saga.ts:29
-#: src/meridian/tags/state/saga.ts:29
+#: src/meridian/tags/state/saga.ts:32
+#: src/meridian/tags/state/saga.ts:32
 msgid "Tags deleted successfully!"
 msgstr "Tags deleted successfully!"
 
