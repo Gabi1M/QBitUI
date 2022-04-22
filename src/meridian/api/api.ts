@@ -1,4 +1,12 @@
 import {
+    isMockEnabled,
+    MockCategories,
+    MockPreferences,
+    MockTags,
+    MockTorrents,
+    MockTransferInfo,
+} from 'meridian/mock';
+import {
     Category,
     ConnectionSettings,
     LoginResponse,
@@ -157,6 +165,10 @@ export class Api {
     }
 
     async login(username: string, password: string) {
+        if (isMockEnabled) {
+            return Promise.resolve(LoginResponse.SUCCESS);
+        }
+
         return Api.postJSON<LoginResponse>(`${this.baseUrl}/${ApiPath.LOGIN}`, {
             username,
             password,
@@ -164,14 +176,26 @@ export class Api {
     }
 
     async logout() {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
+
         return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.LOGOUT}`, {});
     }
 
     async version() {
+        if (isMockEnabled) {
+            return Promise.resolve('1.1.1.1');
+        }
+
         return Api.getJSON<string>(`${this.baseUrl}/${ApiPath.VERSION}`);
     }
 
     async apiVersion() {
+        if (isMockEnabled) {
+            return Promise.resolve('1.1.1.1');
+        }
+
         return Api.getJSON<string>(`${this.baseUrl}/${ApiPath.API_VERSION}`);
     }
 
@@ -244,24 +268,36 @@ export class Api {
     }
 
     async torrents() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTorrents as TorrentInfo[]);
+        }
         return Api.getJSON<TorrentInfo[]>(
             `${this.baseUrl}/${ApiPath.TORRENTS}`
         );
     }
 
     async transferInfo() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTransferInfo);
+        }
         return Api.getJSON<TransferInfo>(
             `${this.baseUrl}/${ApiPath.TRANSFER_INFO}`
         );
     }
 
     async preferences() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockPreferences);
+        }
         return Api.getJSON<Preferences>(
             `${this.baseUrl}/${ApiPath.PREFERENCES}`
         );
     }
 
     async setPreferences(preferences: Preferences) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return Api.postJSON<string>(
             `${this.baseUrl}/${ApiPath.SET_PREFERENCES}`,
             {
@@ -271,6 +307,10 @@ export class Api {
     }
 
     async categories() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockCategories);
+        }
+
         return Api.getJSON<Record<string, Category>>(
             `${this.baseUrl}/${ApiPath.CATEGORIES}`
         );
@@ -283,6 +323,9 @@ export class Api {
         category: Category;
         editExisting: boolean;
     }) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return Api.postJSON<string>(
             `${this.baseUrl}/${
                 editExisting ? ApiPath.EDIT_CATEGORY : ApiPath.CREATE_CATEGORY
@@ -295,6 +338,9 @@ export class Api {
     }
 
     async removeCategories(categories: Category[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return Api.postJSON<string>(
             `${this.baseUrl}/${ApiPath.REMOVE_CATEGORIES}`,
             {
@@ -304,44 +350,71 @@ export class Api {
     }
 
     async tags() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTags);
+        }
         return Api.getJSON<string[]>(`${this.baseUrl}/${ApiPath.TAGS}`);
     }
 
     async createTags(tagsToCreate: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.CREATE_TAGS}`, {
             tags: tagsToCreate.join(','),
         });
     }
 
     async deleteTags(tagsToDelete: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.DELETE_TAGS}`, {
             tags: tagsToDelete.join(','),
         });
     }
 
     async pauseTorrents(hashes: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.PAUSE_TORRENTS, hashes);
     }
 
     async resumeTorrents(hashes: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.RESUME_TORRENTS, hashes);
     }
 
     async deleteTorrents(hashes: string[], deleteFiles: boolean) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.DELETE_TORRENTS, hashes, {
             deleteFiles: deleteFiles.toString(),
         });
     }
 
     async forceDownloadTorrents(hashes: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.FORCE_DOWNLOAD_TORRENTS, hashes);
     }
 
     async recheckTorrents(hashes: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.RECHECK_TORRENTS, hashes);
     }
 
     async setTorrentCategory(hashes: string[], categoryName: string) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.SET_TORRENT_CATEGORY, hashes, {
             category: categoryName,
         });
@@ -349,6 +422,9 @@ export class Api {
 
     // eslint-disable-next-line @typescript-eslint/no-shadow
     async addTorrentsTags(hashes: string[], tags: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.ADD_TORRENT_TAGS, hashes, {
             tags: tags.join(','),
         });
@@ -356,6 +432,9 @@ export class Api {
 
     // eslint-disable-next-line @typescript-eslint/no-shadow
     async removeTorrentsTags(hashes: string[], tags: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
         return this.torrentAction(ApiPath.REMOVE_TORRENT_TAGS, hashes, {
             tags: tags.join(','),
         });
@@ -392,6 +471,10 @@ export class Api {
         params.torrents.forEach(torrent => {
             formData.append('torrents', torrent);
         });
+
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
 
         return Api.postFormData<string>(
             `${this.baseUrl}/${ApiPath.ADD_TORRENTS}`,
