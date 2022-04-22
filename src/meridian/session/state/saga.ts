@@ -1,3 +1,4 @@
+import { t } from '@lingui/macro';
 import { apply, put, takeLatest } from 'redux-saga/effects';
 import { Api } from 'meridian/api';
 import { LoginResponse } from 'meridian/models';
@@ -29,7 +30,9 @@ function* loginSaga(action: LoginAction) {
         ]);
         if (response === LoginResponse.SUCCESS) {
             yield put(loginSuccessAction());
-            yield put(showSnackbarAction('Login successful!', 'success', 2000));
+            yield put(
+                showSnackbarAction(t`Login successful!`, 'success', 2000)
+            );
 
             yield put(createResourceFetchAction(Resource.CATEGORIES));
             yield put(createResourceFetchAction(Resource.TAGS));
@@ -39,7 +42,7 @@ function* loginSaga(action: LoginAction) {
             history.replace(AppRoutes.HOME);
         } else {
             yield put(loginFailAction());
-            yield put(showSnackbarAction('Login failed!', 'error', 2000));
+            yield put(showSnackbarAction(t`Login failed!`, 'error', 2000));
         }
     } catch (error) {
         yield put(loginFailAction());
@@ -52,11 +55,11 @@ function* logoutSaga(action: BaseAction) {
     try {
         yield apply(api, api.logout, []);
         yield put(logoutSuccessAction());
-        yield put(showSnackbarAction('Logout successful!', 'success', 2000));
+        yield put(showSnackbarAction(t`Logout successful!`, 'success', 2000));
         history.replace(AppRoutes.LOGIN);
     } catch (error) {
         yield put(logoutFailAction());
-        yield put(showSnackbarAction('Logout failed!', 'error', 2000));
+        yield put(showSnackbarAction(t`Logout failed!`, 'error', 2000));
     }
 }
 

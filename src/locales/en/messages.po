@@ -17,7 +17,7 @@ msgstr ""
 msgid "About"
 msgstr "About"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:117
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:135
 msgid "Add new torrents"
 msgstr "Add new torrents"
 
@@ -52,7 +52,7 @@ msgid "Auto refresh interval"
 msgstr "Auto refresh interval"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:20
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:103
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:121
 msgid "Automatic torrent management"
 msgstr "Automatic torrent management"
 
@@ -72,6 +72,10 @@ msgstr "Bypass authentication for subnets"
 msgid "Bypassed subnets"
 msgstr "Bypassed subnets"
 
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:53
+msgid "Cannot add torrent without files!"
+msgstr "Cannot add torrent without files!"
+
 #: src/meridian/categories/modals/useCategoriesModal.tsx:67
 #: src/meridian/home/drawerContent.tsx:104
 #: src/meridian/home/homePage.tsx:48
@@ -80,12 +84,17 @@ msgid "Categories"
 msgstr "Categories"
 
 #: src/meridian/torrent/card.tsx:166
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:56
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:74
 #: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:29
 msgid "Category"
 msgstr "Category"
 
-#: src/meridian/categories/modals/useCreateCategoryModal.tsx:59
+#: src/meridian/torrent/state/saga.ts:143
+#: src/meridian/torrent/state/saga.ts:143
+msgid "Category set successfully!"
+msgstr "Category set successfully!"
+
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:63
 msgid "Create new category"
 msgstr "Create new category"
 
@@ -93,7 +102,7 @@ msgstr "Create new category"
 msgid "Create new tag"
 msgstr "Create new tag"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:95
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:113
 msgid "Create subfolder"
 msgstr "Create subfolder"
 
@@ -123,13 +132,17 @@ msgstr "Do not start the download automatically"
 msgid "Download speed"
 msgstr "Download speed"
 
-#: src/meridian/generic/dropzone.tsx:33
+#: src/meridian/generic/dropzone.tsx:36
 msgid "Drag torrent files here or click to select files"
 msgstr "Drag torrent files here or click to select files"
 
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:54
+msgid "Edit"
+msgstr "Edit"
+
 #: src/meridian/categories/modals/useEditCategoryModal.tsx:57
-msgid "Edit category"
-msgstr "Edit category"
+#~ msgid "Edit category"
+#~ msgstr "Edit category"
 
 #: src/meridian/i18n/types.ts:10
 msgid "English"
@@ -139,19 +152,54 @@ msgstr "English"
 msgid "Enter a name"
 msgstr "Enter a name"
 
-#: src/meridian/login/loginPage.tsx:44
+#: src/meridian/login/loginPage.tsx:55
 msgid "Enter your password"
 msgstr "Enter your password"
 
-#: src/meridian/login/loginPage.tsx:37
+#: src/meridian/login/loginPage.tsx:48
 msgid "Enter your username"
 msgstr "Enter your username"
 
-#: src/meridian/generic/dropzone.tsx:37
+#: src/meridian/torrent/state/saga.ts:82
+#: src/meridian/torrent/state/saga.ts:82
+msgid "Failed to delete torrents!"
+msgstr "Failed to delete torrents!"
+
+#: src/meridian/torrent/state/saga.ts:39
+#: src/meridian/torrent/state/saga.ts:39
+msgid "Failed to pause torrents!"
+msgstr "Failed to pause torrents!"
+
+#: src/meridian/torrent/state/saga.ts:59
+#: src/meridian/torrent/state/saga.ts:59
+msgid "Failed to resume torrents!"
+msgstr "Failed to resume torrents!"
+
+#: src/meridian/preferences/state/saga.ts:26
+#: src/meridian/preferences/state/saga.ts:26
+msgid "Failed to save preferences!"
+msgstr "Failed to save preferences!"
+
+#: src/meridian/generic/dropzone.tsx:40
 msgid "Failed to select files. Drag here or click to select again."
 msgstr "Failed to select files. Drag here or click to select again."
 
-#: src/meridian/generic/dropzone.tsx:35
+#: src/meridian/torrent/state/saga.ts:149
+#: src/meridian/torrent/state/saga.ts:149
+msgid "Failed to set category!"
+msgstr "Failed to set category!"
+
+#: src/meridian/torrent/state/saga.ts:103
+#: src/meridian/torrent/state/saga.ts:103
+msgid "Failed to set torrents to force download!"
+msgstr "Failed to set torrents to force download!"
+
+#: src/meridian/torrent/state/saga.ts:127
+#: src/meridian/torrent/state/saga.ts:127
+msgid "Failed to submit torrents recheck!"
+msgstr "Failed to submit torrents recheck!"
+
+#: src/meridian/generic/dropzone.tsx:38
 msgid "Files selected. Drag here or click to select again."
 msgstr "Files selected. Drag here or click to select again."
 
@@ -183,9 +231,29 @@ msgstr "Language"
 msgid "Leechers"
 msgstr "Leechers"
 
+#: src/meridian/session/state/saga.ts:45
+#: src/meridian/session/state/saga.ts:45
+msgid "Login failed!"
+msgstr "Login failed!"
+
+#: src/meridian/session/state/saga.ts:34
+#: src/meridian/session/state/saga.ts:34
+msgid "Login successful!"
+msgstr "Login successful!"
+
 #: src/meridian/home/homePage.tsx:63
 msgid "Logout"
 msgstr "Logout"
+
+#: src/meridian/session/state/saga.ts:62
+#: src/meridian/session/state/saga.ts:62
+msgid "Logout failed!"
+msgstr "Logout failed!"
+
+#: src/meridian/session/state/saga.ts:58
+#: src/meridian/session/state/saga.ts:58
+msgid "Logout successful!"
+msgstr "Logout successful!"
 
 #: src/meridian/home/drawerContent.tsx:89
 #: src/meridian/tags/modals/useCreateTagModal.tsx:21
@@ -201,12 +269,12 @@ msgstr "New"
 msgid "No Torrents"
 msgstr "No Torrents"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:57
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:74
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:75
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:92
 msgid "None selected"
 msgstr "None selected"
 
-#: src/meridian/login/loginPage.tsx:43
+#: src/meridian/login/loginPage.tsx:54
 #: src/meridian/preferences/modals/sections/webUiSection.tsx:67
 msgid "Password"
 msgstr "Password"
@@ -228,6 +296,11 @@ msgstr "Pre-allocate disk space for all files"
 msgid "Preferences"
 msgstr "Preferences"
 
+#: src/meridian/preferences/state/saga.ts:19
+#: src/meridian/preferences/state/saga.ts:19
+msgid "Preferences saved successfully!"
+msgstr "Preferences saved successfully!"
+
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:35
 #~ msgid "Public settings"
 #~ msgstr "Public settings"
@@ -239,6 +312,11 @@ msgstr "Ratio"
 #: src/meridian/torrent/card.tsx:79
 msgid "Recheck"
 msgstr "Recheck"
+
+#: src/meridian/torrent/state/saga.ts:117
+#: src/meridian/torrent/state/saga.ts:117
+msgid "Recheck successfully submited for the selected torrents!"
+msgstr "Recheck successfully submited for the selected torrents!"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:28
 msgid "Relocate torrent when category changes"
@@ -285,7 +363,7 @@ msgstr "Seeders"
 #~ msgid "Session summary"
 #~ msgstr "Session summary"
 
-#: src/meridian/login/loginPage.tsx:58
+#: src/meridian/login/loginPage.tsx:69
 msgid "Sign in"
 msgstr "Sign in"
 
@@ -293,11 +371,11 @@ msgstr "Sign in"
 msgid "Size"
 msgstr "Size"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:87
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:105
 msgid "Skip checking"
 msgstr "Skip checking"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:81
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:99
 msgid "Start paused"
 msgstr "Start paused"
 
@@ -310,7 +388,7 @@ msgid "Status"
 msgstr "Status"
 
 #: src/meridian/tags/modals/useCreateTagModal.tsx:25
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:107
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:125
 msgid "Submit"
 msgstr "Submit"
 
@@ -323,11 +401,11 @@ msgstr "Submit"
 #: src/meridian/tags/modals/useTagsModal.tsx:60
 #: src/meridian/torrent/card.tsx:94
 #: src/meridian/torrent/card.tsx:174
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:73
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:91
 msgid "Tags"
 msgstr "Tags"
 
-#: src/meridian/login/loginPage.tsx:54
+#: src/meridian/login/loginPage.tsx:65
 msgid "Theme"
 msgstr "Theme"
 
@@ -336,9 +414,29 @@ msgstr "Theme"
 msgid "Torrents"
 msgstr "Torrents"
 
+#: src/meridian/torrent/state/saga.ts:73
+#: src/meridian/torrent/state/saga.ts:73
+msgid "Torrents deleted successfully!"
+msgstr "Torrents deleted successfully!"
+
+#: src/meridian/torrent/state/saga.ts:30
+#: src/meridian/torrent/state/saga.ts:30
+msgid "Torrents paused successfully!"
+msgstr "Torrents paused successfully!"
+
 #: src/meridian/settings/modals/useSettingsModal.tsx:16
 msgid "Torrents per page"
 msgstr "Torrents per page"
+
+#: src/meridian/torrent/state/saga.ts:50
+#: src/meridian/torrent/state/saga.ts:50
+msgid "Torrents resumed successfully!"
+msgstr "Torrents resumed successfully!"
+
+#: src/meridian/torrent/state/saga.ts:93
+#: src/meridian/torrent/state/saga.ts:93
+msgid "Torrents successfully set to force download!"
+msgstr "Torrents successfully set to force download!"
 
 #: src/meridian/transferInfo/card.tsx:29
 msgid "Total downloaded"
@@ -357,7 +455,7 @@ msgstr "Transfer info"
 msgid "Upload speed"
 msgstr "Upload speed"
 
-#: src/meridian/login/loginPage.tsx:36
+#: src/meridian/login/loginPage.tsx:47
 #: src/meridian/preferences/modals/sections/webUiSection.tsx:58
 msgid "Username"
 msgstr "Username"
@@ -371,7 +469,7 @@ msgstr "Web UI"
 msgid "WebUI Settings"
 msgstr "WebUI Settings"
 
-#: src/meridian/login/loginPage.tsx:33
+#: src/meridian/login/loginPage.tsx:44
 msgid "Welcome to QBitUI"
 msgstr "Welcome to QBitUI"
 

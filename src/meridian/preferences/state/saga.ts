@@ -1,3 +1,4 @@
+import { t } from '@lingui/macro';
 import {
     createFetchResourceSaga,
     createResourceFetchAction,
@@ -15,14 +16,14 @@ function* setPreferencesSaga(action: ResourceSetAction<Resource.PREFERENCES>) {
         yield put(createResourceFetchAction(Resource.PREFERENCES));
         yield put(
             showSnackbarAction(
-                'Preferences saved successfully!',
+                t`Preferences saved successfully!`,
                 'success',
                 2000
             )
         );
     } catch (error) {
         yield put(
-            showSnackbarAction('Failed to save preferences!', 'error', 2000)
+            showSnackbarAction(t`Failed to save preferences!`, 'error', 2000)
         );
     }
 }
