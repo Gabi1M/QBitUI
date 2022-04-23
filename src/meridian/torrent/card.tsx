@@ -1,185 +1,146 @@
 import React from 'react';
-import { t } from '@lingui/macro';
 import { TorrentInfo } from 'meridian/models';
-import { Card, ContextMenuItem } from 'meridian/generic';
-import { CardItemProps } from 'meridian/generic/card';
+import {
+    Box,
+    Card,
+    createStyles,
+    Group,
+    RingProgress,
+    Text,
+} from '@mantine/core';
+import { t } from '@lingui/macro';
 import { bytesToSize, calculateEtaString } from 'meridian/utils';
 import {
-    BoxMultiple,
-    Download,
-    FileCheck,
-    PlayerPause,
-    PlayerPlay,
-    Tag,
-    Trash,
-} from 'tabler-icons-react';
+    ContextMenu,
+    LabelWithBadge,
+    LabelWithText,
+    useWindowSize,
+} from 'meridian/generic';
 import { StateToStringMapping } from './types';
-import {
-    useForceDownloadTorrents,
-    usePauseTorrents,
-    useRecheckTorrents,
-    useResumeTorrents,
-} from './hooks';
-import {
-    useDeleteTorrentsModal,
-    useTorrentCategoryModal,
-    useTorrentTagsModal,
-} from './modals';
+import useContextMenuItems from './useContextMenuItems';
 
 interface Props {
     torrent: TorrentInfo;
 }
 
 const TorrentCard = ({ torrent }: Props) => {
-    const itemGroups = useTorrentCardItemGroups(torrent);
-    const contextMenuItems = useTorrentContextMenuItems(torrent);
+    const styles = useStyles();
+    const contextMenuItems = useContextMenuItems(torrent);
+    const { width } = useWindowSize();
+
+    const isSmallDevice = width < 450;
 
     return (
         <Card
             p='sm'
             m='sm'
-            title={torrent.name}
-            itemGroups={itemGroups}
-            completionTotal={100}
-            completion={torrent.progress * 100}
-            contextMenuItems={contextMenuItems}
-        />
+            withBorder
+            radius='md'
+            className={styles.classes.root}
+        >
+            <Box>
+                <Text size='xl'>{torrent.name}</Text>
+                <Group mt='lg'>
+                    <LabelWithBadge
+                        label={t`Status`}
+                        text={StateToStringMapping[torrent.state].stateText}
+                    />
+                </Group>
+                <Group mt='lg'>
+                    <LabelWithText
+                        label={t`Save path`}
+                        text={torrent.save_path}
+                    />
+                    <LabelWithText
+                        label={t`Size`}
+                        text={bytesToSize(torrent.size)}
+                    />
+                    <LabelWithText
+                        label={t`Seeders`}
+                        text={torrent.num_seeds.toString()}
+                    />
+                    <LabelWithText
+                        label={t`Leechers`}
+                        text={torrent.num_leechs.toString()}
+                    />
+                    <LabelWithText
+                        label={t`Ratio`}
+                        text={torrent.ratio.toFixed(2)}
+                    />
+                </Group>
+                <Group mt='lg'>
+                    <LabelWithText
+                        label={t`Download speed`}
+                        text={bytesToSize(torrent.dlspeed)}
+                    />
+                    <LabelWithText
+                        label={t`Upload speed`}
+                        text={bytesToSize(torrent.upspeed)}
+                    />
+                    {torrent.progress !== 1 ? (
+                        <LabelWithText
+                            label={t`Remaining time`}
+                            text={calculateEtaString(torrent.eta)}
+                        />
+                    ) : null}
+                </Group>
+                {torrent.category !== '' || torrent.tags !== '' ? (
+                    <Group mt='lg'>
+                        {torrent.category !== '' ? (
+                            <LabelWithBadge
+                                label={t`Category`}
+                                text={torrent.category}
+                            />
+                        ) : null}
+                        {torrent.tags !== '' ? (
+                            <LabelWithBadge
+                                label={t`Tags`}
+                                text={torrent.tags}
+                            />
+                        ) : null}
+                    </Group>
+                ) : null}
+                <Box mt='md'>
+                    <ContextMenu items={contextMenuItems} />
+                </Box>
+            </Box>
+            <Box className={styles.classes.space} />
+            <RingProgress
+                className={styles.classes.ringProgress}
+                roundCaps
+                size={isSmallDevice ? 50 : 150}
+                thickness={isSmallDevice ? 3 : 7}
+                sections={[
+                    {
+                        value: torrent.progress * 100,
+                        color: styles.theme.colors.green[4],
+                    },
+                ]}
+                label={
+                    <Text size={isSmallDevice ? 'xs' : 'md'} align='center'>
+                        {(torrent.progress * 100).toFixed(0)}%
+                    </Text>
+                }
+            />
+        </Card>
     );
 };
 
-const useTorrentContextMenuItems = (
-    torrent: TorrentInfo
-): ContextMenuItem[] => {
-    const pauseTorrents = usePauseTorrents();
-    const resumeTorrents = useResumeTorrents();
-    const forceDownloadTorrents = useForceDownloadTorrents();
-    const recheckTorrents = useRecheckTorrents();
-    const deleteTorrents = useDeleteTorrentsModal();
-    const openCategoryModal = useTorrentCategoryModal();
-    const openTagsModal = useTorrentTagsModal();
-
-    return React.useMemo(
-        () => [
-            {
-                text: t`Pause`,
-                icon: <PlayerPause />,
-                callback: () => pauseTorrents([torrent.hash]),
-            },
-            {
-                text: t`Resume`,
-                icon: <PlayerPlay />,
-                callback: () => resumeTorrents([torrent.hash]),
-            },
-            {
-                text: t`Force download`,
-                icon: <Download />,
-                callback: () => forceDownloadTorrents([torrent.hash]),
-            },
-            {
-                text: t`Recheck`,
-                icon: <FileCheck />,
-                callback: () => recheckTorrents([torrent.hash]),
-            },
-            {
-                text: t`Delete`,
-                icon: <Trash />,
-                callback: () => deleteTorrents([torrent]),
-            },
-            {
-                text: t`Categories`,
-                icon: <BoxMultiple />,
-                callback: () => openCategoryModal(torrent),
-            },
-            {
-                text: t`Tags`,
-                icon: <Tag />,
-                callback: () => openTagsModal(torrent),
-            },
-        ],
-        [
-            torrent,
-            pauseTorrents,
-            resumeTorrents,
-            forceDownloadTorrents,
-            recheckTorrents,
-            deleteTorrents,
-            openCategoryModal,
-            openTagsModal,
-        ]
-    );
-};
-
-const useTorrentCardItemGroups = (torrent: TorrentInfo) =>
-    React.useMemo(() => {
-        const row1: CardItemProps[] = [
-            {
-                name: t`Status`,
-                value: StateToStringMapping[torrent.state].stateText,
-                type: 'badge',
-            },
-        ];
-        const row2: CardItemProps[] = [
-            {
-                name: t`Save path`,
-                value: torrent.save_path,
-            },
-            {
-                name: t`Size`,
-                value: bytesToSize(torrent.size),
-            },
-            {
-                name: t`Seeders`,
-                value: torrent.num_seeds.toString(),
-            },
-            {
-                name: t`Leechers`,
-                value: torrent.num_leechs.toString(),
-            },
-            {
-                name: t`Ratio`,
-                value: torrent.ratio.toFixed(2),
-            },
-        ];
-
-        const row3: CardItemProps[] = [
-            {
-                name: t`Download speed`,
-                value: bytesToSize(torrent.dlspeed),
-            },
-            {
-                name: t`Upload speed`,
-                value: bytesToSize(torrent.upspeed),
-            },
-        ];
-
-        if (torrent.progress !== 1) {
-            row3.push({
-                name: t`Remaining time`,
-                value: calculateEtaString(torrent.eta),
-            });
-        }
-
-        const row4: CardItemProps[] = [];
-
-        if (torrent.category !== '') {
-            row4.push({
-                name: t`Category`,
-                value: torrent.category,
-                type: 'badge',
-            });
-        }
-
-        if (torrent.tags !== '') {
-            row4.push({
-                name: t`Tags`,
-                value: torrent.tags.split(','),
-                type: 'badge',
-            });
-        }
-
-        const itemGroups = [row1, row2, row3, row4];
-
-        return itemGroups;
-    }, [torrent]);
+const useStyles = createStyles(theme => ({
+    root: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    title: {
+        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+        fontWeight: 700,
+    },
+    space: {
+        flexGrow: 1,
+    },
+    ringProgress: {
+        alignSelf: 'center',
+    },
+}));
 
 export default TorrentCard;
