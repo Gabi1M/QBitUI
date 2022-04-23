@@ -13,6 +13,7 @@ import { tagsReducer, tagsSaga } from 'meridian/tags';
 import { sessionReducer, sessionSaga } from 'meridian/session';
 import { settingsReducer } from 'meridian/settings';
 import { torrentFiltersReducer } from 'meridian/torrentFilters';
+import { composeWithDevTools } from '@redux-devtools/extension';
 import { GlobalState } from './types';
 import { startupSaga } from './sagas';
 
@@ -39,7 +40,7 @@ export const createStore = () => {
             categoriesState: categoriesReducer,
             tagsState: tagsReducer,
         }),
-        applyMiddleware(sagaMiddleware)
+        composeWithDevTools(applyMiddleware(sagaMiddleware))
     );
 
     appSagas.forEach(saga => sagaMiddleware.run(saga));
