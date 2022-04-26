@@ -1,6 +1,6 @@
 import React from 'react';
 import { t } from '@lingui/macro';
-import { PasswordInput, Switch, TextInput } from '@mantine/core';
+import { PasswordInput, Switch, Textarea, TextInput } from '@mantine/core';
 import { SectionProps } from './types';
 
 const WebUiSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
@@ -47,6 +47,32 @@ const WebUiSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
                 onChange={value =>
                     updatePreferencesKey(
                         'bypass_auth_subnet_whitelist',
+                        value.target.value
+                    )
+                }
+            />
+        ) : null}
+        <Switch
+            mt='md'
+            label={t`Add custom HTTP headers`}
+            checked={
+                preferences?.web_ui_use_custom_http_headers_enabled || false
+            }
+            onChange={value =>
+                updatePreferencesKey(
+                    'web_ui_use_custom_http_headers_enabled',
+                    value.target.checked
+                )
+            }
+        />
+        {preferences?.web_ui_use_custom_http_headers_enabled ? (
+            <Textarea
+                mt='md'
+                label={t`Custom HTTP headers`}
+                value={preferences?.web_ui_custom_http_headers || ''}
+                onChange={value =>
+                    updatePreferencesKey(
+                        'web_ui_custom_http_headers',
                         value.target.value
                     )
                 }
