@@ -8,7 +8,7 @@ Implemented using `React`, `Typescript` and `Mantine`.
 
 # Features
 
-- Basic torrent management: `Add`, `Pause`, `Resume`, `Force download`, `Recheck`, `Delete`, `Set category`, `Set tags`
+- Torrent management: `Add`, `Pause`, `Resume`, `Force download`, `Recheck`, `Delete`, `Set category`, `Set tags`
 - Basic qBitTorrent preferences management
 - Category manager: Add new categories, edit and delete existing ones
 - Tag manager: Add new tags and delete existing ones
@@ -63,7 +63,6 @@ Implemented using `React`, `Typescript` and `Mantine`.
 
 - Add support for the majority of qBitTorrent's settings
 - Add support for displaying torrent details, trackers, files etc.
-- Add support for managing multiple torrents at once
 - Add support for many more languages
 
 # Developing
