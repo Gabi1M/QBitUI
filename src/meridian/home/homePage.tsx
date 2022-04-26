@@ -1,91 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-    BoxMultiple,
-    Edit,
-    Plus,
-    Settings,
-    Tag,
-    User,
-    InfoCircle,
-} from 'tabler-icons-react';
-import { ActionIcon, Box, createStyles, Pagination } from '@mantine/core';
-import { t } from '@lingui/macro';
-import { TorrentCard, useAddTorrentsModal } from 'meridian/torrent';
+import { Box, createStyles, Pagination } from '@mantine/core';
+import { TorrentCard } from 'meridian/torrent';
 import { TorrentInfo } from 'meridian/models';
-import {
-    Affix,
-    ContextMenu,
-    ContextMenuItem,
-    DrawerPage,
-} from 'meridian/generic';
-import { selectSettings, useSettingsModal } from 'meridian/settings';
-import { usePreferencesModal } from 'meridian/preferences';
-import { useCategoriesModal } from 'meridian/categories';
-import { useTagsModal } from 'meridian/tags';
-import { useLogout } from 'meridian/hooks';
-import useAboutModal from 'meridian/useAboutModal';
-import useFetchTimer from './useFetchTimer';
-import useFilteredTorrents from './useFilteredTorrents';
-import usePagination from './usePagination';
+import { ScrollToTopAffix, DrawerPage } from 'meridian/generic';
+import { selectSettings } from 'meridian/settings';
 import DrawerContent from './drawerContent';
-
-const HeaderRightContent = () => {
-    const openAddTorrentsModal = useAddTorrentsModal();
-    const openSettingsModal = useSettingsModal();
-    const openPreferencesModal = usePreferencesModal();
-    const openCategoriesModal = useCategoriesModal();
-    const openTagsModal = useTagsModal();
-    const openAboutModal = useAboutModal();
-    const logout = useLogout();
-    const items: ContextMenuItem[] = [
-        {
-            text: t`WebUI Settings`,
-            icon: <Settings />,
-            callback: openSettingsModal,
-        },
-        {
-            text: t`Preferences`,
-            icon: <Edit />,
-            callback: openPreferencesModal,
-        },
-        {
-            text: t`Categories`,
-            icon: <BoxMultiple />,
-            callback: openCategoriesModal,
-        },
-        {
-            text: t`Tags`,
-            icon: <Tag />,
-            callback: openTagsModal,
-        },
-        {
-            text: t`About`,
-            icon: <InfoCircle />,
-            callback: openAboutModal,
-        },
-        {
-            text: t`Logout`,
-            icon: <User />,
-            callback: logout,
-        },
-    ];
-    return (
-        <>
-            <ActionIcon m='sm' onClick={openAddTorrentsModal}>
-                <Plus />
-            </ActionIcon>
-            <ContextMenu
-                items={items}
-                control={
-                    <ActionIcon>
-                        <Settings />
-                    </ActionIcon>
-                }
-            />
-        </>
-    );
-};
+import HeaderContent from './headerContent';
+import SelectionAffix from './selectionAffix';
+import {
+    useFilteredTorrents,
+    useManageSelection,
+    usePagination,
+    useFetchTimer,
+} from './hooks';
 
 const HomePage = () => {
     const styles = useStyles();
@@ -97,9 +25,17 @@ const HomePage = () => {
     );
     useFetchTimer();
 
+    const {
+        selectionEnabled,
+        setSelectionEnabled,
+        keys,
+        onSelectionChanged,
+        clearSelection,
+    } = useManageSelection();
+
     return (
         <DrawerPage
-            headerRightContent={<HeaderRightContent />}
+            headerRightContent={<HeaderContent />}
             drawerContent={<DrawerContent />}
         >
             <Box className={styles.classes.root}>
@@ -107,6 +43,9 @@ const HomePage = () => {
                     <TorrentCard
                         key={torrent.hash}
                         torrent={torrent as TorrentInfo}
+                        selectable={selectionEnabled}
+                        selected={keys.includes(torrent.hash)}
+                        onSelectionChanged={onSelectionChanged}
                     />
                 ))}
             </Box>
@@ -119,7 +58,13 @@ const HomePage = () => {
                     total={numberOfPages}
                 />
             ) : null}
-            <Affix />
+            <ScrollToTopAffix />
+            <SelectionAffix
+                hashes={keys}
+                selectionEnabled={selectionEnabled}
+                setSelectionEnabled={setSelectionEnabled}
+                clearSelection={clearSelection}
+            />
         </DrawerPage>
     );
 };

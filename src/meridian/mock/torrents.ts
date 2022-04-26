@@ -17,6 +17,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         upspeed: 10000,
         num_seeds: 5,
         num_leechs: 8,
+        hash: '1',
     },
     {
         name: 'Torrent 2',
@@ -32,6 +33,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         upspeed: 10000,
         num_seeds: 5,
         num_leechs: 8,
+        hash: '2',
     },
     {
         name: 'Torrent 3',
@@ -47,6 +49,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         upspeed: 0,
         num_seeds: 1,
         num_leechs: 8,
+        hash: '3',
     },
     {
         name: 'Torrent 4',
@@ -62,6 +65,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         upspeed: 1058883,
         num_seeds: 2,
         num_leechs: 34,
+        hash: '4',
     },
     {
         name: 'Torrent 4',
@@ -77,6 +81,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         upspeed: 1058883,
         num_seeds: 2,
         num_leechs: 34,
+        hash: '5',
     },
     {
         name: 'Torrent 4',
@@ -92,6 +97,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         upspeed: 1058883,
         num_seeds: 2,
         num_leechs: 34,
+        hash: '6',
     },
     {
         name: 'Torrent 4',
@@ -107,5 +113,6 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         upspeed: 1058883,
         num_seeds: 2,
         num_leechs: 34,
+        hash: '7',
     },
 ];

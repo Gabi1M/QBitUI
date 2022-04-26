@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/meridian/home/homePage.tsx:58
+#: src/meridian/home/homePage.tsx:65
 msgid "About"
 msgstr "Despre"
 
@@ -27,7 +27,7 @@ msgstr "Adauga torente noi"
 msgid "All"
 msgstr "Toate"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:28
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:24
 msgid "Also delete files"
 msgstr "Sterge fisierele de pe disc"
 
@@ -78,8 +78,8 @@ msgstr "Nu se pot adauga torente noi fara fisiere!"
 
 #: src/meridian/categories/modals/useCategoriesModal.tsx:67
 #: src/meridian/home/drawerContent.tsx:104
-#: src/meridian/home/homePage.tsx:48
-#: src/meridian/torrent/card.tsx:89
+#: src/meridian/home/homePage.tsx:55
+#: src/meridian/torrent/useContextMenuItems.tsx:60
 msgid "Categories"
 msgstr "Categorii"
 
@@ -93,7 +93,7 @@ msgstr "Categoriile au fost adaugate cu succes!"
 msgid "Categories deleted successfully!"
 msgstr "Categoriile au fost sterse cu succes!"
 
-#: src/meridian/torrent/card.tsx:166
+#: src/meridian/torrent/card.tsx:105
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:74
 #: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:29
 msgid "Category"
@@ -103,6 +103,10 @@ msgstr "Categorie"
 #: src/meridian/torrent/state/saga.ts:143
 msgid "Category set successfully!"
 msgstr "Categorie setata cu succes!"
+
+#: src/meridian/home/selectionHeader.tsx:72
+msgid "Clear selection"
+msgstr "Goleste selectia"
 
 #: src/meridian/categories/modals/useCreateCategoryModal.tsx:63
 msgid "Create new category"
@@ -124,12 +128,13 @@ msgstr "Creaza subdirector pentru torentele cu mai multe fisiere"
 #~ msgid "Current speeds"
 #~ msgstr "Viteze curente"
 
-#: src/meridian/torrent/card.tsx:84
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:32
+#: src/meridian/home/selectionHeader.tsx:67
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:28
+#: src/meridian/torrent/useContextMenuItems.tsx:55
 msgid "Delete"
 msgstr "Sterge"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:42
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:38
 msgid "Delete torrents"
 msgstr "Sterge torente"
 
@@ -137,7 +142,7 @@ msgstr "Sterge torente"
 msgid "Do not start the download automatically"
 msgstr "Nu porni automat descarcarea"
 
-#: src/meridian/torrent/card.tsx:146
+#: src/meridian/torrent/card.tsx:87
 #: src/meridian/transferInfo/card.tsx:19
 msgid "Download speed"
 msgstr "Viteza descarcare"
@@ -248,7 +253,8 @@ msgstr "Incarcare reusite. Trage sau click pentru a incarca din nou."
 msgid "Filters"
 msgstr "Filtre"
 
-#: src/meridian/torrent/card.tsx:74
+#: src/meridian/home/selectionHeader.tsx:57
+#: src/meridian/torrent/useContextMenuItems.tsx:45
 msgid "Force download"
 msgstr "Descarca fortat"
 
@@ -268,7 +274,7 @@ msgstr "Pastreaza torentele incomplete in director temporar"
 msgid "Language"
 msgstr "Limba"
 
-#: src/meridian/torrent/card.tsx:135
+#: src/meridian/torrent/card.tsx:77
 msgid "Leechers"
 msgstr "Leechers"
 
@@ -282,7 +288,7 @@ msgstr "Autentificare esuata!"
 msgid "Login successful!"
 msgstr "Autentificare reusita!"
 
-#: src/meridian/home/homePage.tsx:63
+#: src/meridian/home/homePage.tsx:70
 msgid "Logout"
 msgstr "Deconectare"
 
@@ -295,6 +301,10 @@ msgstr "Delogare esuata!"
 #: src/meridian/session/state/saga.ts:58
 msgid "Logout successful!"
 msgstr "Delogare reusita!"
+
+#: src/meridian/home/selectionHeader.tsx:110
+msgid "Manage selection"
+msgstr "Gestioneaza mai multe"
 
 #: src/meridian/home/drawerContent.tsx:89
 #: src/meridian/tags/modals/useCreateTagModal.tsx:21
@@ -320,7 +330,8 @@ msgstr "Nimic selectat"
 msgid "Password"
 msgstr "Parola"
 
-#: src/meridian/torrent/card.tsx:64
+#: src/meridian/home/selectionHeader.tsx:47
+#: src/meridian/torrent/useContextMenuItems.tsx:35
 msgid "Pause"
 msgstr "Pauza"
 
@@ -328,7 +339,7 @@ msgstr "Pauza"
 msgid "Pre-allocate disk space for all files"
 msgstr "Pre-aloca spatiu pentru fisiere"
 
-#: src/meridian/home/homePage.tsx:43
+#: src/meridian/home/homePage.tsx:50
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:47
 msgid "Preferences"
 msgstr "Preferinte"
@@ -342,11 +353,12 @@ msgstr "Preferinte salvate cu succes!"
 #~ msgid "Public settings"
 #~ msgstr "Setari publice"
 
-#: src/meridian/torrent/card.tsx:139
+#: src/meridian/torrent/card.tsx:81
 msgid "Ratio"
 msgstr "Ratio"
 
-#: src/meridian/torrent/card.tsx:79
+#: src/meridian/home/selectionHeader.tsx:62
+#: src/meridian/torrent/useContextMenuItems.tsx:50
 msgid "Recheck"
 msgstr "Verifica"
 
@@ -367,11 +379,12 @@ msgstr "Muta torentul cand se schimba"
 msgid "Relocate torrent when save path changes"
 msgstr "Muta torentul cand se schimba calea"
 
-#: src/meridian/torrent/card.tsx:157
+#: src/meridian/torrent/card.tsx:96
 msgid "Remaining time"
 msgstr "Timp ramas"
 
-#: src/meridian/torrent/card.tsx:69
+#: src/meridian/home/selectionHeader.tsx:52
+#: src/meridian/torrent/useContextMenuItems.tsx:40
 msgid "Resume"
 msgstr "Porneste"
 
@@ -384,7 +397,7 @@ msgid "Save"
 msgstr "Salveaza"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:12
-#: src/meridian/torrent/card.tsx:123
+#: src/meridian/torrent/card.tsx:65
 msgid "Save path"
 msgstr "Cale"
 
@@ -392,7 +405,7 @@ msgstr "Cale"
 msgid "Saving management"
 msgstr "Gestionarea salvarii"
 
-#: src/meridian/torrent/card.tsx:131
+#: src/meridian/torrent/card.tsx:73
 msgid "Seeders"
 msgstr "Seeders"
 
@@ -404,7 +417,7 @@ msgstr "Seeders"
 msgid "Sign in"
 msgstr "Conectare"
 
-#: src/meridian/torrent/card.tsx:127
+#: src/meridian/torrent/card.tsx:69
 msgid "Size"
 msgstr "Dimensiune"
 
@@ -420,7 +433,7 @@ msgstr "Nu porni automat descarcarea"
 msgid "States"
 msgstr "Statusuri"
 
-#: src/meridian/torrent/card.tsx:116
+#: src/meridian/torrent/card.tsx:59
 msgid "Status"
 msgstr "Status"
 
@@ -434,11 +447,11 @@ msgstr "Confirma"
 #~ msgstr "Nume eticheta"
 
 #: src/meridian/home/drawerContent.tsx:113
-#: src/meridian/home/homePage.tsx:53
+#: src/meridian/home/homePage.tsx:60
 #: src/meridian/tags/modals/useTagsModal.tsx:60
-#: src/meridian/torrent/card.tsx:94
-#: src/meridian/torrent/card.tsx:174
+#: src/meridian/torrent/card.tsx:111
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:91
+#: src/meridian/torrent/useContextMenuItems.tsx:65
 msgid "Tags"
 msgstr "Etichete"
 
@@ -512,7 +525,7 @@ msgstr "Total incarcare"
 msgid "Transfer info"
 msgstr "Transfer"
 
-#: src/meridian/torrent/card.tsx:150
+#: src/meridian/torrent/card.tsx:91
 #: src/meridian/transferInfo/card.tsx:23
 msgid "Upload speed"
 msgstr "Viteza incarcare"
@@ -526,7 +539,7 @@ msgstr "Utilizator"
 msgid "Web UI"
 msgstr "Interfata"
 
-#: src/meridian/home/homePage.tsx:38
+#: src/meridian/home/homePage.tsx:45
 #: src/meridian/settings/modals/useSettingsModal.tsx:54
 msgid "WebUI Settings"
 msgstr "Setari interfata"

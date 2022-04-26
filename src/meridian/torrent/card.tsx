@@ -1,15 +1,12 @@
 import React from 'react';
+import { Box, Card, createStyles, Group, Text } from '@mantine/core';
+import { t } from '@lingui/macro';
 import { TorrentInfo } from 'meridian/models';
 import {
-    Box,
-    Card,
-    createStyles,
-    Group,
-    RingProgress,
-    Text,
-} from '@mantine/core';
-import { t } from '@lingui/macro';
-import { bytesToSize, calculateEtaString } from 'meridian/utils';
+    bytesToSize,
+    calculateEtaString,
+    truncateLongText,
+} from 'meridian/utils';
 import {
     ContextMenu,
     LabelWithBadge,
@@ -18,17 +15,28 @@ import {
 } from 'meridian/generic';
 import { StateToStringMapping } from './types';
 import useContextMenuItems from './useContextMenuItems';
+import ProgressIndicator from './progressIndicator';
 
 interface Props {
     torrent: TorrentInfo;
+    selectable: boolean;
+    selected: boolean;
+    onSelectionChanged?: (hash: string, selected: boolean) => void;
 }
 
-const TorrentCard = ({ torrent }: Props) => {
-    const styles = useStyles();
+const TorrentCard = ({
+    torrent,
+    selectable,
+    selected,
+    onSelectionChanged,
+}: Props) => {
+    const styles = useStyles(selectable, selected);
     const contextMenuItems = useContextMenuItems(torrent);
     const { width } = useWindowSize();
 
     const isSmallDevice = width < 450;
+
+    const toggleSelection = () => onSelectionChanged?.(torrent.hash, !selected);
 
     return (
         <Card
@@ -37,9 +45,14 @@ const TorrentCard = ({ torrent }: Props) => {
             withBorder
             radius='md'
             className={styles.classes.root}
+            onClick={selectable ? toggleSelection : undefined}
         >
             <Box>
-                <Text size='xl'>{torrent.name}</Text>
+                <Text size='xl'>
+                    {isSmallDevice
+                        ? truncateLongText(torrent.name)
+                        : torrent.name}
+                </Text>
                 <Group mt='lg'>
                     <LabelWithBadge
                         label={t`Status`}
@@ -105,42 +118,24 @@ const TorrentCard = ({ torrent }: Props) => {
                 </Box>
             </Box>
             <Box className={styles.classes.space} />
-            <RingProgress
-                className={styles.classes.ringProgress}
-                roundCaps
-                size={isSmallDevice ? 50 : 150}
-                thickness={isSmallDevice ? 3 : 7}
-                sections={[
-                    {
-                        value: torrent.progress * 100,
-                        color: styles.theme.colors.green[4],
-                    },
-                ]}
-                label={
-                    <Text size={isSmallDevice ? 'xs' : 'md'} align='center'>
-                        {(torrent.progress * 100).toFixed(0)}%
-                    </Text>
-                }
-            />
+            <ProgressIndicator progress={torrent.progress * 100} />
         </Card>
     );
 };
 
-const useStyles = createStyles(theme => ({
-    root: {
-        display: 'flex',
-        flexDirection: 'row',
-    },
-    title: {
-        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-        fontWeight: 700,
-    },
-    space: {
-        flexGrow: 1,
-    },
-    ringProgress: {
-        alignSelf: 'center',
-    },
-}));
+const useStyles = (selectable: boolean, selected: boolean) =>
+    createStyles(theme => ({
+        root: {
+            display: 'flex',
+            flexDirection: 'row',
+            borderLeftColor:
+                selectable && selected ? theme.colors.blue : undefined,
+            borderLeftWidth: 10,
+            cursor: selectable ? 'pointer' : 'default',
+        },
+        space: {
+            flexGrow: 1,
+        },
+    }))();
 
 export default TorrentCard;
