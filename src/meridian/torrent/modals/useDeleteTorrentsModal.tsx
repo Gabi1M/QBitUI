@@ -2,25 +2,21 @@ import React from 'react';
 import { t } from '@lingui/macro';
 import { useModals } from '@mantine/modals';
 import { Button, Checkbox } from '@mantine/core';
-import { TorrentInfo } from 'meridian/models';
 import { useDeleteTorrents } from '../hooks';
 
 interface Props {
-    torrents: TorrentInfo[];
+    hashes: string[];
 }
 
-const DeleteTorrentsModal = ({ torrents }: Props) => {
+const DeleteTorrentsModal = ({ hashes }: Props) => {
     const modals = useModals();
     const [deleteFiles, setDeleteFiles] = React.useState(false);
     const deleteTorrents = useDeleteTorrents();
 
     const onSubmit = React.useCallback(() => {
-        deleteTorrents(
-            torrents.map(torrent => torrent.hash),
-            deleteFiles
-        );
+        deleteTorrents(hashes, deleteFiles);
         modals.closeAll();
-    }, [modals, deleteFiles, deleteTorrents, torrents]);
+    }, [modals, deleteFiles, deleteTorrents, hashes]);
 
     return (
         <>
@@ -37,10 +33,10 @@ const DeleteTorrentsModal = ({ torrents }: Props) => {
 const useDeleteTorrentsModal = () => {
     const modals = useModals();
 
-    return (torrents: TorrentInfo[]) =>
+    return (hashes: string[]) =>
         modals.openModal({
             title: t`Delete torrents`,
-            children: <DeleteTorrentsModal torrents={torrents} />,
+            children: <DeleteTorrentsModal hashes={hashes} />,
             centered: true,
         });
 };

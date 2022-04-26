@@ -11,12 +11,7 @@ import {
     Tag,
     Trash,
 } from 'tabler-icons-react';
-import {
-    useForceDownloadTorrents,
-    usePauseTorrents,
-    useRecheckTorrents,
-    useResumeTorrents,
-} from './hooks';
+import { useTorrentActions } from './hooks';
 import {
     useDeleteTorrentsModal,
     useTorrentCategoryModal,
@@ -24,10 +19,12 @@ import {
 } from './modals';
 
 const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
-    const pauseTorrents = usePauseTorrents();
-    const resumeTorrents = useResumeTorrents();
-    const forceDownloadTorrents = useForceDownloadTorrents();
-    const recheckTorrents = useRecheckTorrents();
+    const {
+        pauseTorrents,
+        resumeTorrents,
+        forceDownloadTorrents,
+        recheckTorrents,
+    } = useTorrentActions();
     const deleteTorrents = useDeleteTorrentsModal();
     const openCategoryModal = useTorrentCategoryModal();
     const openTagsModal = useTorrentTagsModal();
@@ -57,7 +54,7 @@ const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
             {
                 text: t`Delete`,
                 icon: <Trash />,
-                callback: () => deleteTorrents([torrent]),
+                callback: () => deleteTorrents([torrent.hash]),
             },
             {
                 text: t`Categories`,
