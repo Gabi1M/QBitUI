@@ -93,3 +93,19 @@ export const useManageTorrentTags = () => {
         removeTags,
     };
 };
+
+export const useTorrentActions = () => {
+    const pauseTorrents = usePauseTorrents();
+    const resumeTorrents = useResumeTorrents();
+    const forceDownloadTorrents = useForceDownloadTorrents();
+    const recheckTorrents = useRecheckTorrents();
+    const deleteTorrents = useDeleteTorrents();
+
+    return {
+        pauseTorrents,
+        resumeTorrents,
+        forceDownloadTorrents,
+        recheckTorrents,
+        deleteTorrents,
+    };
+};
