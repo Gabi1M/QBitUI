@@ -8,7 +8,7 @@ export {
     SegmentedColorSchemeToggle,
 } from './colorSchemeToggle';
 export { default as useWindowSize } from './useWindowSize';
-export { default as Affix } from './affix';
+export { default as ScrollToTopAffix } from './scrollToTopAffix';
 export { default as LabelWithText } from './labelWithText';
 export { default as LabelWithBadge } from './labelWithBadge';
 export type { ContextMenuItem } from './contextMenu';
