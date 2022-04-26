@@ -32,3 +32,8 @@ export const calculateEtaString = (eta: number) => {
     const remainingSeconds = eta % 60;
     return `${hours}:${remainingMinutes}:${remainingSeconds}`;
 };
+
+export const getKeyForRecordValue = <T extends string | number | symbol, Y>(
+    record: Record<T, Y>,
+    value: Y
+) => Object.entries(record).filter(x => x[1] === value)[0][0];

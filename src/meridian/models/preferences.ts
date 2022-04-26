@@ -143,3 +143,18 @@ export type Preferences = Partial<{
     web_ui_username: string;
     web_ui_password: string;
 }>;
+
+export const BittorrentProtocolNameMapping: Record<number, string> = {
+    0: 'TCP and μTP',
+    1: 'TCP',
+    2: 'μTP',
+};
+
+export const ProxyTypeNameMapping: Record<number, string> = {
+    0: 'None',
+    1: 'HTTP proxy without authentication',
+    2: 'SOCKS5 proxy without authentication',
+    3: 'HTTP proxy with authentication',
+    4: 'SOCKS5 proxy with authentication',
+    5: 'SOCKS4 proxy without authentication',
+};

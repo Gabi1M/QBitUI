@@ -29,6 +29,10 @@ const usePreferences = () => {
                 changedPreferences.web_ui_password = undefined;
             }
 
+            if (changedPreferences.proxy_password === '') {
+                changedPreferences.proxy_password = undefined;
+            }
+
             dispatch(
                 createResourceSetAction(
                     Resource.PREFERENCES,

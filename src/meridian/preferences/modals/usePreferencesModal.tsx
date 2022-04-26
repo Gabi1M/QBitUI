@@ -4,6 +4,7 @@ import { Accordion, Button } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 import usePreferences from './usePreferences';
 import {
+    ConnectionSection,
     GeneralSection,
     SavingManagementSection,
     TorrentSection,
@@ -23,6 +24,9 @@ const PreferencesModal = () => {
             <Accordion multiple>
                 <Accordion.Item label={t`Torrents`}>
                     <TorrentSection {...sectionProps} />
+                </Accordion.Item>
+                <Accordion.Item label={t`Connection`}>
+                    <ConnectionSection {...sectionProps} />
                 </Accordion.Item>
                 <Accordion.Item label={t`General`}>
                     <GeneralSection {...sectionProps} />
