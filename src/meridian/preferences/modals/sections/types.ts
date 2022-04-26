@@ -6,4 +6,10 @@ export interface SectionProps {
         name: keyof Preferences,
         value: string | boolean | number | string[]
     ) => void;
+    updateBulkPreferencesKey: (
+        items: {
+            name: keyof Preferences;
+            value: string | boolean | number | string[];
+        }[]
+    ) => void;
 }

@@ -7,16 +7,23 @@ import {
     ConnectionSection,
     GeneralSection,
     SavingManagementSection,
+    SpeedSection,
     TorrentSection,
     WebUiSection,
 } from './sections';
 
 const PreferencesModal = () => {
-    const { onSave, preferences, updatePreferencesKey } = usePreferences();
+    const {
+        onSave,
+        preferences,
+        updatePreferencesKey,
+        updateBulkPreferencesKey,
+    } = usePreferences();
 
     const sectionProps = {
         preferences,
         updatePreferencesKey,
+        updateBulkPreferencesKey,
     };
 
     return (
@@ -27,6 +34,9 @@ const PreferencesModal = () => {
                 </Accordion.Item>
                 <Accordion.Item label={t`Connection`}>
                     <ConnectionSection {...sectionProps} />
+                </Accordion.Item>
+                <Accordion.Item label={t`Speed`}>
+                    <SpeedSection {...sectionProps} />
                 </Accordion.Item>
                 <Accordion.Item label={t`General`}>
                     <GeneralSection {...sectionProps} />

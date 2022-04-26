@@ -23,6 +23,26 @@ const usePreferences = () => {
         setPreferences(prev => ({ ...prev, [name]: value }));
     };
 
+    const updateBulkPreferencesKey = (
+        items: {
+            name: keyof Preferences;
+            value: string | boolean | number | string[];
+        }[]
+    ) => {
+        setChangedPreferences(prev =>
+            items.reduce(
+                (acc, current) => ({ ...acc, [current.name]: current.value }),
+                prev
+            )
+        );
+        setPreferences(prev =>
+            items.reduce(
+                (acc, current) => ({ ...acc, [current.name]: current.value }),
+                prev
+            )
+        );
+    };
+
     const onSave = React.useCallback(() => {
         if (preferences) {
             if (changedPreferences.web_ui_password === '') {
@@ -50,6 +70,7 @@ const usePreferences = () => {
     return {
         preferences,
         updatePreferencesKey,
+        updateBulkPreferencesKey,
         onSave,
     };
 };

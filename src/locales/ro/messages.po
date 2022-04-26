@@ -35,6 +35,10 @@ msgstr "Toate"
 msgid "Also delete files"
 msgstr "Sterge fisierele de pe disc"
 
+#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:14
+msgid "Alternative Rate Limits"
+msgstr ""
+
 #: src/meridian/preferences/modals/sections/webUiSection.tsx:9
 msgid "Alternative webui"
 msgstr "Interfata alternativa"
@@ -46,6 +50,22 @@ msgstr "Cale interfata alternativa"
 #: src/meridian/preferences/modals/sections/generalSection.tsx:20
 msgid "Append .!qb extension to incomplete files"
 msgstr "Atribuie extensia .!qb la fisierele incomplete"
+
+#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:28
+msgid "Apply rate limit to peers on LAN"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:20
+msgid "Apply rate limit to transport overhead"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:12
+msgid "Apply rate limit to µTP protocol"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:20
+msgid "Apply to trackers"
+msgstr ""
 
 #: src/meridian/settings/modals/useSettingsModal.tsx:25
 msgid "Auto refresh"
@@ -112,6 +132,14 @@ msgstr "Categorie setata cu succes!"
 msgid "Clear selection"
 msgstr "Goleste selectia"
 
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:35
+msgid "Connection"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:38
+msgid "Connection Limits"
+msgstr ""
+
 #: src/meridian/categories/modals/useCreateCategoryModal.tsx:63
 msgid "Create new category"
 msgstr "Creaza o categorie noua"
@@ -149,6 +177,11 @@ msgstr "Sterge torente"
 #: src/meridian/preferences/modals/sections/torrentSection.tsx:23
 msgid "Do not start the download automatically"
 msgstr "Nu porni automat descarcarea"
+
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:20
+#: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:20
+msgid "Download"
+msgstr ""
 
 #: src/meridian/torrent/card.tsx:86
 #: src/meridian/transferInfo/card.tsx:19
@@ -257,6 +290,10 @@ msgstr "Nu s-au putut reverifica torentele!"
 msgid "Files selected. Drag here or click to select again."
 msgstr "Incarcare reusite. Trage sau click pentru a incarca din nou."
 
+#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:12
+msgid "Filter path"
+msgstr ""
+
 #: src/meridian/home/drawerContent.tsx:87
 msgid "Filters"
 msgstr "Filtre"
@@ -266,9 +303,29 @@ msgstr "Filtre"
 msgid "Force download"
 msgstr "Descarca fortat"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:27
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:41
 msgid "General"
 msgstr "General"
+
+#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:11
+msgid "Global Rate Limits"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:12
+msgid "Global maximum number of connections"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:28
+msgid "Global maximum number of upload slots"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:32
+msgid "Host"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:44
+msgid "IP Filtering"
+msgstr ""
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:70
 msgid "Keep incomplete torrents in"
@@ -285,6 +342,10 @@ msgstr "Limba"
 #: src/meridian/torrent/card.tsx:76
 msgid "Leechers"
 msgstr "Leechers"
+
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:35
+msgid "Listening Port"
+msgstr ""
 
 #: src/meridian/session/state/saga.ts:45
 #: src/meridian/session/state/saga.ts:45
@@ -313,6 +374,18 @@ msgstr "Delogare reusita!"
 #: src/meridian/home/selectionAffix.tsx:110
 msgid "Manage selection"
 msgstr "Gestioneaza mai multe"
+
+#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:28
+msgid "Manually banned IP addresses"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:20
+msgid "Maximum number of connections per torrent"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:36
+msgid "Maximum number of upload slots per torrent"
+msgstr ""
 
 #: src/meridian/home/drawerContent.tsx:89
 #: src/meridian/tags/modals/useCreateTagModal.tsx:21
@@ -343,12 +416,24 @@ msgstr "Parola"
 msgid "Pause"
 msgstr "Pauza"
 
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:17
+msgid "Peer connection protocol"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:40
+msgid "Port"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/listeningPortSection.tsx:12
+msgid "Port used for incoming connections"
+msgstr ""
+
 #: src/meridian/preferences/modals/sections/generalSection.tsx:12
 msgid "Pre-allocate disk space for all files"
 msgstr "Pre-aloca spatiu pentru fisiere"
 
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:33
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:47
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:61
 msgid "Preferences"
 msgstr "Preferinte"
 
@@ -357,9 +442,25 @@ msgstr "Preferinte"
 msgid "Preferences saved successfully!"
 msgstr "Preferinte salvate cu succes!"
 
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:41
+msgid "Proxy Server"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:79
+msgid "Proxy password"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:70
+msgid "Proxy username"
+msgstr ""
+
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:35
 #~ msgid "Public settings"
 #~ msgstr "Setari publice"
+
+#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:17
+msgid "Rate Limits Settings"
+msgstr ""
 
 #: src/meridian/torrent/card.tsx:80
 msgid "Ratio"
@@ -400,7 +501,7 @@ msgstr "Porneste"
 msgid "Romanian"
 msgstr "Romana"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:37
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:51
 msgid "Save"
 msgstr "Salveaza"
 
@@ -409,7 +510,7 @@ msgstr "Salveaza"
 msgid "Save path"
 msgstr "Cale"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:30
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:44
 msgid "Saving management"
 msgstr "Gestionarea salvarii"
 
@@ -432,6 +533,10 @@ msgstr "Dimensiune"
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:105
 msgid "Skip checking"
 msgstr "Nu verifica"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:38
+msgid "Speed"
+msgstr ""
 
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:99
 msgid "Start paused"
@@ -488,7 +593,7 @@ msgid "Theme"
 msgstr "Interfata"
 
 #: src/meridian/home/drawerContent.tsx:83
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:24
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:32
 msgid "Torrents"
 msgstr "Torente"
 
@@ -533,17 +638,38 @@ msgstr "Total incarcare"
 msgid "Transfer info"
 msgstr "Transfer"
 
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:20
+msgid "Type"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:12
+#: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:12
+msgid "Upload"
+msgstr ""
+
 #: src/meridian/torrent/card.tsx:90
 #: src/meridian/transferInfo/card.tsx:23
 msgid "Upload speed"
 msgstr "Viteza incarcare"
+
+#: src/meridian/preferences/modals/sections/connection/listeningPortSection.tsx:20
+msgid "Use UPnP / NAT-PMP port forwarding from my router"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:48
+msgid "Use proxy for peer connections"
+msgstr ""
+
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:59
+msgid "Use proxy only for torrents"
+msgstr ""
 
 #: src/meridian/login/loginPage.tsx:47
 #: src/meridian/preferences/modals/sections/webUiSection.tsx:84
 msgid "Username"
 msgstr "Utilizator"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:33
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:47
 msgid "Web UI"
 msgstr "Interfata"
 
