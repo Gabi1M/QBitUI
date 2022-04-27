@@ -65,9 +65,18 @@ const ProxyServerSection = ({
                 )
             }
         />
+        <Switch
+            mt='md'
+            label={t`Authentication`}
+            checked={preferences?.proxy_auth_enabled || false}
+            onChange={value =>
+                updatePreferencesKey('proxy_auth_enabled', value.target.checked)
+            }
+        />
         <TextInput
             mt='md'
-            label={t`Proxy username`}
+            label={t`Username`}
+            disabled={!preferences?.proxy_auth_enabled}
             value={preferences?.proxy_username || ''}
             onChange={value =>
                 updatePreferencesKey('proxy_username', value.target.value)
@@ -76,7 +85,8 @@ const ProxyServerSection = ({
         <PasswordInput
             autoComplete='new-password'
             mt='md'
-            label={t`Proxy password`}
+            disabled={!preferences?.proxy_auth_enabled}
+            label={t`Password`}
             value={preferences?.proxy_password || ''}
             onChange={value =>
                 updatePreferencesKey('proxy_password', value.target.value)
