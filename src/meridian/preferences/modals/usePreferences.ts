@@ -49,12 +49,19 @@ const usePreferences = () => {
 
     const onSave = React.useCallback(() => {
         if (preferencesState.current) {
-            if (preferencesState.changed.web_ui_password === '') {
+            if (preferencesState.changed.web_ui_password?.trim() === '') {
                 preferencesState.changed.web_ui_password = undefined;
             }
 
-            if (preferencesState.changed.proxy_password === '') {
+            if (preferencesState.changed.proxy_password?.trim() === '') {
                 preferencesState.changed.proxy_password = undefined;
+            }
+
+            if (
+                preferencesState.changed.mail_notification_password?.trim() ===
+                ''
+            ) {
+                preferencesState.changed.mail_notification_password = undefined;
             }
 
             dispatch(

@@ -47,9 +47,13 @@ msgstr "Alternative webui"
 msgid "Alternative webui path"
 msgstr "Alternative webui path"
 
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:25
+msgid "Append .!qB extension to incomplete files"
+msgstr "Append .!qB extension to incomplete files"
+
 #: src/meridian/preferences/modals/sections/generalSection.tsx:20
-msgid "Append .!qb extension to incomplete files"
-msgstr "Append .!qb extension to incomplete files"
+#~ msgid "Append .!qb extension to incomplete files"
+#~ msgstr "Append .!qb extension to incomplete files"
 
 #: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:28
 msgid "Apply rate limit to peers on LAN"
@@ -67,6 +71,10 @@ msgstr "Apply rate limit to µTP protocol"
 msgid "Apply to trackers"
 msgstr "Apply to trackers"
 
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:68
+msgid "Authentication"
+msgstr "Authentication"
+
 #: src/meridian/settings/modals/useSettingsModal.tsx:25
 msgid "Auto refresh"
 msgstr "Auto refresh"
@@ -75,16 +83,15 @@ msgstr "Auto refresh"
 msgid "Auto refresh interval"
 msgstr "Auto refresh interval"
 
-#: src/meridian/preferences/modals/sections/savingManagementSection.tsx:20
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:121
 msgid "Automatic torrent management"
 msgstr "Automatic torrent management"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:88
-msgid "Autorun"
-msgstr "Autorun"
+#~ msgid "Autorun"
+#~ msgstr "Autorun"
 
-#: src/meridian/preferences/modals/sections/savingManagementSection.tsx:79
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:36
 msgid "Autorun program when torrent finishes"
 msgstr "Autorun program when torrent finishes"
 
@@ -132,13 +139,21 @@ msgstr "Category set successfully!"
 msgid "Clear selection"
 msgstr "Clear selection"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:35
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:33
 msgid "Connection"
 msgstr "Connection"
 
 #: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:38
 msgid "Connection Limits"
 msgstr "Connection Limits"
+
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:151
+msgid "Copy .torrent files for finished downloads to"
+msgstr "Copy .torrent files for finished downloads to"
+
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:132
+msgid "Copy .torrent files to"
+msgstr "Copy .torrent files to"
 
 #: src/meridian/categories/modals/useCreateCategoryModal.tsx:63
 msgid "Create new category"
@@ -152,7 +167,7 @@ msgstr "Create new tag"
 msgid "Create subfolder"
 msgstr "Create subfolder"
 
-#: src/meridian/preferences/modals/sections/torrentSection.tsx:12
+#: src/meridian/preferences/modals/sections/downloads/addingTorrentSection.tsx:23
 msgid "Create subfolder for torrents with multiple files"
 msgstr "Create subfolder for torrents with multiple files"
 
@@ -164,6 +179,14 @@ msgstr "Create subfolder for torrents with multiple files"
 msgid "Custom HTTP headers"
 msgstr "Custom HTTP headers"
 
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:105
+msgid "Default Save Path"
+msgstr "Default Save Path"
+
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:27
+msgid "Default Torrent Management Mode"
+msgstr "Default Torrent Management Mode"
+
 #: src/meridian/home/selectionAffix.tsx:67
 #: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:28
 #: src/meridian/torrent/useContextMenuItems.tsx:55
@@ -174,7 +197,7 @@ msgstr "Delete"
 msgid "Delete torrents"
 msgstr "Delete torrents"
 
-#: src/meridian/preferences/modals/sections/torrentSection.tsx:23
+#: src/meridian/preferences/modals/sections/downloads/addingTorrentSection.tsx:12
 msgid "Do not start the download automatically"
 msgstr "Do not start the download automatically"
 
@@ -188,6 +211,10 @@ msgstr "Download"
 msgid "Download speed"
 msgstr "Download speed"
 
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:30
+msgid "Downloads"
+msgstr "Downloads"
+
 #: src/meridian/generic/dropzone.tsx:36
 msgid "Drag torrent files here or click to select files"
 msgstr "Drag torrent files here or click to select files"
@@ -199,6 +226,14 @@ msgstr "Edit"
 #: src/meridian/categories/modals/useEditCategoryModal.tsx:57
 #~ msgid "Edit category"
 #~ msgstr "Edit category"
+
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:61
+msgid "Email notification upon download completion"
+msgstr "Email notification upon download completion"
+
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:9
+msgid "Enabled"
+msgstr "Enabled"
 
 #: src/meridian/i18n/types.ts:10
 msgid "English"
@@ -307,13 +342,14 @@ msgstr "Filters"
 msgid "Force download"
 msgstr "Force download"
 
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:20
 #: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:76
 msgid "From"
 msgstr "From"
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:41
-msgid "General"
-msgstr "General"
+#~ msgid "General"
+#~ msgstr "General"
 
 #: src/meridian/preferences/modals/sections/speed/speedSection.tsx:11
 msgid "Global Rate Limits"
@@ -335,13 +371,13 @@ msgstr "Host"
 msgid "IP Filtering"
 msgstr "IP Filtering"
 
-#: src/meridian/preferences/modals/sections/savingManagementSection.tsx:70
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:113
 msgid "Keep incomplete torrents in"
 msgstr "Keep incomplete torrents in"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:61
-msgid "Keep incomplete torrents in temporary directory"
-msgstr "Keep incomplete torrents in temporary directory"
+#~ msgid "Keep incomplete torrents in temporary directory"
+#~ msgstr "Keep incomplete torrents in temporary directory"
 
 #: src/meridian/i18n/languagePicker.tsx:50
 msgid "Language"
@@ -415,6 +451,7 @@ msgid "None selected"
 msgstr "None selected"
 
 #: src/meridian/login/loginPage.tsx:54
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:101
 #: src/meridian/preferences/modals/sections/webUiSection.tsx:93
 msgid "Password"
 msgstr "Password"
@@ -440,12 +477,12 @@ msgstr "Port used for incoming connections"
 #~ msgid "Powered by"
 #~ msgstr "Powered by"
 
-#: src/meridian/preferences/modals/sections/generalSection.tsx:12
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:14
 msgid "Pre-allocate disk space for all files"
 msgstr "Pre-allocate disk space for all files"
 
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:33
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:61
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:53
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -489,16 +526,16 @@ msgid "Recheck successfully submited for the selected torrents!"
 msgstr "Recheck successfully submited for the selected torrents!"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:28
-msgid "Relocate torrent when category changes"
-msgstr "Relocate torrent when category changes"
+#~ msgid "Relocate torrent when category changes"
+#~ msgstr "Relocate torrent when category changes"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:50
-msgid "Relocate torrent when it changes"
-msgstr "Relocate torrent when it changes"
+#~ msgid "Relocate torrent when it changes"
+#~ msgstr "Relocate torrent when it changes"
 
 #: src/meridian/preferences/modals/sections/savingManagementSection.tsx:39
-msgid "Relocate torrent when save path changes"
-msgstr "Relocate torrent when save path changes"
+#~ msgid "Relocate torrent when save path changes"
+#~ msgstr "Relocate torrent when save path changes"
 
 #: src/meridian/torrent/card.tsx:95
 msgid "Remaining time"
@@ -513,18 +550,25 @@ msgstr "Resume"
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:51
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:44
+msgid "SMTP server"
+msgstr "SMTP server"
+
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:43
 msgid "Save"
 msgstr "Save"
 
-#: src/meridian/preferences/modals/sections/savingManagementSection.tsx:12
 #: src/meridian/torrent/card.tsx:64
 msgid "Save path"
 msgstr "Save path"
 
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:57
+msgid "Saving Management"
+msgstr "Saving Management"
+
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:44
-msgid "Saving management"
-msgstr "Saving management"
+#~ msgid "Saving management"
+#~ msgstr "Saving management"
 
 #: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:64
 msgid "Schedule the use of alternative rate limits"
@@ -550,7 +594,7 @@ msgstr "Size"
 msgid "Skip checking"
 msgstr "Skip checking"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:38
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:36
 msgid "Speed"
 msgstr "Speed"
 
@@ -608,12 +652,16 @@ msgstr "Tags set successfully!"
 msgid "Theme"
 msgstr "Theme"
 
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:56
+msgid "This server requires a secure connection (SSL)"
+msgstr "This server requires a secure connection (SSL)"
+
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:32
 #: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:81
 msgid "To"
 msgstr "To"
 
 #: src/meridian/home/drawerContent.tsx:83
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:32
 msgid "Torrents"
 msgstr "Torrents"
 
@@ -685,11 +733,12 @@ msgid "Use proxy only for torrents"
 msgstr "Use proxy only for torrents"
 
 #: src/meridian/login/loginPage.tsx:47
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:85
 #: src/meridian/preferences/modals/sections/webUiSection.tsx:84
 msgid "Username"
 msgstr "Username"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:47
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:39
 msgid "Web UI"
 msgstr "Web UI"
 
@@ -710,6 +759,18 @@ msgstr "Welcome to QBitUI"
 msgid "When"
 msgstr "When"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:12
-#~ msgid "When adding a torrent"
-#~ msgstr "When adding a torrent"
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:86
+msgid "When Category Save Path changed"
+msgstr "When Category Save Path changed"
+
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:67
+msgid "When Default Save Path changed"
+msgstr "When Default Save Path changed"
+
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:46
+msgid "When Torrent Category changed"
+msgstr "When Torrent Category changed"
+
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:54
+msgid "When adding a torrent"
+msgstr "When adding a torrent"

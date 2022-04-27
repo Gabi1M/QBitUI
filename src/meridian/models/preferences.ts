@@ -171,3 +171,21 @@ export const SchedulerDayNameMapping: Record<number, string> = {
     8: 'Every Saturday',
     9: 'Every Sunday',
 };
+
+export const TorrentManagementModeNameMapping: Record<number, string> = {
+    1: 'Automatic',
+    0: 'Manual',
+};
+
+export const TorrentManagementCategoryChangedNameMapping: Record<
+    number,
+    string
+> = {
+    1: 'Relocate torrent',
+    0: 'Switch torrent to manual mode',
+};
+
+export const TorrentManagementPathChangedNameMapping: Record<number, string> = {
+    1: 'Relocate affected torrents',
+    0: 'Switch affected torrents to manual mode',
+};

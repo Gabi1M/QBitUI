@@ -5,10 +5,8 @@ import { useModals } from '@mantine/modals';
 import usePreferences from './usePreferences';
 import {
     ConnectionSection,
-    GeneralSection,
-    SavingManagementSection,
+    DownloadsSection,
     SpeedSection,
-    TorrentSection,
     WebUiSection,
 } from './sections';
 
@@ -29,20 +27,14 @@ const PreferencesModal = () => {
     return (
         <>
             <Accordion multiple>
-                <Accordion.Item label={t`Torrents`}>
-                    <TorrentSection {...sectionProps} />
+                <Accordion.Item label={t`Downloads`}>
+                    <DownloadsSection {...sectionProps} />
                 </Accordion.Item>
                 <Accordion.Item label={t`Connection`}>
                     <ConnectionSection {...sectionProps} />
                 </Accordion.Item>
                 <Accordion.Item label={t`Speed`}>
                     <SpeedSection {...sectionProps} />
-                </Accordion.Item>
-                <Accordion.Item label={t`General`}>
-                    <GeneralSection {...sectionProps} />
-                </Accordion.Item>
-                <Accordion.Item label={t`Saving management`}>
-                    <SavingManagementSection {...sectionProps} />
                 </Accordion.Item>
                 <Accordion.Item label={t`Web UI`}>
                     <WebUiSection {...sectionProps} />
@@ -61,6 +53,7 @@ const usePreferencesModal = () => {
             title: t`Preferences`,
             children: <PreferencesModal />,
             centered: true,
+            size: 'xl',
         });
 };
 

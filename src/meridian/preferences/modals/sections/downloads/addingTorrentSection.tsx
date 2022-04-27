@@ -1,25 +1,14 @@
 import React from 'react';
 import { t } from '@lingui/macro';
 import { Switch } from '@mantine/core';
-import { SectionProps } from './types';
+import { SectionProps } from '../types';
 
-const TorrentSection = ({
+const AddingTorrentSection = ({
     preferences,
     updatePreferencesKey,
 }: SectionProps) => (
     <>
         <Switch
-            label={t`Create subfolder for torrents with multiple files`}
-            checked={preferences?.create_subfolder_enabled || false}
-            onChange={value =>
-                updatePreferencesKey(
-                    'create_subfolder_enabled',
-                    value.target.checked
-                )
-            }
-        />
-        <Switch
-            mt='md'
             label={t`Do not start the download automatically`}
             checked={preferences?.start_paused_enabled || false}
             onChange={value =>
@@ -29,7 +18,18 @@ const TorrentSection = ({
                 )
             }
         />
+        <Switch
+            mt='md'
+            label={t`Create subfolder for torrents with multiple files`}
+            checked={preferences?.create_subfolder_enabled || false}
+            onChange={value =>
+                updatePreferencesKey(
+                    'create_subfolder_enabled',
+                    value.target.checked
+                )
+            }
+        />
     </>
 );
 
-export default TorrentSection;
+export default AddingTorrentSection;
