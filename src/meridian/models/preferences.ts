@@ -158,3 +158,16 @@ export const ProxyTypeNameMapping: Record<number, string> = {
     4: 'SOCKS5 proxy with authentication',
     5: 'SOCKS4 proxy without authentication',
 };
+
+export const SchedulerDayNameMapping: Record<number, string> = {
+    0: 'Every day',
+    1: 'Every weekday',
+    2: 'Every weekend',
+    3: 'Every Monday',
+    4: 'Every Tuesday',
+    5: 'Every Wednesday',
+    6: 'Every Thursday',
+    7: 'Every Friday',
+    8: 'Every Saturday',
+    9: 'Every Sunday',
+};

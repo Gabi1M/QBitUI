@@ -178,7 +178,7 @@ msgstr "Delete torrents"
 msgid "Do not start the download automatically"
 msgstr "Do not start the download automatically"
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:20
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:56
 #: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:20
 msgid "Download"
 msgstr "Download"
@@ -306,6 +306,10 @@ msgstr "Filters"
 #: src/meridian/torrent/useContextMenuItems.tsx:45
 msgid "Force download"
 msgstr "Force download"
+
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:76
+msgid "From"
+msgstr "From"
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:41
 msgid "General"
@@ -522,6 +526,10 @@ msgstr "Save path"
 msgid "Saving management"
 msgstr "Saving management"
 
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:64
+msgid "Schedule the use of alternative rate limits"
+msgstr "Schedule the use of alternative rate limits"
+
 #: src/meridian/torrent/card.tsx:72
 msgid "Seeders"
 msgstr "Seeders"
@@ -600,6 +608,10 @@ msgstr "Tags set successfully!"
 msgid "Theme"
 msgstr "Theme"
 
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:81
+msgid "To"
+msgstr "To"
+
 #: src/meridian/home/drawerContent.tsx:83
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:32
 msgid "Torrents"
@@ -650,7 +662,7 @@ msgstr "Transfer info"
 msgid "Type"
 msgstr "Type"
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:12
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:48
 #: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:12
 msgid "Upload"
 msgstr "Upload"
@@ -693,6 +705,10 @@ msgstr "Welcome to QBitUI"
 #: src/meridian/login/loginPage.tsx:32
 #~ msgid "Welcome to QBitUI!"
 #~ msgstr "Welcome to QBitUI!"
+
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:88
+msgid "When"
+msgstr "When"
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:12
 #~ msgid "When adding a torrent"

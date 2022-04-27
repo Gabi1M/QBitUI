@@ -178,7 +178,7 @@ msgstr "Sterge torente"
 msgid "Do not start the download automatically"
 msgstr "Nu porni automat descarcarea"
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:20
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:56
 #: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:20
 msgid "Download"
 msgstr ""
@@ -302,6 +302,10 @@ msgstr "Filtre"
 #: src/meridian/torrent/useContextMenuItems.tsx:45
 msgid "Force download"
 msgstr "Descarca fortat"
+
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:76
+msgid "From"
+msgstr ""
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:41
 msgid "General"
@@ -514,6 +518,10 @@ msgstr "Cale"
 msgid "Saving management"
 msgstr "Gestionarea salvarii"
 
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:64
+msgid "Schedule the use of alternative rate limits"
+msgstr ""
+
 #: src/meridian/torrent/card.tsx:72
 msgid "Seeders"
 msgstr "Seeders"
@@ -592,6 +600,10 @@ msgstr "Etichetele au fost adaugate cu succes!"
 msgid "Theme"
 msgstr "Interfata"
 
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:81
+msgid "To"
+msgstr ""
+
 #: src/meridian/home/drawerContent.tsx:83
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:32
 msgid "Torrents"
@@ -642,7 +654,7 @@ msgstr "Transfer"
 msgid "Type"
 msgstr ""
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:12
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:48
 #: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:12
 msgid "Upload"
 msgstr ""
@@ -681,6 +693,10 @@ msgstr "Setari interfata"
 #: src/meridian/login/loginPage.tsx:44
 msgid "Welcome to QBitUI"
 msgstr "Bine ati venit la QBitUI"
+
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:88
+msgid "When"
+msgstr ""
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:12
 #~ msgid "When adding a torrent"

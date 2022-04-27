@@ -4,23 +4,29 @@ import { Preferences } from 'meridian/models';
 import { Resource, createResourceSetAction } from 'meridian/resource';
 import { selectPreferences } from '../state';
 
+interface PreferencesModalState {
+    current: Preferences | undefined;
+    changed: Preferences;
+}
+
 const usePreferences = () => {
     const selectedPreferences = useSelector(selectPreferences);
     const dispatch = useDispatch();
 
-    const [preferences, setPreferences] = React.useState(selectedPreferences);
-    const [changedPreferences, setChangedPreferences] =
-        React.useState<Preferences>({});
+    const [preferencesState, setPreferencesState] =
+        React.useState<PreferencesModalState>({
+            current: selectedPreferences,
+            changed: {},
+        });
 
     const updatePreferencesKey = (
         name: keyof Preferences,
         value: string | boolean | number | string[]
     ) => {
-        setChangedPreferences(prev => ({
-            ...prev,
-            [name]: value,
+        setPreferencesState(prev => ({
+            current: { ...prev.current, [name]: value },
+            changed: { ...prev.changed, [name]: value },
         }));
-        setPreferences(prev => ({ ...prev, [name]: value }));
     };
 
     const updateBulkPreferencesKey = (
@@ -29,43 +35,49 @@ const usePreferences = () => {
             value: string | boolean | number | string[];
         }[]
     ) => {
-        setChangedPreferences(prev =>
-            items.reduce(
-                (acc, current) => ({ ...acc, [current.name]: current.value }),
-                prev
-            )
-        );
-        setPreferences(prev =>
-            items.reduce(
-                (acc, current) => ({ ...acc, [current.name]: current.value }),
-                prev
-            )
-        );
+        setPreferencesState(prev => ({
+            current: items.reduce(
+                (acc, curr) => ({ ...acc, [curr.name]: curr.value }),
+                prev.current
+            ),
+            changed: items.reduce(
+                (acc, curr) => ({ ...acc, [curr.name]: curr.value }),
+                prev.changed
+            ),
+        }));
     };
 
     const onSave = React.useCallback(() => {
-        if (preferences) {
-            if (changedPreferences.web_ui_password === '') {
-                changedPreferences.web_ui_password = undefined;
+        if (preferencesState.current) {
+            if (preferencesState.changed.web_ui_password === '') {
+                preferencesState.changed.web_ui_password = undefined;
             }
 
-            if (changedPreferences.proxy_password === '') {
-                changedPreferences.proxy_password = undefined;
+            if (preferencesState.changed.proxy_password === '') {
+                preferencesState.changed.proxy_password = undefined;
             }
 
             dispatch(
                 createResourceSetAction(
                     Resource.PREFERENCES,
-                    changedPreferences
+                    preferencesState.changed
                 )
             );
-            setChangedPreferences({});
+            setPreferencesState(prev => ({
+                ...prev,
+                changed: {},
+            }));
         }
-    }, [preferences, changedPreferences, dispatch]);
+    }, [preferencesState, dispatch]);
 
     React.useEffect(() => {
-        setPreferences(selectedPreferences);
+        setPreferencesState(prev => ({
+            ...prev,
+            current: selectedPreferences,
+        }));
     }, [selectedPreferences]);
+
+    const preferences = preferencesState.current;
 
     return {
         preferences,
