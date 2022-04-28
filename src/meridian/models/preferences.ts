@@ -189,3 +189,16 @@ export const TorrentManagementPathChangedNameMapping: Record<number, string> = {
     1: 'Relocate affected torrents',
     0: 'Switch affected torrents to manual mode',
 };
+
+export const BitTorrentEncryptionNameMapping: Record<number, string> = {
+    0: 'Prefer encryption',
+    1: 'Force encryption on',
+    2: 'Force encryption off',
+};
+
+export const BitTorrentMaxRatioActNameMaping: Record<number, string> = {
+    0: 'Pause torrent',
+    1: 'Remove torrent',
+    2: 'Remove torrent and its files',
+    3: 'Enable super seeding for torrent',
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 import { t } from '@lingui/macro';
-import { Switch, TextInput } from '@mantine/core';
+import { NumberInput, Switch } from '@mantine/core';
 import { SectionProps } from '../types';
 
 const ListeningPortSection = ({
@@ -8,11 +8,11 @@ const ListeningPortSection = ({
     updatePreferencesKey,
 }: SectionProps) => (
     <>
-        <TextInput
+        <NumberInput
             label={t`Port used for incoming connections`}
-            value={preferences?.listen_port || ''}
+            value={preferences?.listen_port || 0}
             onChange={value =>
-                updatePreferencesKey('listen_port', value.target.value)
+                updatePreferencesKey('listen_port', value as number)
             }
         />
         <Switch

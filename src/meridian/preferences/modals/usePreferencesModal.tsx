@@ -4,6 +4,7 @@ import { Accordion, Button } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 import usePreferences from './usePreferences';
 import {
+    BitTorrentSection,
     ConnectionSection,
     DownloadsSection,
     SpeedSection,
@@ -35,6 +36,9 @@ const PreferencesModal = () => {
                 </Accordion.Item>
                 <Accordion.Item label={t`Speed`}>
                     <SpeedSection {...sectionProps} />
+                </Accordion.Item>
+                <Accordion.Item label={t`BitTorrent`}>
+                    <BitTorrentSection {...sectionProps} />
                 </Accordion.Item>
                 <Accordion.Item label={t`Web UI`}>
                     <WebUiSection {...sectionProps} />
