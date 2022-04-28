@@ -57,6 +57,7 @@ const TorrentCard = ({
                     <LabelWithBadge
                         label={t`Status`}
                         text={StateToStringMapping[torrent.state].stateText}
+                        color={StateToStringMapping[torrent.state].color}
                     />
                 </Group>
                 <Group mt='lg'>

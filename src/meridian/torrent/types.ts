@@ -1,3 +1,4 @@
+import { DefaultMantineColor } from '@mantine/core';
 import { TorrentState } from 'meridian/models';
 
 export enum TorrentStateDescription {
@@ -16,14 +17,7 @@ export enum TorrentStateDescription {
 
 export interface StateColorMapping {
     stateText: TorrentStateDescription;
-    color:
-        | 'default'
-        | 'primary'
-        | 'secondary'
-        | 'error'
-        | 'info'
-        | 'success'
-        | 'warning';
+    color: DefaultMantineColor;
 }
 
 export const StateGrouping: Record<TorrentStateDescription, TorrentState[]> = {
@@ -61,78 +55,78 @@ export const StateGrouping: Record<TorrentStateDescription, TorrentState[]> = {
 export const StateToStringMapping: Record<TorrentState, StateColorMapping> = {
     [TorrentState.ALLOCATING]: {
         stateText: TorrentStateDescription.ALLOCATING,
-        color: 'info',
+        color: 'blue',
     },
     [TorrentState.CHECKING_DL]: {
         stateText: TorrentStateDescription.CHECKING,
-        color: 'info',
+        color: 'orange',
     },
     [TorrentState.CHECKING_RESUME_DATA]: {
         stateText: TorrentStateDescription.RESUMING,
-        color: 'info',
+        color: 'orange',
     },
     [TorrentState.CHECKING_UP]: {
         stateText: TorrentStateDescription.CHECKING,
-        color: 'info',
+        color: 'orange',
     },
     [TorrentState.DOWNLOADING]: {
         stateText: TorrentStateDescription.DOWNLOADING,
-        color: 'success',
+        color: 'lime',
     },
     [TorrentState.ERROR]: {
         stateText: TorrentStateDescription.ERROR,
-        color: 'error',
+        color: 'red',
     },
     [TorrentState.FORCED_DL]: {
         stateText: TorrentStateDescription.DOWNLOADING,
-        color: 'success',
+        color: 'lime',
     },
     [TorrentState.FORCED_UP]: {
         stateText: TorrentStateDescription.UPLOADING,
-        color: 'success',
+        color: 'indigo',
     },
     [TorrentState.META_DL]: {
         stateText: TorrentStateDescription.DOWNLOADING,
-        color: 'success',
+        color: 'lime',
     },
     [TorrentState.MISSING_FILES]: {
         stateText: TorrentStateDescription.MISSING_FILES,
-        color: 'error',
+        color: 'red',
     },
     [TorrentState.MOVING]: {
         stateText: TorrentStateDescription.MOVING,
-        color: 'info',
+        color: 'blue',
     },
     [TorrentState.PAUSED_DL]: {
         stateText: TorrentStateDescription.PAUSED,
-        color: 'info',
+        color: 'blue',
     },
     [TorrentState.PAUSED_UP]: {
         stateText: TorrentStateDescription.PAUSED,
-        color: 'info',
+        color: 'blue',
     },
     [TorrentState.QUEUED_DL]: {
         stateText: TorrentStateDescription.QUEUED,
-        color: 'info',
+        color: 'lime',
     },
     [TorrentState.QUEUED_UP]: {
         stateText: TorrentStateDescription.QUEUED,
-        color: 'info',
+        color: 'indigo',
     },
     [TorrentState.STALLED_DL]: {
         stateText: TorrentStateDescription.DOWNLOADING,
-        color: 'success',
+        color: 'lime',
     },
     [TorrentState.STALLED_UP]: {
         stateText: TorrentStateDescription.UPLOADING,
-        color: 'success',
+        color: 'indigo',
     },
     [TorrentState.UPLOADING]: {
         stateText: TorrentStateDescription.UPLOADING,
-        color: 'success',
+        color: 'indigo',
     },
     [TorrentState.UNKNOWN]: {
         stateText: TorrentStateDescription.UNKNOWN,
-        color: 'error',
+        color: 'red',
     },
 };

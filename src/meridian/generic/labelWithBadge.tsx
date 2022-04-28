@@ -4,9 +4,10 @@ import { Badge, Box, createStyles, Text } from '@mantine/core';
 interface Props {
     label: string;
     text: string;
+    color?: string;
 }
 
-const LabelWithBadge = ({ label, text }: Props) => {
+const LabelWithBadge = ({ label, text, color }: Props) => {
     const styles = useStyles();
     const items = text.trim().split(',');
 
@@ -14,7 +15,7 @@ const LabelWithBadge = ({ label, text }: Props) => {
         <Box>
             <Text className={styles.classes.label}>{label}</Text>
             {items.map(item => (
-                <Badge mr={5} key={item}>
+                <Badge color={color} mr={5} key={item}>
                     {item}
                 </Badge>
             ))}
