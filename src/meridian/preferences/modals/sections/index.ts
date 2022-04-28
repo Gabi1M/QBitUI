@@ -1,5 +1,5 @@
-export { default as WebUiSection } from './webUiSection';
 export * from './connection';
 export * from './speed';
 export * from './downloads';
 export * from './bitTorrent';
+export * from './webui';
