@@ -50,7 +50,7 @@ const DownloadsSection = (props: SectionProps) => {
                     updatePreferencesKey('autorun_program', value.target.value)
                 }
             />
-            <Accordion mt='md' multiple>
+            <Accordion mt='md' multiple offsetIcon={false}>
                 <Accordion.Item label={t`When adding a torrent`}>
                     <AddingTorrentSection {...props} />
                 </Accordion.Item>

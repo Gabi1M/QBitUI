@@ -26,7 +26,7 @@ const PreferencesModal = () => {
 
     return (
         <>
-            <Accordion multiple>
+            <Accordion multiple offsetIcon={false}>
                 <Accordion.Item label={t`Downloads`}>
                     <DownloadsSection {...sectionProps} />
                 </Accordion.Item>

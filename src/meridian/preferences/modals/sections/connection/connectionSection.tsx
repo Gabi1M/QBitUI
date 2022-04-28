@@ -31,7 +31,7 @@ const ConnectionSection = (props: SectionProps) => {
                     )
                 }
             />
-            <Accordion mt='md' multiple>
+            <Accordion mt='md' multiple offsetIcon={false}>
                 <Accordion.Item label={t`Listening Port`}>
                     <ListeningPortSection {...props} />
                 </Accordion.Item>

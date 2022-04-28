@@ -7,7 +7,7 @@ import AlternativeRateLimitsSection from './alternativeRateLimitsSection';
 import RateLimitsSettingsSection from './rateLimitsSettingsSection';
 
 const SpeedSection = (props: SectionProps) => (
-    <Accordion multiple>
+    <Accordion multiple offsetIcon={false}>
         <Accordion.Item label={t`Global Rate Limits`}>
             <GlobalRateLimitsSection {...props} />
         </Accordion.Item>
