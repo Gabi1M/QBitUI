@@ -27,7 +27,7 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
                 className={styles.classes.drawer}
                 opened={opened}
                 onClose={() => setOpened(false)}
-                title={<Avatar size='md' src={Icons.LOGO} />}
+                title={<Avatar size='lg' src={Icons.LOGO} />}
                 padding='xl'
                 size='sm'
             >
