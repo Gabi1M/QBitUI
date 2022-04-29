@@ -2,6 +2,7 @@ import React from 'react';
 import { selectTorrents } from 'meridian/torrent';
 import { useSelector } from 'react-redux';
 import { selectTorrentFilters } from 'meridian/torrentFilters';
+import { getTorrentStateDescription } from 'meridian/models';
 
 const useFilteredTorrents = () => {
     const torrents = useSelector(selectTorrents);
@@ -22,7 +23,9 @@ const useFilteredTorrents = () => {
 
         if (torrentFilters.states.length) {
             filteredTorrents = filteredTorrents.filter(torrent =>
-                torrentFilters.states.includes(torrent.state)
+                torrentFilters.states.includes(
+                    getTorrentStateDescription(torrent.state)
+                )
             );
         }
 

@@ -1,8 +1,8 @@
-import { TorrentState } from './torrent';
+import { TorrentStateDescription } from './torrent';
 
 export interface TorrentFilters {
     name: string;
-    states: TorrentState[];
+    states: TorrentStateDescription[];
     categories: string[];
     tags: string[];
 }

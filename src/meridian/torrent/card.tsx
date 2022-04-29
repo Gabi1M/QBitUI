@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Card, createStyles, Group, Text } from '@mantine/core';
 import { t } from '@lingui/macro';
-import { TorrentInfo } from 'meridian/models';
+import { getTorrentStateDescription, TorrentInfo } from 'meridian/models';
 import {
     bytesToSize,
     calculateEtaString,
@@ -15,7 +15,6 @@ import {
 } from 'meridian/generic';
 import { useSelector } from 'react-redux';
 import { selectSettings } from 'meridian/settings';
-import { TorrentStateDescriptionMapping } from './types';
 import useContextMenuItems from './useContextMenuItems';
 import ProgressIndicator from './progressIndicator';
 
@@ -36,6 +35,10 @@ const TorrentCard = ({
     const contextMenuItems = useContextMenuItems(torrent);
     const { width } = useWindowSize();
     const { torrentStateColors } = useSelector(selectSettings);
+    const torrentStateDescription = React.useMemo(
+        () => getTorrentStateDescription(torrent.state),
+        [torrent.state]
+    );
 
     const isSmallDevice = width < 450;
 
@@ -59,8 +62,8 @@ const TorrentCard = ({
                 <Group mt='lg'>
                     <LabelWithBadge
                         label={t`Status`}
-                        text={TorrentStateDescriptionMapping[torrent.state]}
-                        color={torrentStateColors[torrent.state]}
+                        text={torrentStateDescription}
+                        color={torrentStateColors[torrentStateDescription]}
                     />
                 </Group>
                 <Group mt='lg'>

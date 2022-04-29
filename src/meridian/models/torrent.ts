@@ -20,6 +20,20 @@ export enum TorrentState {
     UNKNOWN = 'unknown',
 }
 
+export enum TorrentStateDescription {
+    ALLOCATING = 'Allocating',
+    CHECKING = 'Checking',
+    DOWNLOADING = 'Downloading',
+    UPLOADING = 'Uploading',
+    ERROR = 'Error',
+    MISSING_FILES = 'Missing files',
+    MOVING = 'Moving',
+    QUEUED = 'Queued',
+    PAUSED = 'Paused',
+    RESUMING = 'Resuming',
+    UNKNOWN = 'Unknown',
+}
+
 export enum TorrentContentPriority {
     DO_NOT_DOWNLOAD = 0,
     NORMAL = 1,
@@ -154,3 +168,45 @@ export interface TorrentAddOptions {
     sequentialDownload?: boolean;
     firstLastPiecePrio?: boolean;
 }
+
+export const TorrentStateGrouping: Record<
+    TorrentStateDescription,
+    TorrentState[]
+> = {
+    [TorrentStateDescription.ALLOCATING]: [TorrentState.ALLOCATING],
+    [TorrentStateDescription.CHECKING]: [
+        TorrentState.CHECKING_DL,
+        TorrentState.CHECKING_UP,
+    ],
+    [TorrentStateDescription.DOWNLOADING]: [
+        TorrentState.DOWNLOADING,
+        TorrentState.META_DL,
+        TorrentState.FORCED_DL,
+        TorrentState.STALLED_DL,
+    ],
+    [TorrentStateDescription.UPLOADING]: [
+        TorrentState.UPLOADING,
+        TorrentState.FORCED_UP,
+        TorrentState.STALLED_UP,
+    ],
+    [TorrentStateDescription.ERROR]: [TorrentState.ERROR],
+    [TorrentStateDescription.MISSING_FILES]: [TorrentState.MISSING_FILES],
+    [TorrentStateDescription.MOVING]: [TorrentState.MOVING],
+    [TorrentStateDescription.QUEUED]: [
+        TorrentState.QUEUED_DL,
+        TorrentState.QUEUED_UP,
+    ],
+    [TorrentStateDescription.PAUSED]: [
+        TorrentState.PAUSED_DL,
+        TorrentState.PAUSED_UP,
+    ],
+    [TorrentStateDescription.RESUMING]: [TorrentState.CHECKING_RESUME_DATA],
+    [TorrentStateDescription.UNKNOWN]: [TorrentState.UNKNOWN],
+};
+
+export const getTorrentStateDescription = (
+    torrentState: TorrentState
+): TorrentStateDescription =>
+    Object.entries(TorrentStateGrouping).filter(x =>
+        x[1].includes(torrentState)
+    )[0][0] as TorrentStateDescription;

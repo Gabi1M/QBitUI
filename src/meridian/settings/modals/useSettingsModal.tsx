@@ -1,12 +1,14 @@
 import React from 'react';
 import { t } from '@lingui/macro';
 import { useModals } from '@mantine/modals';
-import { Select, Switch } from '@mantine/core';
+import { Button, Select, Switch } from '@mantine/core';
 import { LanguagePicker } from 'meridian/i18n';
 import useSettings from './useSettings';
+import useTorrentStateColorsModal from './useTorrentStateColorsModal';
 
 const SettingsModal = () => {
     const { settings, handleSettingsChange } = useSettings();
+    const openTorrentStateColorsModal = useTorrentStateColorsModal();
 
     return (
         <>
@@ -38,6 +40,11 @@ const SettingsModal = () => {
                     handleSettingsChange('autoRefreshInterval', Number(value))
                 }
             />
+            <Button
+                mt='md'
+                fullWidth
+                onClick={openTorrentStateColorsModal}
+            >{t`Configure torrent state colors`}</Button>
         </>
     );
 };

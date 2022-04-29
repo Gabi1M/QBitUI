@@ -9,24 +9,23 @@ import {
     createStyles,
 } from '@mantine/core';
 import { t } from '@lingui/macro';
-import { TorrentFilters, TorrentState } from 'meridian/models';
+import {
+    TorrentFilters,
+    TorrentState,
+    TorrentStateDescription,
+} from 'meridian/models';
 import {
     createSetTorrentFiltersAction,
     selectTorrentFilters,
 } from 'meridian/torrentFilters';
-import { selectTorrents } from 'meridian/torrent';
 import { selectCategories } from 'meridian/categories';
 import { selectTags } from 'meridian/tags';
-import { removeDuplicatesFromArray } from 'meridian/utils';
 import { TransferInfoCard } from 'meridian/transferInfo';
-import {
-    TorrentStateGrouping,
-    TorrentStateDescription,
-} from 'meridian/torrent/types';
+import { useFilteredTorrents } from './hooks';
 
 const DrawerContent = () => {
     const styles = useStyles();
-    const torrents = useSelector(selectTorrents);
+    const torrents = useFilteredTorrents();
     const torrentFilters = useSelector(selectTorrentFilters);
     const categories = useSelector(selectCategories);
     const tags = useSelector(selectTags);
@@ -45,38 +44,6 @@ const DrawerContent = () => {
             );
         },
         [dispatch, torrentFilters]
-    );
-
-    const onStateFilterChanged = React.useCallback(
-        (value: TorrentStateDescription[]) => {
-            const states = removeDuplicatesFromArray(
-                value.reduce((acc, current) => {
-                    TorrentStateGrouping[current].forEach(item =>
-                        acc.push(item)
-                    );
-                    return acc;
-                }, [] as TorrentState[])
-            );
-            dispatch(
-                createSetTorrentFiltersAction({ ...torrentFilters, states })
-            );
-        },
-        [dispatch, torrentFilters]
-    );
-
-    const torrentStateDescriptions = React.useMemo(
-        () =>
-            removeDuplicatesFromArray(
-                Object.entries(TorrentStateGrouping).reduce((acc, current) => {
-                    current[1].forEach(item => {
-                        if (torrentFilters.states.includes(item)) {
-                            acc.push(current[0] as TorrentStateDescription);
-                        }
-                    });
-                    return acc;
-                }, [] as TorrentStateDescription[])
-            ),
-        [torrentFilters.states]
     );
 
     return (
@@ -101,9 +68,9 @@ const DrawerContent = () => {
             <MultiSelect
                 label={t`States`}
                 placeholder={t`All`}
-                value={torrentStateDescriptions}
+                value={torrentFilters.states}
                 data={Object.values(TorrentStateDescription)}
-                onChange={onStateFilterChanged}
+                onChange={value => onTorrentFilterChanged('states', value)}
             />
             <MultiSelect
                 label={t`Categories`}

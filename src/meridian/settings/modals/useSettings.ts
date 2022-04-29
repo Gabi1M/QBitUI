@@ -1,6 +1,7 @@
 import React from 'react';
-import { Settings } from 'meridian/models';
+import { Settings, TorrentStateDescription } from 'meridian/models';
 import { useDispatch, useSelector } from 'react-redux';
+import { DefaultMantineColor } from '@mantine/core';
 import { selectSettings, createSetSettingsAction } from '../state';
 
 const useSettings = () => {
@@ -8,7 +9,14 @@ const useSettings = () => {
     const dispatch = useDispatch();
 
     const handleSettingsChange = React.useCallback(
-        (key: keyof Settings, value: boolean | number | string) => {
+        (
+            key: keyof Settings,
+            value:
+                | boolean
+                | number
+                | string
+                | Record<TorrentStateDescription, DefaultMantineColor>
+        ) => {
             dispatch(createSetSettingsAction({ ...settings, [key]: value }));
         },
         [dispatch, settings]
