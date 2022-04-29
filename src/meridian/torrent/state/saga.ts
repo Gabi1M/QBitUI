@@ -32,7 +32,7 @@ function* pauseTorrentsSaga(action: PauseTorrentsAction) {
                 2000
             )
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(
@@ -52,7 +52,7 @@ function* resumeTorrentsSaga(action: ResumeTorrentsAction) {
                 2000
             )
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(
@@ -75,7 +75,7 @@ function* deleteTorrentsSaga(action: DeleteTorrentsAction) {
                 2000
             )
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(
@@ -95,7 +95,7 @@ function* forceDownloadTorrentsSaga(action: ForceDownloadTorrentsAction) {
                 2000
             )
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(
@@ -119,7 +119,7 @@ function* recheckTorrentsSaga(action: RecheckTorrentsAction) {
                 2000
             )
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(
@@ -142,7 +142,7 @@ function* setTorrentCategorySaga(action: SetTorrentCategoryAction) {
         yield put(
             showSnackbarAction(t`Category set successfully!`, 'success', 2000)
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(
@@ -158,7 +158,7 @@ function* addTorrentsTagsSaga(action: AddTorrentsTagsAction) {
         yield put(
             showSnackbarAction(t`Tags set successfully!`, 'success', 2000)
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(showSnackbarAction(t`Failed to set tags!`, 'error', 2000));
@@ -172,7 +172,7 @@ function* removeTorrentsTagsSaga(action: RemoveTorrentsTagsAction) {
         yield put(
             showSnackbarAction(t`Tags removed successfully!`, 'success', 2000)
         );
-        yield delay(2000);
+        yield delay(1000);
         yield put(createResourceFetchAction(Resource.TORRENT));
     } catch (error) {
         yield put(showSnackbarAction(t`Failed to remove tags!`, 'error', 2000));
