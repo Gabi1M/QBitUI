@@ -19,7 +19,10 @@ import { selectCategories } from 'meridian/categories';
 import { selectTags } from 'meridian/tags';
 import { removeDuplicatesFromArray } from 'meridian/utils';
 import { TransferInfoCard } from 'meridian/transferInfo';
-import { StateGrouping, TorrentStateDescription } from 'meridian/torrent/types';
+import {
+    TorrentStateGrouping,
+    TorrentStateDescription,
+} from 'meridian/torrent/types';
 
 const DrawerContent = () => {
     const styles = useStyles();
@@ -48,7 +51,9 @@ const DrawerContent = () => {
         (value: TorrentStateDescription[]) => {
             const states = removeDuplicatesFromArray(
                 value.reduce((acc, current) => {
-                    StateGrouping[current].forEach(item => acc.push(item));
+                    TorrentStateGrouping[current].forEach(item =>
+                        acc.push(item)
+                    );
                     return acc;
                 }, [] as TorrentState[])
             );
@@ -62,7 +67,7 @@ const DrawerContent = () => {
     const torrentStateDescriptions = React.useMemo(
         () =>
             removeDuplicatesFromArray(
-                Object.entries(StateGrouping).reduce((acc, current) => {
+                Object.entries(TorrentStateGrouping).reduce((acc, current) => {
                     current[1].forEach(item => {
                         if (torrentFilters.states.includes(item)) {
                             acc.push(current[0] as TorrentStateDescription);

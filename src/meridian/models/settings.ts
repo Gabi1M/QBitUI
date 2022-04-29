@@ -1,4 +1,6 @@
+import { DefaultMantineColor } from '@mantine/core';
 import { Language } from 'meridian/i18n/types';
+import { TorrentState } from './torrent';
 
 export interface Settings {
     darkMode: boolean;
@@ -6,4 +8,5 @@ export interface Settings {
     autoRefreshInterval: number;
     torrentsPerPage: number;
     language: Language;
+    torrentStateColors: Record<TorrentState, DefaultMantineColor>;
 }

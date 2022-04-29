@@ -13,7 +13,9 @@ import {
     LabelWithText,
     useWindowSize,
 } from 'meridian/generic';
-import { StateToStringMapping } from './types';
+import { useSelector } from 'react-redux';
+import { selectSettings } from 'meridian/settings';
+import { TorrentStateDescriptionMapping } from './types';
 import useContextMenuItems from './useContextMenuItems';
 import ProgressIndicator from './progressIndicator';
 
@@ -33,6 +35,7 @@ const TorrentCard = ({
     const styles = useStyles(selectable, selected);
     const contextMenuItems = useContextMenuItems(torrent);
     const { width } = useWindowSize();
+    const { torrentStateColors } = useSelector(selectSettings);
 
     const isSmallDevice = width < 450;
 
@@ -56,8 +59,8 @@ const TorrentCard = ({
                 <Group mt='lg'>
                     <LabelWithBadge
                         label={t`Status`}
-                        text={StateToStringMapping[torrent.state].stateText}
-                        color={StateToStringMapping[torrent.state].color}
+                        text={TorrentStateDescriptionMapping[torrent.state]}
+                        color={torrentStateColors[torrent.state]}
                     />
                 </Group>
                 <Group mt='lg'>
