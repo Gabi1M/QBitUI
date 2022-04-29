@@ -10,55 +10,28 @@ Implemented using `React`, `Typescript` and `Mantine`.
 # Features
 
 - Torrent management: `Add`, `Pause`, `Resume`, `Force download`, `Recheck`, `Delete`, `Set category`, `Set tags`
-- Basic qBitTorrent preferences management
-- Category manager: Add new categories, edit and delete existing ones
-- Tag manager: Add new tags and delete existing ones
+- Selection management
+- Management of the majority of qBittorrent's preferences
+- Add new categories, edit and delete existing ones
+- Add new tags and delete existing ones
 - Torrent filtering on: `Name`, `State`, `Category`, `Tags`
 - Transfer info overview for the active session
 - Torrent pagination
 - Light / Dark theme
 - Support for multiple languages: English and Romanian so far
 - Responsive mobile interface
+- Basic torrent display badge customization
 
 # Screenshots
 
-`Home page`
+<img src="https://user-images.githubusercontent.com/45296166/166058565-cf818641-2efc-4480-8833-b736928de434.png" />
 
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039247-d66c2410-b904-416c-8a48-671bc3fe3853.png" />
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039412-c8bc3fe4-45ab-45bb-be8a-abb32e213e38.png" />
-
-`Login page`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/164405640-98b69da7-2423-426c-acdf-b2e256d92cfb.png" />
-
-
-`Add torrents modal`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039421-2f467656-c1bf-4516-b9e6-3f72ce514315.png" />
-
-`WebUI settings modal`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039430-8e0eb193-6829-4a81-a25b-075b62f75579.png" />
-
-`qBitTorrent preferences modal`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/164405398-41646759-09b1-41a7-8201-53a314626014.png" />
-
-`Categories modal`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039443-ff0de2d1-dd83-46ed-8021-30d775f7b4f9.png" />
-
-`Tags modal`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039446-3d7326e9-8fa9-4496-a3dd-2b9302d1b177.png" />
-
-`Side drawer with general information + filters`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039450-14a1afdf-c772-48cd-a788-5864de3a3b1d.png" />
-
-`Light theme`
-
-<img width="500" src="https://user-images.githubusercontent.com/45296166/163039456-f3ddf4e3-9249-4818-ab5f-66d292072437.png" />
+|                                    |                                    |                                    |
+| :--------------------------------: | :--------------------------------: | :--------------------------------: |
+| ![](https://user-images.githubusercontent.com/45296166/166058574-e0c2ac1a-9396-440d-9cd4-d9a1b6230282.png) | ![](https://user-images.githubusercontent.com/45296166/166058584-5df98771-ee13-4f0e-a649-66953cbf3464.png)| ![](https://user-images.githubusercontent.com/45296166/166058599-a022b2ff-1c1f-434e-9a86-602528506433.png) |
+| ![](https://user-images.githubusercontent.com/45296166/166058609-0a8bb2e7-d0f0-4888-90d8-d54e9cb9f3e7.png) | ![](https://user-images.githubusercontent.com/45296166/166058870-42189e34-5a3b-492f-a46a-cb7879c86626.png) | ![](https://user-images.githubusercontent.com/45296166/166058871-d1daa5df-4c6e-41ed-8faf-9b1f7c62d962.png) |
+| ![](https://user-images.githubusercontent.com/45296166/166058886-bc0ee9ea-c8e8-40ca-a008-57c651183fac.png) | ![](https://user-images.githubusercontent.com/45296166/166058866-3ea44abf-ab05-4a30-9075-4d38a944d08b.png) | ![](https://user-images.githubusercontent.com/45296166/166058749-1ea6425b-b572-40d3-9596-ab649277456a.png) |
+| ![](https://user-images.githubusercontent.com/45296166/166058876-14029a33-12cc-475d-8b4b-a595386fa31b.png) | ![](https://user-images.githubusercontent.com/45296166/166058879-8b74861f-aa16-46d7-a6a1-2b480bb26da4.png) | ![](https://user-images.githubusercontent.com/45296166/166058882-2a3baa2b-ef41-4e82-a3af-58cad4185ecd.png) |
 
 # Next steps
 
