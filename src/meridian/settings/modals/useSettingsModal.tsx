@@ -28,20 +28,16 @@ const SettingsModal = () => {
                     handleSettingsChange('autoRefresh', event.target.checked)
                 }
             />
-            {settings.autoRefresh ? (
-                <Select
-                    mt='md'
-                    label={t`Auto refresh interval`}
-                    value={settings.autoRefreshInterval.toString()}
-                    data={[1, 5, 10, 30, 60].map(x => x.toString())}
-                    onChange={value =>
-                        handleSettingsChange(
-                            'autoRefreshInterval',
-                            Number(value)
-                        )
-                    }
-                />
-            ) : null}
+            <Select
+                mt='md'
+                disabled={!settings.autoRefresh}
+                label={t`Auto refresh interval`}
+                value={settings.autoRefreshInterval.toString()}
+                data={[1, 5, 10, 30, 60].map(x => x.toString())}
+                onChange={value =>
+                    handleSettingsChange('autoRefreshInterval', Number(value))
+                }
+            />
         </>
     );
 };
