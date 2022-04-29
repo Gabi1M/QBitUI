@@ -1,49 +1,38 @@
 import React from 'react';
 import { t } from '@lingui/macro';
 import { useSelector } from 'react-redux';
-import { Card } from 'meridian/generic';
-import { CardItemProps } from 'meridian/generic/card';
 import { bytesToSize } from 'meridian/utils';
-import { LoadingOverlay } from '@mantine/core';
+import { Card, LoadingOverlay } from '@mantine/core';
+import { LabelWithText } from 'meridian/generic';
 import { selectTransferInfo } from './state';
 
 const TransferInfoCard = () => {
     const transferInfo = useSelector(selectTransferInfo);
 
-    const itemGroups: CardItemProps[][] = React.useMemo(
-        () =>
-            transferInfo
-                ? [
-                      [
-                          {
-                              name: t`Download speed`,
-                              value: bytesToSize(transferInfo.dl_info_speed),
-                          },
-                          {
-                              name: t`Upload speed`,
-                              value: bytesToSize(transferInfo.up_info_speed),
-                          },
-                      ],
-                      [
-                          {
-                              name: t`Total downloaded`,
-                              value: bytesToSize(transferInfo.dl_info_data),
-                          },
-                          {
-                              name: t`Total uploaded`,
-                              value: bytesToSize(transferInfo.up_info_data),
-                          },
-                      ],
-                  ]
-                : [],
-        [transferInfo]
-    );
-
     if (!transferInfo) {
         return <LoadingOverlay visible />;
     }
 
-    return <Card itemGroups={itemGroups} title={t`Transfer info`} />;
+    return (
+        <Card withBorder radius='md'>
+            <LabelWithText
+                label={t`Download speed`}
+                text={bytesToSize(transferInfo.dl_info_speed)}
+            />
+            <LabelWithText
+                label={t`Upload speed`}
+                text={bytesToSize(transferInfo?.up_info_speed)}
+            />
+            <LabelWithText
+                label={t`Total downloaded`}
+                text={bytesToSize(transferInfo?.dl_info_data)}
+            />
+            <LabelWithText
+                label={t`Total uploaded`}
+                text={bytesToSize(transferInfo?.up_info_data)}
+            />
+        </Card>
+    );
 };
 
 export default TransferInfoCard;
