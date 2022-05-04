@@ -64,3 +64,4 @@ If you'd like to contribute, open an `Issue` or a `Pull Request` 😊
 - [qBitTorrent](https://www.qbittorrent.org/)
 - [Mantine](https://mantine.dev/)
 - [VueTorrent](https://github.com/WDaan/VueTorrent) for some inspiration
+- [SectorLabs](https://sectorlabs.ro)
