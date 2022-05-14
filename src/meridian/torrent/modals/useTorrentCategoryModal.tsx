@@ -5,7 +5,7 @@ import { LoadingOverlay, Select } from '@mantine/core';
 import { useSelector } from 'react-redux';
 import { selectCategories } from 'meridian/categories';
 import { TorrentInfo } from 'meridian/models';
-import { selectTorrents } from '../state';
+import { selectMainData } from 'meridian/mainData';
 import { useSetTorrentCategory } from '../hooks';
 
 interface Props {
@@ -14,13 +14,14 @@ interface Props {
 
 const TorrentCategoryModal = ({ hash }: Props) => {
     const categories = useSelector(selectCategories);
-    const torrents = useSelector(selectTorrents);
+    const mainData = useSelector(selectMainData);
     const setTorrentCategory = useSetTorrentCategory();
 
-    if (!categories || !torrents) {
+    if (!categories || !mainData) {
         return <LoadingOverlay visible />;
     }
 
+    const torrents = Object.values(mainData.torrents);
     const torrent = torrents.filter(x => x.hash === hash)[0];
 
     return (

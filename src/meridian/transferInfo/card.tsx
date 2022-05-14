@@ -25,11 +25,11 @@ const TransferInfoCard = () => {
                 text={bytesToSize(transferInfo?.up_info_speed)}
             />
             <LabelWithText
-                label={t`Total downloaded`}
+                label={t`Downloaded`}
                 text={bytesToSize(transferInfo?.dl_info_data)}
             />
             <LabelWithText
-                label={t`Total uploaded`}
+                label={t`Uploaded`}
                 text={bytesToSize(transferInfo?.up_info_data)}
             />
         </Card>

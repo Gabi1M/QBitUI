@@ -1,6 +1,7 @@
 import {
     isMockEnabled,
     MockCategories,
+    MockMainData,
     MockPreferences,
     MockTags,
     MockTorrents,
@@ -208,7 +209,7 @@ export class Api {
         switch (resourceName) {
             case Resource.MAIN_DATA: {
                 return this.mainData(
-                    (params as FetchResourceParams[Resource.MAIN_DATA]).rid
+                    (params as FetchResourceParams[Resource.MAIN_DATA])?.rid
                 );
             }
             case Resource.TORRENT: {
@@ -275,6 +276,10 @@ export class Api {
     }
 
     async mainData(rid?: number) {
+        if (isMockEnabled) {
+            return Promise.resolve(MockMainData);
+        }
+
         if (rid) {
             return Api.getJSON<MainData>(
                 `${this.baseUrl}/${ApiPath.MAIN_DATA}?rid=${rid}`

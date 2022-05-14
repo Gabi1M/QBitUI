@@ -4,8 +4,8 @@ import { useModals } from '@mantine/modals';
 import { selectTags } from 'meridian/tags';
 import { useSelector } from 'react-redux';
 import { TorrentInfo } from 'meridian/models';
+import { selectMainData } from 'meridian/mainData';
 import { useManageTorrentTags } from '../hooks';
-import { selectTorrents } from '../state';
 
 interface Props {
     hash: string;
@@ -13,13 +13,14 @@ interface Props {
 
 const TorrentTagsModal = ({ hash }: Props) => {
     const tags = useSelector(selectTags);
-    const torrents = useSelector(selectTorrents);
+    const mainData = useSelector(selectMainData);
     const { addTags, removeTags } = useManageTorrentTags();
 
-    if (!tags || !torrents) {
+    if (!tags || !mainData) {
         return <LoadingOverlay visible />;
     }
 
+    const torrents = Object.values(mainData.torrents);
     const torrent = torrents.filter(x => x.hash === hash)[0];
 
     const torrentTags =

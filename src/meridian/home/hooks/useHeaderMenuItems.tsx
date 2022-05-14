@@ -7,6 +7,7 @@ import {
     Settings,
     Tag,
     User,
+    DeviceDesktop,
 } from 'tabler-icons-react';
 import { ContextMenuItem } from 'meridian/generic';
 import { useSettingsModal } from 'meridian/settings';
@@ -15,12 +16,14 @@ import { useCategoriesModal } from 'meridian/categories';
 import { useTagsModal } from 'meridian/tags';
 import { useLogout } from 'meridian/hooks';
 import useAboutModal from 'meridian/useAboutModal';
+import { useServerStateModal } from 'meridian/mainData';
 
 const useHeaderMenuItems = (): ContextMenuItem[] => {
     const openSettingsModal = useSettingsModal();
     const openPreferencesModal = usePreferencesModal();
     const openCategoriesModal = useCategoriesModal();
     const openTagsModal = useTagsModal();
+    const openServerStateModal = useServerStateModal();
     const openAboutModal = useAboutModal();
     const logout = useLogout();
     return [
@@ -43,6 +46,11 @@ const useHeaderMenuItems = (): ContextMenuItem[] => {
             text: t`Tags`,
             icon: <Tag />,
             callback: openTagsModal,
+        },
+        {
+            text: t`Server state`,
+            icon: <DeviceDesktop />,
+            callback: openServerStateModal,
         },
         {
             text: t`About`,

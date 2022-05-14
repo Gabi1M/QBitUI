@@ -1,16 +1,21 @@
 import React from 'react';
-import { Box, createStyles, Text } from '@mantine/core';
+import {
+    Box,
+    createStyles,
+    MantineStyleSystemProps,
+    Text,
+} from '@mantine/core';
 
-interface Props {
+interface Props extends MantineStyleSystemProps {
     label: string;
     text: string;
 }
 
-const LabelWithText = ({ label, text }: Props) => {
+const LabelWithText = ({ label, text, ...rest }: Props) => {
     const styles = useStyles();
 
     return (
-        <Box>
+        <Box {...rest}>
             <Text className={styles.classes.label}>{label}</Text>
             <Text size='sm' color='dimmed'>
                 {text}
