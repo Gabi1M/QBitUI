@@ -1,18 +1,18 @@
 import React from 'react';
-import { selectTorrents } from 'meridian/torrent';
 import { useSelector } from 'react-redux';
 import { selectTorrentFilters } from 'meridian/torrentFilters';
 import { getTorrentStateDescription } from 'meridian/models';
+import { selectMainData } from 'meridian/mainData';
 
 const useFilteredTorrents = () => {
-    const torrents = useSelector(selectTorrents);
+    const mainData = useSelector(selectMainData);
     const torrentFilters = useSelector(selectTorrentFilters);
 
     return React.useMemo(() => {
-        if (!torrents) {
+        if (!mainData?.torrents) {
             return undefined;
         }
-        let filteredTorrents = torrents;
+        let filteredTorrents = Object.values(mainData.torrents);
         if (torrentFilters.name.trim() !== '') {
             filteredTorrents = filteredTorrents.filter(torrent =>
                 torrent.name
@@ -49,7 +49,7 @@ const useFilteredTorrents = () => {
         }
 
         return filteredTorrents;
-    }, [torrents, torrentFilters]);
+    }, [mainData, torrentFilters]);
 };
 
 export default useFilteredTorrents;

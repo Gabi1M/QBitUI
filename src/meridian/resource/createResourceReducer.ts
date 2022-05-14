@@ -57,7 +57,7 @@ export type ResourceFetchAction<T extends Resource = Resource> = BaseAction & {
 };
 
 export type ResourceFetchSuccessAction<T extends Resource = Resource> =
-    BaseAction & {
+    ResourceFetchAction<T> & {
         data: ResourceDataType[T];
     };
 
@@ -111,15 +111,17 @@ export const createResourceFetchAction = <T extends Resource = Resource>(
 
 export const createResourceFetchSuccessAction = <T extends Resource = Resource>(
     resourceName: T,
-    data: ResourceDataType[T]
+    data: ResourceDataType[T],
+    params?: FetchResourceParams[T]
 ): ResourceFetchSuccessAction<T> => ({
     type: `${resourceName.toUpperCase()}/FETCH_SUCCESS`,
     data,
+    params,
 });
 
 export const createResourceFetchFailAction = <T extends Resource = Resource>(
     resourceName: T,
-    params: FetchResourceParams[T],
+    params: FetchResourceParams[T] | undefined,
     error: Error
 ): ResourceFetchFailAction<T> => ({
     type: `${resourceName.toUpperCase()}/FETCH_FAIL`,
@@ -216,12 +218,13 @@ export const createResourceReducer = <T extends Resource = Resource>(
                     fetch: {
                         ...state.fetch,
                         data: fetchSuccessAction.data,
+                        params: fetchSuccessAction.params,
                         error: undefined,
                     },
                 };
             }
             case actions.FETCH_FAIL: {
-                const fetchFailAction = action as ResourceFetchFailAction;
+                const fetchFailAction = action as ResourceFetchFailAction<T>;
                 return {
                     ...state,
                     fetch: {

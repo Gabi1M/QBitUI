@@ -3,14 +3,19 @@ import { TransferInfo } from './transferInfo';
 import { TorrentInfo } from './torrent';
 
 export interface MainData {
-    categories: {
-        [name: string]: Category;
-    };
-    server_state: TransferInfo;
-    tags: string[];
+    rid: number;
+    full_update: boolean;
     torrents: {
         [hash: string]: TorrentInfo;
     };
+    torrents_removed: string[];
+    categories: {
+        [name: string]: Category;
+    };
+    categories_removed: string[];
+    tags: string[];
+    tags_removed: string[];
+    server_state: TransferInfo;
     trackers: {
         [url: string]: string[];
     };

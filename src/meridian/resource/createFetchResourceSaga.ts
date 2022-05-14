@@ -18,7 +18,13 @@ export const createFetchResourceSaga = <T extends Resource = Resource>(
                 api.fetchResource,
                 [resourceName, action.params]
             );
-            yield put(createResourceFetchSuccessAction(resourceName, data));
+            yield put(
+                createResourceFetchSuccessAction(
+                    resourceName,
+                    data,
+                    action.params
+                )
+            );
         } catch (error) {
             yield put(
                 createResourceFetchFailAction(

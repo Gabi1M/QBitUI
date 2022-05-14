@@ -7,6 +7,7 @@ import {
     Title,
     Text,
     createStyles,
+    LoadingOverlay,
 } from '@mantine/core';
 import { t } from '@lingui/macro';
 import {
@@ -18,17 +19,15 @@ import {
     createSetTorrentFiltersAction,
     selectTorrentFilters,
 } from 'meridian/torrentFilters';
-import { selectCategories } from 'meridian/categories';
-import { selectTags } from 'meridian/tags';
 import { TransferInfoCard } from 'meridian/transferInfo';
+import { selectMainData } from 'meridian/mainData';
 import { useFilteredTorrents } from './hooks';
 
 const DrawerContent = () => {
     const styles = useStyles();
+    const mainData = useSelector(selectMainData);
     const torrents = useFilteredTorrents();
     const torrentFilters = useSelector(selectTorrentFilters);
-    const categories = useSelector(selectCategories);
-    const tags = useSelector(selectTags);
     const dispatch = useDispatch();
 
     const onTorrentFilterChanged = React.useCallback(
@@ -45,6 +44,13 @@ const DrawerContent = () => {
         },
         [dispatch, torrentFilters]
     );
+
+    if (!mainData || !torrents) {
+        return <LoadingOverlay visible />;
+    }
+
+    const { categories } = mainData;
+    const { tags } = mainData;
 
     return (
         <>

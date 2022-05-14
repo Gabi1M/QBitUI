@@ -10,6 +10,7 @@ import {
     Category,
     ConnectionSettings,
     LoginResponse,
+    MainData,
     Preferences,
     TorrentInfo,
     TransferInfo,
@@ -29,6 +30,7 @@ enum ApiPath {
     LOGOUT = 'auth/logout',
     VERSION = 'app/version',
     API_VERSION = 'app/webapiVersion',
+    MAIN_DATA = 'sync/maindata',
     ADD_TORRENTS = 'torrents/add',
     TORRENTS = 'torrents/info',
     TRANSFER_INFO = 'transfer/info',
@@ -201,9 +203,14 @@ export class Api {
 
     async fetchResource<T extends Resource = Resource>(
         resourceName: T,
-        params?: FetchResourceParams[T] // eslint-disable-line @typescript-eslint/no-unused-vars
+        params?: FetchResourceParams[T]
     ) {
         switch (resourceName) {
+            case Resource.MAIN_DATA: {
+                return this.mainData(
+                    (params as FetchResourceParams[Resource.MAIN_DATA]).rid
+                );
+            }
             case Resource.TORRENT: {
                 return this.torrents();
             }
@@ -265,6 +272,15 @@ export class Api {
                 return null;
             }
         }
+    }
+
+    async mainData(rid?: number) {
+        if (rid) {
+            return Api.getJSON<MainData>(
+                `${this.baseUrl}/${ApiPath.MAIN_DATA}?rid=${rid}`
+            );
+        }
+        return Api.getJSON<MainData>(`${this.baseUrl}/${ApiPath.MAIN_DATA}`);
     }
 
     async torrents() {

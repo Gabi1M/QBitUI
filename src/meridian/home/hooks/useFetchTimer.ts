@@ -1,22 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useFetchResource } from 'meridian/hooks';
-import { Resource } from 'meridian/resource';
 import { selectSettings } from 'meridian/settings';
+import { useRefreshMainData } from 'meridian/mainData';
 
 const useFetchTimer = () => {
-    const fetchTorrents = useFetchResource(Resource.TORRENT);
-    const fetchTransferInfo = useFetchResource(Resource.TRANSFER_INFO);
+    const refreshMainData = useRefreshMainData();
     const settings = useSelector(selectSettings);
     let timer: NodeJS.Timer;
 
     React.useEffect(() => {
-        fetchTorrents();
-        fetchTransferInfo();
+        refreshMainData();
         if (settings.autoRefresh) {
             timer = setInterval(() => {
-                fetchTorrents();
-                fetchTransferInfo();
+                refreshMainData();
             }, settings.autoRefreshInterval * 1000);
         }
 
@@ -25,7 +21,7 @@ const useFetchTimer = () => {
                 clearInterval(timer);
             }
         };
-    }, [fetchTorrents, settings.autoRefresh, settings.autoRefreshInterval]);
+    }, [refreshMainData, settings.autoRefresh, settings.autoRefreshInterval]);
 };
 
 export default useFetchTimer;

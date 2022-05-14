@@ -1,14 +1,15 @@
 import { AddTorrentsParams } from 'meridian/api/types';
 import {
     Category,
+    MainData,
     Preferences,
     TorrentInfo,
     TransferInfo,
 } from 'meridian/models';
 
 export enum Resource {
+    MAIN_DATA = 'main_data',
     TORRENT = 'torrent',
-
     TRANSFER_INFO = 'transfer_info',
     PREFERENCES = 'preferences',
     CATEGORIES = 'categories',
@@ -16,6 +17,7 @@ export enum Resource {
 }
 
 export type ResourceDataType = {
+    [Resource.MAIN_DATA]: MainData;
     [Resource.TORRENT]: TorrentInfo[];
     [Resource.TRANSFER_INFO]: TransferInfo;
     [Resource.PREFERENCES]: Preferences;
@@ -24,6 +26,9 @@ export type ResourceDataType = {
 };
 
 export type FetchResourceParams = {
+    [Resource.MAIN_DATA]: {
+        rid?: number;
+    };
     [Resource.TORRENT]: undefined;
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: undefined;
@@ -32,6 +37,7 @@ export type FetchResourceParams = {
 };
 
 export type SetResourceParams = {
+    [Resource.MAIN_DATA]: undefined;
     [Resource.TORRENT]: AddTorrentsParams;
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: Preferences;
@@ -43,6 +49,7 @@ export type SetResourceParams = {
 };
 
 export type DeleteResourceParams = {
+    [Resource.MAIN_DATA]: undefined;
     [Resource.TORRENT]: undefined;
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: undefined;

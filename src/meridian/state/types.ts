@@ -4,6 +4,7 @@ import { SettingsState } from 'meridian/settings/state/types';
 import { TorrentFiltersState } from 'meridian/torrentFilters/state/types';
 
 export interface GlobalState {
+    mainDataState: ResourceState<Resource.MAIN_DATA>;
     torrentState: ResourceState<Resource.TORRENT>;
     torrentFiltersState: TorrentFiltersState;
     sessionState: SessionState;

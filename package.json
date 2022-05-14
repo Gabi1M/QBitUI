@@ -46,7 +46,7 @@
     "test": "REACT_APP_VERSION=$npm_package_version react-scripts test",
     "eject": "react-scripts eject",
     "lint": "yarn eslint . --ext ts --ext tsx",
-    "fix": "yarn lint --fix",
+    "fix": "yarn lint --fix && yarn tsc --noEmit -p ./tsconfig.json",
     "extract": "lingui extract",
     "compile": "lingui compile",
     "deploy": "REACT_APP_VERSION=$npm_package_version ./deploy.sh"

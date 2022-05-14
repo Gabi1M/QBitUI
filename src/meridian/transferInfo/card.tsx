@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux';
 import { bytesToSize } from 'meridian/utils';
 import { Card, LoadingOverlay } from '@mantine/core';
 import { LabelWithText } from 'meridian/generic';
-import { selectTransferInfo } from './state';
+import { selectMainData } from 'meridian/mainData';
 
 const TransferInfoCard = () => {
-    const transferInfo = useSelector(selectTransferInfo);
+    const mainData = useSelector(selectMainData);
+    const transferInfo = mainData?.server_state;
 
     if (!transferInfo) {
         return <LoadingOverlay visible />;
