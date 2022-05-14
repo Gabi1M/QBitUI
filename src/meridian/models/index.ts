@@ -9,3 +9,4 @@ export * from './peer';
 export * from './sync';
 export * from './session';
 export * from './settings';
+export * from './torrentProperties';

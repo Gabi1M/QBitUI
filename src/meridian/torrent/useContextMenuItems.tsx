@@ -1,6 +1,7 @@
 import { t } from '@lingui/macro';
 import { ContextMenuItem } from 'meridian/generic';
 import { TorrentInfo } from 'meridian/models';
+import { useTorrentPropertiesModal } from 'meridian/torrentProperties';
 import React from 'react';
 import {
     BoxMultiple,
@@ -10,6 +11,7 @@ import {
     PlayerPlay,
     Tag,
     Trash,
+    List,
 } from 'tabler-icons-react';
 import { useTorrentActions } from './hooks';
 import {
@@ -28,6 +30,7 @@ const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
     const deleteTorrents = useDeleteTorrentsModal();
     const openCategoryModal = useTorrentCategoryModal();
     const openTagsModal = useTorrentTagsModal();
+    const openPropertiesModal = useTorrentPropertiesModal();
 
     return React.useMemo(
         () => [
@@ -65,6 +68,11 @@ const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
                 text: t`Tags`,
                 icon: <Tag />,
                 callback: () => openTagsModal(torrent),
+            },
+            {
+                text: t`Details`,
+                icon: <List />,
+                callback: () => openPropertiesModal(torrent.hash, torrent.name),
             },
         ],
         [

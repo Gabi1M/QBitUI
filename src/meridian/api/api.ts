@@ -14,6 +14,7 @@ import {
     MainData,
     Preferences,
     TorrentInfo,
+    TorrentProperties,
     TransferInfo,
 } from 'meridian/models';
 import { history } from 'meridian/navigation/history';
@@ -24,6 +25,7 @@ import {
     FetchResourceParams,
     DeleteResourceParams,
 } from 'meridian/resource/types';
+import { transformMainData } from 'transformers';
 import { AddTorrentsFormDataScheme, AddTorrentsParams } from './types';
 
 enum ApiPath {
@@ -34,6 +36,7 @@ enum ApiPath {
     MAIN_DATA = 'sync/maindata',
     ADD_TORRENTS = 'torrents/add',
     TORRENTS = 'torrents/info',
+    TORRENT_PROPERTIES = 'torrents/properties',
     TRANSFER_INFO = 'transfer/info',
     PREFERENCES = 'app/preferences',
     SET_PREFERENCES = 'app/setPreferences',
@@ -215,6 +218,12 @@ export class Api {
             case Resource.TORRENT: {
                 return this.torrents();
             }
+            case Resource.TORRENT_PROPERTIES: {
+                return this.torrentProperties(
+                    (params as FetchResourceParams[Resource.TORRENT_PROPERTIES])
+                        .hash
+                );
+            }
             case Resource.TRANSFER_INFO: {
                 return this.transferInfo();
             }
@@ -280,12 +289,18 @@ export class Api {
             return Promise.resolve(MockMainData);
         }
 
+        let data: MainData | null = null;
         if (rid) {
-            return Api.getJSON<MainData>(
+            data = await Api.getJSON<MainData>(
                 `${this.baseUrl}/${ApiPath.MAIN_DATA}?rid=${rid}`
             );
+        } else {
+            data = await Api.getJSON<MainData>(
+                `${this.baseUrl}/${ApiPath.MAIN_DATA}`
+            );
         }
-        return Api.getJSON<MainData>(`${this.baseUrl}/${ApiPath.MAIN_DATA}`);
+
+        return transformMainData(data);
     }
 
     async torrents() {
@@ -294,6 +309,15 @@ export class Api {
         }
         return Api.getJSON<TorrentInfo[]>(
             `${this.baseUrl}/${ApiPath.TORRENTS}`
+        );
+    }
+
+    async torrentProperties(hash: string) {
+        return Api.getJSON<TorrentProperties>(
+            `${this.baseUrl}/${ApiPath.TORRENT_PROPERTIES}`,
+            new URLSearchParams({
+                hash,
+            })
         );
     }
 

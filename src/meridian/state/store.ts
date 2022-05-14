@@ -6,6 +6,10 @@ import {
 import createSagaMiddleware from 'redux-saga';
 import { snackbarSaga } from 'meridian/snackbar';
 import { torrentReducer, torrentSaga } from 'meridian/torrent';
+import {
+    torrentPropertiesReducer,
+    torrentPropertiesSaga,
+} from 'meridian/torrentProperties';
 import { transferInfoReducer, transferInfoSaga } from 'meridian/transferInfo';
 import { preferencesReducer, preferencesSaga } from 'meridian/preferences';
 import { categoriesReducer, categoriesSaga } from 'meridian/categories';
@@ -22,6 +26,7 @@ export const createStore = () => {
     const appSagas = [
         sessionSaga,
         mainDataSaga,
+        torrentPropertiesSaga,
         torrentSaga,
         transferInfoSaga,
         preferencesSaga,
@@ -34,6 +39,7 @@ export const createStore = () => {
     const store = createReduxStore(
         combineReducers<GlobalState>({
             mainDataState: mainDataReducer,
+            torrentPropertiesState: torrentPropertiesReducer,
             torrentState: torrentReducer,
             torrentFiltersState: torrentFiltersReducer,
             sessionState: sessionReducer,
