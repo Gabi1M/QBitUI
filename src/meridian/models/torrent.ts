@@ -34,14 +34,6 @@ export enum TorrentStateDescription {
     UNKNOWN = 'Unknown',
 }
 
-export enum TorrentTrackerStatus {
-    DISABLED = 0,
-    NOT_CONTACTED = 1,
-    CONTACTED = 2,
-    UPDATING = 3,
-    ERROR = 4,
-}
-
 export interface TorrentInfo {
     added_on: number;
     amount_left: number;
@@ -86,17 +78,6 @@ export interface TorrentInfo {
     uploaded: number;
     uploaded_session: number;
     upspeed: number;
-}
-
-export interface TorrentTracker {
-    url: string;
-    status: TorrentTrackerStatus;
-    tier: number;
-    num_peers: number;
-    num_seeds: number;
-    num_leeches: number;
-    num_downloaded: number;
-    msg: string;
 }
 
 export interface TorrentAddOptions {

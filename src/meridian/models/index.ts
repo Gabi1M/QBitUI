@@ -11,3 +11,4 @@ export * from './session';
 export * from './settings';
 export * from './torrentProperties';
 export * from './torrentContent';
+export * from './torrentTracker';

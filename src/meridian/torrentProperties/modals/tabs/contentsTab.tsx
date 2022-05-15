@@ -48,7 +48,7 @@ const FileItem = ({ file }: FileItemProps) => (
     <tr key={file.name}>
         <td>
             <Tooltip wrapLines label={file.name}>
-                {truncateLongText(file.name, 50)}
+                {truncateLongText(file.name, 100)}
             </Tooltip>
         </td>
         <td>{bytesToSize(file.size)}</td>

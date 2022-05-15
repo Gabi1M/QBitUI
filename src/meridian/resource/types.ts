@@ -6,6 +6,7 @@ import {
     TorrentContent,
     TorrentInfo,
     TorrentProperties,
+    TorrentTracker,
     TransferInfo,
 } from 'meridian/models';
 
@@ -14,6 +15,7 @@ export enum Resource {
     TORRENT = 'torrent',
     TORRENT_PROPERTIES = 'torrent_properties',
     TORRENT_CONTENT = 'torrent_content',
+    TORRENT_TRACKERS = 'torrent_tracker',
     TRANSFER_INFO = 'transfer_info',
     PREFERENCES = 'preferences',
     CATEGORIES = 'categories',
@@ -25,6 +27,7 @@ export type ResourceDataType = {
     [Resource.TORRENT]: TorrentInfo[];
     [Resource.TORRENT_PROPERTIES]: TorrentProperties;
     [Resource.TORRENT_CONTENT]: TorrentContent[];
+    [Resource.TORRENT_TRACKERS]: TorrentTracker[];
     [Resource.TRANSFER_INFO]: TransferInfo;
     [Resource.PREFERENCES]: Preferences;
     [Resource.CATEGORIES]: Record<string, Category>;
@@ -42,6 +45,9 @@ export type FetchResourceParams = {
     [Resource.TORRENT_CONTENT]: {
         hash: string;
     };
+    [Resource.TORRENT_TRACKERS]: {
+        hash: string;
+    };
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: undefined;
     [Resource.CATEGORIES]: undefined;
@@ -53,6 +59,7 @@ export type SetResourceParams = {
     [Resource.TORRENT]: AddTorrentsParams;
     [Resource.TORRENT_PROPERTIES]: undefined;
     [Resource.TORRENT_CONTENT]: undefined;
+    [Resource.TORRENT_TRACKERS]: undefined;
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: Preferences;
     [Resource.CATEGORIES]: {
@@ -67,6 +74,7 @@ export type DeleteResourceParams = {
     [Resource.TORRENT]: undefined;
     [Resource.TORRENT_PROPERTIES]: undefined;
     [Resource.TORRENT_CONTENT]: undefined;
+    [Resource.TORRENT_TRACKERS]: undefined;
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: undefined;
     [Resource.CATEGORIES]: Category[];

@@ -6,7 +6,7 @@ import { useFetchResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
 import { t } from '@lingui/macro';
 import { selectTorrentProperties } from '../state';
-import { ContentsTab, GeneralTab, TransferTab } from './tabs';
+import { ContentsTab, GeneralTab, TrackersTab, TransferTab } from './tabs';
 
 const TorrentPropertiesModal = () => {
     const torrentProperties = useSelector(selectTorrentProperties);
@@ -26,6 +26,9 @@ const TorrentPropertiesModal = () => {
             <Tabs.Tab label={t`Contents`}>
                 <ContentsTab />
             </Tabs.Tab>
+            <Tabs.Tab label={t`Trackers`}>
+                <TrackersTab />
+            </Tabs.Tab>
         </Tabs>
     );
 };
@@ -36,19 +39,26 @@ const useTorrentPropertiesModal = () => {
         Resource.TORRENT_PROPERTIES
     );
     const fetchTorrentContents = useFetchResource(Resource.TORRENT_CONTENT);
+    const fetchTorrentTrackers = useFetchResource(Resource.TORRENT_TRACKERS);
 
     return React.useCallback(
         (hash: string, name: string) => {
             fetchTorrentProperties({ hash });
             fetchTorrentContents({ hash });
+            fetchTorrentTrackers({ hash });
             modals.openModal({
                 title: name,
                 children: <TorrentPropertiesModal />,
                 centered: true,
-                size: 'xl',
+                size: '100% - 50',
             });
         },
-        [modals, fetchTorrentProperties, fetchTorrentContents]
+        [
+            modals,
+            fetchTorrentProperties,
+            fetchTorrentContents,
+            fetchTorrentTrackers,
+        ]
     );
 };
 

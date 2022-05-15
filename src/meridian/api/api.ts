@@ -16,6 +16,7 @@ import {
     TorrentContent,
     TorrentInfo,
     TorrentProperties,
+    TorrentTracker,
     TransferInfo,
 } from 'meridian/models';
 import { history } from 'meridian/navigation/history';
@@ -39,6 +40,7 @@ enum ApiPath {
     TORRENTS = 'torrents/info',
     TORRENT_PROPERTIES = 'torrents/properties',
     TORRENT_CONTENT = 'torrents/files',
+    TORRENT_TRACKERS = 'torrents/trackers',
     TRANSFER_INFO = 'transfer/info',
     PREFERENCES = 'app/preferences',
     SET_PREFERENCES = 'app/setPreferences',
@@ -232,6 +234,12 @@ export class Api {
                         .hash
                 );
             }
+            case Resource.TORRENT_TRACKERS: {
+                return this.torrentTrackers(
+                    (params as FetchResourceParams[Resource.TORRENT_TRACKERS])
+                        .hash
+                );
+            }
             case Resource.TRANSFER_INFO: {
                 return this.transferInfo();
             }
@@ -330,8 +338,17 @@ export class Api {
     }
 
     async torrentContent(hash: string) {
-        return Api.getJSON<TorrentContent>(
+        return Api.getJSON<TorrentContent[]>(
             `${this.baseUrl}/${ApiPath.TORRENT_CONTENT}`,
+            new URLSearchParams({
+                hash,
+            })
+        );
+    }
+
+    async torrentTrackers(hash: string) {
+        return Api.getJSON<TorrentTracker[]>(
+            `${this.baseUrl}/${ApiPath.TORRENT_TRACKERS}`,
             new URLSearchParams({
                 hash,
             })

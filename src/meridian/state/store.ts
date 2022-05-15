@@ -23,6 +23,10 @@ import {
     torrentContentReducer,
     torrentContentSaga,
 } from 'meridian/torrentContent';
+import {
+    torrentTrackersReducer,
+    torrentTrackersSaga,
+} from 'meridian/torrentTrackers';
 import { GlobalState } from './types';
 import { startupSaga } from './sagas';
 
@@ -32,6 +36,7 @@ export const createStore = () => {
         mainDataSaga,
         torrentPropertiesSaga,
         torrentContentSaga,
+        torrentTrackersSaga,
         torrentSaga,
         transferInfoSaga,
         preferencesSaga,
@@ -46,6 +51,7 @@ export const createStore = () => {
             mainDataState: mainDataReducer,
             torrentPropertiesState: torrentPropertiesReducer,
             torrentContentState: torrentContentReducer,
+            torrentTrackersState: torrentTrackersReducer,
             torrentState: torrentReducer,
             torrentFiltersState: torrentFiltersReducer,
             sessionState: sessionReducer,

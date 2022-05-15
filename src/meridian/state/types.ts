@@ -8,6 +8,7 @@ export interface GlobalState {
     torrentState: ResourceState<Resource.TORRENT>;
     torrentPropertiesState: ResourceState<Resource.TORRENT_PROPERTIES>;
     torrentContentState: ResourceState<Resource.TORRENT_CONTENT>;
+    torrentTrackersState: ResourceState<Resource.TORRENT_TRACKERS>;
     torrentFiltersState: TorrentFiltersState;
     sessionState: SessionState;
     settingsState: SettingsState;
