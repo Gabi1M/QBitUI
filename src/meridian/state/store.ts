@@ -19,6 +19,10 @@ import { settingsReducer } from 'meridian/settings';
 import { torrentFiltersReducer } from 'meridian/torrentFilters';
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { mainDataReducer, mainDataSaga } from 'meridian/mainData';
+import {
+    torrentContentReducer,
+    torrentContentSaga,
+} from 'meridian/torrentContent';
 import { GlobalState } from './types';
 import { startupSaga } from './sagas';
 
@@ -27,6 +31,7 @@ export const createStore = () => {
         sessionSaga,
         mainDataSaga,
         torrentPropertiesSaga,
+        torrentContentSaga,
         torrentSaga,
         transferInfoSaga,
         preferencesSaga,
@@ -40,6 +45,7 @@ export const createStore = () => {
         combineReducers<GlobalState>({
             mainDataState: mainDataReducer,
             torrentPropertiesState: torrentPropertiesReducer,
+            torrentContentState: torrentContentReducer,
             torrentState: torrentReducer,
             torrentFiltersState: torrentFiltersReducer,
             sessionState: sessionReducer,

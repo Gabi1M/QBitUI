@@ -13,6 +13,7 @@ import {
     LoginResponse,
     MainData,
     Preferences,
+    TorrentContent,
     TorrentInfo,
     TorrentProperties,
     TransferInfo,
@@ -25,7 +26,7 @@ import {
     FetchResourceParams,
     DeleteResourceParams,
 } from 'meridian/resource/types';
-import { transformMainData } from 'transformers';
+import { transformMainData } from 'meridian/transformers';
 import { AddTorrentsFormDataScheme, AddTorrentsParams } from './types';
 
 enum ApiPath {
@@ -37,6 +38,7 @@ enum ApiPath {
     ADD_TORRENTS = 'torrents/add',
     TORRENTS = 'torrents/info',
     TORRENT_PROPERTIES = 'torrents/properties',
+    TORRENT_CONTENT = 'torrents/files',
     TRANSFER_INFO = 'transfer/info',
     PREFERENCES = 'app/preferences',
     SET_PREFERENCES = 'app/setPreferences',
@@ -224,6 +226,12 @@ export class Api {
                         .hash
                 );
             }
+            case Resource.TORRENT_CONTENT: {
+                return this.torrentContent(
+                    (params as FetchResourceParams[Resource.TORRENT_CONTENT])
+                        .hash
+                );
+            }
             case Resource.TRANSFER_INFO: {
                 return this.transferInfo();
             }
@@ -315,6 +323,15 @@ export class Api {
     async torrentProperties(hash: string) {
         return Api.getJSON<TorrentProperties>(
             `${this.baseUrl}/${ApiPath.TORRENT_PROPERTIES}`,
+            new URLSearchParams({
+                hash,
+            })
+        );
+    }
+
+    async torrentContent(hash: string) {
+        return Api.getJSON<TorrentContent>(
+            `${this.baseUrl}/${ApiPath.TORRENT_CONTENT}`,
             new URLSearchParams({
                 hash,
             })

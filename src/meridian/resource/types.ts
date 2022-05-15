@@ -3,6 +3,7 @@ import {
     Category,
     MainData,
     Preferences,
+    TorrentContent,
     TorrentInfo,
     TorrentProperties,
     TransferInfo,
@@ -12,6 +13,7 @@ export enum Resource {
     MAIN_DATA = 'main_data',
     TORRENT = 'torrent',
     TORRENT_PROPERTIES = 'torrent_properties',
+    TORRENT_CONTENT = 'torrent_content',
     TRANSFER_INFO = 'transfer_info',
     PREFERENCES = 'preferences',
     CATEGORIES = 'categories',
@@ -22,6 +24,7 @@ export type ResourceDataType = {
     [Resource.MAIN_DATA]: MainData;
     [Resource.TORRENT]: TorrentInfo[];
     [Resource.TORRENT_PROPERTIES]: TorrentProperties;
+    [Resource.TORRENT_CONTENT]: TorrentContent[];
     [Resource.TRANSFER_INFO]: TransferInfo;
     [Resource.PREFERENCES]: Preferences;
     [Resource.CATEGORIES]: Record<string, Category>;
@@ -36,6 +39,9 @@ export type FetchResourceParams = {
     [Resource.TORRENT_PROPERTIES]: {
         hash: string;
     };
+    [Resource.TORRENT_CONTENT]: {
+        hash: string;
+    };
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: undefined;
     [Resource.CATEGORIES]: undefined;
@@ -46,6 +52,7 @@ export type SetResourceParams = {
     [Resource.MAIN_DATA]: undefined;
     [Resource.TORRENT]: AddTorrentsParams;
     [Resource.TORRENT_PROPERTIES]: undefined;
+    [Resource.TORRENT_CONTENT]: undefined;
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: Preferences;
     [Resource.CATEGORIES]: {
@@ -59,6 +66,7 @@ export type DeleteResourceParams = {
     [Resource.MAIN_DATA]: undefined;
     [Resource.TORRENT]: undefined;
     [Resource.TORRENT_PROPERTIES]: undefined;
+    [Resource.TORRENT_CONTENT]: undefined;
     [Resource.TRANSFER_INFO]: undefined;
     [Resource.PREFERENCES]: undefined;
     [Resource.CATEGORIES]: Category[];

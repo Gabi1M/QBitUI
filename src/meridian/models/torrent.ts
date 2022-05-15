@@ -34,13 +34,6 @@ export enum TorrentStateDescription {
     UNKNOWN = 'Unknown',
 }
 
-export enum TorrentContentPriority {
-    DO_NOT_DOWNLOAD = 0,
-    NORMAL = 1,
-    HIGH = 6,
-    MAXIMUM = 7,
-}
-
 export enum TorrentTrackerStatus {
     DISABLED = 0,
     NOT_CONTACTED = 1,
@@ -93,16 +86,6 @@ export interface TorrentInfo {
     uploaded: number;
     uploaded_session: number;
     upspeed: number;
-}
-
-export interface TorrentContentInfo {
-    name: string;
-    size: number;
-    progress: number;
-    priority: TorrentContentPriority;
-    is_seed: boolean;
-    piece_range: Array<number>;
-    availability: number;
 }
 
 export interface TorrentTracker {
