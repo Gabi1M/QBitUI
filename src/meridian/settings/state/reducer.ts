@@ -1,6 +1,6 @@
 import { Language } from 'meridian/i18n/types';
 import { LocalStorage, LocalStorageKey } from 'meridian/localStorage';
-import { Settings, TorrentStateDescription } from 'meridian/models';
+import { Settings } from 'meridian/models';
 import { BaseAction } from 'meridian/resource';
 import { SettingsActions, SetSettingsAction } from './actions';
 import { SettingsState } from './types';
@@ -11,19 +11,6 @@ export const defaultSettings: Settings = {
     autoRefreshInterval: 5,
     torrentsPerPage: 5,
     language: Language.ENGLISH,
-    torrentStateColors: {
-        [TorrentStateDescription.DOWNLOADING]: '#1d4f11',
-        [TorrentStateDescription.UPLOADING]: '#4d2044',
-        [TorrentStateDescription.CHECKING]: '#db3c14',
-        [TorrentStateDescription.ERROR]: '#731931',
-        [TorrentStateDescription.MISSING_FILES]: '#731931',
-        [TorrentStateDescription.ALLOCATING]: '#193f73',
-        [TorrentStateDescription.MOVING]: '#193f73',
-        [TorrentStateDescription.PAUSED]: '#193f73',
-        [TorrentStateDescription.QUEUED]: '#193f73',
-        [TorrentStateDescription.RESUMING]: '#193f73',
-        [TorrentStateDescription.UNKNOWN]: '#193f73',
-    },
 };
 
 const initialState: SettingsState = {
@@ -61,9 +48,6 @@ export const settingsReducer = (
                     language:
                         successAction.settings.language ||
                         defaultSettings.language,
-                    torrentStateColors:
-                        successAction.settings.torrentStateColors ||
-                        defaultSettings.torrentStateColors,
                 },
             };
         }

@@ -67,11 +67,11 @@ msgstr "Aplică trackerelor"
 msgid "Authentication"
 msgstr "Autentificare"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:27
+#: src/meridian/settings/modals/useSettingsModal.tsx:25
 msgid "Auto refresh"
 msgstr "Reimprospatare automata"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:36
+#: src/meridian/settings/modals/useSettingsModal.tsx:34
 msgid "Auto refresh interval"
 msgstr "Interval reimprospatare automata"
 
@@ -136,14 +136,14 @@ msgstr "Categoriile au fost adaugate cu succes!"
 msgid "Categories deleted successfully!"
 msgstr "Categoriile au fost sterse cu succes!"
 
-#: src/meridian/torrent/card.tsx:111
+#: src/meridian/torrent/card.tsx:116
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:74
 #: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:30
 msgid "Category"
 msgstr "Categorie"
 
-#: src/meridian/torrent/state/saga.ts:143
-#: src/meridian/torrent/state/saga.ts:143
+#: src/meridian/torrent/state/saga.ts:138
+#: src/meridian/torrent/state/saga.ts:138
 msgid "Category set successfully!"
 msgstr "Categorie setata cu succes!"
 
@@ -158,10 +158,6 @@ msgstr "Goleste selectia"
 #: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:27
 msgid "Comment"
 msgstr "Comentariu"
-
-#: src/meridian/settings/modals/useSettingsModal.tsx:47
-msgid "Configure torrent state colors"
-msgstr "Configureaza culorile asociate statusurilor torentelor"
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:34
 msgid "Connection"
@@ -255,7 +251,7 @@ msgid "Download rate threshold"
 msgstr "Limita rata descarcare"
 
 #: src/meridian/mainData/modals/useServerStateModal.tsx:22
-#: src/meridian/torrent/card.tsx:93
+#: src/meridian/torrent/card.tsx:98
 #: src/meridian/transferInfo/card.tsx:20
 msgid "Download speed"
 msgstr "Viteza descarcare"
@@ -360,8 +356,8 @@ msgstr "Adaugarea categoriilor a esuat!"
 msgid "Failed to add tags!"
 msgstr "Adaugarea etichetelor a esuat!"
 
-#: src/meridian/torrent/state/saga.ts:191
-#: src/meridian/torrent/state/saga.ts:191
+#: src/meridian/torrent/state/saga.ts:184
+#: src/meridian/torrent/state/saga.ts:184
 msgid "Failed to add torrents!"
 msgstr "Adaugarea torentelor a esuat!"
 
@@ -375,23 +371,23 @@ msgstr "Stergerea categoriilor a esuat!"
 msgid "Failed to delete tags!"
 msgstr "Stergerea etichetelor a esuat!"
 
-#: src/meridian/torrent/state/saga.ts:82
-#: src/meridian/torrent/state/saga.ts:82
+#: src/meridian/torrent/state/saga.ts:79
+#: src/meridian/torrent/state/saga.ts:79
 msgid "Failed to delete torrents!"
 msgstr "Nu s-au putut sterge torentele!"
 
-#: src/meridian/torrent/state/saga.ts:39
-#: src/meridian/torrent/state/saga.ts:39
+#: src/meridian/torrent/state/saga.ts:38
+#: src/meridian/torrent/state/saga.ts:38
 msgid "Failed to pause torrents!"
 msgstr "Nu s-au putut opri torentele!"
 
-#: src/meridian/torrent/state/saga.ts:178
-#: src/meridian/torrent/state/saga.ts:178
+#: src/meridian/torrent/state/saga.ts:170
+#: src/meridian/torrent/state/saga.ts:170
 msgid "Failed to remove tags!"
 msgstr "Eliminarea etichetelor a esuat!"
 
-#: src/meridian/torrent/state/saga.ts:59
-#: src/meridian/torrent/state/saga.ts:59
+#: src/meridian/torrent/state/saga.ts:57
+#: src/meridian/torrent/state/saga.ts:57
 msgid "Failed to resume torrents!"
 msgstr "Nu s-au putut porni torentele!"
 
@@ -404,23 +400,23 @@ msgstr "Nu s-au putut salva preferintele!"
 msgid "Failed to select files. Drag here or click to select again."
 msgstr "Incarcarea a esuat. Trage sau click pentru a incerca din nou."
 
-#: src/meridian/torrent/state/saga.ts:149
-#: src/meridian/torrent/state/saga.ts:149
+#: src/meridian/torrent/state/saga.ts:143
+#: src/meridian/torrent/state/saga.ts:143
 msgid "Failed to set category!"
 msgstr "Nu s-a putut seta categoria!"
 
-#: src/meridian/torrent/state/saga.ts:164
-#: src/meridian/torrent/state/saga.ts:164
+#: src/meridian/torrent/state/saga.ts:157
+#: src/meridian/torrent/state/saga.ts:157
 msgid "Failed to set tags!"
 msgstr "Adaugarea etichetelor a esuat!"
 
-#: src/meridian/torrent/state/saga.ts:103
-#: src/meridian/torrent/state/saga.ts:103
+#: src/meridian/torrent/state/saga.ts:99
+#: src/meridian/torrent/state/saga.ts:99
 msgid "Failed to set torrents to force download!"
 msgstr "Nu s-au putut porni fortat torentele!"
 
-#: src/meridian/torrent/state/saga.ts:127
-#: src/meridian/torrent/state/saga.ts:127
+#: src/meridian/torrent/state/saga.ts:122
+#: src/meridian/torrent/state/saga.ts:122
 msgid "Failed to submit torrents recheck!"
 msgstr "Nu s-au putut reverifica torentele!"
 
@@ -506,7 +502,7 @@ msgstr "Cheie"
 msgid "Language"
 msgstr "Limba"
 
-#: src/meridian/torrent/card.tsx:83
+#: src/meridian/torrent/card.tsx:88
 msgid "Leechers"
 msgstr "Leechers"
 
@@ -674,7 +670,7 @@ msgstr "Servitor proxy"
 msgid "Rate Limits Settings"
 msgstr "Setări limite de viteză"
 
-#: src/meridian/torrent/card.tsx:87
+#: src/meridian/torrent/card.tsx:92
 msgid "Ratio"
 msgstr "Ratio"
 
@@ -683,12 +679,12 @@ msgstr "Ratio"
 msgid "Recheck"
 msgstr "Verifica"
 
-#: src/meridian/torrent/state/saga.ts:117
-#: src/meridian/torrent/state/saga.ts:117
+#: src/meridian/torrent/state/saga.ts:113
+#: src/meridian/torrent/state/saga.ts:113
 msgid "Recheck successfully submited for the selected torrents!"
 msgstr "Torentele vor fi verificate!"
 
-#: src/meridian/torrent/card.tsx:102
+#: src/meridian/torrent/card.tsx:107
 msgid "Remaining time"
 msgstr "Timp ramas"
 
@@ -709,7 +705,7 @@ msgstr "Servitor SMTP"
 msgid "Save"
 msgstr "Salveaza"
 
-#: src/meridian/torrent/card.tsx:71
+#: src/meridian/torrent/card.tsx:76
 #: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:21
 msgid "Save path"
 msgstr "Cale"
@@ -726,7 +722,7 @@ msgstr "Planifică utilizarea limitelor alternative de viteză"
 msgid "Security"
 msgstr "Securitate"
 
-#: src/meridian/torrent/card.tsx:79
+#: src/meridian/torrent/card.tsx:84
 msgid "Seeders"
 msgstr "Seeders"
 
@@ -764,7 +760,7 @@ msgstr "Ratie"
 msgid "Sign in"
 msgstr "Conectare"
 
-#: src/meridian/torrent/card.tsx:75
+#: src/meridian/torrent/card.tsx:80
 #: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:28
 #: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:22
 msgid "Size"
@@ -786,7 +782,7 @@ msgstr "Nu porni automat descarcarea"
 msgid "States"
 msgstr "Statusuri"
 
-#: src/meridian/torrent/card.tsx:64
+#: src/meridian/torrent/card.tsx:65
 #: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:31
 msgid "Status"
 msgstr "Status"
@@ -799,7 +795,7 @@ msgstr "Confirma"
 #: src/meridian/home/drawerContent.tsx:91
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:46
 #: src/meridian/tags/modals/useTagsModal.tsx:60
-#: src/meridian/torrent/card.tsx:117
+#: src/meridian/torrent/card.tsx:122
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:91
 #: src/meridian/torrent/useContextMenuItems.tsx:68
 msgid "Tags"
@@ -815,13 +811,13 @@ msgstr "Etichetele au fost adaugate cu succes!"
 msgid "Tags deleted successfully!"
 msgstr "Etichetele au fost sterse cu succes!"
 
-#: src/meridian/torrent/state/saga.ts:173
-#: src/meridian/torrent/state/saga.ts:173
+#: src/meridian/torrent/state/saga.ts:166
+#: src/meridian/torrent/state/saga.ts:166
 msgid "Tags removed successfully!"
 msgstr "Etichetele au fost eliminate cu succes!"
 
-#: src/meridian/torrent/state/saga.ts:159
-#: src/meridian/torrent/state/saga.ts:159
+#: src/meridian/torrent/state/saga.ts:153
+#: src/meridian/torrent/state/saga.ts:153
 msgid "Tags set successfully!"
 msgstr "Etichetele au fost adaugate cu succes!"
 
@@ -859,20 +855,20 @@ msgid "Torrent inactivity timer"
 msgstr "Timp inactivitate"
 
 #: src/meridian/settings/modals/useTorrentStateColorsModal.tsx:34
-msgid "Torrent state badge colors"
-msgstr "Culori asociate etichetelor cu statusul torenteleor"
+#~ msgid "Torrent state badge colors"
+#~ msgstr "Culori asociate etichetelor cu statusul torenteleor"
 
 #: src/meridian/home/drawerContent.tsx:61
 msgid "Torrents"
 msgstr "Torente"
 
-#: src/meridian/torrent/state/saga.ts:187
-#: src/meridian/torrent/state/saga.ts:187
+#: src/meridian/torrent/state/saga.ts:179
+#: src/meridian/torrent/state/saga.ts:179
 msgid "Torrents added successfully!"
 msgstr "Torentele au fost adaugate cu succes!"
 
-#: src/meridian/torrent/state/saga.ts:73
-#: src/meridian/torrent/state/saga.ts:73
+#: src/meridian/torrent/state/saga.ts:71
+#: src/meridian/torrent/state/saga.ts:71
 msgid "Torrents deleted successfully!"
 msgstr "Torente sterse cu succes!"
 
@@ -881,17 +877,17 @@ msgstr "Torente sterse cu succes!"
 msgid "Torrents paused successfully!"
 msgstr "Torente oprite cu succes!"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:18
+#: src/meridian/settings/modals/useSettingsModal.tsx:16
 msgid "Torrents per page"
 msgstr "Torente pe pagina"
 
-#: src/meridian/torrent/state/saga.ts:50
-#: src/meridian/torrent/state/saga.ts:50
+#: src/meridian/torrent/state/saga.ts:49
+#: src/meridian/torrent/state/saga.ts:49
 msgid "Torrents resumed successfully!"
 msgstr "Torente pornite cu succes!"
 
-#: src/meridian/torrent/state/saga.ts:93
-#: src/meridian/torrent/state/saga.ts:93
+#: src/meridian/torrent/state/saga.ts:90
+#: src/meridian/torrent/state/saga.ts:90
 msgid "Torrents successfully set to force download!"
 msgstr "Torente pornite fortat cu succes!"
 
@@ -953,7 +949,7 @@ msgid "Upload rate threshold"
 msgstr "Limita rata incarcare"
 
 #: src/meridian/mainData/modals/useServerStateModal.tsx:27
-#: src/meridian/torrent/card.tsx:97
+#: src/meridian/torrent/card.tsx:102
 #: src/meridian/transferInfo/card.tsx:24
 msgid "Upload speed"
 msgstr "Viteza incarcare"
@@ -1006,7 +1002,7 @@ msgid "Web UI"
 msgstr "Interfata"
 
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:31
-#: src/meridian/settings/modals/useSettingsModal.tsx:57
+#: src/meridian/settings/modals/useSettingsModal.tsx:50
 msgid "WebUI Settings"
 msgstr "Setari interfata"
 

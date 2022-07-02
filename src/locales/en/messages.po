@@ -81,11 +81,11 @@ msgstr "Apply to trackers"
 msgid "Authentication"
 msgstr "Authentication"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:27
+#: src/meridian/settings/modals/useSettingsModal.tsx:25
 msgid "Auto refresh"
 msgstr "Auto refresh"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:36
+#: src/meridian/settings/modals/useSettingsModal.tsx:34
 msgid "Auto refresh interval"
 msgstr "Auto refresh interval"
 
@@ -154,14 +154,14 @@ msgstr "Categories added successfully!"
 msgid "Categories deleted successfully!"
 msgstr "Categories deleted successfully!"
 
-#: src/meridian/torrent/card.tsx:111
+#: src/meridian/torrent/card.tsx:116
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:74
 #: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:30
 msgid "Category"
 msgstr "Category"
 
-#: src/meridian/torrent/state/saga.ts:143
-#: src/meridian/torrent/state/saga.ts:143
+#: src/meridian/torrent/state/saga.ts:138
+#: src/meridian/torrent/state/saga.ts:138
 msgid "Category set successfully!"
 msgstr "Category set successfully!"
 
@@ -178,8 +178,8 @@ msgid "Comment"
 msgstr "Comment"
 
 #: src/meridian/settings/modals/useSettingsModal.tsx:47
-msgid "Configure torrent state colors"
-msgstr "Configure torrent state colors"
+#~ msgid "Configure torrent state colors"
+#~ msgstr "Configure torrent state colors"
 
 #: src/meridian/preferences/modals/usePreferencesModal.tsx:34
 msgid "Connection"
@@ -281,7 +281,7 @@ msgid "Download rate threshold"
 msgstr "Download rate threshold"
 
 #: src/meridian/mainData/modals/useServerStateModal.tsx:22
-#: src/meridian/torrent/card.tsx:93
+#: src/meridian/torrent/card.tsx:98
 #: src/meridian/transferInfo/card.tsx:20
 msgid "Download speed"
 msgstr "Download speed"
@@ -390,8 +390,8 @@ msgstr "Failed to add categories!"
 msgid "Failed to add tags!"
 msgstr "Failed to add tags!"
 
-#: src/meridian/torrent/state/saga.ts:191
-#: src/meridian/torrent/state/saga.ts:191
+#: src/meridian/torrent/state/saga.ts:184
+#: src/meridian/torrent/state/saga.ts:184
 msgid "Failed to add torrents!"
 msgstr "Failed to add torrents!"
 
@@ -405,23 +405,23 @@ msgstr "Failed to delete categories!"
 msgid "Failed to delete tags!"
 msgstr "Failed to delete tags!"
 
-#: src/meridian/torrent/state/saga.ts:82
-#: src/meridian/torrent/state/saga.ts:82
+#: src/meridian/torrent/state/saga.ts:79
+#: src/meridian/torrent/state/saga.ts:79
 msgid "Failed to delete torrents!"
 msgstr "Failed to delete torrents!"
 
-#: src/meridian/torrent/state/saga.ts:39
-#: src/meridian/torrent/state/saga.ts:39
+#: src/meridian/torrent/state/saga.ts:38
+#: src/meridian/torrent/state/saga.ts:38
 msgid "Failed to pause torrents!"
 msgstr "Failed to pause torrents!"
 
-#: src/meridian/torrent/state/saga.ts:178
-#: src/meridian/torrent/state/saga.ts:178
+#: src/meridian/torrent/state/saga.ts:170
+#: src/meridian/torrent/state/saga.ts:170
 msgid "Failed to remove tags!"
 msgstr "Failed to remove tags!"
 
-#: src/meridian/torrent/state/saga.ts:59
-#: src/meridian/torrent/state/saga.ts:59
+#: src/meridian/torrent/state/saga.ts:57
+#: src/meridian/torrent/state/saga.ts:57
 msgid "Failed to resume torrents!"
 msgstr "Failed to resume torrents!"
 
@@ -434,23 +434,23 @@ msgstr "Failed to save preferences!"
 msgid "Failed to select files. Drag here or click to select again."
 msgstr "Failed to select files. Drag here or click to select again."
 
-#: src/meridian/torrent/state/saga.ts:149
-#: src/meridian/torrent/state/saga.ts:149
+#: src/meridian/torrent/state/saga.ts:143
+#: src/meridian/torrent/state/saga.ts:143
 msgid "Failed to set category!"
 msgstr "Failed to set category!"
 
-#: src/meridian/torrent/state/saga.ts:164
-#: src/meridian/torrent/state/saga.ts:164
+#: src/meridian/torrent/state/saga.ts:157
+#: src/meridian/torrent/state/saga.ts:157
 msgid "Failed to set tags!"
 msgstr "Failed to set tags!"
 
-#: src/meridian/torrent/state/saga.ts:103
-#: src/meridian/torrent/state/saga.ts:103
+#: src/meridian/torrent/state/saga.ts:99
+#: src/meridian/torrent/state/saga.ts:99
 msgid "Failed to set torrents to force download!"
 msgstr "Failed to set torrents to force download!"
 
-#: src/meridian/torrent/state/saga.ts:127
-#: src/meridian/torrent/state/saga.ts:127
+#: src/meridian/torrent/state/saga.ts:122
+#: src/meridian/torrent/state/saga.ts:122
 msgid "Failed to submit torrents recheck!"
 msgstr "Failed to submit torrents recheck!"
 
@@ -540,7 +540,7 @@ msgstr "Key"
 msgid "Language"
 msgstr "Language"
 
-#: src/meridian/torrent/card.tsx:83
+#: src/meridian/torrent/card.tsx:88
 msgid "Leechers"
 msgstr "Leechers"
 
@@ -724,7 +724,7 @@ msgstr "Proxy Server"
 msgid "Rate Limits Settings"
 msgstr "Rate Limits Settings"
 
-#: src/meridian/torrent/card.tsx:87
+#: src/meridian/torrent/card.tsx:92
 msgid "Ratio"
 msgstr "Ratio"
 
@@ -733,8 +733,8 @@ msgstr "Ratio"
 msgid "Recheck"
 msgstr "Recheck"
 
-#: src/meridian/torrent/state/saga.ts:117
-#: src/meridian/torrent/state/saga.ts:117
+#: src/meridian/torrent/state/saga.ts:113
+#: src/meridian/torrent/state/saga.ts:113
 msgid "Recheck successfully submited for the selected torrents!"
 msgstr "Recheck successfully submited for the selected torrents!"
 
@@ -750,7 +750,7 @@ msgstr "Recheck successfully submited for the selected torrents!"
 #~ msgid "Relocate torrent when save path changes"
 #~ msgstr "Relocate torrent when save path changes"
 
-#: src/meridian/torrent/card.tsx:102
+#: src/meridian/torrent/card.tsx:107
 msgid "Remaining time"
 msgstr "Remaining time"
 
@@ -771,7 +771,7 @@ msgstr "SMTP server"
 msgid "Save"
 msgstr "Save"
 
-#: src/meridian/torrent/card.tsx:71
+#: src/meridian/torrent/card.tsx:76
 #: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:21
 msgid "Save path"
 msgstr "Save path"
@@ -792,7 +792,7 @@ msgstr "Schedule the use of alternative rate limits"
 msgid "Security"
 msgstr "Security"
 
-#: src/meridian/torrent/card.tsx:79
+#: src/meridian/torrent/card.tsx:84
 msgid "Seeders"
 msgstr "Seeders"
 
@@ -834,7 +834,7 @@ msgstr "Share ratio"
 msgid "Sign in"
 msgstr "Sign in"
 
-#: src/meridian/torrent/card.tsx:75
+#: src/meridian/torrent/card.tsx:80
 #: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:28
 #: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:22
 msgid "Size"
@@ -856,7 +856,7 @@ msgstr "Start paused"
 msgid "States"
 msgstr "States"
 
-#: src/meridian/torrent/card.tsx:64
+#: src/meridian/torrent/card.tsx:65
 #: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:31
 msgid "Status"
 msgstr "Status"
@@ -873,7 +873,7 @@ msgstr "Submit"
 #: src/meridian/home/drawerContent.tsx:91
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:46
 #: src/meridian/tags/modals/useTagsModal.tsx:60
-#: src/meridian/torrent/card.tsx:117
+#: src/meridian/torrent/card.tsx:122
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:91
 #: src/meridian/torrent/useContextMenuItems.tsx:68
 msgid "Tags"
@@ -889,13 +889,13 @@ msgstr "Tags added successfully!"
 msgid "Tags deleted successfully!"
 msgstr "Tags deleted successfully!"
 
-#: src/meridian/torrent/state/saga.ts:173
-#: src/meridian/torrent/state/saga.ts:173
+#: src/meridian/torrent/state/saga.ts:166
+#: src/meridian/torrent/state/saga.ts:166
 msgid "Tags removed successfully!"
 msgstr "Tags removed successfully!"
 
-#: src/meridian/torrent/state/saga.ts:159
-#: src/meridian/torrent/state/saga.ts:159
+#: src/meridian/torrent/state/saga.ts:153
+#: src/meridian/torrent/state/saga.ts:153
 msgid "Tags set successfully!"
 msgstr "Tags set successfully!"
 
@@ -933,20 +933,20 @@ msgid "Torrent inactivity timer"
 msgstr "Torrent inactivity timer"
 
 #: src/meridian/settings/modals/useTorrentStateColorsModal.tsx:34
-msgid "Torrent state badge colors"
-msgstr "Torrent state badge colors"
+#~ msgid "Torrent state badge colors"
+#~ msgstr "Torrent state badge colors"
 
 #: src/meridian/home/drawerContent.tsx:61
 msgid "Torrents"
 msgstr "Torrents"
 
-#: src/meridian/torrent/state/saga.ts:187
-#: src/meridian/torrent/state/saga.ts:187
+#: src/meridian/torrent/state/saga.ts:179
+#: src/meridian/torrent/state/saga.ts:179
 msgid "Torrents added successfully!"
 msgstr "Torrents added successfully!"
 
-#: src/meridian/torrent/state/saga.ts:73
-#: src/meridian/torrent/state/saga.ts:73
+#: src/meridian/torrent/state/saga.ts:71
+#: src/meridian/torrent/state/saga.ts:71
 msgid "Torrents deleted successfully!"
 msgstr "Torrents deleted successfully!"
 
@@ -955,17 +955,17 @@ msgstr "Torrents deleted successfully!"
 msgid "Torrents paused successfully!"
 msgstr "Torrents paused successfully!"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:18
+#: src/meridian/settings/modals/useSettingsModal.tsx:16
 msgid "Torrents per page"
 msgstr "Torrents per page"
 
-#: src/meridian/torrent/state/saga.ts:50
-#: src/meridian/torrent/state/saga.ts:50
+#: src/meridian/torrent/state/saga.ts:49
+#: src/meridian/torrent/state/saga.ts:49
 msgid "Torrents resumed successfully!"
 msgstr "Torrents resumed successfully!"
 
-#: src/meridian/torrent/state/saga.ts:93
-#: src/meridian/torrent/state/saga.ts:93
+#: src/meridian/torrent/state/saga.ts:90
+#: src/meridian/torrent/state/saga.ts:90
 msgid "Torrents successfully set to force download!"
 msgstr "Torrents successfully set to force download!"
 
@@ -1031,7 +1031,7 @@ msgid "Upload rate threshold"
 msgstr "Upload rate threshold"
 
 #: src/meridian/mainData/modals/useServerStateModal.tsx:27
-#: src/meridian/torrent/card.tsx:97
+#: src/meridian/torrent/card.tsx:102
 #: src/meridian/transferInfo/card.tsx:24
 msgid "Upload speed"
 msgstr "Upload speed"
@@ -1084,7 +1084,7 @@ msgid "Web UI"
 msgstr "Web UI"
 
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:31
-#: src/meridian/settings/modals/useSettingsModal.tsx:57
+#: src/meridian/settings/modals/useSettingsModal.tsx:50
 msgid "WebUI Settings"
 msgstr "WebUI Settings"
 

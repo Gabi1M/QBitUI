@@ -34,6 +34,20 @@ export enum TorrentStateDescription {
     UNKNOWN = 'Unknown',
 }
 
+export const TorrentStateDescriptionCollorMapping = {
+    [TorrentStateDescription.DOWNLOADING]: 'green',
+    [TorrentStateDescription.UPLOADING]: 'pink',
+    [TorrentStateDescription.ERROR]: 'red',
+    [TorrentStateDescription.MISSING_FILES]: 'red',
+    [TorrentStateDescription.ALLOCATING]: 'blue',
+    [TorrentStateDescription.CHECKING]: 'blue',
+    [TorrentStateDescription.MOVING]: 'blue',
+    [TorrentStateDescription.QUEUED]: 'blue',
+    [TorrentStateDescription.PAUSED]: 'blue',
+    [TorrentStateDescription.RESUMING]: 'blue',
+    [TorrentStateDescription.UNKNOWN]: 'blue',
+};
+
 export interface TorrentInfo {
     added_on: number;
     amount_left: number;
