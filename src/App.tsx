@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ModalsProvider } from '@mantine/modals';
-import { SnackbarProvider } from 'meridian/snackbar';
 import { I18nProvider } from 'meridian/i18n';
 import { createStore } from 'meridian/state';
 import { AppRouter } from 'meridian/navigation';
+import { NotificationsProvider } from '@mantine/notifications';
 import AppThemeProvider from './ThemeProvider';
 
 const App = () => (
@@ -12,9 +12,9 @@ const App = () => (
         <I18nProvider>
             <AppThemeProvider>
                 <ModalsProvider>
-                    <SnackbarProvider>
+                    <NotificationsProvider limit={5} position='bottom-left'>
                         <AppRouter />
-                    </SnackbarProvider>
+                    </NotificationsProvider>
                 </ModalsProvider>
             </AppThemeProvider>
         </I18nProvider>
