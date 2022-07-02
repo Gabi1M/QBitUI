@@ -1,5 +1,5 @@
 import { t } from '@lingui/macro';
-import { apply, call, delay, put, takeLatest } from 'redux-saga/effects';
+import { apply, call, put, takeLatest } from 'redux-saga/effects';
 import {
     createFetchResourceSaga,
     createResourceFetchAction,
@@ -32,8 +32,7 @@ function* pauseTorrentsSaga(action: PauseTorrentsAction) {
                 2000
             )
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(
             showSnackbarAction(t`Failed to pause torrents!`, 'error', 2000)
@@ -52,8 +51,7 @@ function* resumeTorrentsSaga(action: ResumeTorrentsAction) {
                 2000
             )
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(
             showSnackbarAction(t`Failed to resume torrents!`, 'error', 2000)
@@ -75,8 +73,7 @@ function* deleteTorrentsSaga(action: DeleteTorrentsAction) {
                 2000
             )
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(
             showSnackbarAction(t`Failed to delete torrents!`, 'error', 2000)
@@ -95,8 +92,7 @@ function* forceDownloadTorrentsSaga(action: ForceDownloadTorrentsAction) {
                 2000
             )
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(
             showSnackbarAction(
@@ -119,8 +115,7 @@ function* recheckTorrentsSaga(action: RecheckTorrentsAction) {
                 2000
             )
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(
             showSnackbarAction(
@@ -142,8 +137,7 @@ function* setTorrentCategorySaga(action: SetTorrentCategoryAction) {
         yield put(
             showSnackbarAction(t`Category set successfully!`, 'success', 2000)
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(
             showSnackbarAction(t`Failed to set category!`, 'error', 2000)
@@ -158,8 +152,7 @@ function* addTorrentsTagsSaga(action: AddTorrentsTagsAction) {
         yield put(
             showSnackbarAction(t`Tags set successfully!`, 'success', 2000)
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(showSnackbarAction(t`Failed to set tags!`, 'error', 2000));
     }
@@ -172,8 +165,7 @@ function* removeTorrentsTagsSaga(action: RemoveTorrentsTagsAction) {
         yield put(
             showSnackbarAction(t`Tags removed successfully!`, 'success', 2000)
         );
-        yield delay(1000);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(showSnackbarAction(t`Failed to remove tags!`, 'error', 2000));
     }
@@ -186,6 +178,7 @@ function* setTorrentSaga(action: ResourceSetAction<Resource.TORRENT>) {
         yield put(
             showSnackbarAction(t`Torrents added successfully!`, 'success', 2000)
         );
+        yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
         yield put(
             showSnackbarAction(t`Failed to add torrents!`, 'error', 2000)
