@@ -67,6 +67,7 @@ const useCategoriesModal = () => {
             title: t`Categories`,
             children: <CategoriesModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

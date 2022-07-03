@@ -135,6 +135,7 @@ const useAddTorrentsModal = () => {
             title: t`Add new torrents`,
             children: <AddTorrentsModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

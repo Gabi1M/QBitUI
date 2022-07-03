@@ -58,6 +58,7 @@ const usePreferencesModal = () => {
             children: <PreferencesModal />,
             centered: true,
             size: 'xl',
+            overlayBlur: 5,
         });
 };
 

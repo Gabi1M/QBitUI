@@ -60,6 +60,7 @@ const useTagsModal = () => {
             title: t`Tags`,
             children: <TagsModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

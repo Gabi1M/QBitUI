@@ -45,6 +45,7 @@ const useTorrentCategoryModal = () => {
             title: torrent.name,
             children: <TorrentCategoryModal hash={torrent.hash} />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 
