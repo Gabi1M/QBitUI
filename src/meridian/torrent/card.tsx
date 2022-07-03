@@ -5,6 +5,7 @@ import {
     getTorrentStateDescription,
     TorrentInfo,
     TorrentStateDescriptionCollorMapping,
+    TORRENT_INVALID_ETA,
 } from 'meridian/models';
 import {
     bytesToSize,
@@ -102,7 +103,8 @@ const TorrentCard = ({
                         label={t`Upload speed`}
                         text={bytesToSize(torrent.upspeed)}
                     />
-                    {torrent.progress !== 1 ? (
+                    {torrent.progress !== 1 &&
+                    torrent.eta !== TORRENT_INVALID_ETA ? (
                         <LabelWithText
                             label={t`Remaining time`}
                             text={calculateEtaString(torrent.eta)}
