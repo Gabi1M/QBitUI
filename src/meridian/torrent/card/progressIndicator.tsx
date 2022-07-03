@@ -1,18 +1,24 @@
 import React from 'react';
-import { Box, createStyles, Progress, Text } from '@mantine/core';
+import {
+    Box,
+    createStyles,
+    MantineStyleSystemProps,
+    Progress,
+    Text,
+} from '@mantine/core';
 
-interface Props {
+interface Props extends MantineStyleSystemProps {
     progress: number;
 }
 
-const ProgressIndicator = ({ progress }: Props) => {
+const ProgressIndicator = ({ progress, ...props }: Props) => {
     const styles = useStyles();
 
     const color = progress === 100 ? 'green' : 'cyan';
     const animate = progress !== 100;
 
     return (
-        <Box className={styles.classes.root}>
+        <Box {...props} className={styles.classes.root}>
             <Text weight='bold' color={color}>
                 {progress.toFixed(0)}%
             </Text>

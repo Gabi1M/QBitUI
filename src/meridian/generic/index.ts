@@ -7,7 +7,9 @@ export {
     SegmentedColorSchemeToggle,
 } from './colorSchemeToggle';
 export { default as useWindowSize } from './useWindowSize';
+export { default as useIsSmallDevice } from './useIsSmallDevice';
 export { default as ScrollToTopAffix } from './scrollToTopAffix';
 export { default as LabelWithText } from './labelWithText';
 export { default as LabelWithBadge } from './labelWithBadge';
+export { default as ResponsiveText } from './responsiveText';
 export type { ContextMenuItem } from './contextMenu';
