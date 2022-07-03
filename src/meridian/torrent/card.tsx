@@ -18,6 +18,7 @@ import {
     LabelWithText,
     useWindowSize,
 } from 'meridian/generic';
+import { Download, Upload } from 'tabler-icons-react';
 import useContextMenuItems from './useContextMenuItems';
 import ProgressIndicator from './progressIndicator';
 
@@ -55,84 +56,79 @@ const TorrentCard = ({
             className={styles.classes.root}
             onClick={selectable ? toggleSelection : undefined}
         >
-            <Box>
+            <Box className={styles.classes.titleAndSpeed}>
                 <Text size='xl'>
                     {isSmallDevice
                         ? truncateLongText(torrent.name)
                         : torrent.name}
                 </Text>
-                <Group mt='lg'>
-                    <LabelWithBadge
-                        label={t`Status`}
-                        text={torrentStateDescription}
-                        color={
-                            TorrentStateDescriptionCollorMapping[
-                                torrentStateDescription
-                            ]
-                        }
-                    />
-                </Group>
-                <Group mt='lg'>
-                    <LabelWithText
-                        label={t`Save path`}
-                        text={torrent.save_path}
-                    />
-                    <LabelWithText
-                        label={t`Size`}
-                        text={bytesToSize(torrent.size)}
-                    />
-                    <LabelWithText
-                        label={t`Seeders`}
-                        text={torrent.num_seeds.toString()}
-                    />
-                    <LabelWithText
-                        label={t`Leechers`}
-                        text={torrent.num_leechs.toString()}
-                    />
-                    <LabelWithText
-                        label={t`Ratio`}
-                        text={torrent.ratio.toFixed(2)}
-                    />
-                </Group>
-                <Group mt='lg'>
+                <Group>
                     <LabelWithText
                         label={t`Download speed`}
                         text={bytesToSize(torrent.dlspeed)}
+                        color={styles.theme.colors.green[7]}
+                        icon={<Download color={styles.theme.colors.green[7]} />}
                     />
                     <LabelWithText
                         label={t`Upload speed`}
                         text={bytesToSize(torrent.upspeed)}
+                        color={styles.theme.colors.cyan[4]}
+                        icon={<Upload color={styles.theme.colors.cyan[4]} />}
                     />
-                    {torrent.progress !== 1 &&
-                    torrent.eta !== TORRENT_INVALID_ETA ? (
-                        <LabelWithText
-                            label={t`Remaining time`}
-                            text={calculateEtaString(torrent.eta)}
-                        />
-                    ) : null}
                 </Group>
-                {torrent.category !== '' || torrent.tags !== '' ? (
-                    <Group mt='lg'>
-                        {torrent.category !== '' ? (
-                            <LabelWithBadge
-                                label={t`Category`}
-                                text={torrent.category}
-                            />
-                        ) : null}
-                        {torrent.tags !== '' ? (
-                            <LabelWithBadge
-                                label={t`Tags`}
-                                text={torrent.tags}
-                            />
-                        ) : null}
-                    </Group>
-                ) : null}
-                <Box mt='md'>
-                    <ContextMenu items={contextMenuItems} />
-                </Box>
             </Box>
-            <Box className={styles.classes.space} />
-            <ProgressIndicator progress={torrent.progress * 100} />
+            <Group>
+                <LabelWithBadge
+                    label={t`Status`}
+                    text={torrentStateDescription}
+                    color={
+                        TorrentStateDescriptionCollorMapping[
+                            torrentStateDescription
+                        ]
+                    }
+                />
+                {torrent.category !== '' ? (
+                    <LabelWithBadge
+                        label={t`Category`}
+                        text={torrent.category}
+                    />
+                ) : null}
+                {torrent.tags !== '' ? (
+                    <LabelWithBadge label={t`Tags`} text={torrent.tags} />
+                ) : null}
+            </Group>
+            <Group mt='lg'>
+                <LabelWithText label={t`Save path`} text={torrent.save_path} />
+                <LabelWithText
+                    label={t`Size`}
+                    text={bytesToSize(torrent.size)}
+                />
+            </Group>
+            <Group mt='lg'>
+                <LabelWithText
+                    label={t`Seeders`}
+                    text={torrent.num_seeds.toString()}
+                />
+                <LabelWithText
+                    label={t`Leechers`}
+                    text={torrent.num_leechs.toString()}
+                />
+                <LabelWithText
+                    label={t`Ratio`}
+                    text={torrent.ratio.toFixed(2)}
+                />
+                {torrent.progress !== 1 &&
+                torrent.eta !== TORRENT_INVALID_ETA ? (
+                    <LabelWithText
+                        label={t`Remaining time`}
+                        text={calculateEtaString(torrent.eta)}
+                    />
+                ) : null}
+            </Group>
+            <Box className={styles.classes.bottomContainer}>
+                <ProgressIndicator progress={torrent.progress * 100} />
+                <ContextMenu ml='xs' items={contextMenuItems} />
+            </Box>
         </Card>
     );
 };
@@ -141,14 +137,20 @@ const useStyles = (selectable: boolean, selected: boolean) =>
     createStyles(theme => ({
         root: {
             display: 'flex',
-            flexDirection: 'row',
+            flexDirection: 'column',
             borderLeftColor:
                 selectable && selected ? theme.colors.blue : undefined,
             borderLeftWidth: 10,
             cursor: selectable ? 'pointer' : 'default',
         },
-        space: {
-            flexGrow: 1,
+        titleAndSpeed: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+        },
+        bottomContainer: {
+            display: 'flex',
+            flexDirection: 'row',
         },
     }))();
 

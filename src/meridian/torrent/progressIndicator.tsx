@@ -1,6 +1,5 @@
 import React from 'react';
-import { createStyles, RingProgress, Text } from '@mantine/core';
-import { useWindowSize } from 'meridian/generic';
+import { Box, createStyles, Progress, Text } from '@mantine/core';
 
 interface Props {
     progress: number;
@@ -8,35 +7,35 @@ interface Props {
 
 const ProgressIndicator = ({ progress }: Props) => {
     const styles = useStyles();
-    const { width } = useWindowSize();
-    const isSmallDevice = width < 450;
 
-    const sections = [
-        {
-            value: progress,
-            color: styles.theme.colors.green[4],
-        },
-    ];
+    const color = progress === 100 ? 'green' : 'cyan';
+    const animate = progress !== 100;
 
     return (
-        <RingProgress
-            className={styles.classes.progress}
-            roundCaps
-            size={isSmallDevice ? 50 : 150}
-            thickness={isSmallDevice ? 3 : 7}
-            sections={sections}
-            label={
-                <Text size={isSmallDevice ? 'xs' : 'md'} align='center'>
-                    {progress.toFixed(0)}%
-                </Text>
-            }
-        />
+        <Box className={styles.classes.root}>
+            <Text weight='bold' color={color}>
+                {progress.toFixed(0)}%
+            </Text>
+            <Progress
+                ml='sm'
+                className={styles.classes.progress}
+                color={color}
+                animate={animate}
+                value={progress}
+            />
+        </Box>
     );
 };
 
 const useStyles = createStyles({
+    root: {
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
     progress: {
-        alignSelf: 'center',
+        flex: 1,
     },
 });
 

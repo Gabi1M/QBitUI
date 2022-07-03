@@ -84,7 +84,7 @@ const SelectionAffix = ({
     );
 
     return (
-        <Affix position={{ bottom: 20, right: 20 }}>
+        <Affix position={{ bottom: 50, right: 20 }}>
             <Transition transition='slide-up' mounted={selectionEnabled}>
                 {transitionStyles => (
                     <>
