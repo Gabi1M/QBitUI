@@ -14,12 +14,7 @@ interface Props {
     onSelectionChanged?: (hash: string, selected: boolean) => void;
 }
 
-const TorrentCard = ({
-    torrent,
-    selectable,
-    selected,
-    onSelectionChanged,
-}: Props) => {
+const TorrentCard = ({ torrent, selectable, selected, onSelectionChanged }: Props) => {
     const styles = useStyles(selectable, selected);
 
     const toggleSelection = () => onSelectionChanged?.(torrent.hash, !selected);
@@ -42,11 +37,7 @@ const TorrentCard = ({
                 dlSpeed={torrent.dlspeed}
                 upSpeed={torrent.upspeed}
             />
-            <FileInfo
-                mt='lg'
-                savePath={torrent.save_path}
-                size={torrent.size}
-            />
+            <FileInfo mt='lg' savePath={torrent.save_path} size={torrent.size} />
             <ConnectionInfo
                 mt='lg'
                 seeders={torrent.num_seeds}
@@ -61,12 +52,11 @@ const TorrentCard = ({
 };
 
 const useStyles = (selectable: boolean, selected: boolean) =>
-    createStyles(theme => ({
+    createStyles((theme) => ({
         root: {
             display: 'flex',
             flexDirection: 'column',
-            borderLeftColor:
-                selectable && selected ? theme.colors.blue : undefined,
+            borderLeftColor: selectable && selected ? theme.colors.blue : undefined,
             borderLeftWidth: 10,
             cursor: selectable ? 'pointer' : 'default',
         },

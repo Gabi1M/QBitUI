@@ -1,15 +1,8 @@
-import {
-    applyMiddleware,
-    combineReducers,
-    createStore as createReduxStore,
-} from 'redux';
+import { applyMiddleware, combineReducers, createStore as createReduxStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { snackbarSaga } from 'meridian/snackbar';
 import { torrentReducer, torrentSaga } from 'meridian/torrent';
-import {
-    torrentPropertiesReducer,
-    torrentPropertiesSaga,
-} from 'meridian/torrentProperties';
+import { torrentPropertiesReducer, torrentPropertiesSaga } from 'meridian/torrentProperties';
 import { transferInfoReducer, transferInfoSaga } from 'meridian/transferInfo';
 import { preferencesReducer, preferencesSaga } from 'meridian/preferences';
 import { categoriesReducer, categoriesSaga } from 'meridian/categories';
@@ -19,14 +12,8 @@ import { settingsReducer } from 'meridian/settings';
 import { torrentFiltersReducer } from 'meridian/torrentFilters';
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { mainDataReducer, mainDataSaga } from 'meridian/mainData';
-import {
-    torrentContentReducer,
-    torrentContentSaga,
-} from 'meridian/torrentContent';
-import {
-    torrentTrackersReducer,
-    torrentTrackersSaga,
-} from 'meridian/torrentTrackers';
+import { torrentContentReducer, torrentContentSaga } from 'meridian/torrentContent';
+import { torrentTrackersReducer, torrentTrackersSaga } from 'meridian/torrentTrackers';
 import { GlobalState } from './types';
 import { startupSaga } from './sagas';
 
@@ -61,10 +48,10 @@ export const createStore = () => {
             categoriesState: categoriesReducer,
             tagsState: tagsReducer,
         }),
-        composeWithDevTools(applyMiddleware(sagaMiddleware))
+        composeWithDevTools(applyMiddleware(sagaMiddleware)),
     );
 
-    appSagas.forEach(saga => sagaMiddleware.run(saga));
+    appSagas.forEach((saga) => sagaMiddleware.run(saga));
     sagaMiddleware.run(snackbarSaga);
     return store;
 };

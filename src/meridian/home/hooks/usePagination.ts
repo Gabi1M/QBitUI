@@ -10,10 +10,7 @@ type PaginationResult<T> = {
     setPage: (page: number) => void;
 };
 
-const usePagination = <T>(
-    items: T[] | undefined,
-    itemsPerPage: number
-): PaginationResult<T> => {
+const usePagination = <T>(items: T[] | undefined, itemsPerPage: number): PaginationResult<T> => {
     const [page, setPage] = React.useState(1);
     const torrentFilters = useSelector(selectTorrentFilters);
     const settings = useSelector(selectSettings);
@@ -32,12 +29,8 @@ const usePagination = <T>(
     }
 
     const numberOfPages =
-        Math.floor(items.length / itemsPerPage) +
-        (items.length % itemsPerPage === 0 ? 0 : 1);
-    const currentItems = items.slice(
-        (page - 1) * itemsPerPage,
-        page * itemsPerPage
-    );
+        Math.floor(items.length / itemsPerPage) + (items.length % itemsPerPage === 0 ? 0 : 1);
+    const currentItems = items.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
     return {
         numberOfPages,

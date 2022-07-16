@@ -8,25 +8,15 @@ import {
 } from './createResourceReducer';
 import { Resource } from './types';
 
-export const createSetResourceSaga = <T extends Resource = Resource>(
-    resourceName: T
-) => {
+export const createSetResourceSaga = <T extends Resource = Resource>(resourceName: T) => {
     function* setResource(action: ResourceSetAction<T>) {
         const api = Api.getInstance();
         try {
             yield apply(api, api.setResource, [resourceName, action.params]);
-            yield put(
-                createResourceSetSuccessAction(resourceName, action.params)
-            );
+            yield put(createResourceSetSuccessAction(resourceName, action.params));
             yield put(createResourceFetchAction(resourceName));
         } catch (error) {
-            yield put(
-                createResourceSetFailAction(
-                    resourceName,
-                    action.params,
-                    error as Error
-                )
-            );
+            yield put(createResourceSetFailAction(resourceName, action.params, error as Error));
             throw error;
         }
     }

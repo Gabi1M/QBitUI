@@ -32,7 +32,7 @@ const LabelWithText = ({ label, text, color, icon, ...rest }: Props) => {
     );
 };
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'row',

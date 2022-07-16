@@ -1,12 +1,7 @@
 import React from 'react';
 import { Download, Upload } from 'tabler-icons-react';
 import { t } from '@lingui/macro';
-import {
-    Box,
-    createStyles,
-    Group,
-    MantineStyleSystemProps,
-} from '@mantine/core';
+import { Box, createStyles, Group, MantineStyleSystemProps } from '@mantine/core';
 import { LabelWithBadge, LabelWithText } from 'meridian/generic';
 import {
     getTorrentStateDescription,
@@ -23,14 +18,7 @@ interface Props extends MantineStyleSystemProps {
     upSpeed: number;
 }
 
-const StatusInfo = ({
-    state,
-    category,
-    tags,
-    dlSpeed,
-    upSpeed,
-    ...props
-}: Props) => {
+const StatusInfo = ({ state, category, tags, dlSpeed, upSpeed, ...props }: Props) => {
     const styles = useStyles();
     const torrentStateDescription = getTorrentStateDescription(state);
     return (
@@ -39,18 +27,10 @@ const StatusInfo = ({
                 <LabelWithBadge
                     label={t`Status`}
                     text={torrentStateDescription}
-                    color={
-                        TorrentStateDescriptionCollorMapping[
-                            torrentStateDescription
-                        ]
-                    }
+                    color={TorrentStateDescriptionCollorMapping[torrentStateDescription]}
                 />
-                {category !== '' ? (
-                    <LabelWithBadge label={t`Category`} text={category} />
-                ) : null}
-                {tags !== '' ? (
-                    <LabelWithBadge label={t`Tags`} text={tags} />
-                ) : null}
+                {category !== '' ? <LabelWithBadge label={t`Category`} text={category} /> : null}
+                {tags !== '' ? <LabelWithBadge label={t`Tags`} text={tags} /> : null}
             </Group>
             <Group className={styles.classes.speeds}>
                 <LabelWithText

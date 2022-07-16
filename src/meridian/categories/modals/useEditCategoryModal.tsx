@@ -26,7 +26,7 @@ const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
                 modals.closeAll();
             }
         },
-        [modals, category, createCategory]
+        [modals, category, createCategory],
     );
 
     return (
@@ -35,9 +35,7 @@ const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
                 mt='md'
                 label='Save path'
                 value={category.savePath}
-                onChange={event =>
-                    onValueChanged(event.target.value.toString(), 'savePath')
-                }
+                onChange={(event) => onValueChanged(event.target.value.toString(), 'savePath')}
             />
             <Button type='submit' mt='md' fullWidth>
                 Submit

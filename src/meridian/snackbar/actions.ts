@@ -12,7 +12,7 @@ export interface ShowSnackbarAction {
 export const showSnackbarAction = (
     text: string,
     variant: 'default' | 'error' | 'info' | 'success' | 'warning',
-    autoHideDuration?: number
+    autoHideDuration?: number,
 ): ShowSnackbarAction => ({
     type: SnackbarAction.SHOW_SNACKBAR,
     text,

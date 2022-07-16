@@ -1,1 +1,1 @@
-export const isMockEnabled = process.env.REACT_APP_MOCK_ENABLED === 'true';
+export const isMockEnabled = import.meta.env.VITE_MOCK_ENABLED === 'true';

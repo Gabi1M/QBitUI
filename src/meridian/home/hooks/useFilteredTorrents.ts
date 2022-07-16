@@ -14,37 +14,31 @@ const useFilteredTorrents = () => {
         }
         let filteredTorrents = Object.values(mainData.torrents);
         if (torrentFilters.name.trim() !== '') {
-            filteredTorrents = filteredTorrents.filter(torrent =>
-                torrent.name
-                    .toLowerCase()
-                    .includes(torrentFilters.name.trim().toLowerCase())
+            filteredTorrents = filteredTorrents.filter((torrent) =>
+                torrent.name.toLowerCase().includes(torrentFilters.name.trim().toLowerCase()),
             );
         }
 
         if (torrentFilters.states.length) {
-            filteredTorrents = filteredTorrents.filter(torrent =>
-                torrentFilters.states.includes(
-                    getTorrentStateDescription(torrent.state)
-                )
+            filteredTorrents = filteredTorrents.filter((torrent) =>
+                torrentFilters.states.includes(getTorrentStateDescription(torrent.state)),
             );
         }
 
         if (torrentFilters?.categories.length) {
-            filteredTorrents = filteredTorrents.filter(torrent =>
-                torrentFilters.categories.includes(torrent.category)
+            filteredTorrents = filteredTorrents.filter((torrent) =>
+                torrentFilters.categories.includes(torrent.category),
             );
         }
 
         if (torrentFilters?.tags.length) {
-            filteredTorrents = filteredTorrents.filter(torrent => {
+            filteredTorrents = filteredTorrents.filter((torrent) => {
                 const torrentTags = torrent.tags.split(',');
                 if (!torrentTags.length) {
                     return false;
                 }
 
-                return torrentTags.some(tag =>
-                    torrentFilters.tags.includes(tag)
-                );
+                return torrentTags.some((tag) => torrentFilters.tags.includes(tag));
             });
         }
 

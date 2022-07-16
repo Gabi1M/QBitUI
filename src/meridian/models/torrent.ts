@@ -111,15 +111,9 @@ export interface TorrentAddOptions {
     firstLastPiecePrio?: boolean;
 }
 
-export const TorrentStateGrouping: Record<
-    TorrentStateDescription,
-    TorrentState[]
-> = {
+export const TorrentStateGrouping: Record<TorrentStateDescription, TorrentState[]> = {
     [TorrentStateDescription.ALLOCATING]: [TorrentState.ALLOCATING],
-    [TorrentStateDescription.CHECKING]: [
-        TorrentState.CHECKING_DL,
-        TorrentState.CHECKING_UP,
-    ],
+    [TorrentStateDescription.CHECKING]: [TorrentState.CHECKING_DL, TorrentState.CHECKING_UP],
     [TorrentStateDescription.DOWNLOADING]: [
         TorrentState.DOWNLOADING,
         TorrentState.META_DL,
@@ -134,23 +128,15 @@ export const TorrentStateGrouping: Record<
     [TorrentStateDescription.ERROR]: [TorrentState.ERROR],
     [TorrentStateDescription.MISSING_FILES]: [TorrentState.MISSING_FILES],
     [TorrentStateDescription.MOVING]: [TorrentState.MOVING],
-    [TorrentStateDescription.QUEUED]: [
-        TorrentState.QUEUED_DL,
-        TorrentState.QUEUED_UP,
-    ],
-    [TorrentStateDescription.PAUSED]: [
-        TorrentState.PAUSED_DL,
-        TorrentState.PAUSED_UP,
-    ],
+    [TorrentStateDescription.QUEUED]: [TorrentState.QUEUED_DL, TorrentState.QUEUED_UP],
+    [TorrentStateDescription.PAUSED]: [TorrentState.PAUSED_DL, TorrentState.PAUSED_UP],
     [TorrentStateDescription.RESUMING]: [TorrentState.CHECKING_RESUME_DATA],
     [TorrentStateDescription.UNKNOWN]: [TorrentState.UNKNOWN],
 };
 
-export const getTorrentStateDescription = (
-    torrentState: TorrentState
-): TorrentStateDescription =>
-    Object.entries(TorrentStateGrouping).filter(x =>
-        x[1].includes(torrentState)
+export const getTorrentStateDescription = (torrentState: TorrentState): TorrentStateDescription =>
+    Object.entries(TorrentStateGrouping).filter((x) =>
+        x[1].includes(torrentState),
     )[0][0] as TorrentStateDescription;
 
 export const TORRENT_INVALID_ETA = 8640000;

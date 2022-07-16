@@ -61,8 +61,8 @@ const Dropzone = ({ files, onDrop, onRemove }: Props) => (
         <LibDropzone mb={10} onDrop={onDrop} maxSize={3 * 1024 ** 2}>
             {DropzoneChildren}
         </LibDropzone>
-        {files.map(file => (
-            <FileBadge file={file} onRemove={onRemove} />
+        {files.map((file, key) => (
+            <FileBadge key={key} file={file} onRemove={onRemove} />
         ))}
     </>
 );

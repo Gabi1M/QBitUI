@@ -25,20 +25,15 @@ const BitTorrentSection = (props: SectionProps) => {
                 mt='md'
                 label={t`Automatically add these trackers to new downloads`}
                 checked={preferences?.add_trackers_enabled || false}
-                onChange={value =>
-                    updatePreferencesKey(
-                        'add_trackers_enabled',
-                        value.target.checked
-                    )
+                onChange={(value) =>
+                    updatePreferencesKey('add_trackers_enabled', value.target.checked)
                 }
             />
             <Textarea
                 mt='md'
                 disabled={!preferences?.add_trackers_enabled}
                 value={preferences?.add_trackers || ''}
-                onChange={value =>
-                    updatePreferencesKey('add_trackers', value.target.value)
-                }
+                onChange={(value) => updatePreferencesKey('add_trackers', value.target.value)}
             />
         </>
     );

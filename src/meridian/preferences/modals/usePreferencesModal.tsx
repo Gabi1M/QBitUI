@@ -12,12 +12,8 @@ import {
 } from './sections';
 
 const PreferencesModal = () => {
-    const {
-        onSave,
-        preferences,
-        updatePreferencesKey,
-        updateBulkPreferencesKey,
-    } = usePreferences();
+    const { onSave, preferences, updatePreferencesKey, updateBulkPreferencesKey } =
+        usePreferences();
 
     const sectionProps = {
         preferences,

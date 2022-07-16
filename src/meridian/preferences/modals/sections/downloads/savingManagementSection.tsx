@@ -9,35 +9,22 @@ import {
 import { getKeyForRecordValue } from 'meridian/utils';
 import { SectionProps } from '../types';
 
-const SavingManagementSection = ({
-    preferences,
-    updatePreferencesKey,
-}: SectionProps) => {
+const SavingManagementSection = ({ preferences, updatePreferencesKey }: SectionProps) => {
     const [localState, setLocalState] = React.useState({
-        copyFilesToEnabled:
-            preferences?.export_dir !== undefined &&
-            preferences.export_dir !== '',
+        copyFilesToEnabled: preferences?.export_dir !== undefined && preferences.export_dir !== '',
         copyFinishedFilesToEnabled:
-            preferences?.export_dir_fin !== undefined &&
-            preferences.export_dir_fin !== '',
+            preferences?.export_dir_fin !== undefined && preferences.export_dir_fin !== '',
     });
     return (
         <>
             <Select
                 label={t`Default Torrent Management Mode`}
-                value={
-                    TorrentManagementModeNameMapping[
-                        preferences?.auto_tmm_enabled ? 1 : 0
-                    ]
-                }
+                value={TorrentManagementModeNameMapping[preferences?.auto_tmm_enabled ? 1 : 0]}
                 data={Object.values(TorrentManagementModeNameMapping)}
-                onChange={value =>
+                onChange={(value) =>
                     updatePreferencesKey(
                         'auto_tmm_enabled',
-                        getKeyForRecordValue(
-                            TorrentManagementModeNameMapping,
-                            value
-                        ) === '1'
+                        getKeyForRecordValue(TorrentManagementModeNameMapping, value) === '1',
                     )
                 }
             />
@@ -49,16 +36,12 @@ const SavingManagementSection = ({
                         preferences?.torrent_changed_tmm_enabled ? 1 : 0
                     ]
                 }
-                data={Object.values(
-                    TorrentManagementCategoryChangedNameMapping
-                )}
-                onChange={value =>
+                data={Object.values(TorrentManagementCategoryChangedNameMapping)}
+                onChange={(value) =>
                     updatePreferencesKey(
                         'torrent_changed_tmm_enabled',
-                        getKeyForRecordValue(
-                            TorrentManagementCategoryChangedNameMapping,
-                            value
-                        ) === '1'
+                        getKeyForRecordValue(TorrentManagementCategoryChangedNameMapping, value) ===
+                            '1',
                     )
                 }
             />
@@ -71,13 +54,11 @@ const SavingManagementSection = ({
                     ]
                 }
                 data={Object.values(TorrentManagementPathChangedNameMapping)}
-                onChange={value =>
+                onChange={(value) =>
                     updatePreferencesKey(
                         'save_path_changed_tmm_enabled',
-                        getKeyForRecordValue(
-                            TorrentManagementPathChangedNameMapping,
-                            value
-                        ) === '1'
+                        getKeyForRecordValue(TorrentManagementPathChangedNameMapping, value) ===
+                            '1',
                     )
                 }
             />
@@ -90,13 +71,11 @@ const SavingManagementSection = ({
                     ]
                 }
                 data={Object.values(TorrentManagementPathChangedNameMapping)}
-                onChange={value =>
+                onChange={(value) =>
                     updatePreferencesKey(
                         'category_changed_tmm_enabled',
-                        getKeyForRecordValue(
-                            TorrentManagementPathChangedNameMapping,
-                            value
-                        ) === '1'
+                        getKeyForRecordValue(TorrentManagementPathChangedNameMapping, value) ===
+                            '1',
                     )
                 }
             />
@@ -104,35 +83,28 @@ const SavingManagementSection = ({
                 mt='md'
                 label={t`Default Save Path`}
                 value={preferences?.save_path || ''}
-                onChange={value =>
-                    updatePreferencesKey('save_path', value.target.value)
-                }
+                onChange={(value) => updatePreferencesKey('save_path', value.target.value)}
             />
             <Switch
                 mt='md'
                 label={t`Keep incomplete torrents in`}
                 checked={preferences?.temp_path_enabled || false}
-                onChange={value =>
-                    updatePreferencesKey(
-                        'temp_path_enabled',
-                        value.target.checked
-                    )
+                onChange={(value) =>
+                    updatePreferencesKey('temp_path_enabled', value.target.checked)
                 }
             />
             <TextInput
                 mt='md'
                 disabled={!preferences?.temp_path_enabled}
                 value={preferences?.temp_path || ''}
-                onChange={value =>
-                    updatePreferencesKey('temp_path', value.target.value)
-                }
+                onChange={(value) => updatePreferencesKey('temp_path', value.target.value)}
             />
             <Switch
                 mt='md'
                 label={t`Copy .torrent files to`}
                 checked={localState.copyFilesToEnabled}
-                onChange={value =>
-                    setLocalState(prev => ({
+                onChange={(value) =>
+                    setLocalState((prev) => ({
                         ...prev,
                         copyFilesToEnabled: value.target.checked,
                     }))
@@ -142,16 +114,14 @@ const SavingManagementSection = ({
                 mt='md'
                 disabled={!localState.copyFilesToEnabled}
                 value={preferences?.export_dir || ''}
-                onChange={value =>
-                    updatePreferencesKey('export_dir', value.target.value)
-                }
+                onChange={(value) => updatePreferencesKey('export_dir', value.target.value)}
             />
             <Switch
                 mt='md'
                 label={t`Copy .torrent files for finished downloads to`}
                 checked={localState.copyFinishedFilesToEnabled}
-                onChange={value =>
-                    setLocalState(prev => ({
+                onChange={(value) =>
+                    setLocalState((prev) => ({
                         ...prev,
                         copyFinishedFilesToEnabled: value.target.checked,
                     }))
@@ -161,9 +131,7 @@ const SavingManagementSection = ({
                 mt='md'
                 disabled={!localState.copyFinishedFilesToEnabled}
                 value={preferences?.export_dir_fin || ''}
-                onChange={value =>
-                    updatePreferencesKey('export_dir_fin', value.target.value)
-                }
+                onChange={(value) => updatePreferencesKey('export_dir_fin', value.target.value)}
             />
         </>
     );

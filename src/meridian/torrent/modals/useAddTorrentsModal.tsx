@@ -30,31 +30,25 @@ const AddTorrentsModal = () => {
     const updateData = React.useCallback(
         (
             field: keyof AddTorrentsParams,
-            value: string | string[] | boolean | Category | undefined
+            value: string | string[] | boolean | Category | undefined,
         ) => {
-            setData(prev => ({
+            setData((prev) => ({
                 ...prev,
                 [field]: value,
             }));
         },
-        [setData]
+        [setData],
     );
 
     const onRemoveFile = (file: File) => {
-        setFiles(files.filter(x => x.name !== file.name));
+        setFiles(files.filter((x) => x.name !== file.name));
     };
 
     const onSubmit = React.useCallback(
         (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             if (!files?.length) {
-                dispatch(
-                    showSnackbarAction(
-                        t`Cannot add torrent without files!`,
-                        'error',
-                        2000
-                    )
-                );
+                dispatch(showSnackbarAction(t`Cannot add torrent without files!`, 'error', 2000));
                 return;
             }
             addTorrents({
@@ -63,7 +57,7 @@ const AddTorrentsModal = () => {
             });
             modals.closeAll();
         },
-        [dispatch, modals, data, files, addTorrents]
+        [dispatch, modals, data, files, addTorrents],
     );
 
     return (
@@ -76,51 +70,45 @@ const AddTorrentsModal = () => {
                 value={data.category?.name}
                 data={
                     categories
-                        ? Object.keys(categories).map(category => ({
+                        ? Object.keys(categories).map((category) => ({
                               value: category,
                               label: category,
                           }))
                         : []
                 }
-                onChange={value =>
-                    updateData('category', categories?.[value as string])
-                }
+                onChange={(value) => updateData('category', categories?.[value as string])}
             />
             <MultiSelect
                 mt='md'
                 label={t`Tags`}
                 placeholder={t`None selected`}
                 value={data.tags}
-                data={tags ? tags.map(tag => ({ value: tag, label: tag })) : []}
-                onChange={value => updateData('tags', value)}
+                data={tags ? tags.map((tag) => ({ value: tag, label: tag })) : []}
+                onChange={(value) => updateData('tags', value)}
             />
             <Checkbox
                 mt='md'
                 label={t`Start paused`}
                 checked={data.paused}
-                onChange={event => updateData('paused', event.target.checked)}
+                onChange={(event) => updateData('paused', event.target.checked)}
             />
             <Checkbox
                 mt='md'
                 label={t`Skip checking`}
                 checked={data.skipChecking}
-                onChange={event =>
-                    updateData('skipChecking', event.target.checked)
-                }
+                onChange={(event) => updateData('skipChecking', event.target.checked)}
             />
             <Checkbox
                 mt='md'
                 label={t`Create subfolder`}
                 checked={data.rootFolder}
-                onChange={event =>
-                    updateData('rootFolder', event.target.checked)
-                }
+                onChange={(event) => updateData('rootFolder', event.target.checked)}
             />
             <Checkbox
                 mt='md'
                 label={t`Automatic torrent management`}
                 checked={data.autoTMM}
-                onChange={event => updateData('autoTMM', event.target.checked)}
+                onChange={(event) => updateData('autoTMM', event.target.checked)}
             />
             <Button type='submit' mt='md' fullWidth>{t`Submit`}</Button>
         </form>

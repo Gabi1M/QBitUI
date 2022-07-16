@@ -1,17 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { t } from '@lingui/macro';
-import {
-    createStyles,
-    LoadingOverlay,
-    ScrollArea,
-    Table,
-    Tooltip,
-} from '@mantine/core';
-import {
-    TorrentTracker,
-    TorrentTrackerStatusDescription,
-} from 'meridian/models';
+import { createStyles, LoadingOverlay, ScrollArea, Table, Tooltip } from '@mantine/core';
+import { TorrentTracker, TorrentTrackerStatusDescription } from 'meridian/models';
 import { truncateLongText } from 'meridian/utils';
 import { selectTorrentTrackers } from 'meridian/torrentTrackers';
 
@@ -38,7 +29,7 @@ const TrackersTab = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {trackers.map(tracker => (
+                    {trackers.map((tracker) => (
                         <TrackerItem key={tracker.url} tracker={tracker} />
                     ))}
                 </tbody>

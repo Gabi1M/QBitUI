@@ -44,7 +44,7 @@ export type ResourceState<T extends Resource = Resource> = {
 
 export type ResourceReducer<T extends Resource = Resource> = (
     state: ResourceState<T> | undefined,
-    action: ResourceAction<T>
+    action: ResourceAction<T>,
 ) => ResourceState<T>;
 
 export type CreatedResourceReducer<T extends Resource = Resource> = {
@@ -56,39 +56,33 @@ export type ResourceFetchAction<T extends Resource = Resource> = BaseAction & {
     params?: FetchResourceParams[T];
 };
 
-export type ResourceFetchSuccessAction<T extends Resource = Resource> =
-    ResourceFetchAction<T> & {
-        data: ResourceDataType[T];
-    };
+export type ResourceFetchSuccessAction<T extends Resource = Resource> = ResourceFetchAction<T> & {
+    data: ResourceDataType[T];
+};
 
-export type ResourceFetchFailAction<T extends Resource = Resource> =
-    ResourceFetchAction<T> & {
-        error: Error;
-    };
+export type ResourceFetchFailAction<T extends Resource = Resource> = ResourceFetchAction<T> & {
+    error: Error;
+};
 
 export type ResourceSetAction<T extends Resource = Resource> = BaseAction & {
     params: SetResourceParams[T];
 };
 
-export type ResourceSetSuccessAction<T extends Resource = Resource> =
-    ResourceSetAction<T>;
+export type ResourceSetSuccessAction<T extends Resource = Resource> = ResourceSetAction<T>;
 
-export type ResourceSetFailAction<T extends Resource = Resource> =
-    ResourceSetAction<T> & {
-        error: Error;
-    };
+export type ResourceSetFailAction<T extends Resource = Resource> = ResourceSetAction<T> & {
+    error: Error;
+};
 
 export type ResourceDeleteAction<T extends Resource = Resource> = BaseAction & {
     params: DeleteResourceParams[T];
 };
 
-export type ResourceDeleteSuccessAction<T extends Resource = Resource> =
-    ResourceDeleteAction<T>;
+export type ResourceDeleteSuccessAction<T extends Resource = Resource> = ResourceDeleteAction<T>;
 
-export type ResourceDeleteFailAction<T extends Resource = Resource> =
-    ResourceDeleteAction<T> & {
-        error: Error;
-    };
+export type ResourceDeleteFailAction<T extends Resource = Resource> = ResourceDeleteAction<T> & {
+    error: Error;
+};
 
 export type ResourceAction<T extends Resource = Resource> =
     | ResourceFetchAction<T>
@@ -103,7 +97,7 @@ export type ResourceAction<T extends Resource = Resource> =
 
 export const createResourceFetchAction = <T extends Resource = Resource>(
     resourceName: T,
-    params?: FetchResourceParams[T]
+    params?: FetchResourceParams[T],
 ): ResourceFetchAction<T> => ({
     type: `${resourceName.toUpperCase()}/FETCH`,
     params,
@@ -112,7 +106,7 @@ export const createResourceFetchAction = <T extends Resource = Resource>(
 export const createResourceFetchSuccessAction = <T extends Resource = Resource>(
     resourceName: T,
     data: ResourceDataType[T],
-    params?: FetchResourceParams[T]
+    params?: FetchResourceParams[T],
 ): ResourceFetchSuccessAction<T> => ({
     type: `${resourceName.toUpperCase()}/FETCH_SUCCESS`,
     data,
@@ -122,7 +116,7 @@ export const createResourceFetchSuccessAction = <T extends Resource = Resource>(
 export const createResourceFetchFailAction = <T extends Resource = Resource>(
     resourceName: T,
     params: FetchResourceParams[T] | undefined,
-    error: Error
+    error: Error,
 ): ResourceFetchFailAction<T> => ({
     type: `${resourceName.toUpperCase()}/FETCH_FAIL`,
     params,
@@ -131,7 +125,7 @@ export const createResourceFetchFailAction = <T extends Resource = Resource>(
 
 export const createResourceSetAction = <T extends Resource = Resource>(
     resourceName: T,
-    params: SetResourceParams[T]
+    params: SetResourceParams[T],
 ): ResourceSetAction<T> => ({
     type: `${resourceName.toUpperCase()}/POST`,
     params,
@@ -139,7 +133,7 @@ export const createResourceSetAction = <T extends Resource = Resource>(
 
 export const createResourceSetSuccessAction = <T extends Resource = Resource>(
     resourceName: T,
-    params: SetResourceParams[T]
+    params: SetResourceParams[T],
 ): ResourceSetSuccessAction<T> => ({
     type: `${resourceName.toUpperCase()}/POST_SUCCESS`,
     params,
@@ -148,7 +142,7 @@ export const createResourceSetSuccessAction = <T extends Resource = Resource>(
 export const createResourceSetFailAction = <T extends Resource = Resource>(
     resourceName: T,
     params: SetResourceParams[T],
-    error: Error
+    error: Error,
 ): ResourceSetFailAction<T> => ({
     type: `${resourceName.toUpperCase()}/POST_FAIL`,
     params,
@@ -157,17 +151,15 @@ export const createResourceSetFailAction = <T extends Resource = Resource>(
 
 export const createResourceDeleteAction = <T extends Resource = Resource>(
     resourceName: T,
-    params: DeleteResourceParams[T]
+    params: DeleteResourceParams[T],
 ): ResourceDeleteAction<T> => ({
     type: `${resourceName.toUpperCase()}/DELETE`,
     params,
 });
 
-export const createResourceDeleteSuccessAction = <
-    T extends Resource = Resource
->(
+export const createResourceDeleteSuccessAction = <T extends Resource = Resource>(
     resourceName: T,
-    params: DeleteResourceParams[T]
+    params: DeleteResourceParams[T],
 ): ResourceDeleteSuccessAction<T> => ({
     type: `${resourceName.toUpperCase()}/DELETE_SUCCESS`,
     params,
@@ -176,7 +168,7 @@ export const createResourceDeleteSuccessAction = <
 export const createResourceDeleteFailAction = <T extends Resource = Resource>(
     resourceName: T,
     params: DeleteResourceParams[T],
-    error: Error
+    error: Error,
 ): ResourceDeleteFailAction<T> => ({
     type: `${resourceName.toUpperCase()}/DELETE_FAIL`,
     params,
@@ -184,7 +176,7 @@ export const createResourceDeleteFailAction = <T extends Resource = Resource>(
 });
 
 export const createResourceReducer = <T extends Resource = Resource>(
-    resource: T
+    resource: T,
 ): CreatedResourceReducer<T> => {
     const reducerName = resource.toUpperCase();
     const actions = Object.freeze({
@@ -205,14 +197,10 @@ export const createResourceReducer = <T extends Resource = Resource>(
         delete: {},
     };
 
-    const reducer = (
-        state: ResourceState<T> = initialState,
-        action: ResourceAction<T>
-    ) => {
+    const reducer = (state: ResourceState<T> = initialState, action: ResourceAction<T>) => {
         switch (action.type) {
             case actions.FETCH_SUCCESS: {
-                const fetchSuccessAction =
-                    action as ResourceFetchSuccessAction<T>;
+                const fetchSuccessAction = action as ResourceFetchSuccessAction<T>;
                 return {
                     ...state,
                     fetch: {
@@ -258,8 +246,7 @@ export const createResourceReducer = <T extends Resource = Resource>(
                 };
             }
             case actions.DELETE_SUCCESS: {
-                const deleteSuccessAction =
-                    action as ResourceDeleteSuccessAction<T>;
+                const deleteSuccessAction = action as ResourceDeleteSuccessAction<T>;
                 return {
                     ...state,
                     delete: {

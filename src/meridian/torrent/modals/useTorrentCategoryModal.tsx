@@ -22,7 +22,7 @@ const TorrentCategoryModal = ({ hash }: Props) => {
     }
 
     const torrents = Object.values(mainData.torrents);
-    const torrent = torrents.filter(x => x.hash === hash)[0];
+    const torrent = torrents.filter((x) => x.hash === hash)[0];
 
     return (
         <Select
@@ -30,9 +30,7 @@ const TorrentCategoryModal = ({ hash }: Props) => {
             label={t`Category`}
             value={torrent.category}
             data={Object.keys(categories)}
-            onChange={category =>
-                setTorrentCategory([torrent.hash], category ?? '')
-            }
+            onChange={(category) => setTorrentCategory([torrent.hash], category ?? '')}
         />
     );
 };

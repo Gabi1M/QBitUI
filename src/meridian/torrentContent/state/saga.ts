@@ -5,7 +5,7 @@ import { TorrentContentActions } from './reducer';
 function* torrentContentSaga() {
     yield takeLatest(
         TorrentContentActions.FETCH,
-        createFetchResourceSaga(Resource.TORRENT_CONTENT)
+        createFetchResourceSaga(Resource.TORRENT_CONTENT),
     );
 }
 

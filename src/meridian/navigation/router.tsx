@@ -11,14 +11,10 @@ const AppRouter = () => {
         location: history.location,
     });
 
-    React.useLayoutEffect(() => history.listen(setState), [history]);
+    React.useLayoutEffect(() => history.listen(setState), []);
 
     return (
-        <Router
-            navigator={history}
-            navigationType={state.action}
-            location={state.location}
-        >
+        <Router navigator={history} navigationType={state.action} location={state.location}>
             <Routes>
                 <Route path={AppRoutes.HOME} element={<HomePage />} />
                 <Route path={AppRoutes.LOGIN} element={<LoginPage />} />

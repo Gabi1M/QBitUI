@@ -5,7 +5,7 @@ import { TorrentTrackersActions } from './reducer';
 function* torrentTrackersSaga() {
     yield takeLatest(
         TorrentTrackersActions.FETCH,
-        createFetchResourceSaga(Resource.TORRENT_TRACKERS)
+        createFetchResourceSaga(Resource.TORRENT_TRACKERS),
     );
 }
 

@@ -16,9 +16,7 @@ function* setTagsSaga(action: ResourceSetAction<Resource.TAGS>) {
     try {
         yield call(createSetResourceSaga(Resource.TAGS), action);
         yield put(createResourceFetchAction(Resource.TAGS));
-        yield put(
-            showSnackbarAction(t`Tags added successfully!`, 'success', 2000)
-        );
+        yield put(showSnackbarAction(t`Tags added successfully!`, 'success', 2000));
     } catch (error) {
         yield put(showSnackbarAction(t`Failed to add tags!`, 'error', 2000));
     }
@@ -28,9 +26,7 @@ function* deleteTagsSaga(action: ResourceDeleteAction<Resource.TAGS>) {
     try {
         yield call(createDeleteResourceSaga(Resource.TAGS), action);
         yield put(createResourceFetchAction(Resource.TAGS));
-        yield put(
-            showSnackbarAction(t`Tags deleted successfully!`, 'success', 2000)
-        );
+        yield put(showSnackbarAction(t`Tags deleted successfully!`, 'success', 2000));
     } catch (error) {
         yield put(showSnackbarAction(t`Failed to delete tags!`, 'error', 2000));
     }

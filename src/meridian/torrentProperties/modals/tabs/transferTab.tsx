@@ -24,9 +24,7 @@ const TransferTab = (props: Props) => {
     const leftItems = {
         [t`Average download speed`]: bytesToSize(props.dl_speed_avg),
         [t`Downloaded ( alltime )`]: bytesToSize(props.total_downloaded),
-        [t`Downloaded ( session )`]: bytesToSize(
-            props.total_downloaded_session
-        ),
+        [t`Downloaded ( session )`]: bytesToSize(props.total_downloaded_session),
         [t`Peers`]: props.peers.toString(),
         [t`Peers ( total )`]: props.peers_total.toString(),
     };
@@ -42,23 +40,13 @@ const TransferTab = (props: Props) => {
         <Box className={styles.classes.root}>
             <Box>
                 {Object.entries(leftItems).map(([label, text], index) => (
-                    <LabelWithText
-                        key={index}
-                        my='sm'
-                        label={label}
-                        text={text}
-                    />
+                    <LabelWithText key={index} my='sm' label={label} text={text} />
                 ))}
             </Box>
             <Box className={styles.classes.space} />
             <Box>
                 {Object.entries(rightItems).map(([label, text], index) => (
-                    <LabelWithText
-                        key={index}
-                        my='sm'
-                        label={label}
-                        text={text}
-                    />
+                    <LabelWithText key={index} my='sm' label={label} text={text} />
                 ))}
             </Box>
         </Box>

@@ -4,12 +4,12 @@ export interface SectionProps {
     preferences: Partial<Preferences> | undefined;
     updatePreferencesKey: (
         name: keyof Preferences,
-        value: string | boolean | number | string[]
+        value: string | boolean | number | string[],
     ) => void;
     updateBulkPreferencesKey: (
         items: {
             name: keyof Preferences;
             value: string | boolean | number | string[];
-        }[]
+        }[],
     ) => void;
 }

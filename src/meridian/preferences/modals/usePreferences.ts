@@ -13,17 +13,16 @@ const usePreferences = () => {
     const selectedPreferences = useSelector(selectPreferences);
     const dispatch = useDispatch();
 
-    const [preferencesState, setPreferencesState] =
-        React.useState<PreferencesModalState>({
-            current: selectedPreferences,
-            changed: {},
-        });
+    const [preferencesState, setPreferencesState] = React.useState<PreferencesModalState>({
+        current: selectedPreferences,
+        changed: {},
+    });
 
     const updatePreferencesKey = (
         name: keyof Preferences,
-        value: string | boolean | number | string[]
+        value: string | boolean | number | string[],
     ) => {
-        setPreferencesState(prev => ({
+        setPreferencesState((prev) => ({
             current: { ...prev.current, [name]: value },
             changed: { ...prev.changed, [name]: value },
         }));
@@ -33,16 +32,16 @@ const usePreferences = () => {
         items: {
             name: keyof Preferences;
             value: string | boolean | number | string[];
-        }[]
+        }[],
     ) => {
-        setPreferencesState(prev => ({
+        setPreferencesState((prev) => ({
             current: items.reduce(
                 (acc, curr) => ({ ...acc, [curr.name]: curr.value }),
-                prev.current
+                prev.current,
             ),
             changed: items.reduce(
                 (acc, curr) => ({ ...acc, [curr.name]: curr.value }),
-                prev.changed
+                prev.changed,
             ),
         }));
     };
@@ -57,20 +56,12 @@ const usePreferences = () => {
                 preferencesState.changed.proxy_password = undefined;
             }
 
-            if (
-                preferencesState.changed.mail_notification_password?.trim() ===
-                ''
-            ) {
+            if (preferencesState.changed.mail_notification_password?.trim() === '') {
                 preferencesState.changed.mail_notification_password = undefined;
             }
 
-            dispatch(
-                createResourceSetAction(
-                    Resource.PREFERENCES,
-                    preferencesState.changed
-                )
-            );
-            setPreferencesState(prev => ({
+            dispatch(createResourceSetAction(Resource.PREFERENCES, preferencesState.changed));
+            setPreferencesState((prev) => ({
                 ...prev,
                 changed: {},
             }));
@@ -78,7 +69,7 @@ const usePreferences = () => {
     }, [preferencesState, dispatch]);
 
     React.useEffect(() => {
-        setPreferencesState(prev => ({
+        setPreferencesState((prev) => ({
             ...prev,
             current: selectedPreferences,
         }));
