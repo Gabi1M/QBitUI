@@ -1,4 +1,12 @@
-import { TorrentInfo, TorrentState } from 'meridian/models';
+import {
+    FilePriority,
+    TorrentContent,
+    TorrentInfo,
+    TorrentProperties,
+    TorrentState,
+    TorrentTracker,
+    TorrentTrackerStatus,
+} from 'meridian/models';
 import { MockCategories } from './categories';
 import { MockTags } from './tags';
 
@@ -13,7 +21,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         state: TorrentState.DOWNLOADING,
         category: Object.values(MockCategories)[0].name,
         tags: [MockTags[0], MockTags[1]].join(','),
-        dlspeed: 10000,
+        dlspeed: 100000000,
         upspeed: 10000,
         num_seeds: 5,
         num_leechs: 8,
@@ -39,13 +47,13 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         name: 'Torrent 3',
         ratio: 0.12,
         eta: 89432,
-        progress: 0.12,
+        progress: 0.46,
         save_path: 'some/save/path',
         size: 340982144,
         state: TorrentState.DOWNLOADING,
         category: Object.values(MockCategories)[2].name,
         tags: [MockTags[1]].join(','),
-        dlspeed: 45,
+        dlspeed: 8734329,
         upspeed: 0,
         num_seeds: 1,
         num_leechs: 8,
@@ -55,7 +63,7 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         name: 'Torrent 4',
         ratio: 5.14,
         eta: 0,
-        progress: 1,
+        progress: 0.61,
         save_path: 'some/save/path',
         size: 5000000,
         state: TorrentState.UPLOADING,
@@ -114,5 +122,54 @@ export const MockTorrents: Partial<TorrentInfo>[] = [
         num_seeds: 2,
         num_leechs: 34,
         hash: '7',
+    },
+];
+
+export const MockTorrentProperties: Partial<TorrentProperties> = {
+    save_path: 'Some save path',
+    total_size: 100000000,
+    share_ratio: 2.56,
+    time_elapsed: 1000000,
+    creation_date: Date.now(),
+    addition_date: Date.now(),
+    comment: 'Some comment',
+    created_by: 'Creator',
+    dl_speed_avg: 10000,
+    total_downloaded: 100000,
+    total_downloaded_session: 100000,
+    peers: 2,
+    peers_total: 5,
+    up_speed_avg: 10000,
+    total_uploaded: 10000,
+    total_uploaded_session: 1000000,
+    seeds: 10,
+    seeds_total: 12,
+};
+
+export const MockTorrentContent: Partial<TorrentContent>[] = [
+    {
+        name: 'File 1',
+        size: 100000,
+        progress: 0.45,
+        priority: FilePriority.NORMAL,
+    },
+    {
+        name: 'File 2',
+        size: 10000000,
+        progress: 0.68,
+        priority: FilePriority.NORMAL,
+    },
+];
+
+export const MockTorrentTrackers: Partial<TorrentTracker>[] = [
+    {
+        url: 'Some url',
+        status: TorrentTrackerStatus.CONTACTED,
+        tier: 2,
+        num_peers: 17,
+        num_seeds: 10,
+        num_leeches: 5,
+        num_downloaded: 4,
+        msg: 'Some message',
     },
 ];

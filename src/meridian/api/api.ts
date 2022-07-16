@@ -4,7 +4,10 @@ import {
     MockMainData,
     MockPreferences,
     MockTags,
+    MockTorrentContent,
+    MockTorrentProperties,
     MockTorrents,
+    MockTorrentTrackers,
     MockTransferInfo,
 } from 'meridian/mock';
 import {
@@ -307,6 +310,9 @@ export class Api {
     }
 
     async torrentProperties(hash: string) {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTorrentProperties);
+        }
         return Api.getJSON<TorrentProperties>(
             `${this.baseUrl}/${ApiPath.TORRENT_PROPERTIES}`,
             new URLSearchParams({
@@ -316,6 +322,9 @@ export class Api {
     }
 
     async torrentContent(hash: string) {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTorrentContent);
+        }
         return Api.getJSON<TorrentContent[]>(
             `${this.baseUrl}/${ApiPath.TORRENT_CONTENT}`,
             new URLSearchParams({
@@ -325,6 +334,9 @@ export class Api {
     }
 
     async torrentTrackers(hash: string) {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTorrentTrackers);
+        }
         return Api.getJSON<TorrentTracker[]>(
             `${this.baseUrl}/${ApiPath.TORRENT_TRACKERS}`,
             new URLSearchParams({
