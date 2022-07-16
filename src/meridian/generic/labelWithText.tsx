@@ -1,10 +1,11 @@
 import React from 'react';
+
 import {
     Box,
-    createStyles,
     DefaultMantineColor,
     MantineStyleSystemProps,
     Text,
+    createStyles,
 } from '@mantine/core';
 
 interface Props extends MantineStyleSystemProps {

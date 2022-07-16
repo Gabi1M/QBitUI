@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, createStyles, MantineStyleSystemProps, Progress, Text } from '@mantine/core';
+
+import { Box, MantineStyleSystemProps, Progress, Text, createStyles } from '@mantine/core';
 
 interface Props extends MantineStyleSystemProps {
     progress: number;

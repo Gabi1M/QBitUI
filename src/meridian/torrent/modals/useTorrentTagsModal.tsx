@@ -1,11 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import { LoadingOverlay, Switch } from '@mantine/core';
 import { useModals } from '@mantine/modals';
+
 import { commonModalConfiguration } from 'meridian/generic';
-import { selectTags } from 'meridian/tags';
-import { TorrentInfo } from 'meridian/models';
 import { selectMainData } from 'meridian/mainData';
+import { TorrentInfo } from 'meridian/models';
+import { selectTags } from 'meridian/tags';
+
 import { useManageTorrentTags } from '../hooks';
 
 interface Props {

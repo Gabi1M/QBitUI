@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { Switch, Textarea, TextInput } from '@mantine/core';
+
+import { Switch, TextInput, Textarea } from '@mantine/core';
+
 import { SectionProps } from '../types';
 
 const IpFilteringSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

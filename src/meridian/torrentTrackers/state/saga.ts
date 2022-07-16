@@ -1,5 +1,7 @@
-import { createFetchResourceSaga, Resource } from 'meridian/resource';
 import { takeLatest } from 'redux-saga/effects';
+
+import { Resource, createFetchResourceSaga } from 'meridian/resource';
+
 import { TorrentTrackersActions } from './reducer';
 
 function* torrentTrackersSaga() {

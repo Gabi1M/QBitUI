@@ -1,7 +1,10 @@
 import React from 'react';
-import { ActionIcon, Box, Center, createStyles, SegmentedControl } from '@mantine/core';
-import { Moon, MoonStars, Sun } from 'tabler-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { Moon, MoonStars, Sun } from 'tabler-icons-react';
+
+import { ActionIcon, Box, Center, SegmentedControl, createStyles } from '@mantine/core';
+
 import { createSetSettingsAction, selectSettings } from 'meridian/settings';
 
 const ColorSchemeToggle = () => {

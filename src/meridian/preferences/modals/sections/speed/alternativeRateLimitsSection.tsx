@@ -1,9 +1,13 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { Box, createStyles, NumberInput, Select, Switch } from '@mantine/core';
+
+import { Box, NumberInput, Select, Switch, createStyles } from '@mantine/core';
+import { TimeInput } from '@mantine/dates';
+
 import { SchedulerDayNameMapping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
-import { TimeInput } from '@mantine/dates';
+
 import { SectionProps } from '../types';
 
 const createDate = (hours: number, minutes: number) => {

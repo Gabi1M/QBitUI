@@ -1,10 +1,10 @@
 import { BaseAction } from './baseAction';
 import {
+    DeleteResourceParams,
     FetchResourceParams,
     Resource,
     ResourceDataType,
     SetResourceParams,
-    DeleteResourceParams,
 } from './types';
 
 type ActionsType =

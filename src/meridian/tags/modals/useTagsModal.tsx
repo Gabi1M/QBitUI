@@ -1,14 +1,19 @@
 import React from 'react';
-import { t } from '@lingui/macro';
 import { useSelector } from 'react-redux';
+
+import { t } from '@lingui/macro';
 import { Trash } from 'tabler-icons-react';
-import { ActionIcon, Box, Button, createStyles, Group, Text } from '@mantine/core';
+
+import { ActionIcon, Box, Button, Group, Text, createStyles } from '@mantine/core';
 import { useModals } from '@mantine/modals';
+
 import { commonModalConfiguration } from 'meridian/generic';
 import { useDeleteResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
-import useCreateTagModal from './useCreateTagModal';
+
 import { selectTags } from '../state';
+
+import useCreateTagModal from './useCreateTagModal';
 
 const TagsModal = () => {
     const styles = useStyles();

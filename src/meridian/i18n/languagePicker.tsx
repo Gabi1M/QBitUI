@@ -1,8 +1,12 @@
 import React, { forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { t } from '@lingui/macro';
+
 import { Avatar, Group, Select, Text } from '@mantine/core';
+
 import { createSetSettingsAction, selectSettings } from 'meridian/settings';
+
 import { Language, LanguageIcon, LanguageName } from './types';
 
 interface ItemProps {

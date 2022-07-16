@@ -1,10 +1,13 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { useModals } from '@mantine/modals';
+
 import { Button, TextInput } from '@mantine/core';
+import { useModals } from '@mantine/modals';
+
 import { commonModalConfiguration } from 'meridian/generic';
-import { Category } from 'meridian/models';
 import { useCreateResource } from 'meridian/hooks';
+import { Category } from 'meridian/models';
 import { Resource } from 'meridian/resource';
 
 interface Props {

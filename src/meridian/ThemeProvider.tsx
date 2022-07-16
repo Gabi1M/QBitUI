@@ -1,7 +1,9 @@
 import React from 'react';
-import { selectSettings } from 'meridian/settings';
 import { useSelector } from 'react-redux';
+
 import { MantineProvider, MantineThemeOverride } from '@mantine/core';
+
+import { selectSettings } from 'meridian/settings';
 
 interface Props {
     children: React.ReactNode;

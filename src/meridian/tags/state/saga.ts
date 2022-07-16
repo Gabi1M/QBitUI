@@ -1,15 +1,17 @@
 import { t } from '@lingui/macro';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
 import {
+    Resource,
+    ResourceDeleteAction,
+    ResourceSetAction,
     createDeleteResourceSaga,
     createFetchResourceSaga,
     createResourceFetchAction,
     createSetResourceSaga,
-    Resource,
-    ResourceDeleteAction,
-    ResourceSetAction,
 } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
-import { call, put, takeLatest } from 'redux-saga/effects';
+
 import { TagsActions } from './reducer';
 
 function* setTagsSaga(action: ResourceSetAction<Resource.TAGS>) {

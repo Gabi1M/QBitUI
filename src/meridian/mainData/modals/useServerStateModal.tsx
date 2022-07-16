@@ -1,10 +1,14 @@
 import React from 'react';
-import { t } from '@lingui/macro';
 import { useSelector } from 'react-redux';
-import { useModals } from '@mantine/modals';
+
+import { t } from '@lingui/macro';
+
 import { LoadingOverlay } from '@mantine/core';
-import { commonModalConfiguration, LabelWithText } from 'meridian/generic';
+import { useModals } from '@mantine/modals';
+
+import { LabelWithText, commonModalConfiguration } from 'meridian/generic';
 import { bytesToSize } from 'meridian/utils';
+
 import { selectMainData } from '../state';
 
 const ServerStateModal = () => {

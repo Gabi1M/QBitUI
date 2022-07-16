@@ -1,6 +1,7 @@
 import React from 'react';
-import { selectSettings, createSetSettingsAction } from 'meridian/settings';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { createSetSettingsAction, selectSettings } from 'meridian/settings';
 
 export const useToggleTheme = () => {
     const settings = useSelector(selectSettings);

@@ -1,9 +1,13 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { ActionIcon, Badge, Group, Text } from '@mantine/core';
-import { Dropzone as LibDropzone, DropzoneStatus } from '@mantine/dropzone';
 import { X } from 'tabler-icons-react';
+
+import { ActionIcon, Badge, Group, Text } from '@mantine/core';
+import { DropzoneStatus, Dropzone as LibDropzone } from '@mantine/dropzone';
+
 import { truncateLongText } from 'meridian/utils';
+
 import useWindowSize from './useWindowSize';
 
 interface FileBadgeProps {

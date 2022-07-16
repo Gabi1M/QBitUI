@@ -1,7 +1,11 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Accordion, Switch, Textarea } from '@mantine/core';
+
 import { SectionProps } from '../types';
+
 import PrivacySection from './privacySection';
 import QueueingSection from './queueingSection';
 import SeedingLimitsSection from './seedingLimitsSection';

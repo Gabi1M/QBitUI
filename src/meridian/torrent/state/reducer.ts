@@ -1,4 +1,4 @@
-import { BaseAction, createResourceReducer, Resource } from 'meridian/resource';
+import { BaseAction, Resource, createResourceReducer } from 'meridian/resource';
 
 const { reducer: torrentReducer, actions } = createResourceReducer(Resource.TORRENT);
 

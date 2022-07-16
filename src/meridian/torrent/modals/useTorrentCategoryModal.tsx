@@ -1,12 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import { t } from '@lingui/macro';
-import { useModals } from '@mantine/modals';
+
 import { LoadingOverlay, Select } from '@mantine/core';
-import { commonModalConfiguration } from 'meridian/generic';
+import { useModals } from '@mantine/modals';
+
 import { selectCategories } from 'meridian/categories';
-import { TorrentInfo } from 'meridian/models';
+import { commonModalConfiguration } from 'meridian/generic';
 import { selectMainData } from 'meridian/mainData';
+import { TorrentInfo } from 'meridian/models';
+
 import { useSetTorrentCategory } from '../hooks';
 
 interface Props {

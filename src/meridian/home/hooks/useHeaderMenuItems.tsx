@@ -1,22 +1,24 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
 import {
     BoxMultiple,
+    DeviceDesktop,
     Edit,
     InfoCircle,
     Settings,
     Tag,
     User,
-    DeviceDesktop,
 } from 'tabler-icons-react';
-import { ContextMenuItem } from 'meridian/generic';
-import { useSettingsModal } from 'meridian/settings';
-import { usePreferencesModal } from 'meridian/preferences';
+
 import { useCategoriesModal } from 'meridian/categories';
-import { useTagsModal } from 'meridian/tags';
+import { ContextMenuItem } from 'meridian/generic';
 import { useLogout } from 'meridian/hooks';
-import useAboutModal from 'meridian/useAboutModal';
 import { useServerStateModal } from 'meridian/mainData';
+import { usePreferencesModal } from 'meridian/preferences';
+import { useSettingsModal } from 'meridian/settings';
+import { useTagsModal } from 'meridian/tags';
+import useAboutModal from 'meridian/useAboutModal';
 
 const useHeaderMenuItems = (): ContextMenuItem[] => {
     const openSettingsModal = useSettingsModal();

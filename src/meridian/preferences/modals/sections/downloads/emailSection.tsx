@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { PasswordInput, Switch, TextInput } from '@mantine/core';
+
 import { SectionProps } from '../types';
 
 const EmailSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

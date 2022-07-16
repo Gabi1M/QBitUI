@@ -1,4 +1,5 @@
 import { BaseAction } from 'meridian/resource';
+
 import { SessionActions, SetVersionsAction } from './actions';
 import { SessionState } from './types';
 

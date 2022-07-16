@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ArrowUp } from 'tabler-icons-react';
+
 import { ActionIcon, Affix, Transition } from '@mantine/core';
 import { useWindowScroll } from '@mantine/hooks';
 

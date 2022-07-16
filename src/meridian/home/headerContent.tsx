@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { Plus, Settings } from 'tabler-icons-react';
+
 import { ActionIcon } from '@mantine/core';
+
 import { ContextMenu } from 'meridian/generic';
 import { useAddTorrentsModal } from 'meridian/torrent';
+
 import { useHeaderMenuItems } from './hooks';
 
 const HeaderContent = () => {

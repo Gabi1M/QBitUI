@@ -1,17 +1,20 @@
 import React from 'react';
-import { ActionIcon, Affix, Transition } from '@mantine/core';
+
+import { t } from '@lingui/macro';
 import {
+    ClearAll,
     Download,
     FileCheck,
+    FoldDown,
+    FoldUp,
     PlayerPause,
     PlayerPlay,
     Trash,
-    FoldUp,
-    FoldDown,
-    ClearAll,
 } from 'tabler-icons-react';
+
+import { ActionIcon, Affix, Transition } from '@mantine/core';
+
 import { useDeleteTorrentsModal, useTorrentActions } from 'meridian/torrent';
-import { t } from '@lingui/macro';
 
 interface Props {
     hashes: string[];

@@ -1,19 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { t } from '@lingui/macro';
+
 import {
     Box,
+    LoadingOverlay,
     MultiSelect,
+    Text,
     TextInput,
     Title,
-    Text,
     createStyles,
-    LoadingOverlay,
 } from '@mantine/core';
-import { t } from '@lingui/macro';
+
+import { selectMainData } from 'meridian/mainData';
 import { TorrentFilters, TorrentState, TorrentStateDescription } from 'meridian/models';
 import { createSetTorrentFiltersAction, selectTorrentFilters } from 'meridian/torrentFilters';
 import { TransferInfoCard } from 'meridian/transferInfo';
-import { selectMainData } from 'meridian/mainData';
+
 import { useFilteredTorrents } from './hooks';
 
 const DrawerContent = () => {

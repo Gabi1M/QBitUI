@@ -1,9 +1,12 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { LabelWithText } from 'meridian/generic';
-import { bytesToSize } from 'meridian/utils';
-import { TorrentProperties } from 'meridian/models';
+
 import { Box, createStyles } from '@mantine/core';
+
+import { LabelWithText } from 'meridian/generic';
+import { TorrentProperties } from 'meridian/models';
+import { bytesToSize } from 'meridian/utils';
 
 type Props = Pick<
     TorrentProperties,

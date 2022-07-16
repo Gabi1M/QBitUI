@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box, createStyles, MantineStyleSystemProps } from '@mantine/core';
+
+import { Box, MantineStyleSystemProps, createStyles } from '@mantine/core';
+
 import { ContextMenu, ResponsiveText } from 'meridian/generic';
 import { TorrentInfo } from 'meridian/models';
+
 import useContextMenuItems from '../useContextMenuItems';
 
 interface Props extends MantineStyleSystemProps {

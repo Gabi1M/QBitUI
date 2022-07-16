@@ -1,12 +1,15 @@
 import React from 'react';
-import { Download, Upload } from 'tabler-icons-react';
+
 import { t } from '@lingui/macro';
-import { Box, createStyles, Group, MantineStyleSystemProps } from '@mantine/core';
+import { Download, Upload } from 'tabler-icons-react';
+
+import { Box, Group, MantineStyleSystemProps, createStyles } from '@mantine/core';
+
 import { LabelWithBadge, LabelWithText } from 'meridian/generic';
 import {
-    getTorrentStateDescription,
     TorrentState,
     TorrentStateDescriptionCollorMapping,
+    getTorrentStateDescription,
 } from 'meridian/models';
 import { bytesToSize } from 'meridian/utils';
 

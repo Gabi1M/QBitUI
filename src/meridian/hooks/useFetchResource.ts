@@ -1,6 +1,7 @@
 import React from 'react';
-import { createResourceFetchAction, FetchResourceParams, Resource } from 'meridian/resource';
 import { useDispatch } from 'react-redux';
+
+import { FetchResourceParams, Resource, createResourceFetchAction } from 'meridian/resource';
 
 export const useFetchResource = <T extends Resource = Resource>(resourceName: T) => {
     const dispatch = useDispatch();

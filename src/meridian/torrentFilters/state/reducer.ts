@@ -1,5 +1,6 @@
 import { LocalStorage, LocalStorageKey } from 'meridian/localStorage';
 import { BaseAction } from 'meridian/resource';
+
 import { SetTorrentFiltersAction, TorrentFiltersActions } from './actions';
 import { TorrentFiltersState } from './types';
 

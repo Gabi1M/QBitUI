@@ -1,7 +1,11 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { Accordion, NumberInput, Switch, Textarea, TextInput } from '@mantine/core';
+
+import { Accordion, NumberInput, Switch, TextInput, Textarea } from '@mantine/core';
+
 import { SectionProps } from '../types';
+
 import AuthenticationSection from './authenticationSection';
 import SecuritySection from './securitySection';
 

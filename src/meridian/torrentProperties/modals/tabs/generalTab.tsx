@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { LabelWithText } from 'meridian/generic';
-import { bytesToSize, calculateEtaString } from 'meridian/utils';
 import { TorrentProperties } from 'meridian/models';
+import { bytesToSize, calculateEtaString } from 'meridian/utils';
 
 type Props = Pick<
     TorrentProperties,

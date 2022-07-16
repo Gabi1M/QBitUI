@@ -1,16 +1,19 @@
 import React from 'react';
-import { t } from '@lingui/macro';
 import { useDispatch, useSelector } from 'react-redux';
-import { useModals } from '@mantine/modals';
+
+import { t } from '@lingui/macro';
+
 import { Button, Checkbox, MultiSelect, Select } from '@mantine/core';
-import { selectCategories } from 'meridian/categories';
-import { selectTags } from 'meridian/tags';
+import { useModals } from '@mantine/modals';
+
 import { AddTorrentsParams } from 'meridian/api';
-import { Category } from 'meridian/models';
+import { selectCategories } from 'meridian/categories';
+import { Dropzone, commonModalConfiguration } from 'meridian/generic';
 import { useCreateResource } from 'meridian/hooks';
+import { Category } from 'meridian/models';
 import { Resource } from 'meridian/resource';
-import { commonModalConfiguration, Dropzone } from 'meridian/generic';
 import { showSnackbarAction } from 'meridian/snackbar';
+import { selectTags } from 'meridian/tags';
 
 const AddTorrentsModal = () => {
     const modals = useModals();

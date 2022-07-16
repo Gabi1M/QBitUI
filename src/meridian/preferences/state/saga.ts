@@ -1,13 +1,15 @@
 import { t } from '@lingui/macro';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
 import {
+    Resource,
+    ResourceSetAction,
     createFetchResourceSaga,
     createResourceFetchAction,
     createSetResourceSaga,
-    Resource,
-    ResourceSetAction,
 } from 'meridian/resource';
-import { call, put, takeLatest } from 'redux-saga/effects';
 import { showSnackbarAction } from 'meridian/snackbar';
+
 import { PreferencesActions } from './reducer';
 
 function* setPreferencesSaga(action: ResourceSetAction<Resource.PREFERENCES>) {

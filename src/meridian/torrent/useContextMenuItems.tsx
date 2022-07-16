@@ -1,18 +1,21 @@
-import { t } from '@lingui/macro';
-import { ContextMenuItem } from 'meridian/generic';
-import { TorrentInfo } from 'meridian/models';
-import { useTorrentPropertiesModal } from 'meridian/torrentProperties';
 import React from 'react';
+
+import { t } from '@lingui/macro';
 import {
     BoxMultiple,
     Download,
     FileCheck,
+    List,
     PlayerPause,
     PlayerPlay,
     Tag,
     Trash,
-    List,
 } from 'tabler-icons-react';
+
+import { ContextMenuItem } from 'meridian/generic';
+import { TorrentInfo } from 'meridian/models';
+import { useTorrentPropertiesModal } from 'meridian/torrentProperties';
+
 import { useTorrentActions } from './hooks';
 import { useDeleteTorrentsModal, useTorrentCategoryModal, useTorrentTagsModal } from './modals';
 

@@ -1,14 +1,14 @@
 import {
-    isMockEnabled,
     MockCategories,
     MockMainData,
     MockPreferences,
     MockTags,
     MockTorrentContent,
     MockTorrentProperties,
-    MockTorrents,
     MockTorrentTrackers,
+    MockTorrents,
     MockTransferInfo,
+    isMockEnabled,
 } from 'meridian/mock';
 import {
     Category,
@@ -25,12 +25,13 @@ import {
 import { history } from 'meridian/navigation/history';
 import { AppRoutes } from 'meridian/navigation/types';
 import {
+    DeleteResourceParams,
+    FetchResourceParams,
     Resource,
     SetResourceParams,
-    FetchResourceParams,
-    DeleteResourceParams,
 } from 'meridian/resource/types';
 import { transformMainData } from 'meridian/transformers';
+
 import { AddTorrentsFormDataScheme, AddTorrentsParams } from './types';
 
 enum ApiPath {

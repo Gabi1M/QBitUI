@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { useModals } from '@mantine/modals';
+
 import { Button, Checkbox } from '@mantine/core';
+import { useModals } from '@mantine/modals';
+
 import { commonModalConfiguration } from 'meridian/generic';
+
 import { useDeleteTorrents } from '../hooks';
 
 interface Props {

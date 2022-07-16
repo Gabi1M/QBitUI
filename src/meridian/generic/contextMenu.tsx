@@ -1,5 +1,6 @@
-import { MantineStyleSystemProps, Menu } from '@mantine/core';
 import React from 'react';
+
+import { MantineStyleSystemProps, Menu } from '@mantine/core';
 
 export interface ContextMenuItem {
     text: string;

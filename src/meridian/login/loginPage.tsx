@@ -1,19 +1,22 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import {
     Avatar,
     Box,
     Button,
-    createStyles,
     Paper,
     PasswordInput,
     Text,
     TextInput,
+    createStyles,
 } from '@mantine/core';
+
 import { Page, SegmentedColorSchemeToggle } from 'meridian/generic';
 import { useLogin } from 'meridian/hooks';
-import { Icons } from 'meridian/icons';
 import { LanguagePicker } from 'meridian/i18n';
+import { Icons } from 'meridian/icons';
 
 const LoginPage = () => {
     const styles = useStyles();

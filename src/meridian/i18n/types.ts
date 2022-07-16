@@ -1,5 +1,6 @@
-import { Icons } from 'meridian/icons';
 import { t } from '@lingui/macro';
+
+import { Icons } from 'meridian/icons';
 
 export enum Language {
     ENGLISH = 'en',

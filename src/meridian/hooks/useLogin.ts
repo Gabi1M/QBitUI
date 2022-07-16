@@ -1,6 +1,7 @@
 import React from 'react';
-import { loginAction } from 'meridian/session';
 import { useDispatch } from 'react-redux';
+
+import { loginAction } from 'meridian/session';
 
 export const useLogin = () => {
     const dispatch = useDispatch();

@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Select, Switch } from '@mantine/core';
+
 import { BitTorrentEncryptionNameMapping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
+
 import { SectionProps } from '../types';
 
 const PrivacySection = ({ preferences, updatePreferencesKey }: SectionProps) => (

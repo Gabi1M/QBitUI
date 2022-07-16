@@ -1,7 +1,10 @@
 import React from 'react';
+
 import { call, takeLatest } from 'redux-saga/effects';
-import { showNotification } from '@mantine/notifications';
 import { Check } from 'tabler-icons-react';
+
+import { showNotification } from '@mantine/notifications';
+
 import { ShowSnackbarAction, SnackbarAction } from './actions';
 
 function* showSnackbarSaga(action: ShowSnackbarAction) {

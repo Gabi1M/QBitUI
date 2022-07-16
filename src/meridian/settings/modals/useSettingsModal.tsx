@@ -1,9 +1,13 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { useModals } from '@mantine/modals';
+
 import { Select, Switch } from '@mantine/core';
+import { useModals } from '@mantine/modals';
+
 import { commonModalConfiguration } from 'meridian/generic';
 import { LanguagePicker } from 'meridian/i18n';
+
 import useSettings from './useSettings';
 
 const SettingsModal = () => {

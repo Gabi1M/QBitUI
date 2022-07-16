@@ -1,5 +1,6 @@
 import React from 'react';
-import { Badge, Box, createStyles, Text } from '@mantine/core';
+
+import { Badge, Box, Text, createStyles } from '@mantine/core';
 
 interface Props {
     label: string;

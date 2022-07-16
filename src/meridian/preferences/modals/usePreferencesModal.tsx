@@ -1,9 +1,12 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Accordion, Button } from '@mantine/core';
 import { useModals } from '@mantine/modals';
+
 import { commonModalConfiguration } from 'meridian/generic';
-import usePreferences from './usePreferences';
+
 import {
     BitTorrentSection,
     ConnectionSection,
@@ -11,6 +14,7 @@ import {
     SpeedSection,
     WebUiSection,
 } from './sections';
+import usePreferences from './usePreferences';
 
 const PreferencesModal = () => {
     const { onSave, preferences, updatePreferencesKey, updateBulkPreferencesKey } =
