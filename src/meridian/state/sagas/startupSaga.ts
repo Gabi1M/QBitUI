@@ -7,19 +7,15 @@ import { createSetTorrentFiltersAction } from 'meridian/torrentFilters';
 import { apply, call, put } from 'redux-saga/effects';
 
 function* hydrateFromStorageSaga() {
-    const settings: Settings = yield apply(
-        LocalStorage,
-        LocalStorage.getValue,
-        [LocalStorageKey.SETTINGS]
-    );
+    const settings: Settings = yield apply(LocalStorage, LocalStorage.getValue, [
+        LocalStorageKey.SETTINGS,
+    ]);
     if (settings) {
         yield put(createSetSettingsAction(settings));
     }
-    const torrentFilters: TorrentFilters = yield apply(
-        LocalStorage,
-        LocalStorage.getValue,
-        [LocalStorageKey.TORRENT_FILTERS]
-    );
+    const torrentFilters: TorrentFilters = yield apply(LocalStorage, LocalStorage.getValue, [
+        LocalStorageKey.TORRENT_FILTERS,
+    ]);
     if (torrentFilters) {
         yield put(createSetTorrentFiltersAction(torrentFilters));
     }

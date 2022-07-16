@@ -12,7 +12,7 @@ export const useToggleTheme = () => {
             createSetSettingsAction({
                 ...settings,
                 darkMode: !settings.darkMode,
-            })
+            }),
         );
     }, [dispatch, settings]);
 

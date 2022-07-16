@@ -25,7 +25,7 @@ const LoginPage = () => {
             e.preventDefault();
             login(username, password);
         },
-        [username, password]
+        [username, password, login],
     );
     return (
         <Page>
@@ -47,14 +47,14 @@ const LoginPage = () => {
                         label={t`Username`}
                         placeholder={t`Enter your username`}
                         value={username}
-                        onChange={event => setUsername(event.target.value)}
+                        onChange={(event) => setUsername(event.target.value)}
                         required
                     />
                     <PasswordInput
                         label={t`Password`}
                         placeholder={t`Enter your password`}
                         value={password}
-                        onChange={event => setPassword(event.target.value)}
+                        onChange={(event) => setPassword(event.target.value)}
                         required
                         mt='md'
                     />

@@ -9,7 +9,7 @@ export interface SetTorrentFiltersAction extends BaseAction {
     filters: TorrentFilters;
 }
 export const createSetTorrentFiltersAction = (
-    filters: TorrentFilters
+    filters: TorrentFilters,
 ): SetTorrentFiltersAction => ({
     type: TorrentFiltersActions.SET_TORRENT_FILTERS,
     filters,

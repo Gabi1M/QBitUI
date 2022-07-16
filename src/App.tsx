@@ -5,7 +5,7 @@ import { I18nProvider } from 'meridian/i18n';
 import { createStore } from 'meridian/state';
 import { AppRouter } from 'meridian/navigation';
 import { NotificationsProvider } from '@mantine/notifications';
-import AppThemeProvider from './ThemeProvider';
+import AppThemeProvider from 'meridian/ThemeProvider';
 
 const App = () => (
     <Provider store={createStore()}>

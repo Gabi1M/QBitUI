@@ -15,19 +15,12 @@ const ConnectionSection = (props: SectionProps) => {
         <>
             <Select
                 label={t`Peer connection protocol`}
-                value={
-                    BittorrentProtocolNameMapping[
-                        preferences?.bittorrent_protocol as number
-                    ]
-                }
+                value={BittorrentProtocolNameMapping[preferences?.bittorrent_protocol as number]}
                 data={Object.values(BittorrentProtocolNameMapping)}
-                onChange={value =>
+                onChange={(value) =>
                     updatePreferencesKey(
                         'bittorrent_protocol',
-                        getKeyForRecordValue(
-                            BittorrentProtocolNameMapping,
-                            value
-                        )
+                        getKeyForRecordValue(BittorrentProtocolNameMapping, value),
                     )
                 }
             />

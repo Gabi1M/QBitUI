@@ -8,12 +8,7 @@ import { selectSettings } from 'meridian/settings';
 import DrawerContent from './drawerContent';
 import HeaderContent from './headerContent';
 import SelectionAffix from './selectionAffix';
-import {
-    useFilteredTorrents,
-    useManageSelection,
-    usePagination,
-    useFetchTimer,
-} from './hooks';
+import { useFilteredTorrents, useManageSelection, usePagination, useFetchTimer } from './hooks';
 
 const HomePage = () => {
     const styles = useStyles();
@@ -21,25 +16,17 @@ const HomePage = () => {
     const settings = useSelector(selectSettings);
     const { page, setPage, currentItems, numberOfPages } = usePagination(
         torrents,
-        settings.torrentsPerPage
+        settings.torrentsPerPage,
     );
     useFetchTimer();
 
-    const {
-        selectionEnabled,
-        setSelectionEnabled,
-        keys,
-        onSelectionChanged,
-        clearSelection,
-    } = useManageSelection();
+    const { selectionEnabled, setSelectionEnabled, keys, onSelectionChanged, clearSelection } =
+        useManageSelection();
 
     return (
-        <DrawerPage
-            headerRightContent={<HeaderContent />}
-            drawerContent={<DrawerContent />}
-        >
+        <DrawerPage headerRightContent={<HeaderContent />} drawerContent={<DrawerContent />}>
             <Box className={styles.classes.root}>
-                {currentItems.map(torrent => (
+                {currentItems.map((torrent) => (
                     <TorrentCard
                         key={torrent.hash}
                         torrent={torrent as TorrentInfo}

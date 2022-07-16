@@ -21,10 +21,7 @@ export type SetVersionsAction = BaseAction & {
     apiVersion: string;
 };
 
-export const loginAction = (
-    username: string,
-    password: string
-): LoginAction => ({
+export const loginAction = (username: string, password: string): LoginAction => ({
     type: SessionActions.LOGIN,
     username,
     password,
@@ -56,7 +53,7 @@ export const createFetchVersionsAction = (): BaseAction => ({
 
 export const createSetVersionsAction = (
     version: string,
-    apiVersion: string
+    apiVersion: string,
 ): SetVersionsAction => ({
     type: SessionActions.SET_VERSIONS,
     version,

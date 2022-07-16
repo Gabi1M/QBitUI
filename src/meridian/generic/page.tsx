@@ -28,10 +28,7 @@ const useStyles = () => {
             overflow: 'scroll',
             flex: 1,
             flexDirection: 'column',
-            backgroundColor:
-                theme.colorScheme === 'light'
-                    ? theme.white
-                    : theme.colors.dark[5],
+            backgroundColor: theme.colorScheme === 'light' ? theme.white : theme.colors.dark[5],
         },
     })();
 };

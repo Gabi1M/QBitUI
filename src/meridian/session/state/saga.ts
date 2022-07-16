@@ -4,11 +4,7 @@ import { Api } from 'meridian/api';
 import { LoginResponse } from 'meridian/models';
 import { history } from 'meridian/navigation/history';
 import { AppRoutes } from 'meridian/navigation/types';
-import {
-    BaseAction,
-    createResourceFetchAction,
-    Resource,
-} from 'meridian/resource';
+import { BaseAction, createResourceFetchAction, Resource } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
 import {
     createFetchVersionsAction,
@@ -30,9 +26,7 @@ function* loginSaga(action: LoginAction) {
         ]);
         if (response === LoginResponse.SUCCESS) {
             yield put(loginSuccessAction());
-            yield put(
-                showSnackbarAction(t`Login successful!`, 'success', 2000)
-            );
+            yield put(showSnackbarAction(t`Login successful!`, 'success', 2000));
 
             yield put(createResourceFetchAction(Resource.CATEGORIES));
             yield put(createResourceFetchAction(Resource.TAGS));

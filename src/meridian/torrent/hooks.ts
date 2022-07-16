@@ -17,7 +17,7 @@ export const usePauseTorrents = () => {
         (hashes: string[]) => {
             dispatch(createPauseTorrentAction(hashes));
         },
-        [dispatch]
+        [dispatch],
     );
 };
 
@@ -27,7 +27,7 @@ export const useResumeTorrents = () => {
         (hashes: string[]) => {
             dispatch(createResumeTorrentAction(hashes));
         },
-        [dispatch]
+        [dispatch],
     );
 };
 
@@ -37,7 +37,7 @@ export const useDeleteTorrents = () => {
         (hashes: string[], deleteFiles = false) => {
             dispatch(createDeleteTorrentAction(hashes, deleteFiles));
         },
-        [dispatch]
+        [dispatch],
     );
 };
 
@@ -47,7 +47,7 @@ export const useForceDownloadTorrents = () => {
         (hashes: string[]) => {
             dispatch(createForceDownloadTorrentsAction(hashes));
         },
-        [dispatch]
+        [dispatch],
     );
 };
 
@@ -57,7 +57,7 @@ export const useRecheckTorrents = () => {
         (hashes: string[]) => {
             dispatch(createRecheckTorrentsAction(hashes));
         },
-        [dispatch]
+        [dispatch],
     );
 };
 
@@ -67,7 +67,7 @@ export const useSetTorrentCategory = () => {
         (hashes: string[], categoryName: string) => {
             dispatch(createSetTorrentCategoryAction(hashes, categoryName));
         },
-        [dispatch]
+        [dispatch],
     );
 };
 
@@ -78,14 +78,14 @@ export const useManageTorrentTags = () => {
         (hashes: string[], tags: string[]) => {
             dispatch(createAddTorrentsTagsAction(hashes, tags));
         },
-        [dispatch]
+        [dispatch],
     );
 
     const removeTags = React.useCallback(
         (hashes: string[], tags: string[]) => {
             dispatch(createRemoveTorrentsTagsAction(hashes, tags));
         },
-        [dispatch]
+        [dispatch],
     );
 
     return {

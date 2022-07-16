@@ -6,9 +6,9 @@ import { useRefreshMainData } from 'meridian/mainData';
 const useFetchTimer = () => {
     const refreshMainData = useRefreshMainData();
     const settings = useSelector(selectSettings);
-    let timer: NodeJS.Timer;
 
     React.useEffect(() => {
+        let timer: NodeJS.Timer;
         refreshMainData();
         if (settings.autoRefresh) {
             timer = setInterval(() => {

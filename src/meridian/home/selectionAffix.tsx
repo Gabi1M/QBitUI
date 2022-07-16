@@ -32,12 +32,8 @@ const SelectionAffix = ({
     setSelectionEnabled,
     clearSelection,
 }: Props) => {
-    const {
-        pauseTorrents,
-        resumeTorrents,
-        forceDownloadTorrents,
-        recheckTorrents,
-    } = useTorrentActions();
+    const { pauseTorrents, resumeTorrents, forceDownloadTorrents, recheckTorrents } =
+        useTorrentActions();
     const deleteTorrents = useDeleteTorrentsModal();
 
     const actions: TorrentActionButton[] = React.useMemo(
@@ -80,13 +76,13 @@ const SelectionAffix = ({
             recheckTorrents,
             deleteTorrents,
             clearSelection,
-        ]
+        ],
     );
 
     return (
         <Affix position={{ bottom: 20, right: 20 }}>
             <Transition transition='slide-up' mounted={selectionEnabled}>
-                {transitionStyles => (
+                {(transitionStyles) => (
                     <>
                         {actions.map((action, key) => (
                             <ActionIcon

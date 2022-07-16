@@ -35,9 +35,7 @@ const TorrentPropertiesModal = () => {
 
 const useTorrentPropertiesModal = () => {
     const modals = useModals();
-    const fetchTorrentProperties = useFetchResource(
-        Resource.TORRENT_PROPERTIES
-    );
+    const fetchTorrentProperties = useFetchResource(Resource.TORRENT_PROPERTIES);
     const fetchTorrentContents = useFetchResource(Resource.TORRENT_CONTENT);
     const fetchTorrentTrackers = useFetchResource(Resource.TORRENT_TRACKERS);
 
@@ -54,12 +52,7 @@ const useTorrentPropertiesModal = () => {
                 overlayBlur: 5,
             });
         },
-        [
-            modals,
-            fetchTorrentProperties,
-            fetchTorrentContents,
-            fetchTorrentTrackers,
-        ]
+        [modals, fetchTorrentProperties, fetchTorrentContents, fetchTorrentTrackers],
     );
 };
 

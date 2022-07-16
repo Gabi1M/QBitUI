@@ -1,13 +1,6 @@
 import React from 'react';
 import { t } from '@lingui/macro';
-import {
-    ActionIcon,
-    Box,
-    Button,
-    createStyles,
-    Group,
-    Text,
-} from '@mantine/core';
+import { ActionIcon, Box, Button, createStyles, Group, Text } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 import { useDeleteResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
@@ -34,20 +27,14 @@ const CategoriesModal = () => {
 
     return (
         <>
-            {Object.keys(categories).map(category => (
-                <Group mt='md'>
+            {Object.keys(categories).map((category, key) => (
+                <Group mt='md' key={key}>
                     <Text>{categories[category].name}</Text>
                     <Box className={styles.classes.space} />
-                    <ActionIcon
-                        onClick={() =>
-                            openEditCategoryModal(categories[category])
-                        }
-                    >
+                    <ActionIcon onClick={() => openEditCategoryModal(categories[category])}>
                         <Edit />
                     </ActionIcon>
-                    <ActionIcon
-                        onClick={() => deleteCategories([categories[category]])}
-                    >
+                    <ActionIcon onClick={() => deleteCategories([categories[category]])}>
                         <Trash />
                     </ActionIcon>
                 </Group>

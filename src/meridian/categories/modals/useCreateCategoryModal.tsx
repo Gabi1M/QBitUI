@@ -27,7 +27,7 @@ const CreateCategoryModal = () => {
                 modals.closeAll();
             }
         },
-        [modals, category, createCategory]
+        [modals, category, createCategory],
     );
 
     return (
@@ -36,17 +36,13 @@ const CreateCategoryModal = () => {
                 mt='md'
                 label='Name'
                 value={category.name}
-                onChange={event =>
-                    onValueChanged(event.target.value.toString(), 'name')
-                }
+                onChange={(event) => onValueChanged(event.target.value.toString(), 'name')}
             />
             <TextInput
                 mt='md'
                 label='Save path'
                 value={category.savePath}
-                onChange={event =>
-                    onValueChanged(event.target.value.toString(), 'savePath')
-                }
+                onChange={(event) => onValueChanged(event.target.value.toString(), 'savePath')}
             />
             <Button type='submit' mt='md' fullWidth>
                 Submit

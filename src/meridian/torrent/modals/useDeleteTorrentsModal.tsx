@@ -23,7 +23,7 @@ const DeleteTorrentsModal = ({ hashes }: Props) => {
             <Checkbox
                 label={t`Also delete files`}
                 checked={deleteFiles}
-                onChange={event => setDeleteFiles(event.target.checked)}
+                onChange={(event) => setDeleteFiles(event.target.checked)}
             />
             <Button mt='md' fullWidth onClick={onSubmit}>{t`Delete`}</Button>
         </>

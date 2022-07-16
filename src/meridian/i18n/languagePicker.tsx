@@ -13,13 +13,14 @@ interface ItemProps {
 
 const getLanguageItems = (): ItemProps[] => {
     const languages = Object.values(Language);
-    return languages.map(language => ({
+    return languages.map((language) => ({
         icon: LanguageIcon[language],
         label: LanguageName[language],
         value: language,
     }));
 };
 
+// eslint-disable-next-line react/display-name
 const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
     ({ icon, label, ...others }: ItemProps, ref) => (
         <div ref={ref} {...others}>
@@ -28,7 +29,7 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
                 <Text size='sm'>{label}</Text>
             </Group>
         </div>
-    )
+    ),
 );
 
 const LanguagePicker = () => {
@@ -41,7 +42,7 @@ const LanguagePicker = () => {
             createSetSettingsAction({
                 ...settings,
                 language: value as Language,
-            })
+            }),
         );
     };
 

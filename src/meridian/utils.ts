@@ -10,8 +10,7 @@ export const bytesToSize = (bytes: number, decimals = 2) => {
     return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
 };
 
-export const removeDuplicatesFromArray = <T>(array: T[]) =>
-    Array.from(new Set(array));
+export const removeDuplicatesFromArray = <T>(array: T[]) => Array.from(new Set(array));
 
 export const truncateLongText = (text: string, maxLength = 30) =>
     text.length < maxLength ? text : `${text.slice(0, maxLength - 3)}...`;
@@ -35,5 +34,5 @@ export const calculateEtaString = (eta: number) => {
 
 export const getKeyForRecordValue = <T extends string | number | symbol, Y>(
     record: Record<T, Y>,
-    value: Y
-) => Object.entries(record).filter(x => x[1] === value)[0][0];
+    value: Y,
+) => Object.entries(record).filter((x) => x[1] === value)[0][0];

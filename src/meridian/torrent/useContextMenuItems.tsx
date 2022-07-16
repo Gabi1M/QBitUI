@@ -14,19 +14,11 @@ import {
     List,
 } from 'tabler-icons-react';
 import { useTorrentActions } from './hooks';
-import {
-    useDeleteTorrentsModal,
-    useTorrentCategoryModal,
-    useTorrentTagsModal,
-} from './modals';
+import { useDeleteTorrentsModal, useTorrentCategoryModal, useTorrentTagsModal } from './modals';
 
 const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
-    const {
-        pauseTorrents,
-        resumeTorrents,
-        forceDownloadTorrents,
-        recheckTorrents,
-    } = useTorrentActions();
+    const { pauseTorrents, resumeTorrents, forceDownloadTorrents, recheckTorrents } =
+        useTorrentActions();
     const deleteTorrents = useDeleteTorrentsModal();
     const openCategoryModal = useTorrentCategoryModal();
     const openTagsModal = useTorrentTagsModal();
@@ -84,7 +76,8 @@ const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
             deleteTorrents,
             openCategoryModal,
             openTagsModal,
-        ]
+            openPropertiesModal,
+        ],
     );
 };
 

@@ -8,9 +8,7 @@ export enum SettingsActions {
 export interface SetSettingsAction extends BaseAction {
     settings: Settings;
 }
-export const createSetSettingsAction = (
-    settings: Settings
-): SetSettingsAction => ({
+export const createSetSettingsAction = (settings: Settings): SetSettingsAction => ({
     type: SettingsActions.SET_SETTINGS,
     settings,
 });

@@ -47,11 +47,7 @@ const ServerStateModal = () => {
                 label={t`Total uploaded ( session )`}
                 text={bytesToSize(transferInfo.up_info_data)}
             />
-            <LabelWithText
-                mt='md'
-                label={t`Global ratio`}
-                text={transferInfo.global_ratio}
-            />
+            <LabelWithText mt='md' label={t`Global ratio`} text={transferInfo.global_ratio} />
             <LabelWithText
                 mt='md'
                 label={t`Free space on disk`}

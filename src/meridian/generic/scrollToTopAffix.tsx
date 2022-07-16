@@ -8,7 +8,7 @@ const ScrollToTopAffix = () => {
     return (
         <Affix position={{ bottom: 20, right: 75 }}>
             <Transition transition='slide-up' mounted={scroll.y > 0}>
-                {transitionStyles => (
+                {(transitionStyles) => (
                     <ActionIcon
                         style={transitionStyles}
                         onClick={() => scrollTo({ y: 0 })}

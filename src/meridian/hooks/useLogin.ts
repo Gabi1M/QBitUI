@@ -9,6 +9,6 @@ export const useLogin = () => {
         (username: string, password: string) => {
             dispatch(loginAction(username, password));
         },
-        [dispatch]
+        [dispatch],
     );
 };

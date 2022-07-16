@@ -1,11 +1,4 @@
-import {
-    ActionIcon,
-    Avatar,
-    Box,
-    createStyles,
-    Drawer,
-    Header,
-} from '@mantine/core';
+import { ActionIcon, Avatar, Box, createStyles, Drawer, Header } from '@mantine/core';
 import { Icons } from 'meridian/icons';
 import React, { useState } from 'react';
 import { Menu2 } from 'tabler-icons-react';
@@ -47,7 +40,7 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
     );
 };
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles((theme) => ({
     header: {
         display: 'flex',
         alignItems: 'center',
@@ -64,8 +57,7 @@ const useStyles = createStyles(theme => ({
         flexGrow: 1,
     },
     content: {
-        backgroundColor:
-            theme.colorScheme === 'light' ? theme.white : theme.colors.dark[5],
+        backgroundColor: theme.colorScheme === 'light' ? theme.white : theme.colors.dark[5],
         flex: 1,
         display: 'flex',
         flexDirection: 'column',

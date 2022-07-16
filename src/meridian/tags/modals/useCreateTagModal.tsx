@@ -20,7 +20,7 @@ const CreateTagModal = () => {
             <TextInput
                 label={t`Name`}
                 value={tagName}
-                onChange={event => setTagName(event.target.value)}
+                onChange={(event) => setTagName(event.target.value)}
             />
             <Button mt='md' fullWidth onClick={onSubmit}>{t`Submit`}</Button>
         </>

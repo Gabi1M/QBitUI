@@ -23,3 +23,6 @@ jobs:
       
       - name: lint
         run: yarn lint
+
+      - name: types
+        run: yarn types

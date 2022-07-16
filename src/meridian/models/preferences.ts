@@ -177,10 +177,7 @@ export const TorrentManagementModeNameMapping: Record<number, string> = {
     0: 'Manual',
 };
 
-export const TorrentManagementCategoryChangedNameMapping: Record<
-    number,
-    string
-> = {
+export const TorrentManagementCategoryChangedNameMapping: Record<number, string> = {
     1: 'Relocate torrent',
     0: 'Switch torrent to manual mode',
 };

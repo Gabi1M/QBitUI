@@ -14,7 +14,7 @@ interface Props extends MantineStyleSystemProps {
 
 const ContextMenu = ({ items, control, ...props }: Props) => (
     <Menu {...props} control={control}>
-        {items.map(item => (
+        {items.map((item) => (
             <Menu.Item key={item.text} icon={item.icon} onClick={item.callback}>
                 {item.text}
             </Menu.Item>

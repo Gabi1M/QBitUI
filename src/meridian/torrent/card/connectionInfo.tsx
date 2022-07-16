@@ -13,23 +13,13 @@ interface Props extends MantineStyleSystemProps {
     eta: number;
 }
 
-const ConnectionInfo = ({
-    seeders,
-    leechers,
-    ratio,
-    progress,
-    eta,
-    ...props
-}: Props) => (
+const ConnectionInfo = ({ seeders, leechers, ratio, progress, eta, ...props }: Props) => (
     <Group {...props}>
         <LabelWithText label={t`Seeders`} text={seeders.toString()} />
         <LabelWithText label={t`Leechers`} text={leechers.toString()} />
         <LabelWithText label={t`Ratio`} text={ratio.toFixed(2)} />
         {progress !== 1 && eta !== TORRENT_INVALID_ETA ? (
-            <LabelWithText
-                label={t`Remaining time`}
-                text={calculateEtaString(eta)}
-            />
+            <LabelWithText label={t`Remaining time`} text={calculateEtaString(eta)} />
         ) : null}
     </Group>
 );

@@ -1,8 +1,6 @@
 import { BaseAction, createResourceReducer, Resource } from 'meridian/resource';
 
-const { reducer: torrentReducer, actions } = createResourceReducer(
-    Resource.TORRENT
-);
+const { reducer: torrentReducer, actions } = createResourceReducer(Resource.TORRENT);
 
 const TorrentActions = {
     ...actions,
@@ -44,23 +42,19 @@ export interface RemoveTorrentsTagsAction extends TorrentAction {
     tags: string[];
 }
 
-export const createPauseTorrentAction = (
-    hashes: string[]
-): PauseTorrentsAction => ({
+export const createPauseTorrentAction = (hashes: string[]): PauseTorrentsAction => ({
     type: TorrentActions.PAUSE_TORRENTS,
     hashes,
 });
 
-export const createResumeTorrentAction = (
-    hashes: string[]
-): ResumeTorrentsAction => ({
+export const createResumeTorrentAction = (hashes: string[]): ResumeTorrentsAction => ({
     type: TorrentActions.RESUME_TORRENTS,
     hashes,
 });
 
 export const createDeleteTorrentAction = (
     hashes: string[],
-    deleteFiles = false
+    deleteFiles = false,
 ): DeleteTorrentsAction => ({
     type: TorrentActions.DELETE_TORRENTS,
     hashes,
@@ -68,22 +62,20 @@ export const createDeleteTorrentAction = (
 });
 
 export const createForceDownloadTorrentsAction = (
-    hashes: string[]
+    hashes: string[],
 ): ForceDownloadTorrentsAction => ({
     type: TorrentActions.FORCE_DOWNLOAD_TORRENTS,
     hashes,
 });
 
-export const createRecheckTorrentsAction = (
-    hashes: string[]
-): RecheckTorrentsAction => ({
+export const createRecheckTorrentsAction = (hashes: string[]): RecheckTorrentsAction => ({
     type: TorrentActions.RECHECK_TORRENTS,
     hashes,
 });
 
 export const createSetTorrentCategoryAction = (
     hashes: string[],
-    categoryName: string
+    categoryName: string,
 ): SetTorrentCategoryAction => ({
     type: TorrentActions.SET_TORRENT_CATEGORY,
     hashes,
@@ -92,7 +84,7 @@ export const createSetTorrentCategoryAction = (
 
 export const createAddTorrentsTagsAction = (
     hashes: string[],
-    tags: string[]
+    tags: string[],
 ): AddTorrentsTagsAction => ({
     type: TorrentActions.ADD_TORRENTS_TAGS,
     hashes,
@@ -101,7 +93,7 @@ export const createAddTorrentsTagsAction = (
 
 export const createRemoveTorrentsTagsAction = (
     hashes: string[],
-    tags: string[]
+    tags: string[],
 ): RemoveTorrentsTagsAction => ({
     type: TorrentActions.REMOVE_TORRENTS_TAGS,
     hashes,

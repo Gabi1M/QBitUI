@@ -10,15 +10,8 @@ import {
     LoadingOverlay,
 } from '@mantine/core';
 import { t } from '@lingui/macro';
-import {
-    TorrentFilters,
-    TorrentState,
-    TorrentStateDescription,
-} from 'meridian/models';
-import {
-    createSetTorrentFiltersAction,
-    selectTorrentFilters,
-} from 'meridian/torrentFilters';
+import { TorrentFilters, TorrentState, TorrentStateDescription } from 'meridian/models';
+import { createSetTorrentFiltersAction, selectTorrentFilters } from 'meridian/torrentFilters';
 import { TransferInfoCard } from 'meridian/transferInfo';
 import { selectMainData } from 'meridian/mainData';
 import { useFilteredTorrents } from './hooks';
@@ -31,18 +24,15 @@ const DrawerContent = () => {
     const dispatch = useDispatch();
 
     const onTorrentFilterChanged = React.useCallback(
-        (
-            field: keyof TorrentFilters,
-            value: string | string[] | TorrentState[]
-        ) => {
+        (field: keyof TorrentFilters, value: string | string[] | TorrentState[]) => {
             dispatch(
                 createSetTorrentFiltersAction({
                     ...torrentFilters,
                     [field]: value,
-                })
+                }),
             );
         },
-        [dispatch, torrentFilters]
+        [dispatch, torrentFilters],
     );
 
     if (!mainData || !torrents) {
@@ -57,9 +47,7 @@ const DrawerContent = () => {
             <TransferInfoCard />
             <Box className={styles.classes.space}>
                 <Text size='xl'>
-                    {torrents?.length
-                        ? `${torrents.length} ${t`Torrents`}`
-                        : t`No Torrents`}
+                    {torrents?.length ? `${torrents.length} ${t`Torrents`}` : t`No Torrents`}
                 </Text>
             </Box>
             <Title order={4} align='center'>{t`Filters`}</Title>
@@ -67,32 +55,28 @@ const DrawerContent = () => {
                 label={t`Name`}
                 placeholder={t`Enter a name`}
                 value={torrentFilters.name}
-                onChange={value =>
-                    onTorrentFilterChanged('name', value.target.value)
-                }
+                onChange={(value) => onTorrentFilterChanged('name', value.target.value)}
             />
             <MultiSelect
                 label={t`States`}
                 placeholder={t`All`}
                 value={torrentFilters.states}
                 data={Object.values(TorrentStateDescription)}
-                onChange={value => onTorrentFilterChanged('states', value)}
+                onChange={(value) => onTorrentFilterChanged('states', value)}
             />
             <MultiSelect
                 label={t`Categories`}
                 placeholder={t`All`}
                 value={torrentFilters.categories}
-                data={
-                    categories ? Object.values(categories).map(x => x.name) : []
-                }
-                onChange={value => onTorrentFilterChanged('categories', value)}
+                data={categories ? Object.values(categories).map((x) => x.name) : []}
+                onChange={(value) => onTorrentFilterChanged('categories', value)}
             />
             <MultiSelect
                 label={t`Tags`}
                 placeholder={t`All`}
                 value={torrentFilters.tags}
                 data={tags ?? []}
-                onChange={value => onTorrentFilterChanged('tags', value)}
+                onChange={(value) => onTorrentFilterChanged('tags', value)}
             />
         </>
     );

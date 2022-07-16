@@ -14,12 +14,11 @@ const LabelWithBadge = ({ label, text, color }: Props) => {
     return (
         <Box>
             <Text className={styles.classes.label}>{label}</Text>
-            {items.map(item => (
+            {items.map((item) => (
                 <Badge
                     className={styles.classes.badge}
                     color={
-                        color &&
-                        Object.keys(styles.theme.colors).includes(color)
+                        color && Object.keys(styles.theme.colors).includes(color)
                             ? color
                             : undefined
                     }
@@ -34,11 +33,9 @@ const LabelWithBadge = ({ label, text, color }: Props) => {
 };
 
 const useStyles = (color: string | undefined) =>
-    createStyles(theme => {
+    createStyles((theme) => {
         const appliedColor =
-            !color || Object.keys(theme.colors).includes(color)
-                ? undefined
-                : color;
+            !color || Object.keys(theme.colors).includes(color) ? undefined : color;
         return {
             label: {
                 fontFamily: `Greycliff CF, ${theme.fontFamily}`,

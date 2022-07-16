@@ -21,19 +21,19 @@ const TorrentTagsModal = ({ hash }: Props) => {
     }
 
     const torrents = Object.values(mainData.torrents);
-    const torrent = torrents.filter(x => x.hash === hash)[0];
+    const torrent = torrents.filter((x) => x.hash === hash)[0];
 
-    const torrentTags =
-        torrent.tags === '' ? [] : torrent.tags.split(',').map(x => x.trim());
+    const torrentTags = torrent.tags === '' ? [] : torrent.tags.split(',').map((x) => x.trim());
 
     return (
         <>
-            {tags.map(tag => (
+            {tags.map((tag, key) => (
                 <Switch
+                    key={key}
                     mt='md'
                     label={tag}
                     checked={torrentTags.includes(tag)}
-                    onChange={value => {
+                    onChange={(value) => {
                         if (value.target.checked) {
                             addTags([torrent.hash], [tag]);
                         } else {

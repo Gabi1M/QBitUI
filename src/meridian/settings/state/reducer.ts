@@ -19,15 +19,12 @@ const initialState: SettingsState = {
 
 export const settingsReducer = (
     state: SettingsState = initialState,
-    action: BaseAction
+    action: BaseAction,
 ): SettingsState => {
     switch (action.type) {
         case SettingsActions.SET_SETTINGS: {
             const successAction = action as SetSettingsAction;
-            LocalStorage.setValue(
-                LocalStorageKey.SETTINGS,
-                successAction.settings
-            );
+            LocalStorage.setValue(LocalStorageKey.SETTINGS, successAction.settings);
             return {
                 ...state,
                 settings: {
@@ -43,11 +40,8 @@ export const settingsReducer = (
                         successAction.settings.autoRefreshInterval ||
                         defaultSettings.autoRefreshInterval,
                     torrentsPerPage:
-                        successAction.settings.torrentsPerPage ||
-                        defaultSettings.torrentsPerPage,
-                    language:
-                        successAction.settings.language ||
-                        defaultSettings.language,
+                        successAction.settings.torrentsPerPage || defaultSettings.torrentsPerPage,
+                    language: successAction.settings.language || defaultSettings.language,
                 },
             };
         }

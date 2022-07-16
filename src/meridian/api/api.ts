@@ -81,7 +81,7 @@ export class Api {
     static getInstance() {
         if (!Api.instance) {
             Api.instance = new Api({
-                url: process.env.REACT_APP_API_URL || '',
+                url: import.meta.env.VITE_API_URL || '',
             });
         }
 
@@ -100,9 +100,7 @@ export class Api {
             if (response.status === 403) {
                 history.replace(AppRoutes.LOGIN);
             }
-            throw new Error(
-                `GET request for ${finalUrl} failed with status: ${response.status}`
-            );
+            throw new Error(`GET request for ${finalUrl} failed with status: ${response.status}`);
         }
 
         const contentType = response.headers.get('content-type');
@@ -113,10 +111,7 @@ export class Api {
         return (await response.text()) as unknown as T;
     }
 
-    private static async postJSON<T>(
-        url: string,
-        data: Record<string, string>
-    ) {
+    private static async postJSON<T>(url: string, data: Record<string, string>) {
         const response = await fetch(url, {
             method: RequestMethod.POST,
             credentials: 'same-origin',
@@ -128,9 +123,7 @@ export class Api {
             if (response.status === 403) {
                 history.replace(AppRoutes.LOGIN);
             }
-            throw new Error(
-                `POST request for ${url} failed with status: ${response.status}`
-            );
+            throw new Error(`POST request for ${url} failed with status: ${response.status}`);
         }
 
         const contentType = response.headers.get('content-type');
@@ -150,9 +143,7 @@ export class Api {
         });
 
         if (response.status !== 200) {
-            throw new Error(
-                `POST request for ${url} failed with status: ${response.status}`
-            );
+            throw new Error(`POST request for ${url} failed with status: ${response.status}`);
         }
 
         const contentType = response.headers.get('content-type');
@@ -166,7 +157,7 @@ export class Api {
     private async torrentAction(
         action: ApiPath,
         hashes: string[],
-        additionalData?: Record<string, string>
+        additionalData?: Record<string, string>,
     ) {
         return Api.postJSON<string>(`${this.baseUrl}/${action}`, {
             hashes: hashes.join('|'),
@@ -211,33 +202,28 @@ export class Api {
 
     async fetchResource<T extends Resource = Resource>(
         resourceName: T,
-        params?: FetchResourceParams[T]
+        params?: FetchResourceParams[T],
     ) {
         switch (resourceName) {
             case Resource.MAIN_DATA: {
-                return this.mainData(
-                    (params as FetchResourceParams[Resource.MAIN_DATA])?.rid
-                );
+                return this.mainData((params as FetchResourceParams[Resource.MAIN_DATA])?.rid);
             }
             case Resource.TORRENT: {
                 return this.torrents();
             }
             case Resource.TORRENT_PROPERTIES: {
                 return this.torrentProperties(
-                    (params as FetchResourceParams[Resource.TORRENT_PROPERTIES])
-                        .hash
+                    (params as FetchResourceParams[Resource.TORRENT_PROPERTIES]).hash,
                 );
             }
             case Resource.TORRENT_CONTENT: {
                 return this.torrentContent(
-                    (params as FetchResourceParams[Resource.TORRENT_CONTENT])
-                        .hash
+                    (params as FetchResourceParams[Resource.TORRENT_CONTENT]).hash,
                 );
             }
             case Resource.TORRENT_TRACKERS: {
                 return this.torrentTrackers(
-                    (params as FetchResourceParams[Resource.TORRENT_TRACKERS])
-                        .hash
+                    (params as FetchResourceParams[Resource.TORRENT_TRACKERS]).hash,
                 );
             }
             case Resource.TRANSFER_INFO: {
@@ -260,16 +246,14 @@ export class Api {
 
     async setResource<T extends Resource = Resource>(
         resourceName: T,
-        params: SetResourceParams[T]
+        params: SetResourceParams[T],
     ) {
         switch (resourceName) {
             case Resource.PREFERENCES: {
                 return this.setPreferences(params as Preferences);
             }
             case Resource.CATEGORIES: {
-                return this.createCategory(
-                    params as { category: Category; editExisting: boolean }
-                );
+                return this.createCategory(params as { category: Category; editExisting: boolean });
             }
             case Resource.TAGS: {
                 return this.createTags(params as string[]);
@@ -285,7 +269,7 @@ export class Api {
 
     async deleteResource<T extends Resource = Resource>(
         resourceName: T,
-        params: DeleteResourceParams[T]
+        params: DeleteResourceParams[T],
     ) {
         switch (resourceName) {
             case Resource.CATEGORIES: {
@@ -307,13 +291,9 @@ export class Api {
 
         let data: MainData | null = null;
         if (rid) {
-            data = await Api.getJSON<MainData>(
-                `${this.baseUrl}/${ApiPath.MAIN_DATA}?rid=${rid}`
-            );
+            data = await Api.getJSON<MainData>(`${this.baseUrl}/${ApiPath.MAIN_DATA}?rid=${rid}`);
         } else {
-            data = await Api.getJSON<MainData>(
-                `${this.baseUrl}/${ApiPath.MAIN_DATA}`
-            );
+            data = await Api.getJSON<MainData>(`${this.baseUrl}/${ApiPath.MAIN_DATA}`);
         }
 
         return transformMainData(data);
@@ -323,9 +303,7 @@ export class Api {
         if (isMockEnabled) {
             return Promise.resolve(MockTorrents as TorrentInfo[]);
         }
-        return Api.getJSON<TorrentInfo[]>(
-            `${this.baseUrl}/${ApiPath.TORRENTS}`
-        );
+        return Api.getJSON<TorrentInfo[]>(`${this.baseUrl}/${ApiPath.TORRENTS}`);
     }
 
     async torrentProperties(hash: string) {
@@ -333,7 +311,7 @@ export class Api {
             `${this.baseUrl}/${ApiPath.TORRENT_PROPERTIES}`,
             new URLSearchParams({
                 hash,
-            })
+            }),
         );
     }
 
@@ -342,7 +320,7 @@ export class Api {
             `${this.baseUrl}/${ApiPath.TORRENT_CONTENT}`,
             new URLSearchParams({
                 hash,
-            })
+            }),
         );
     }
 
@@ -351,7 +329,7 @@ export class Api {
             `${this.baseUrl}/${ApiPath.TORRENT_TRACKERS}`,
             new URLSearchParams({
                 hash,
-            })
+            }),
         );
     }
 
@@ -359,30 +337,23 @@ export class Api {
         if (isMockEnabled) {
             return Promise.resolve(MockTransferInfo);
         }
-        return Api.getJSON<TransferInfo>(
-            `${this.baseUrl}/${ApiPath.TRANSFER_INFO}`
-        );
+        return Api.getJSON<TransferInfo>(`${this.baseUrl}/${ApiPath.TRANSFER_INFO}`);
     }
 
     async preferences() {
         if (isMockEnabled) {
             return Promise.resolve(MockPreferences);
         }
-        return Api.getJSON<Preferences>(
-            `${this.baseUrl}/${ApiPath.PREFERENCES}`
-        );
+        return Api.getJSON<Preferences>(`${this.baseUrl}/${ApiPath.PREFERENCES}`);
     }
 
     async setPreferences(preferences: Preferences) {
         if (isMockEnabled) {
             return Promise.resolve('Ok.');
         }
-        return Api.postJSON<string>(
-            `${this.baseUrl}/${ApiPath.SET_PREFERENCES}`,
-            {
-                json: JSON.stringify(preferences),
-            }
-        );
+        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.SET_PREFERENCES}`, {
+            json: JSON.stringify(preferences),
+        });
     }
 
     async categories() {
@@ -390,9 +361,7 @@ export class Api {
             return Promise.resolve(MockCategories);
         }
 
-        return Api.getJSON<Record<string, Category>>(
-            `${this.baseUrl}/${ApiPath.CATEGORIES}`
-        );
+        return Api.getJSON<Record<string, Category>>(`${this.baseUrl}/${ApiPath.CATEGORIES}`);
     }
 
     async createCategory({
@@ -406,13 +375,11 @@ export class Api {
             return Promise.resolve('Ok.');
         }
         return Api.postJSON<string>(
-            `${this.baseUrl}/${
-                editExisting ? ApiPath.EDIT_CATEGORY : ApiPath.CREATE_CATEGORY
-            }`,
+            `${this.baseUrl}/${editExisting ? ApiPath.EDIT_CATEGORY : ApiPath.CREATE_CATEGORY}`,
             {
                 category: category.name,
                 savePath: category.savePath,
-            }
+            },
         );
     }
 
@@ -420,12 +387,9 @@ export class Api {
         if (isMockEnabled) {
             return Promise.resolve('Ok.');
         }
-        return Api.postJSON<string>(
-            `${this.baseUrl}/${ApiPath.REMOVE_CATEGORIES}`,
-            {
-                categories: categories.map(x => x.name).join('\n'),
-            }
-        );
+        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.REMOVE_CATEGORIES}`, {
+            categories: categories.map((x) => x.name).join('\n'),
+        });
     }
 
     async tags() {
@@ -541,13 +505,13 @@ export class Api {
 
         const formData = new FormData();
 
-        Object.entries(formDataScheme).forEach(entry => {
+        Object.entries(formDataScheme).forEach((entry) => {
             if (entry[1]) {
                 formData.append(entry[0], entry[1]);
             }
         });
 
-        params.torrents.forEach(torrent => {
+        params.torrents.forEach((torrent) => {
             formData.append('torrents', torrent);
         });
 
@@ -555,9 +519,6 @@ export class Api {
             return Promise.resolve('Ok.');
         }
 
-        return Api.postFormData<string>(
-            `${this.baseUrl}/${ApiPath.ADD_TORRENTS}`,
-            formData
-        );
+        return Api.postFormData<string>(`${this.baseUrl}/${ApiPath.ADD_TORRENTS}`, formData);
     }
 }

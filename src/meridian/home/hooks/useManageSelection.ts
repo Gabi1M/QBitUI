@@ -7,12 +7,12 @@ const useManageSelection = () => {
     const onSelectionChanged = React.useCallback(
         (key: string, selected: boolean) => {
             if (!selected && keys.includes(key)) {
-                setKeys(keys.filter(x => x !== key));
+                setKeys(keys.filter((x) => x !== key));
             } else if (selected && !keys.includes(key)) {
                 setKeys([...keys, key]);
             }
         },
-        [keys, setKeys]
+        [keys, setKeys],
     );
 
     const clearSelection = () => setKeys([]);

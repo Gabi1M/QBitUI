@@ -21,18 +21,17 @@ const AlternativeRateLimitsSection = ({
     const styles = useStyles();
     const fromDate = createDate(
         preferences?.schedule_from_hour || 0,
-        preferences?.schedule_from_min || 0
+        preferences?.schedule_from_min || 0,
     );
     const toDate = createDate(
         preferences?.schedule_to_hour || 0,
-        preferences?.schedule_to_min || 0
+        preferences?.schedule_to_min || 0,
     );
 
     const updateTime = (value: Date, key: 'from' | 'to') => {
         updateBulkPreferencesKey([
             {
-                name:
-                    key === 'from' ? 'schedule_from_hour' : 'schedule_to_hour',
+                name: key === 'from' ? 'schedule_from_hour' : 'schedule_to_hour',
                 value: value.getHours(),
             },
             {
@@ -47,27 +46,20 @@ const AlternativeRateLimitsSection = ({
             <NumberInput
                 label={t`Upload`}
                 value={preferences?.alt_up_limit || 0}
-                onChange={value =>
-                    updatePreferencesKey('alt_up_limit', value as number)
-                }
+                onChange={(value) => updatePreferencesKey('alt_up_limit', value as number)}
             />
             <NumberInput
                 mt='md'
                 label={t`Download`}
                 value={preferences?.alt_dl_limit || 0}
-                onChange={value =>
-                    updatePreferencesKey('alt_dl_limit', value as number)
-                }
+                onChange={(value) => updatePreferencesKey('alt_dl_limit', value as number)}
             />
             <Switch
                 mt='md'
                 label={t`Schedule the use of alternative rate limits`}
                 checked={preferences?.scheduler_enabled || false}
-                onChange={value =>
-                    updatePreferencesKey(
-                        'scheduler_enabled',
-                        value.target.checked
-                    )
+                onChange={(value) =>
+                    updatePreferencesKey('scheduler_enabled', value.target.checked)
                 }
             />
             <Box mt='md' className={styles.classes.container}>
@@ -75,27 +67,23 @@ const AlternativeRateLimitsSection = ({
                     mr='sm'
                     label={t`From`}
                     value={fromDate}
-                    onChange={value => updateTime(value, 'from')}
+                    onChange={(value) => updateTime(value, 'from')}
                 />
                 <TimeInput
                     label={t`To`}
                     value={toDate}
-                    onChange={value => updateTime(value, 'to')}
+                    onChange={(value) => updateTime(value, 'to')}
                 />
             </Box>
             <Select
                 mt='md'
                 label={t`When`}
-                value={
-                    SchedulerDayNameMapping[
-                        preferences?.scheduler_days as number
-                    ]
-                }
+                value={SchedulerDayNameMapping[preferences?.scheduler_days as number]}
                 data={Object.values(SchedulerDayNameMapping)}
-                onChange={value =>
+                onChange={(value) =>
                     updatePreferencesKey(
                         'scheduler_days',
-                        getKeyForRecordValue(SchedulerDayNameMapping, value)
+                        getKeyForRecordValue(SchedulerDayNameMapping, value),
                     )
                 }
             />

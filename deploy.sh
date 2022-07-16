@@ -10,11 +10,11 @@ else
     read -p "Deploying to ${DEPLOY_PATH}. Continue? (Y/N): " confirm
     if [[ $confirm == [yY] ]];
     then
-        rm -rf build/
+        rm -rf dist/
         yarn build
         rm -rf ${DEPLOY_PATH}
         mkdir -p ${DEPLOY_PATH}
-        cp -r build/* ${DEPLOY_PATH}
+        cp -r dist/* ${DEPLOY_PATH}
     else
         exit
     fi

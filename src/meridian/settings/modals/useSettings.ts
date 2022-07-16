@@ -11,15 +11,11 @@ const useSettings = () => {
     const handleSettingsChange = React.useCallback(
         (
             key: keyof Settings,
-            value:
-                | boolean
-                | number
-                | string
-                | Record<TorrentStateDescription, DefaultMantineColor>
+            value: boolean | number | string | Record<TorrentStateDescription, DefaultMantineColor>,
         ) => {
             dispatch(createSetSettingsAction({ ...settings, [key]: value }));
         },
-        [dispatch, settings]
+        [dispatch, settings],
     );
 
     return {

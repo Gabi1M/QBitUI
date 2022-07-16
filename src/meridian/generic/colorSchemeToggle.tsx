@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    ActionIcon,
-    Box,
-    Center,
-    createStyles,
-    SegmentedControl,
-} from '@mantine/core';
+import { ActionIcon, Box, Center, createStyles, SegmentedControl } from '@mantine/core';
 import { Moon, MoonStars, Sun } from 'tabler-icons-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createSetSettingsAction, selectSettings } from 'meridian/settings';
@@ -21,14 +15,11 @@ const ColorSchemeToggle = () => {
                     createSetSettingsAction({
                         ...settings,
                         darkMode: !settings.darkMode,
-                    })
+                    }),
                 )
             }
-            sx={theme => ({
-                color:
-                    theme.colorScheme === 'dark'
-                        ? theme.colors.yellow[4]
-                        : theme.colors.blue[6],
+            sx={(theme) => ({
+                color: theme.colorScheme === 'dark' ? theme.colors.yellow[4] : theme.colors.blue[6],
             })}
         >
             {!settings.darkMode ? <Sun size={18} /> : <MoonStars size={18} />}
@@ -50,7 +41,7 @@ const SegmentedColorSchemeToggle = () => {
                     createSetSettingsAction({
                         ...settings,
                         darkMode: !settings.darkMode,
-                    })
+                    }),
                 )
             }
             data={[
