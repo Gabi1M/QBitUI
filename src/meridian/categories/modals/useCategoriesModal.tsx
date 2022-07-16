@@ -1,11 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Edit, Trash } from 'tabler-icons-react';
 import { t } from '@lingui/macro';
 import { ActionIcon, Box, Button, createStyles, Group, Text } from '@mantine/core';
 import { useModals } from '@mantine/modals';
+import { commonModalConfiguration } from 'meridian/generic';
 import { useDeleteResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
-import { useSelector } from 'react-redux';
-import { Edit, Trash } from 'tabler-icons-react';
 import { selectCategories } from '../state';
 import useCreateCategoryModal from './useCreateCategoryModal';
 import useEditCategoryModal from './useEditCategoryModal';
@@ -53,8 +54,7 @@ const useCategoriesModal = () => {
         modals.openModal({
             title: t`Categories`,
             children: <CategoriesModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

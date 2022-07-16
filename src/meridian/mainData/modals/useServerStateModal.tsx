@@ -3,7 +3,7 @@ import { t } from '@lingui/macro';
 import { useSelector } from 'react-redux';
 import { useModals } from '@mantine/modals';
 import { LoadingOverlay } from '@mantine/core';
-import { LabelWithText } from 'meridian/generic';
+import { commonModalConfiguration, LabelWithText } from 'meridian/generic';
 import { bytesToSize } from 'meridian/utils';
 import { selectMainData } from '../state';
 
@@ -69,8 +69,7 @@ const useServerStateModal = () => {
         modals.openModal({
             title: t`Server state`,
             children: <ServerStateModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

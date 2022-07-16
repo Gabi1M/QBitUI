@@ -1,8 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { LoadingOverlay, Switch } from '@mantine/core';
 import { useModals } from '@mantine/modals';
+import { commonModalConfiguration } from 'meridian/generic';
 import { selectTags } from 'meridian/tags';
-import { useSelector } from 'react-redux';
 import { TorrentInfo } from 'meridian/models';
 import { selectMainData } from 'meridian/mainData';
 import { useManageTorrentTags } from '../hooks';
@@ -53,8 +54,7 @@ const useTorrentTagsModal = () => {
         modals.openModal({
             title: torrent.name,
             children: <TorrentTagsModal hash={torrent.hash} />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

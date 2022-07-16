@@ -2,6 +2,7 @@ import React from 'react';
 import { t } from '@lingui/macro';
 import { Accordion, Button } from '@mantine/core';
 import { useModals } from '@mantine/modals';
+import { commonModalConfiguration } from 'meridian/generic';
 import usePreferences from './usePreferences';
 import {
     BitTorrentSection,
@@ -52,9 +53,8 @@ const usePreferencesModal = () => {
         modals.openModal({
             title: t`Preferences`,
             children: <PreferencesModal />,
-            centered: true,
             size: 'xl',
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

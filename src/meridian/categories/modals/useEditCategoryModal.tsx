@@ -2,6 +2,7 @@ import React from 'react';
 import { t } from '@lingui/macro';
 import { useModals } from '@mantine/modals';
 import { Button, TextInput } from '@mantine/core';
+import { commonModalConfiguration } from 'meridian/generic';
 import { Category } from 'meridian/models';
 import { useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
@@ -51,8 +52,7 @@ const useEditCategoryModal = () => {
         modals.openModal({
             title: `${t`Edit`} ${category.name}`,
             children: <EditCategoryModal category={category} />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

@@ -4,6 +4,7 @@ import { Anchor, Avatar, Box, createStyles, Text } from '@mantine/core';
 import { useSelector } from 'react-redux';
 import { Icons } from './icons';
 import { selectVersions } from './session';
+import { commonModalConfiguration } from './generic';
 
 const AboutModal = () => {
     const styles = useStyles();
@@ -34,8 +35,7 @@ const useAboutModal = () => {
     return () =>
         modals.openModal({
             children: <AboutModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

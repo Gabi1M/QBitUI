@@ -2,6 +2,7 @@ import React from 'react';
 import { t } from '@lingui/macro';
 import { useModals } from '@mantine/modals';
 import { Select, Switch } from '@mantine/core';
+import { commonModalConfiguration } from 'meridian/generic';
 import { LanguagePicker } from 'meridian/i18n';
 import useSettings from './useSettings';
 
@@ -43,8 +44,7 @@ const useSettingsModal = () => {
         modals.openModal({
             title: t`WebUI Settings`,
             children: <SettingsModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { t } from '@lingui/macro';
 import { useModals } from '@mantine/modals';
 import { Button, TextInput } from '@mantine/core';
+import { commonModalConfiguration } from 'meridian/generic';
 import { Resource } from 'meridian/resource';
 import { useCreateResource } from 'meridian/hooks';
 
@@ -34,8 +35,7 @@ const useCreateTagModal = () => {
         modals.openModal({
             title: t`Create new tag`,
             children: <CreateTagModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

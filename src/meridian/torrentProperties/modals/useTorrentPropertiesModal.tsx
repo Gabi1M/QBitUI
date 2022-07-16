@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useModals } from '@mantine/modals';
 import { LoadingOverlay, Tabs } from '@mantine/core';
+import { commonModalConfiguration } from 'meridian/generic';
 import { useFetchResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
 import { t } from '@lingui/macro';
@@ -47,9 +48,8 @@ const useTorrentPropertiesModal = () => {
             modals.openModal({
                 title: name,
                 children: <TorrentPropertiesModal />,
-                centered: true,
                 size: 'xl',
-                overlayBlur: 5,
+                ...commonModalConfiguration,
             });
         },
         [modals, fetchTorrentProperties, fetchTorrentContents, fetchTorrentTrackers],

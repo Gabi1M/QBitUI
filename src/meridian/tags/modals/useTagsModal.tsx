@@ -1,9 +1,10 @@
 import React from 'react';
 import { t } from '@lingui/macro';
 import { useSelector } from 'react-redux';
+import { Trash } from 'tabler-icons-react';
 import { ActionIcon, Box, Button, createStyles, Group, Text } from '@mantine/core';
 import { useModals } from '@mantine/modals';
-import { Trash } from 'tabler-icons-react';
+import { commonModalConfiguration } from 'meridian/generic';
 import { useDeleteResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
 import useCreateTagModal from './useCreateTagModal';
@@ -42,8 +43,7 @@ const useTagsModal = () => {
         modals.openModal({
             title: t`Tags`,
             children: <TagsModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

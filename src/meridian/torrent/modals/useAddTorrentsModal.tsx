@@ -9,7 +9,7 @@ import { AddTorrentsParams } from 'meridian/api';
 import { Category } from 'meridian/models';
 import { useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
-import { Dropzone } from 'meridian/generic';
+import { commonModalConfiguration, Dropzone } from 'meridian/generic';
 import { showSnackbarAction } from 'meridian/snackbar';
 
 const AddTorrentsModal = () => {
@@ -122,8 +122,7 @@ const useAddTorrentsModal = () => {
         modals.openModal({
             title: t`Add new torrents`,
             children: <AddTorrentsModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { t } from '@lingui/macro';
 import { useModals } from '@mantine/modals';
 import { Button, Checkbox } from '@mantine/core';
+import { commonModalConfiguration } from 'meridian/generic';
 import { useDeleteTorrents } from '../hooks';
 
 interface Props {
@@ -37,8 +38,7 @@ const useDeleteTorrentsModal = () => {
         modals.openModal({
             title: t`Delete torrents`,
             children: <DeleteTorrentsModal hashes={hashes} />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 
