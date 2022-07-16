@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint & types:
+  lint_and_types:
     runs-on: ubuntu-latest
 
     steps:
