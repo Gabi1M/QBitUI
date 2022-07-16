@@ -1,4 +1,4 @@
-name: NodeJS
+name: QBitUI
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  lint & types:
     runs-on: ubuntu-latest
 
     steps:
