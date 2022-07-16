@@ -50,6 +50,7 @@ const useSettingsModal = () => {
             title: t`WebUI Settings`,
             children: <SettingsModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

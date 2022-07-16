@@ -54,6 +54,7 @@ const useEditCategoryModal = () => {
             title: `${t`Edit`} ${category.name}`,
             children: <EditCategoryModal category={category} />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

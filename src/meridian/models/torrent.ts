@@ -152,3 +152,5 @@ export const getTorrentStateDescription = (
     Object.entries(TorrentStateGrouping).filter(x =>
         x[1].includes(torrentState)
     )[0][0] as TorrentStateDescription;
+
+export const TORRENT_INVALID_ETA = 8640000;

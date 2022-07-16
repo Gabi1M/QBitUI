@@ -39,6 +39,7 @@ const useAboutModal = () => {
         modals.openModal({
             children: <AboutModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

@@ -1,4 +1,4 @@
-import { Menu } from '@mantine/core';
+import { MantineStyleSystemProps, Menu } from '@mantine/core';
 import React from 'react';
 
 export interface ContextMenuItem {
@@ -7,13 +7,13 @@ export interface ContextMenuItem {
     callback: () => void;
 }
 
-interface Props {
+interface Props extends MantineStyleSystemProps {
     items: ContextMenuItem[];
     control?: React.ReactElement;
 }
 
-const ContextMenu = ({ items, control }: Props) => (
-    <Menu control={control}>
+const ContextMenu = ({ items, control, ...props }: Props) => (
+    <Menu {...props} control={control}>
         {items.map(item => (
             <Menu.Item key={item.text} icon={item.icon} onClick={item.callback}>
                 {item.text}

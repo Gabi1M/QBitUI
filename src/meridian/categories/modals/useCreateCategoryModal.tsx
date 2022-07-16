@@ -63,6 +63,7 @@ const useCreateCategoryModal = () => {
             title: t`Create new category`,
             children: <CreateCategoryModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

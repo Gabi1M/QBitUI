@@ -13,3 +13,7 @@ body>#root {
   display: flex;
   flex-direction: column;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}

@@ -50,7 +50,8 @@ const useTorrentPropertiesModal = () => {
                 title: name,
                 children: <TorrentPropertiesModal />,
                 centered: true,
-                size: '100% - 50',
+                size: 'xl',
+                overlayBlur: 5,
             });
         },
         [

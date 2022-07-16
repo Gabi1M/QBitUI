@@ -74,6 +74,7 @@ const useServerStateModal = () => {
             title: t`Server state`,
             children: <ServerStateModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

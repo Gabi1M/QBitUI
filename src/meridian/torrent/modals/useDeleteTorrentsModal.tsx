@@ -38,6 +38,7 @@ const useDeleteTorrentsModal = () => {
             title: t`Delete torrents`,
             children: <DeleteTorrentsModal hashes={hashes} />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

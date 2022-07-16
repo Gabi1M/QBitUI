@@ -30,6 +30,7 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
                 title={<Avatar size='lg' src={Icons.LOGO} />}
                 padding='xl'
                 size='sm'
+                overlayBlur={5}
             >
                 {drawerContent}
             </Drawer>

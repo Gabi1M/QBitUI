@@ -54,6 +54,7 @@ const useTorrentTagsModal = () => {
             title: torrent.name,
             children: <TorrentTagsModal hash={torrent.hash} />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 

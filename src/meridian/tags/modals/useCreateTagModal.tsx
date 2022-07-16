@@ -35,6 +35,7 @@ const useCreateTagModal = () => {
             title: t`Create new tag`,
             children: <CreateTagModal />,
             centered: true,
+            overlayBlur: 5,
         });
 };
 
