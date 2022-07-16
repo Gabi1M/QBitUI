@@ -13,7 +13,7 @@ const AboutModal = () => {
         <Box className={styles.classes.logo}>
             <Avatar size='xl' src={Icons.LOGO} />
             <Text mt='lg' size='lg'>
-                Version {import.meta.env.REACT_APP_VERSION}
+                Version {import.meta.env.VITE_VERSION}
             </Text>
             <Anchor<'a'> href='https://www.qbittorrent.org/' mt='lg' weight={700}>
                 QBitTorrent {versions.version} API {versions.apiVersion}
