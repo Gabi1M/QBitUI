@@ -10,46 +10,24 @@ import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Category } from 'meridian/models';
 import { Resource } from 'meridian/resource';
 
-const defaultCategory: Category = {
-    name: '',
-    savePath: '',
-};
+import useCategoryForm from '../useCategoryForm';
 
 const CreateCategoryModal = () => {
     const closeLastModal = useCloseLastModal();
-    const [category, setCategory] = React.useState(defaultCategory);
     const createCategory = useCreateResource(Resource.CATEGORIES);
+    const form = useCategoryForm();
 
-    const onValueChanged = (value: string, field: keyof Category) =>
-        setCategory({ ...category, [field]: value });
-
-    const onSubmit = React.useCallback(
-        (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            if (category.name !== '' && category.savePath !== '') {
-                createCategory({ category });
-                closeLastModal();
-            }
-        },
-        [closeLastModal, category, createCategory],
-    );
+    const onSubmit = (category: Category) => {
+        createCategory({ category });
+        closeLastModal();
+    };
 
     return (
-        <form onSubmit={onSubmit}>
-            <TextInput
-                mt='md'
-                label='Name'
-                value={category.name}
-                onChange={(event) => onValueChanged(event.target.value.toString(), 'name')}
-            />
-            <TextInput
-                mt='md'
-                label='Save path'
-                value={category.savePath}
-                onChange={(event) => onValueChanged(event.target.value.toString(), 'savePath')}
-            />
+        <form onSubmit={form.onSubmit(onSubmit)}>
+            <TextInput mt='md' label={t`Name`} {...form.getInputProps('name')} />
+            <TextInput mt='md' label={t`Save path`} {...form.getInputProps('savePath')} />
             <Button type='submit' mt='md' fullWidth>
-                Submit
+                {t`Submit`}
             </Button>
         </form>
     );

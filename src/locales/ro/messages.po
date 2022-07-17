@@ -33,7 +33,7 @@ msgstr "Data adaugarii"
 msgid "All"
 msgstr "Toate"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:29
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:30
 msgid "Also delete files"
 msgstr "Sterge fisierele de pe disc"
 
@@ -119,7 +119,7 @@ msgstr "Subdomenii"
 msgid "Cannot add torrent without files!"
 msgstr "Nu se pot adauga torente noi fara fisiere!"
 
-#: src/meridian/categories/modals/useCategoriesModal.tsx:60
+#: src/meridian/categories/modals/useCategoriesModal.tsx:61
 #: src/meridian/home/drawerContent.tsx:72
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:43
 #: src/meridian/torrent/useContextMenuItems.tsx:58
@@ -180,7 +180,7 @@ msgstr "Copiază fișierele .torrent pentru descărcările încheiate în"
 msgid "Copy .torrent files to"
 msgstr "Copiază fișierele .torrent în"
 
-#: src/meridian/categories/modals/useCreateCategoryModal.tsx:63
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:41
 msgid "Create new category"
 msgstr "Creaza o categorie noua"
 
@@ -213,12 +213,12 @@ msgid "Default Torrent Management Mode"
 msgstr "Mod gestionare torrent implicit"
 
 #: src/meridian/home/selectionAffix.tsx:66
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:33
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:34
 #: src/meridian/torrent/useContextMenuItems.tsx:53
 msgid "Delete"
 msgstr "Sterge"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:43
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:44
 msgid "Delete torrents"
 msgstr "Sterge torente"
 
@@ -274,7 +274,7 @@ msgstr "Descarcari"
 msgid "Drag torrent files here or click to select files"
 msgstr "Trage fisierele aici sau click pentru a selecta"
 
-#: src/meridian/categories/modals/useEditCategoryModal.tsx:56
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:44
 msgid "Edit"
 msgstr "Modifica"
 
@@ -553,14 +553,18 @@ msgstr "Numărul maxim de sloturi de încărcare per torent"
 msgid "Message"
 msgstr "Mesaj"
 
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:27
 #: src/meridian/home/drawerContent.tsx:59
 #: src/meridian/tags/modals/useCreateTagModal.tsx:25
 #: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:24
 msgid "Name"
 msgstr "Nume"
 
-#: src/meridian/categories/modals/useCategoriesModal.tsx:29
-#: src/meridian/categories/modals/useCategoriesModal.tsx:49
+#: src/meridian/categories/useCategoryForm.ts:22
+msgid "Name cannot be empty"
+msgstr "Numele nu poate fi liber"
+
+#: src/meridian/categories/modals/useCategoriesModal.tsx:50
 #: src/meridian/tags/modals/useTagsModal.tsx:25
 #: src/meridian/tags/modals/useTagsModal.tsx:39
 msgid "New"
@@ -684,10 +688,16 @@ msgstr "Servitor SMTP"
 msgid "Save"
 msgstr "Salveaza"
 
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:28
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:31
 #: src/meridian/torrent/card/fileInfo.tsx:17
 #: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:23
 msgid "Save path"
 msgstr "Cale"
+
+#: src/meridian/categories/useCategoryForm.ts:23
+msgid "Save path cannot be empty"
+msgstr "Calea de salvare nu poate fi libera"
 
 #: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:46
 msgid "Saving Management"
@@ -766,6 +776,8 @@ msgstr "Statusuri"
 msgid "Status"
 msgstr "Status"
 
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:30
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:33
 #: src/meridian/tags/modals/useCreateTagModal.tsx:29
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:116
 msgid "Submit"

@@ -35,7 +35,7 @@ msgstr "Addition date"
 msgid "All"
 msgstr "All"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:29
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:30
 msgid "Also delete files"
 msgstr "Also delete files"
 
@@ -137,7 +137,7 @@ msgstr "Bypassed subnets"
 msgid "Cannot add torrent without files!"
 msgstr "Cannot add torrent without files!"
 
-#: src/meridian/categories/modals/useCategoriesModal.tsx:60
+#: src/meridian/categories/modals/useCategoriesModal.tsx:61
 #: src/meridian/home/drawerContent.tsx:72
 #: src/meridian/home/hooks/useHeaderMenuItems.tsx:43
 #: src/meridian/torrent/useContextMenuItems.tsx:58
@@ -202,7 +202,7 @@ msgstr "Copy .torrent files for finished downloads to"
 msgid "Copy .torrent files to"
 msgstr "Copy .torrent files to"
 
-#: src/meridian/categories/modals/useCreateCategoryModal.tsx:63
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:41
 msgid "Create new category"
 msgstr "Create new category"
 
@@ -243,12 +243,12 @@ msgid "Default Torrent Management Mode"
 msgstr "Default Torrent Management Mode"
 
 #: src/meridian/home/selectionAffix.tsx:66
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:33
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:34
 #: src/meridian/torrent/useContextMenuItems.tsx:53
 msgid "Delete"
 msgstr "Delete"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:43
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:44
 msgid "Delete torrents"
 msgstr "Delete torrents"
 
@@ -304,7 +304,7 @@ msgstr "Downloads"
 msgid "Drag torrent files here or click to select files"
 msgstr "Drag torrent files here or click to select files"
 
-#: src/meridian/categories/modals/useEditCategoryModal.tsx:56
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:44
 msgid "Edit"
 msgstr "Edit"
 
@@ -591,14 +591,18 @@ msgstr "Maximum number of upload slots per torrent"
 msgid "Message"
 msgstr "Message"
 
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:27
 #: src/meridian/home/drawerContent.tsx:59
 #: src/meridian/tags/modals/useCreateTagModal.tsx:25
 #: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:24
 msgid "Name"
 msgstr "Name"
 
-#: src/meridian/categories/modals/useCategoriesModal.tsx:29
-#: src/meridian/categories/modals/useCategoriesModal.tsx:49
+#: src/meridian/categories/useCategoryForm.ts:22
+msgid "Name cannot be empty"
+msgstr "Name cannot be empty"
+
+#: src/meridian/categories/modals/useCategoriesModal.tsx:50
 #: src/meridian/tags/modals/useTagsModal.tsx:25
 #: src/meridian/tags/modals/useTagsModal.tsx:39
 msgid "New"
@@ -750,10 +754,16 @@ msgstr "SMTP server"
 msgid "Save"
 msgstr "Save"
 
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:28
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:31
 #: src/meridian/torrent/card/fileInfo.tsx:17
 #: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:23
 msgid "Save path"
 msgstr "Save path"
+
+#: src/meridian/categories/useCategoryForm.ts:23
+msgid "Save path cannot be empty"
+msgstr "Save path cannot be empty"
 
 #: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:46
 msgid "Saving Management"
@@ -840,6 +850,8 @@ msgstr "States"
 msgid "Status"
 msgstr "Status"
 
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:30
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:33
 #: src/meridian/tags/modals/useCreateTagModal.tsx:29
 #: src/meridian/torrent/modals/useAddTorrentsModal.tsx:116
 msgid "Submit"

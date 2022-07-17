@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { t } from '@lingui/macro';
 import { Edit, Trash } from 'tabler-icons-react';
 
-import { ActionIcon, Box, Button, Group, Text, createStyles } from '@mantine/core';
+import { ActionIcon, Box, Button, Group, LoadingOverlay, Text, createStyles } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
 import { commonModalConfiguration } from 'meridian/generic';
@@ -24,23 +24,24 @@ const CategoriesModal = () => {
     const deleteCategories = useDeleteResource(Resource.CATEGORIES);
 
     if (!categories) {
-        return (
-            <Button fullWidth mt='md' onClick={openCreateCategoryModal}>
-                {t`New`}
-            </Button>
-        );
+        return <LoadingOverlay visible />;
     }
+
+    const createOnEditClickHandler = (categoryName: string) => () =>
+        openEditCategoryModal(categories[categoryName]);
+    const createOnDeleteClickHandler = (categoryName: string) => () =>
+        deleteCategories([categories[categoryName]]);
 
     return (
         <>
-            {Object.keys(categories).map((category, key) => (
+            {Object.keys(categories).map((categoryName, key) => (
                 <Group mt='md' key={key}>
-                    <Text>{categories[category].name}</Text>
+                    <Text>{categories[categoryName].name}</Text>
                     <Box className={styles.classes.space} />
-                    <ActionIcon onClick={() => openEditCategoryModal(categories[category])}>
+                    <ActionIcon onClick={createOnEditClickHandler(categoryName)}>
                         <Edit />
                     </ActionIcon>
-                    <ActionIcon onClick={() => deleteCategories([categories[category]])}>
+                    <ActionIcon onClick={createOnDeleteClickHandler(categoryName)}>
                         <Trash />
                     </ActionIcon>
                 </Group>
