@@ -26,7 +26,7 @@ const CategoriesModal = () => {
     if (!categories) {
         return (
             <Button fullWidth mt='md' onClick={openCreateCategoryModal}>
-                New
+                {t`New`}
             </Button>
         );
     }
@@ -46,7 +46,7 @@ const CategoriesModal = () => {
                 </Group>
             ))}
             <Button fullWidth mt='md' onClick={openCreateCategoryModal}>
-                New
+                {t`New`}
             </Button>
         </>
     );
