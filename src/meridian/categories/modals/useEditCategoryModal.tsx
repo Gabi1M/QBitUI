@@ -6,7 +6,7 @@ import { Button, TextInput } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
 import { commonModalConfiguration } from 'meridian/generic';
-import { useCreateResource } from 'meridian/hooks';
+import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Category } from 'meridian/models';
 import { Resource } from 'meridian/resource';
 
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
-    const modals = useModals();
+    const closeLastModal = useCloseLastModal();
     const [category, setCategory] = React.useState(categoryToEdit);
     const createCategory = useCreateResource(Resource.CATEGORIES);
 
@@ -27,10 +27,10 @@ const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
             e.preventDefault();
             if (category.savePath !== '') {
                 createCategory({ category, editExisting: true });
-                modals.closeAll();
+                closeLastModal();
             }
         },
-        [modals, category, createCategory],
+        [closeLastModal, category, createCategory],
     );
 
     return (

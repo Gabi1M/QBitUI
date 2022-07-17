@@ -6,7 +6,7 @@ import { Button, TextInput } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
 import { commonModalConfiguration } from 'meridian/generic';
-import { useCreateResource } from 'meridian/hooks';
+import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Category } from 'meridian/models';
 import { Resource } from 'meridian/resource';
 
@@ -16,7 +16,7 @@ const defaultCategory: Category = {
 };
 
 const CreateCategoryModal = () => {
-    const modals = useModals();
+    const closeLastModal = useCloseLastModal();
     const [category, setCategory] = React.useState(defaultCategory);
     const createCategory = useCreateResource(Resource.CATEGORIES);
 
@@ -28,10 +28,10 @@ const CreateCategoryModal = () => {
             e.preventDefault();
             if (category.name !== '' && category.savePath !== '') {
                 createCategory({ category });
-                modals.closeAll();
+                closeLastModal();
             }
         },
-        [modals, category, createCategory],
+        [closeLastModal, category, createCategory],
     );
 
     return (

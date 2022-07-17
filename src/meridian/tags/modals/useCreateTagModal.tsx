@@ -6,18 +6,18 @@ import { Button, TextInput } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
 import { commonModalConfiguration } from 'meridian/generic';
-import { useCreateResource } from 'meridian/hooks';
+import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
 
 const CreateTagModal = () => {
-    const modals = useModals();
+    const closeLastModal = useCloseLastModal();
     const [tagName, setTagName] = React.useState('');
     const createTags = useCreateResource(Resource.TAGS);
 
     const onSubmit = React.useCallback(() => {
         createTags([tagName]);
-        modals.closeAll();
-    }, [modals, createTags, tagName]);
+        closeLastModal();
+    }, [closeLastModal, createTags, tagName]);
 
     return (
         <>

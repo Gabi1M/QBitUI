@@ -9,14 +9,14 @@ import { useModals } from '@mantine/modals';
 import { AddTorrentsParams } from 'meridian/api';
 import { selectCategories } from 'meridian/categories';
 import { Dropzone, commonModalConfiguration } from 'meridian/generic';
-import { useCreateResource } from 'meridian/hooks';
+import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Category } from 'meridian/models';
 import { Resource } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
 import { selectTags } from 'meridian/tags';
 
 const AddTorrentsModal = () => {
-    const modals = useModals();
+    const closeLastModal = useCloseLastModal();
     const dispatch = useDispatch();
     const categories = useSelector(selectCategories);
     const tags = useSelector(selectTags);
@@ -58,9 +58,9 @@ const AddTorrentsModal = () => {
                 ...data,
                 torrents: files,
             });
-            modals.closeAll();
+            closeLastModal();
         },
-        [dispatch, modals, data, files, addTorrents],
+        [dispatch, closeLastModal, data, files, addTorrents],
     );
 
     return (

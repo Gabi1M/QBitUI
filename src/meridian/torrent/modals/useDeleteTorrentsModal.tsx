@@ -6,6 +6,7 @@ import { Button, Checkbox } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
 import { commonModalConfiguration } from 'meridian/generic';
+import { useCloseLastModal } from 'meridian/hooks';
 
 import { useDeleteTorrents } from '../hooks';
 
@@ -14,14 +15,14 @@ interface Props {
 }
 
 const DeleteTorrentsModal = ({ hashes }: Props) => {
-    const modals = useModals();
+    const closeLastModal = useCloseLastModal();
     const [deleteFiles, setDeleteFiles] = React.useState(false);
     const deleteTorrents = useDeleteTorrents();
 
     const onSubmit = React.useCallback(() => {
         deleteTorrents(hashes, deleteFiles);
-        modals.closeAll();
-    }, [modals, deleteFiles, deleteTorrents, hashes]);
+        closeLastModal();
+    }, [closeLastModal, deleteFiles, deleteTorrents, hashes]);
 
     return (
         <>
