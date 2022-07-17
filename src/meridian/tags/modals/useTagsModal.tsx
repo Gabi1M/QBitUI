@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { t } from '@lingui/macro';
 import { Trash } from 'tabler-icons-react';
 
-import { ActionIcon, Box, Button, Group, Text, createStyles } from '@mantine/core';
+import { ActionIcon, Box, Button, Group, LoadingOverlay, Text, createStyles } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
 import { commonModalConfiguration } from 'meridian/generic';
@@ -22,8 +22,10 @@ const TagsModal = () => {
     const deleteTags = useDeleteResource(Resource.TAGS);
 
     if (!tags) {
-        return <Button fullWidth mt='md' onClick={openCreateTagModal}>{t`New`}</Button>;
+        return <LoadingOverlay visible />;
     }
+
+    const createOnDeleteClickHandler = (tag: string) => () => deleteTags([tag]);
 
     return (
         <>
@@ -31,7 +33,7 @@ const TagsModal = () => {
                 <Group mt='md' key={key}>
                     <Text>{tag}</Text>
                     <Box className={styles.classes.space} />
-                    <ActionIcon onClick={() => deleteTags([tag])}>
+                    <ActionIcon onClick={createOnDeleteClickHandler(tag)}>
                         <Trash />
                     </ActionIcon>
                 </Group>

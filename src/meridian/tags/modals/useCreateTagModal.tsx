@@ -9,25 +9,23 @@ import { commonModalConfiguration } from 'meridian/generic';
 import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
 
+import useTagForm from '../useTagsForm';
+
 const CreateTagModal = () => {
     const closeLastModal = useCloseLastModal();
-    const [tagName, setTagName] = React.useState('');
+    const form = useTagForm();
     const createTags = useCreateResource(Resource.TAGS);
 
-    const onSubmit = React.useCallback(() => {
+    const onSubmit = ({ tagName }: { tagName: string }) => {
         createTags([tagName]);
         closeLastModal();
-    }, [closeLastModal, createTags, tagName]);
+    };
 
     return (
-        <>
-            <TextInput
-                label={t`Name`}
-                value={tagName}
-                onChange={(event) => setTagName(event.target.value)}
-            />
-            <Button mt='md' fullWidth onClick={onSubmit}>{t`Submit`}</Button>
-        </>
+        <form onSubmit={form.onSubmit(onSubmit)}>
+            <TextInput label={t`Name`} {...form.getInputProps('tagName')} />
+            <Button type='submit' mt='md' fullWidth>{t`Submit`}</Button>
+        </form>
     );
 };
 
