@@ -10,10 +10,11 @@ import { AddTorrentsParams } from 'meridian/api';
 import { selectCategories } from 'meridian/categories';
 import { Dropzone, commonModalConfiguration } from 'meridian/generic';
 import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
-import { Category } from 'meridian/models';
 import { Resource } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
 import { selectTags } from 'meridian/tags';
+
+import useAddTorrentForm from '../useAddTorrentForm';
 
 const AddTorrentsModal = () => {
     const closeLastModal = useCloseLastModal();
@@ -22,55 +23,47 @@ const AddTorrentsModal = () => {
     const tags = useSelector(selectTags);
     const addTorrents = useCreateResource(Resource.TORRENT);
 
-    const [data, setData] = React.useState<AddTorrentsParams>({
-        urls: [],
-        torrents: [],
-        rootFolder: true,
-        autoTMM: true,
-    });
+    const form = useAddTorrentForm();
     const [files, setFiles] = React.useState<File[]>([]);
-
-    const updateData = React.useCallback(
-        (
-            field: keyof AddTorrentsParams,
-            value: string | string[] | boolean | Category | undefined,
-        ) => {
-            setData((prev) => ({
-                ...prev,
-                [field]: value,
-            }));
-        },
-        [setData],
-    );
 
     const onRemoveFile = (file: File) => {
         setFiles(files.filter((x) => x.name !== file.name));
     };
 
     const onSubmit = React.useCallback(
-        (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
+        (data: AddTorrentsParams) => {
+            console.log(data);
             if (!files?.length) {
                 dispatch(showSnackbarAction(t`Cannot add torrent without files!`, 'error', 2000));
                 return;
             }
+            if (
+                !files.every(
+                    (x) =>
+                        x.type === 'application/x-bittorrent' ||
+                        x.name.split('.').pop()?.toLowerCase() === 'torrent',
+                )
+            ) {
+                dispatch(showSnackbarAction(t`Invalid file types!`, 'error', 2000));
+                return;
+            }
+
             addTorrents({
                 ...data,
                 torrents: files,
             });
             closeLastModal();
         },
-        [dispatch, closeLastModal, data, files, addTorrents],
+        [files, dispatch, addTorrents, closeLastModal],
     );
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={form.onSubmit(onSubmit)}>
             <Dropzone files={files} onDrop={setFiles} onRemove={onRemoveFile} />
             <Select
                 mt='md'
                 label={t`Category`}
                 placeholder={t`None selected`}
-                value={data.category?.name}
                 data={
                     categories
                         ? Object.keys(categories).map((category) => ({
@@ -79,39 +72,42 @@ const AddTorrentsModal = () => {
                           }))
                         : []
                 }
-                onChange={(value) => updateData('category', categories?.[value as string])}
+                {...form.getInputProps('category')}
             />
             <MultiSelect
                 mt='md'
                 label={t`Tags`}
                 placeholder={t`None selected`}
-                value={data.tags}
                 data={tags ? tags.map((tag) => ({ value: tag, label: tag })) : []}
-                onChange={(value) => updateData('tags', value)}
+                {...form.getInputProps('tags')}
             />
             <Checkbox
                 mt='md'
                 label={t`Start paused`}
-                checked={data.paused}
-                onChange={(event) => updateData('paused', event.target.checked)}
+                {...form.getInputProps('paused', {
+                    type: 'checkbox',
+                })}
             />
             <Checkbox
                 mt='md'
                 label={t`Skip checking`}
-                checked={data.skipChecking}
-                onChange={(event) => updateData('skipChecking', event.target.checked)}
+                {...form.getInputProps('skipChecking', {
+                    type: 'checkbox',
+                })}
             />
             <Checkbox
                 mt='md'
                 label={t`Create subfolder`}
-                checked={data.rootFolder}
-                onChange={(event) => updateData('rootFolder', event.target.checked)}
+                {...form.getInputProps('rootFolder', {
+                    type: 'checkbox',
+                })}
             />
             <Checkbox
                 mt='md'
                 label={t`Automatic torrent management`}
-                checked={data.autoTMM}
-                onChange={(event) => updateData('autoTMM', event.target.checked)}
+                {...form.getInputProps('autoTMM', {
+                    type: 'checkbox',
+                })}
             />
             <Button type='submit' mt='md' fullWidth>{t`Submit`}</Button>
         </form>

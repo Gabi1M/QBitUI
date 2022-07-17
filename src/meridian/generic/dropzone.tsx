@@ -58,11 +58,12 @@ interface Props {
     files: File[];
     onDrop: (files: File[]) => void;
     onRemove: (file: File) => void;
+    accept?: string[];
 }
 
-const Dropzone = ({ files, onDrop, onRemove }: Props) => (
+const Dropzone = ({ files, onDrop, onRemove, accept }: Props) => (
     <>
-        <LibDropzone mb={10} onDrop={onDrop} maxSize={3 * 1024 ** 2}>
+        <LibDropzone mb={10} accept={accept} onDrop={onDrop} maxSize={3 * 1024 ** 2}>
             {DropzoneChildren}
         </LibDropzone>
         {files.map((file, key) => (
