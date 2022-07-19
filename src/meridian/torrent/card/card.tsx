@@ -31,7 +31,7 @@ const TorrentCard = ({ torrent, selectable, selected, onSelectionChanged }: Prop
             className={styles.classes.root}
             onClick={selectable ? toggleSelection : undefined}
         >
-            <TitleAndMenu torrent={torrent} />
+            <TitleAndMenu hash={torrent.hash} name={torrent.name} />
             <StatusInfo
                 mt='lg'
                 state={torrent.state}

@@ -6,7 +6,6 @@ import { useModals } from '@mantine/modals';
 
 import { commonModalConfiguration } from 'meridian/generic';
 import { selectMainData } from 'meridian/mainData';
-import { TorrentInfo } from 'meridian/models';
 import { selectTags } from 'meridian/tags';
 
 import { useManageTorrentTags } from '../hooks';
@@ -53,10 +52,10 @@ const TorrentTagsModal = ({ hash }: Props) => {
 const useTorrentTagsModal = () => {
     const modals = useModals();
 
-    return (torrent: TorrentInfo) =>
+    return (hash: string, name: string) =>
         modals.openModal({
-            title: torrent.name,
-            children: <TorrentTagsModal hash={torrent.hash} />,
+            title: name,
+            children: <TorrentTagsModal hash={hash} />,
             ...commonModalConfiguration,
         });
 };

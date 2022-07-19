@@ -21,6 +21,16 @@ interface Props extends MantineStyleSystemProps {
     upSpeed: number;
 }
 
+const DownloadIcon = () => {
+    const { theme } = useStyles();
+    return <Download color={theme.colors.green[7]} />;
+};
+
+const UploadIcon = () => {
+    const { theme } = useStyles();
+    return <Upload color={theme.colors.cyan[4]} />;
+};
+
 const StatusInfo = ({ state, category, tags, dlSpeed, upSpeed, ...props }: Props) => {
     const styles = useStyles();
     const torrentStateDescription = getTorrentStateDescription(state);
@@ -40,13 +50,13 @@ const StatusInfo = ({ state, category, tags, dlSpeed, upSpeed, ...props }: Props
                     label={t`Download speed`}
                     text={bytesToSize(dlSpeed)}
                     color={styles.theme.colors.green[7]}
-                    icon={<Download color={styles.theme.colors.green[7]} />}
+                    icon={<DownloadIcon />}
                 />
                 <LabelWithText
                     label={t`Upload speed`}
                     text={bytesToSize(upSpeed)}
                     color={styles.theme.colors.cyan[4]}
-                    icon={<Upload color={styles.theme.colors.cyan[4]} />}
+                    icon={<UploadIcon />}
                 />
             </Group>
         </Box>

@@ -9,7 +9,6 @@ import { useModals } from '@mantine/modals';
 import { selectCategories } from 'meridian/categories';
 import { commonModalConfiguration } from 'meridian/generic';
 import { selectMainData } from 'meridian/mainData';
-import { TorrentInfo } from 'meridian/models';
 
 import { useSetTorrentCategory } from '../hooks';
 
@@ -43,10 +42,10 @@ const TorrentCategoryModal = ({ hash }: Props) => {
 const useTorrentCategoryModal = () => {
     const modals = useModals();
 
-    return (torrent: TorrentInfo) =>
+    return (hash: string, name: string) =>
         modals.openModal({
-            title: torrent.name,
-            children: <TorrentCategoryModal hash={torrent.hash} />,
+            title: name,
+            children: <TorrentCategoryModal hash={hash} />,
             ...commonModalConfiguration,
         });
 };

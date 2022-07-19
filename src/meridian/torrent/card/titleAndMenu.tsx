@@ -3,22 +3,22 @@ import React from 'react';
 import { Box, MantineStyleSystemProps, createStyles } from '@mantine/core';
 
 import { ContextMenu, ResponsiveText } from 'meridian/generic';
-import { TorrentInfo } from 'meridian/models';
 
 import useContextMenuItems from '../useContextMenuItems';
 
 interface Props extends MantineStyleSystemProps {
-    torrent: TorrentInfo;
+    hash: string;
+    name: string;
 }
 
-const TitleAndMenu = ({ torrent, ...props }: Props) => {
+const TitleAndMenu = ({ hash, name, ...props }: Props) => {
     const styles = useStyles();
-    const contextMenuItems = useContextMenuItems(torrent);
+    const contextMenuItems = useContextMenuItems(hash, name);
 
     return (
         <Box {...props} className={styles.classes.root}>
-            <ResponsiveText size='xl'>{torrent.name}</ResponsiveText>
-            <ContextMenu ml='xs' items={contextMenuItems} />
+            <ResponsiveText size='xl'>{name}</ResponsiveText>
+            <ContextMenu items={contextMenuItems} />
         </Box>
     );
 };
