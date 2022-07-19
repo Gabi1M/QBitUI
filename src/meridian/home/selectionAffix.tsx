@@ -82,6 +82,8 @@ const SelectionAffix = ({
         ],
     );
 
+    const toggleSelection = () => setSelectionEnabled(!selectionEnabled);
+
     return (
         <Affix position={{ bottom: 20, right: 20 }}>
             <Transition transition='slide-up' mounted={selectionEnabled}>
@@ -107,7 +109,7 @@ const SelectionAffix = ({
             </Transition>
             <ActionIcon
                 title={t`Manage selection`}
-                onClick={() => setSelectionEnabled(!selectionEnabled)}
+                onClick={toggleSelection}
                 mt={10}
                 variant='filled'
                 color='blue'
