@@ -27,10 +27,10 @@ const CategoriesModal = () => {
         return <LoadingOverlay visible />;
     }
 
-    const createOnEditClickHandler = (categoryName: string) => () =>
-        openEditCategoryModal(categories[categoryName]);
-    const createOnDeleteClickHandler = (categoryName: string) => () =>
-        deleteCategories([categories[categoryName]]);
+    const handlers = {
+        edit: (categoryName: string) => () => openEditCategoryModal(categories[categoryName]),
+        delete: (categoryName: string) => () => deleteCategories([categories[categoryName]]),
+    };
 
     return (
         <>
@@ -38,10 +38,10 @@ const CategoriesModal = () => {
                 <Group mt='md' key={key}>
                     <Text>{categories[categoryName].name}</Text>
                     <Box className={styles.classes.space} />
-                    <ActionIcon onClick={createOnEditClickHandler(categoryName)}>
+                    <ActionIcon onClick={handlers['edit'](categoryName)}>
                         <Edit />
                     </ActionIcon>
-                    <ActionIcon onClick={createOnDeleteClickHandler(categoryName)}>
+                    <ActionIcon onClick={handlers['delete'](categoryName)}>
                         <Trash />
                     </ActionIcon>
                 </Group>
