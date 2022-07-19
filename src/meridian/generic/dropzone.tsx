@@ -1,9 +1,13 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { ActionIcon, Badge, Group, Text } from '@mantine/core';
-import { Dropzone as LibDropzone, DropzoneStatus } from '@mantine/dropzone';
 import { X } from 'tabler-icons-react';
+
+import { ActionIcon, Badge, Group, Text } from '@mantine/core';
+import { DropzoneStatus, Dropzone as LibDropzone } from '@mantine/dropzone';
+
 import { truncateLongText } from 'meridian/utils';
+
 import useWindowSize from './useWindowSize';
 
 interface FileBadgeProps {
@@ -54,11 +58,12 @@ interface Props {
     files: File[];
     onDrop: (files: File[]) => void;
     onRemove: (file: File) => void;
+    accept?: string[];
 }
 
-const Dropzone = ({ files, onDrop, onRemove }: Props) => (
+const Dropzone = ({ files, onDrop, onRemove, accept }: Props) => (
     <>
-        <LibDropzone mb={10} onDrop={onDrop} maxSize={3 * 1024 ** 2}>
+        <LibDropzone mb={10} accept={accept} onDrop={onDrop} maxSize={3 * 1024 ** 2}>
             {DropzoneChildren}
         </LibDropzone>
         {files.map((file, key) => (

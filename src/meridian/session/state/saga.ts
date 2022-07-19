@@ -1,20 +1,22 @@
 import { t } from '@lingui/macro';
 import { apply, put, takeLatest } from 'redux-saga/effects';
+
 import { Api } from 'meridian/api';
 import { LoginResponse } from 'meridian/models';
 import { history } from 'meridian/navigation/history';
 import { AppRoutes } from 'meridian/navigation/types';
-import { BaseAction, createResourceFetchAction, Resource } from 'meridian/resource';
+import { BaseAction, Resource, createResourceFetchAction } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
+
 import {
+    LoginAction,
+    SessionActions,
     createFetchVersionsAction,
     createSetVersionsAction,
-    LoginAction,
     loginFailAction,
     loginSuccessAction,
     logoutFailAction,
     logoutSuccessAction,
-    SessionActions,
 } from './actions';
 
 function* loginSaga(action: LoginAction) {

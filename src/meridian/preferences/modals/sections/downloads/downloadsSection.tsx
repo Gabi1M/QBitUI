@@ -1,10 +1,14 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Accordion, Switch, Textarea } from '@mantine/core';
+
 import { SectionProps } from '../types';
+
 import AddingTorrentSection from './addingTorrentSection';
-import SavingManagementSection from './savingManagementSection';
 import EmailSection from './emailSection';
+import SavingManagementSection from './savingManagementSection';
 
 const DownloadsSection = (props: SectionProps) => {
     const { preferences, updatePreferencesKey } = props;

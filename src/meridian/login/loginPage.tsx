@@ -1,38 +1,39 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import {
     Avatar,
     Box,
     Button,
-    createStyles,
     Paper,
     PasswordInput,
     Text,
     TextInput,
+    createStyles,
 } from '@mantine/core';
+
 import { Page, SegmentedColorSchemeToggle } from 'meridian/generic';
 import { useLogin } from 'meridian/hooks';
-import { Icons } from 'meridian/icons';
 import { LanguagePicker } from 'meridian/i18n';
+import { Icons } from 'meridian/icons';
+import { LoginData } from 'meridian/models';
+
+import useLoginForm from './useLoginForm';
 
 const LoginPage = () => {
     const styles = useStyles();
     const login = useLogin();
-    const [username, setUsername] = React.useState('');
-    const [password, setPassword] = React.useState('');
-    const onClick = React.useCallback(
-        (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            login(username, password);
-        },
-        [username, password, login],
-    );
+    const form = useLoginForm();
+
+    const onSubmit = (data: LoginData) => login(data.username, data.password);
+
     return (
         <Page>
             <Box className={styles.classes.root}>
                 <Paper
                     component='form'
-                    onSubmit={onClick}
+                    onSubmit={form.onSubmit(onSubmit)}
                     withBorder
                     shadow='md'
                     p={30}
@@ -44,19 +45,17 @@ const LoginPage = () => {
                         <Text size='xl'>{t`Welcome to QBitUI`}</Text>
                     </Box>
                     <TextInput
+                        required
                         label={t`Username`}
                         placeholder={t`Enter your username`}
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                        required
+                        {...form.getInputProps('username')}
                     />
                     <PasswordInput
+                        mt='md'
+                        required
                         label={t`Password`}
                         placeholder={t`Enter your password`}
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                        required
-                        mt='md'
+                        {...form.getInputProps('password')}
                     />
                     <Box mt={15}>
                         <LanguagePicker />

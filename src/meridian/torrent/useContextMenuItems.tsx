@@ -1,22 +1,24 @@
-import { t } from '@lingui/macro';
-import { ContextMenuItem } from 'meridian/generic';
-import { TorrentInfo } from 'meridian/models';
-import { useTorrentPropertiesModal } from 'meridian/torrentProperties';
 import React from 'react';
+
+import { t } from '@lingui/macro';
 import {
     BoxMultiple,
     Download,
     FileCheck,
+    List,
     PlayerPause,
     PlayerPlay,
     Tag,
     Trash,
-    List,
 } from 'tabler-icons-react';
+
+import { ContextMenuItem } from 'meridian/generic';
+import { useTorrentPropertiesModal } from 'meridian/torrentProperties';
+
 import { useTorrentActions } from './hooks';
 import { useDeleteTorrentsModal, useTorrentCategoryModal, useTorrentTagsModal } from './modals';
 
-const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
+const useContextMenuItems = (hash: string, name: string): ContextMenuItem[] => {
     const { pauseTorrents, resumeTorrents, forceDownloadTorrents, recheckTorrents } =
         useTorrentActions();
     const deleteTorrents = useDeleteTorrentsModal();
@@ -29,46 +31,47 @@ const useContextMenuItems = (torrent: TorrentInfo): ContextMenuItem[] => {
             {
                 text: t`Pause`,
                 icon: <PlayerPause />,
-                callback: () => pauseTorrents([torrent.hash]),
+                callback: () => pauseTorrents([hash]),
             },
             {
                 text: t`Resume`,
                 icon: <PlayerPlay />,
-                callback: () => resumeTorrents([torrent.hash]),
+                callback: () => resumeTorrents([hash]),
             },
             {
                 text: t`Force download`,
                 icon: <Download />,
-                callback: () => forceDownloadTorrents([torrent.hash]),
+                callback: () => forceDownloadTorrents([hash]),
             },
             {
                 text: t`Recheck`,
                 icon: <FileCheck />,
-                callback: () => recheckTorrents([torrent.hash]),
+                callback: () => recheckTorrents([hash]),
             },
             {
                 text: t`Delete`,
                 icon: <Trash />,
-                callback: () => deleteTorrents([torrent.hash]),
+                callback: () => deleteTorrents([hash]),
             },
             {
                 text: t`Categories`,
                 icon: <BoxMultiple />,
-                callback: () => openCategoryModal(torrent),
+                callback: () => openCategoryModal(hash, name),
             },
             {
                 text: t`Tags`,
                 icon: <Tag />,
-                callback: () => openTagsModal(torrent),
+                callback: () => openTagsModal(hash, name),
             },
             {
                 text: t`Details`,
                 icon: <List />,
-                callback: () => openPropertiesModal(torrent.hash, torrent.name),
+                callback: () => openPropertiesModal(hash, name),
             },
         ],
         [
-            torrent,
+            hash,
+            name,
             pauseTorrents,
             resumeTorrents,
             forceDownloadTorrents,

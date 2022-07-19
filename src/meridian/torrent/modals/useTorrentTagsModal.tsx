@@ -1,10 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import { LoadingOverlay, Switch } from '@mantine/core';
 import { useModals } from '@mantine/modals';
-import { selectTags } from 'meridian/tags';
-import { useSelector } from 'react-redux';
-import { TorrentInfo } from 'meridian/models';
+
+import { commonModalConfiguration } from 'meridian/generic';
 import { selectMainData } from 'meridian/mainData';
+import { selectTags } from 'meridian/tags';
+
 import { useManageTorrentTags } from '../hooks';
 
 interface Props {
@@ -25,6 +28,14 @@ const TorrentTagsModal = ({ hash }: Props) => {
 
     const torrentTags = torrent.tags === '' ? [] : torrent.tags.split(',').map((x) => x.trim());
 
+    const createOnChangeHandler = (tag: string, event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked) {
+            addTags([torrent.hash], [tag]);
+        } else {
+            removeTags([torrent.hash], [tag]);
+        }
+    };
+
     return (
         <>
             {tags.map((tag, key) => (
@@ -33,13 +44,7 @@ const TorrentTagsModal = ({ hash }: Props) => {
                     mt='md'
                     label={tag}
                     checked={torrentTags.includes(tag)}
-                    onChange={(value) => {
-                        if (value.target.checked) {
-                            addTags([torrent.hash], [tag]);
-                        } else {
-                            removeTags([torrent.hash], [tag]);
-                        }
-                    }}
+                    onChange={(event) => createOnChangeHandler(tag, event)}
                 />
             ))}
         </>
@@ -49,12 +54,11 @@ const TorrentTagsModal = ({ hash }: Props) => {
 const useTorrentTagsModal = () => {
     const modals = useModals();
 
-    return (torrent: TorrentInfo) =>
+    return (hash: string, name: string) =>
         modals.openModal({
-            title: torrent.name,
-            children: <TorrentTagsModal hash={torrent.hash} />,
-            centered: true,
-            overlayBlur: 5,
+            title: name,
+            children: <TorrentTagsModal hash={hash} />,
+            ...commonModalConfiguration,
         });
 };
 

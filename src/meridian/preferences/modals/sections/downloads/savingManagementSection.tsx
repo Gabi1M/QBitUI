@@ -1,12 +1,16 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Select, Switch, TextInput } from '@mantine/core';
+
 import {
     TorrentManagementCategoryChangedNameMapping,
     TorrentManagementModeNameMapping,
     TorrentManagementPathChangedNameMapping,
 } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
+
 import { SectionProps } from '../types';
 
 const SavingManagementSection = ({ preferences, updatePreferencesKey }: SectionProps) => {

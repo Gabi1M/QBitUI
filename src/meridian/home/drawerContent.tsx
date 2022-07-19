@@ -1,19 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { t } from '@lingui/macro';
+
 import {
     Box,
+    LoadingOverlay,
     MultiSelect,
+    Text,
     TextInput,
     Title,
-    Text,
     createStyles,
-    LoadingOverlay,
 } from '@mantine/core';
-import { t } from '@lingui/macro';
-import { TorrentFilters, TorrentState, TorrentStateDescription } from 'meridian/models';
+
+import { selectMainData } from 'meridian/mainData';
+import { TorrentFilters, TorrentStateDescription } from 'meridian/models';
 import { createSetTorrentFiltersAction, selectTorrentFilters } from 'meridian/torrentFilters';
 import { TransferInfoCard } from 'meridian/transferInfo';
-import { selectMainData } from 'meridian/mainData';
+
 import { useFilteredTorrents } from './hooks';
 
 const DrawerContent = () => {
@@ -24,7 +28,7 @@ const DrawerContent = () => {
     const dispatch = useDispatch();
 
     const onTorrentFilterChanged = React.useCallback(
-        (field: keyof TorrentFilters, value: string | string[] | TorrentState[]) => {
+        (field: keyof TorrentFilters, value: TorrentFilters[keyof TorrentFilters]) => {
             dispatch(
                 createSetTorrentFiltersAction({
                     ...torrentFilters,
@@ -35,48 +39,55 @@ const DrawerContent = () => {
         [dispatch, torrentFilters],
     );
 
+    const handlers = {
+        name: (value: React.ChangeEvent<HTMLInputElement>) =>
+            onTorrentFilterChanged('name', value.target.value),
+        states: (value: string[]) => onTorrentFilterChanged('states', value),
+        categories: (value: string[]) => onTorrentFilterChanged('categories', value),
+        tags: (value: string[]) => onTorrentFilterChanged('tags', value),
+    };
+
     if (!mainData || !torrents) {
         return <LoadingOverlay visible />;
     }
 
-    const { categories } = mainData;
-    const { tags } = mainData;
+    const { categories: categoriesData, tags } = mainData;
+    const categories = Object.values(categoriesData).map((category) => category.name);
+    const text = torrents.length ? `${torrents.length} ${t`Torrents`}` : t`No Torrents`;
 
     return (
         <>
             <TransferInfoCard />
             <Box className={styles.classes.space}>
-                <Text size='xl'>
-                    {torrents?.length ? `${torrents.length} ${t`Torrents`}` : t`No Torrents`}
-                </Text>
+                <Text size='xl'>{text}</Text>
             </Box>
             <Title order={4} align='center'>{t`Filters`}</Title>
             <TextInput
                 label={t`Name`}
                 placeholder={t`Enter a name`}
                 value={torrentFilters.name}
-                onChange={(value) => onTorrentFilterChanged('name', value.target.value)}
+                onChange={handlers['name']}
             />
             <MultiSelect
                 label={t`States`}
                 placeholder={t`All`}
                 value={torrentFilters.states}
                 data={Object.values(TorrentStateDescription)}
-                onChange={(value) => onTorrentFilterChanged('states', value)}
+                onChange={handlers['states']}
             />
             <MultiSelect
                 label={t`Categories`}
                 placeholder={t`All`}
                 value={torrentFilters.categories}
-                data={categories ? Object.values(categories).map((x) => x.name) : []}
-                onChange={(value) => onTorrentFilterChanged('categories', value)}
+                data={categories}
+                onChange={handlers['categories']}
             />
             <MultiSelect
                 label={t`Tags`}
                 placeholder={t`All`}
                 value={torrentFilters.tags}
-                data={tags ?? []}
-                onChange={(value) => onTorrentFilterChanged('tags', value)}
+                data={tags}
+                onChange={handlers['tags']}
             />
         </>
     );

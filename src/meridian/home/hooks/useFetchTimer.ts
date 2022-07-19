@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectSettings } from 'meridian/settings';
+
 import { useRefreshMainData } from 'meridian/mainData';
+import { selectSettings } from 'meridian/settings';
 
 const useFetchTimer = () => {
     const refreshMainData = useRefreshMainData();

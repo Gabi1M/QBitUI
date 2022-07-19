@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { NumberInput, PasswordInput, Select, Switch, TextInput } from '@mantine/core';
+
 import { ProxyTypeNameMapping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
+
 import { SectionProps } from '../types';
 
 const ProxyServerSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

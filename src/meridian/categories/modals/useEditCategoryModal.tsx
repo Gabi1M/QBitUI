@@ -1,44 +1,36 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { useModals } from '@mantine/modals';
+
 import { Button, TextInput } from '@mantine/core';
+import { useModals } from '@mantine/modals';
+
+import { commonModalConfiguration } from 'meridian/generic';
+import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Category } from 'meridian/models';
-import { useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
+
+import useCategoryForm from '../useCategoryForm';
 
 interface Props {
     category: Category;
 }
 
 const EditCategoryModal = ({ category: categoryToEdit }: Props) => {
-    const modals = useModals();
-    const [category, setCategory] = React.useState(categoryToEdit);
+    const closeLastModal = useCloseLastModal();
     const createCategory = useCreateResource(Resource.CATEGORIES);
+    const form = useCategoryForm(categoryToEdit);
 
-    const onValueChanged = (value: string, field: keyof Category) =>
-        setCategory({ ...category, [field]: value });
-
-    const onSubmit = React.useCallback(
-        (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            if (category.savePath !== '') {
-                createCategory({ category, editExisting: true });
-                modals.closeAll();
-            }
-        },
-        [modals, category, createCategory],
-    );
+    const onSubmit = (category: Category) => {
+        createCategory({ category, editExisting: true });
+        closeLastModal();
+    };
 
     return (
-        <form onSubmit={onSubmit}>
-            <TextInput
-                mt='md'
-                label='Save path'
-                value={category.savePath}
-                onChange={(event) => onValueChanged(event.target.value.toString(), 'savePath')}
-            />
+        <form onSubmit={form.onSubmit(onSubmit)}>
+            <TextInput mt='md' label={t`Save path`} {...form.getInputProps('savePath')} />
             <Button type='submit' mt='md' fullWidth>
-                Submit
+                {t`Submit`}
             </Button>
         </form>
     );
@@ -51,8 +43,7 @@ const useEditCategoryModal = () => {
         modals.openModal({
             title: `${t`Edit`} ${category.name}`,
             children: <EditCategoryModal category={category} />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

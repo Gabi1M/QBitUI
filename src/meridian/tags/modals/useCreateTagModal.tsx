@@ -1,29 +1,31 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { useModals } from '@mantine/modals';
+
 import { Button, TextInput } from '@mantine/core';
+import { useModals } from '@mantine/modals';
+
+import { commonModalConfiguration } from 'meridian/generic';
+import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
-import { useCreateResource } from 'meridian/hooks';
+
+import useTagForm from '../useTagsForm';
 
 const CreateTagModal = () => {
-    const modals = useModals();
-    const [tagName, setTagName] = React.useState('');
+    const closeLastModal = useCloseLastModal();
+    const form = useTagForm();
     const createTags = useCreateResource(Resource.TAGS);
 
-    const onSubmit = React.useCallback(() => {
+    const onSubmit = ({ tagName }: { tagName: string }) => {
         createTags([tagName]);
-        modals.closeAll();
-    }, [modals, createTags, tagName]);
+        closeLastModal();
+    };
 
     return (
-        <>
-            <TextInput
-                label={t`Name`}
-                value={tagName}
-                onChange={(event) => setTagName(event.target.value)}
-            />
-            <Button mt='md' fullWidth onClick={onSubmit}>{t`Submit`}</Button>
-        </>
+        <form onSubmit={form.onSubmit(onSubmit)}>
+            <TextInput label={t`Name`} {...form.getInputProps('tagName')} />
+            <Button type='submit' mt='md' fullWidth>{t`Submit`}</Button>
+        </form>
     );
 };
 
@@ -34,8 +36,7 @@ const useCreateTagModal = () => {
         modals.openModal({
             title: t`Create new tag`,
             children: <CreateTagModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

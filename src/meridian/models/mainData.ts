@@ -1,6 +1,6 @@
 import { Category } from './category';
-import { TransferInfo } from './transferInfo';
 import { TorrentInfo } from './torrent';
+import { TransferInfo } from './transferInfo';
 
 export interface MainData {
     rid: number;

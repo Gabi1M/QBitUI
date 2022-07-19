@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectTorrentFilters } from 'meridian/torrentFilters';
-import { getTorrentStateDescription } from 'meridian/models';
+
 import { selectMainData } from 'meridian/mainData';
+import { getTorrentStateDescription } from 'meridian/models';
+import { selectTorrentFilters } from 'meridian/torrentFilters';
 
 const useFilteredTorrents = () => {
     const mainData = useSelector(selectMainData);

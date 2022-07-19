@@ -1,10 +1,13 @@
 import React from 'react';
-import { t } from '@lingui/macro';
 import { useSelector } from 'react-redux';
-import { bytesToSize } from 'meridian/utils';
+
+import { t } from '@lingui/macro';
+
 import { Card, LoadingOverlay } from '@mantine/core';
+
 import { LabelWithText } from 'meridian/generic';
 import { selectMainData } from 'meridian/mainData';
+import { bytesToSize } from 'meridian/utils';
 
 const TransferInfoCard = () => {
     const mainData = useSelector(selectMainData);

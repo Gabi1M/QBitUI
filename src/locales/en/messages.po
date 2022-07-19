@@ -13,33 +13,33 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/meridian/home/hooks/useHeaderMenuItems.tsx:56
+#: src/meridian/home/hooks/useHeaderMenuItems.tsx:58
 msgid "About"
 msgstr "About"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:72
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:76
 msgid "Add custom HTTP headers"
 msgstr "Add custom HTTP headers"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:123
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:126
 msgid "Add new torrents"
 msgstr "Add new torrents"
 
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:26
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:28
 msgid "Addition date"
 msgstr "Addition date"
 
-#: src/meridian/home/drawerContent.tsx:62
-#: src/meridian/home/drawerContent.tsx:69
-#: src/meridian/home/drawerContent.tsx:76
+#: src/meridian/home/drawerContent.tsx:66
+#: src/meridian/home/drawerContent.tsx:73
+#: src/meridian/home/drawerContent.tsx:80
 msgid "All"
 msgstr "All"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:24
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:30
 msgid "Also delete files"
 msgstr "Also delete files"
 
-#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:14
+#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:18
 msgid "Alternative Rate Limits"
 msgstr "Alternative Rate Limits"
 
@@ -51,7 +51,7 @@ msgstr "Alternative Rate Limits"
 #~ msgid "Alternative webui path"
 #~ msgstr "Alternative webui path"
 
-#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:20
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:24
 msgid "Append .!qB extension to incomplete files"
 msgstr "Append .!qB extension to incomplete files"
 
@@ -59,41 +59,41 @@ msgstr "Append .!qB extension to incomplete files"
 #~ msgid "Append .!qb extension to incomplete files"
 #~ msgstr "Append .!qb extension to incomplete files"
 
-#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:21
+#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:24
 msgid "Apply rate limit to peers on LAN"
 msgstr "Apply rate limit to peers on LAN"
 
-#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:15
+#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:18
 msgid "Apply rate limit to transport overhead"
 msgstr "Apply rate limit to transport overhead"
 
-#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:9
+#: src/meridian/preferences/modals/sections/speed/rateLimitsSettingsSection.tsx:12
 msgid "Apply rate limit to µTP protocol"
 msgstr "Apply rate limit to µTP protocol"
 
-#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:15
+#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:18
 msgid "Apply to trackers"
 msgstr "Apply to trackers"
 
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:49
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:51
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:91
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:53
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:54
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:95
 msgid "Authentication"
 msgstr "Authentication"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:23
+#: src/meridian/settings/modals/useSettingsModal.tsx:28
 msgid "Auto refresh"
 msgstr "Auto refresh"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:30
+#: src/meridian/settings/modals/useSettingsModal.tsx:35
 msgid "Auto refresh interval"
 msgstr "Auto refresh interval"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:109
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:112
 msgid "Automatic torrent management"
 msgstr "Automatic torrent management"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:26
+#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:30
 msgid "Automatically add these trackers to new downloads"
 msgstr "Automatically add these trackers to new downloads"
 
@@ -101,76 +101,76 @@ msgstr "Automatically add these trackers to new downloads"
 #~ msgid "Autorun"
 #~ msgstr "Autorun"
 
-#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:28
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:32
 msgid "Autorun program when torrent finishes"
 msgstr "Autorun program when torrent finishes"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:25
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:28
 msgid "Average download speed"
 msgstr "Average download speed"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:32
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:35
 msgid "Average upload speed"
 msgstr "Average upload speed"
 
-#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:40
+#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:43
 msgid "Ban client after consecutive failures"
 msgstr "Ban client after consecutive failures"
 
-#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:48
+#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:51
 msgid "Ban duration"
 msgstr "Ban duration"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:36
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:41
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:23
+#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:26
 msgid "Bypass authentication for subnets"
 msgstr "Bypass authentication for subnets"
 
-#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:32
+#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:35
 msgid "Bypassed subnets"
 msgstr "Bypassed subnets"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:51
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:54
 msgid "Cannot add torrent without files!"
 msgstr "Cannot add torrent without files!"
 
-#: src/meridian/categories/modals/useCategoriesModal.tsx:54
-#: src/meridian/home/drawerContent.tsx:68
-#: src/meridian/home/hooks/useHeaderMenuItems.tsx:41
-#: src/meridian/torrent/useContextMenuItems.tsx:55
+#: src/meridian/categories/modals/useCategoriesModal.tsx:61
+#: src/meridian/home/drawerContent.tsx:72
+#: src/meridian/home/hooks/useHeaderMenuItems.tsx:43
+#: src/meridian/torrent/useContextMenuItems.tsx:58
 msgid "Categories"
 msgstr "Categories"
 
-#: src/meridian/categories/state/saga.ts:19
+#: src/meridian/categories/state/saga.ts:21
 msgid "Categories added successfully!"
 msgstr "Categories added successfully!"
 
-#: src/meridian/categories/state/saga.ts:29
+#: src/meridian/categories/state/saga.ts:31
 msgid "Categories deleted successfully!"
 msgstr "Categories deleted successfully!"
 
-#: src/meridian/torrent/card/statusInfo.tsx:32
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:68
-#: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:30
+#: src/meridian/torrent/card/statusInfo.tsx:35
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:71
+#: src/meridian/torrent/modals/useTorrentCategoryModal.tsx:35
 msgid "Category"
 msgstr "Category"
 
-#: src/meridian/torrent/state/saga.ts:91
+#: src/meridian/torrent/state/saga.ts:93
 msgid "Category set successfully!"
 msgstr "Category set successfully!"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:55
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:59
 msgid "Certificate"
 msgstr "Certificate"
 
-#: src/meridian/home/selectionAffix.tsx:68
+#: src/meridian/home/selectionAffix.tsx:71
 msgid "Clear selection"
 msgstr "Clear selection"
 
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:27
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:29
 msgid "Comment"
 msgstr "Comment"
 
@@ -178,11 +178,11 @@ msgstr "Comment"
 #~ msgid "Configure torrent state colors"
 #~ msgstr "Configure torrent state colors"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:30
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:35
 msgid "Connection"
 msgstr "Connection"
 
-#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:31
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:36
 msgid "Connection Limits"
 msgstr "Connection Limits"
 
@@ -190,39 +190,39 @@ msgstr "Connection Limits"
 msgid "Contacted"
 msgstr "Contacted"
 
-#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:26
+#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:32
 msgid "Contents"
 msgstr "Contents"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:121
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:125
 msgid "Copy .torrent files for finished downloads to"
 msgstr "Copy .torrent files for finished downloads to"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:104
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:108
 msgid "Copy .torrent files to"
 msgstr "Copy .torrent files to"
 
-#: src/meridian/categories/modals/useCreateCategoryModal.tsx:59
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:41
 msgid "Create new category"
 msgstr "Create new category"
 
-#: src/meridian/tags/modals/useCreateTagModal.tsx:35
+#: src/meridian/tags/modals/useCreateTagModal.tsx:39
 msgid "Create new tag"
 msgstr "Create new tag"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:103
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:106
 msgid "Create subfolder"
 msgstr "Create subfolder"
 
-#: src/meridian/preferences/modals/sections/downloads/addingTorrentSection.tsx:15
+#: src/meridian/preferences/modals/sections/downloads/addingTorrentSection.tsx:18
 msgid "Create subfolder for torrents with multiple files"
 msgstr "Create subfolder for torrents with multiple files"
 
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:28
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:30
 msgid "Created by"
 msgstr "Created by"
 
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:25
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:27
 msgid "Creation date"
 msgstr "Creation date"
 
@@ -234,25 +234,25 @@ msgstr "Creation date"
 #~ msgid "Custom HTTP headers"
 #~ msgstr "Custom HTTP headers"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:84
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:88
 msgid "Default Save Path"
 msgstr "Default Save Path"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:21
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:25
 msgid "Default Torrent Management Mode"
 msgstr "Default Torrent Management Mode"
 
-#: src/meridian/home/selectionAffix.tsx:63
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:28
-#: src/meridian/torrent/useContextMenuItems.tsx:50
+#: src/meridian/home/selectionAffix.tsx:66
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:34
+#: src/meridian/torrent/useContextMenuItems.tsx:53
 msgid "Delete"
 msgstr "Delete"
 
-#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:38
+#: src/meridian/torrent/modals/useDeleteTorrentsModal.tsx:44
 msgid "Delete torrents"
 msgstr "Delete torrents"
 
-#: src/meridian/torrent/useContextMenuItems.tsx:65
+#: src/meridian/torrent/useContextMenuItems.tsx:68
 msgid "Details"
 msgstr "Details"
 
@@ -260,51 +260,51 @@ msgstr "Details"
 msgid "Disabled"
 msgstr "Disabled"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:37
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:40
 msgid "Do not count slow torrents in these limits"
 msgstr "Do not count slow torrents in these limits"
 
-#: src/meridian/preferences/modals/sections/downloads/addingTorrentSection.tsx:9
+#: src/meridian/preferences/modals/sections/downloads/addingTorrentSection.tsx:12
 msgid "Do not start the download automatically"
 msgstr "Do not start the download automatically"
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:53
-#: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:15
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:57
+#: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:18
 msgid "Download"
 msgstr "Download"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:46
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:49
 msgid "Download rate threshold"
 msgstr "Download rate threshold"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:22
-#: src/meridian/torrent/card/statusInfo.tsx:37
-#: src/meridian/transferInfo/card.tsx:20
+#: src/meridian/mainData/modals/useServerStateModal.tsx:26
+#: src/meridian/torrent/card/statusInfo.tsx:40
+#: src/meridian/transferInfo/card.tsx:23
 msgid "Download speed"
 msgstr "Download speed"
 
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:27
-#: src/meridian/transferInfo/card.tsx:27
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:30
+#: src/meridian/transferInfo/card.tsx:30
 msgid "Downloaded"
 msgstr "Downloaded"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:26
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:29
 msgid "Downloaded ( alltime )"
 msgstr "Downloaded ( alltime )"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:27
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:30
 msgid "Downloaded ( session )"
 msgstr "Downloaded ( session )"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:27
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:32
 msgid "Downloads"
 msgstr "Downloads"
 
-#: src/meridian/generic/dropzone.tsx:36
+#: src/meridian/generic/dropzone.tsx:40
 msgid "Drag torrent files here or click to select files"
 msgstr "Drag torrent files here or click to select files"
 
-#: src/meridian/categories/modals/useEditCategoryModal.tsx:52
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:44
 msgid "Edit"
 msgstr "Edit"
 
@@ -312,64 +312,64 @@ msgstr "Edit"
 #~ msgid "Edit category"
 #~ msgstr "Edit category"
 
-#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:45
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:49
 msgid "Email notification upon download completion"
 msgstr "Email notification upon download completion"
 
-#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:17
+#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:20
 msgid "Enable Cross-Site Request Forgery (CSRF) protection"
 msgstr "Enable Cross-Site Request Forgery (CSRF) protection"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:11
+#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:15
 msgid "Enable DHT (decentralized network) to find more peers"
 msgstr "Enable DHT (decentralized network) to find more peers"
 
-#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:34
+#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:37
 msgid "Enable Host header validation"
 msgstr "Enable Host header validation"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:23
+#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:27
 msgid "Enable Local Peer Discovery to find more peers"
 msgstr "Enable Local Peer Discovery to find more peers"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:17
+#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:21
 msgid "Enable Peer Exchange (PeX) to find more peers"
 msgstr "Enable Peer Exchange (PeX) to find more peers"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:41
+#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:45
 msgid "Enable anonymous mode"
 msgstr "Enable anonymous mode"
 
-#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:9
+#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:12
 msgid "Enable clickjacking protection"
 msgstr "Enable clickjacking protection"
 
-#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:26
+#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:29
 msgid "Enable cookie Secure flag (requires HTTPS)"
 msgstr "Enable cookie Secure flag (requires HTTPS)"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:9
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:9
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:12
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:12
 msgid "Enabled"
 msgstr "Enabled"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:29
+#: src/meridian/preferences/modals/sections/bitTorrent/privacySection.tsx:33
 msgid "Encryption mode"
 msgstr "Encryption mode"
 
-#: src/meridian/i18n/types.ts:10
+#: src/meridian/i18n/types.ts:11
 msgid "English"
 msgstr "English"
 
-#: src/meridian/home/drawerContent.tsx:56
+#: src/meridian/home/drawerContent.tsx:60
 msgid "Enter a name"
 msgstr "Enter a name"
 
-#: src/meridian/login/loginPage.tsx:55
+#: src/meridian/login/loginPage.tsx:58
 msgid "Enter your password"
 msgstr "Enter your password"
 
-#: src/meridian/login/loginPage.tsx:48
+#: src/meridian/login/loginPage.tsx:51
 msgid "Enter your username"
 msgstr "Enter your username"
 
@@ -377,113 +377,113 @@ msgstr "Enter your username"
 msgid "Error"
 msgstr "Error"
 
-#: src/meridian/categories/state/saga.ts:21
+#: src/meridian/categories/state/saga.ts:23
 msgid "Failed to add categories!"
 msgstr "Failed to add categories!"
 
-#: src/meridian/tags/state/saga.ts:21
+#: src/meridian/tags/state/saga.ts:23
 msgid "Failed to add tags!"
 msgstr "Failed to add tags!"
 
-#: src/meridian/torrent/state/saga.ts:127
+#: src/meridian/torrent/state/saga.ts:129
 msgid "Failed to add torrents!"
 msgstr "Failed to add torrents!"
 
-#: src/meridian/categories/state/saga.ts:31
+#: src/meridian/categories/state/saga.ts:33
 msgid "Failed to delete categories!"
 msgstr "Failed to delete categories!"
 
-#: src/meridian/tags/state/saga.ts:31
+#: src/meridian/tags/state/saga.ts:33
 msgid "Failed to delete tags!"
 msgstr "Failed to delete tags!"
 
-#: src/meridian/torrent/state/saga.ts:53
+#: src/meridian/torrent/state/saga.ts:55
 msgid "Failed to delete torrents!"
 msgstr "Failed to delete torrents!"
 
-#: src/meridian/torrent/state/saga.ts:31
+#: src/meridian/torrent/state/saga.ts:33
 msgid "Failed to pause torrents!"
 msgstr "Failed to pause torrents!"
 
-#: src/meridian/torrent/state/saga.ts:116
+#: src/meridian/torrent/state/saga.ts:118
 msgid "Failed to remove tags!"
 msgstr "Failed to remove tags!"
 
-#: src/meridian/torrent/state/saga.ts:42
+#: src/meridian/torrent/state/saga.ts:44
 msgid "Failed to resume torrents!"
 msgstr "Failed to resume torrents!"
 
-#: src/meridian/preferences/state/saga.ts:19
+#: src/meridian/preferences/state/saga.ts:21
 msgid "Failed to save preferences!"
 msgstr "Failed to save preferences!"
 
-#: src/meridian/generic/dropzone.tsx:40
+#: src/meridian/generic/dropzone.tsx:44
 msgid "Failed to select files. Drag here or click to select again."
 msgstr "Failed to select files. Drag here or click to select again."
 
-#: src/meridian/torrent/state/saga.ts:94
+#: src/meridian/torrent/state/saga.ts:96
 msgid "Failed to set category!"
 msgstr "Failed to set category!"
 
-#: src/meridian/torrent/state/saga.ts:105
+#: src/meridian/torrent/state/saga.ts:107
 msgid "Failed to set tags!"
 msgstr "Failed to set tags!"
 
-#: src/meridian/torrent/state/saga.ts:66
+#: src/meridian/torrent/state/saga.ts:68
 msgid "Failed to set torrents to force download!"
 msgstr "Failed to set torrents to force download!"
 
-#: src/meridian/torrent/state/saga.ts:83
+#: src/meridian/torrent/state/saga.ts:85
 msgid "Failed to submit torrents recheck!"
 msgstr "Failed to submit torrents recheck!"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:22
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:26
 msgid "Files location"
 msgstr "Files location"
 
-#: src/meridian/generic/dropzone.tsx:38
+#: src/meridian/generic/dropzone.tsx:42
 msgid "Files selected. Drag here or click to select again."
 msgstr "Files selected. Drag here or click to select again."
 
-#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:9
+#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:12
 msgid "Filter path"
 msgstr "Filter path"
 
-#: src/meridian/home/drawerContent.tsx:53
+#: src/meridian/home/drawerContent.tsx:57
 msgid "Filters"
 msgstr "Filters"
 
-#: src/meridian/home/selectionAffix.tsx:53
-#: src/meridian/torrent/useContextMenuItems.tsx:40
+#: src/meridian/home/selectionAffix.tsx:56
+#: src/meridian/torrent/useContextMenuItems.tsx:43
 msgid "Force download"
 msgstr "Force download"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:53
+#: src/meridian/mainData/modals/useServerStateModal.tsx:57
 msgid "Free space on disk"
 msgstr "Free space on disk"
 
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:17
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:68
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:20
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:72
 msgid "From"
 msgstr "From"
 
-#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:20
+#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:26
 msgid "General"
 msgstr "General"
 
-#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:11
+#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:15
 msgid "Global Rate Limits"
 msgstr "Global Rate Limits"
 
-#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:9
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:12
 msgid "Global maximum number of connections"
 msgstr "Global maximum number of connections"
 
-#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:21
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:24
 msgid "Global maximum number of upload slots"
 msgstr "Global maximum number of upload slots"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:50
+#: src/meridian/mainData/modals/useServerStateModal.tsx:54
 msgid "Global ratio"
 msgstr "Global ratio"
 
@@ -491,15 +491,15 @@ msgstr "Global ratio"
 msgid "High"
 msgstr "High"
 
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:23
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:27
 msgid "Host"
 msgstr "Host"
 
-#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:37
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:42
 msgid "IP Filtering"
 msgstr "IP Filtering"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:30
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:34
 msgid "IP address"
 msgstr "IP address"
 
@@ -507,7 +507,7 @@ msgstr "IP address"
 msgid "Ignored"
 msgstr "Ignored"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:90
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:94
 msgid "Keep incomplete torrents in"
 msgstr "Keep incomplete torrents in"
 
@@ -515,51 +515,51 @@ msgstr "Keep incomplete torrents in"
 #~ msgid "Keep incomplete torrents in temporary directory"
 #~ msgstr "Keep incomplete torrents in temporary directory"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:64
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:68
 msgid "Key"
 msgstr "Key"
 
-#: src/meridian/i18n/languagePicker.tsx:51
+#: src/meridian/i18n/languagePicker.tsx:55
 msgid "Language"
 msgstr "Language"
 
-#: src/meridian/torrent/card/connectionInfo.tsx:19
+#: src/meridian/torrent/card/connectionInfo.tsx:22
 msgid "Leechers"
 msgstr "Leechers"
 
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:26
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:29
 msgid "Leeches"
 msgstr "Leeches"
 
-#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:28
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:33
 msgid "Listening Port"
 msgstr "Listening Port"
 
-#: src/meridian/session/state/saga.ts:39
+#: src/meridian/session/state/saga.ts:41
 msgid "Login failed!"
 msgstr "Login failed!"
 
-#: src/meridian/session/state/saga.ts:29
+#: src/meridian/session/state/saga.ts:31
 msgid "Login successful!"
 msgstr "Login successful!"
 
-#: src/meridian/home/hooks/useHeaderMenuItems.tsx:61
+#: src/meridian/home/hooks/useHeaderMenuItems.tsx:63
 msgid "Logout"
 msgstr "Logout"
 
-#: src/meridian/session/state/saga.ts:56
+#: src/meridian/session/state/saga.ts:58
 msgid "Logout failed!"
 msgstr "Logout failed!"
 
-#: src/meridian/session/state/saga.ts:52
+#: src/meridian/session/state/saga.ts:54
 msgid "Logout successful!"
 msgstr "Logout successful!"
 
-#: src/meridian/home/selectionAffix.tsx:106
+#: src/meridian/home/selectionAffix.tsx:109
 msgid "Manage selection"
 msgstr "Manage selection"
 
-#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:21
+#: src/meridian/preferences/modals/sections/connection/ipFilteringSection.tsx:24
 msgid "Manually banned IP addresses"
 msgstr "Manually banned IP addresses"
 
@@ -567,47 +567,53 @@ msgstr "Manually banned IP addresses"
 msgid "Maximum"
 msgstr "Maximum"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:16
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:19
 msgid "Maximum active downloads"
 msgstr "Maximum active downloads"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:30
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:33
 msgid "Maximum active torrents"
 msgstr "Maximum active torrents"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:23
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:26
 msgid "Maximum active uploads"
 msgstr "Maximum active uploads"
 
-#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:15
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:18
 msgid "Maximum number of connections per torrent"
 msgstr "Maximum number of connections per torrent"
 
-#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:27
+#: src/meridian/preferences/modals/sections/connection/connectionLimitsSection.tsx:30
 msgid "Maximum number of upload slots per torrent"
 msgstr "Maximum number of upload slots per torrent"
 
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:28
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:31
 msgid "Message"
 msgstr "Message"
 
-#: src/meridian/home/drawerContent.tsx:55
-#: src/meridian/tags/modals/useCreateTagModal.tsx:21
-#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:21
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:27
+#: src/meridian/home/drawerContent.tsx:59
+#: src/meridian/tags/modals/useCreateTagModal.tsx:25
+#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:24
 msgid "Name"
 msgstr "Name"
 
-#: src/meridian/tags/modals/useTagsModal.tsx:19
-#: src/meridian/tags/modals/useTagsModal.tsx:33
+#: src/meridian/categories/useCategoryForm.ts:22
+msgid "Name cannot be empty"
+msgstr "Name cannot be empty"
+
+#: src/meridian/categories/modals/useCategoriesModal.tsx:50
+#: src/meridian/tags/modals/useTagsModal.tsx:25
+#: src/meridian/tags/modals/useTagsModal.tsx:39
 msgid "New"
 msgstr "New"
 
-#: src/meridian/home/drawerContent.tsx:50
+#: src/meridian/home/drawerContent.tsx:54
 msgid "No Torrents"
 msgstr "No Torrents"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:69
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:84
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:72
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:87
 msgid "None selected"
 msgstr "None selected"
 
@@ -619,37 +625,37 @@ msgstr "Normal"
 msgid "Not contacted"
 msgstr "Not contacted"
 
-#: src/meridian/login/loginPage.tsx:54
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:64
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:78
-#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:17
+#: src/meridian/login/loginPage.tsx:57
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:68
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:81
+#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:20
 msgid "Password"
 msgstr "Password"
 
-#: src/meridian/home/selectionAffix.tsx:43
-#: src/meridian/torrent/useContextMenuItems.tsx:30
+#: src/meridian/home/selectionAffix.tsx:46
+#: src/meridian/torrent/useContextMenuItems.tsx:33
 msgid "Pause"
 msgstr "Pause"
 
-#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:17
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:22
 msgid "Peer connection protocol"
 msgstr "Peer connection protocol"
 
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:24
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:28
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:27
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:31
 msgid "Peers"
 msgstr "Peers"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:29
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:32
 msgid "Peers ( total )"
 msgstr "Peers ( total )"
 
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:29
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:36
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:33
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:40
 msgid "Port"
 msgstr "Port"
 
-#: src/meridian/preferences/modals/sections/connection/listeningPortSection.tsx:9
+#: src/meridian/preferences/modals/sections/connection/listeningPortSection.tsx:12
 msgid "Port used for incoming connections"
 msgstr "Port used for incoming connections"
 
@@ -657,32 +663,32 @@ msgstr "Port used for incoming connections"
 #~ msgid "Powered by"
 #~ msgstr "Powered by"
 
-#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:14
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:18
 msgid "Pre-allocate disk space for all files"
 msgstr "Pre-allocate disk space for all files"
 
-#: src/meridian/home/hooks/useHeaderMenuItems.tsx:36
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:53
+#: src/meridian/home/hooks/useHeaderMenuItems.tsx:38
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:58
 msgid "Preferences"
 msgstr "Preferences"
 
-#: src/meridian/preferences/state/saga.ts:17
+#: src/meridian/preferences/state/saga.ts:19
 msgid "Preferences saved successfully!"
 msgstr "Preferences saved successfully!"
 
-#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:24
+#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:27
 msgid "Priority"
 msgstr "Priority"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:14
+#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:18
 msgid "Privacy"
 msgstr "Privacy"
 
-#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:23
+#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:26
 msgid "Progress"
 msgstr "Progress"
 
-#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:34
+#: src/meridian/preferences/modals/sections/connection/connectionSection.tsx:39
 msgid "Proxy Server"
 msgstr "Proxy Server"
 
@@ -698,20 +704,20 @@ msgstr "Proxy Server"
 #~ msgid "Public settings"
 #~ msgstr "Public settings"
 
-#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:17
+#: src/meridian/preferences/modals/sections/speed/speedSection.tsx:21
 msgid "Rate Limits Settings"
 msgstr "Rate Limits Settings"
 
-#: src/meridian/torrent/card/connectionInfo.tsx:20
+#: src/meridian/torrent/card/connectionInfo.tsx:23
 msgid "Ratio"
 msgstr "Ratio"
 
-#: src/meridian/home/selectionAffix.tsx:58
-#: src/meridian/torrent/useContextMenuItems.tsx:45
+#: src/meridian/home/selectionAffix.tsx:61
+#: src/meridian/torrent/useContextMenuItems.tsx:48
 msgid "Recheck"
 msgstr "Recheck"
 
-#: src/meridian/torrent/state/saga.ts:76
+#: src/meridian/torrent/state/saga.ts:78
 msgid "Recheck successfully submited for the selected torrents!"
 msgstr "Recheck successfully submited for the selected torrents!"
 
@@ -727,33 +733,39 @@ msgstr "Recheck successfully submited for the selected torrents!"
 #~ msgid "Relocate torrent when save path changes"
 #~ msgstr "Relocate torrent when save path changes"
 
-#: src/meridian/torrent/card/connectionInfo.tsx:22
+#: src/meridian/torrent/card/connectionInfo.tsx:25
 msgid "Remaining time"
 msgstr "Remaining time"
 
-#: src/meridian/home/selectionAffix.tsx:48
-#: src/meridian/torrent/useContextMenuItems.tsx:35
+#: src/meridian/home/selectionAffix.tsx:51
+#: src/meridian/torrent/useContextMenuItems.tsx:38
 msgid "Resume"
 msgstr "Resume"
 
-#: src/meridian/i18n/types.ts:11
+#: src/meridian/i18n/types.ts:12
 msgid "Romanian"
 msgstr "Romanian"
 
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:35
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:38
 msgid "SMTP server"
 msgstr "SMTP server"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:43
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:48
 msgid "Save"
 msgstr "Save"
 
-#: src/meridian/torrent/card/fileInfo.tsx:14
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:21
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:28
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:31
+#: src/meridian/torrent/card/fileInfo.tsx:17
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:23
 msgid "Save path"
 msgstr "Save path"
 
-#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:42
+#: src/meridian/categories/useCategoryForm.ts:23
+msgid "Save path cannot be empty"
+msgstr "Save path cannot be empty"
+
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:46
 msgid "Saving Management"
 msgstr "Saving Management"
 
@@ -761,37 +773,37 @@ msgstr "Saving Management"
 #~ msgid "Saving management"
 #~ msgstr "Saving management"
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:59
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:63
 msgid "Schedule the use of alternative rate limits"
 msgstr "Schedule the use of alternative rate limits"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:94
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:98
 msgid "Security"
 msgstr "Security"
 
-#: src/meridian/torrent/card/connectionInfo.tsx:18
+#: src/meridian/torrent/card/connectionInfo.tsx:21
 msgid "Seeders"
 msgstr "Seeders"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:20
+#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:24
 msgid "Seeding Limits"
 msgstr "Seeding Limits"
 
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:25
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:35
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:28
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:38
 msgid "Seeds"
 msgstr "Seeds"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:36
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:39
 msgid "Seeds ( total )"
 msgstr "Seeds ( total )"
 
-#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:43
+#: src/meridian/preferences/modals/sections/webui/securitySection.tsx:46
 msgid "Server domains"
 msgstr "Server domains"
 
-#: src/meridian/home/hooks/useHeaderMenuItems.tsx:51
-#: src/meridian/mainData/modals/useServerStateModal.tsx:70
+#: src/meridian/home/hooks/useHeaderMenuItems.tsx:53
+#: src/meridian/mainData/modals/useServerStateModal.tsx:74
 msgid "Server state"
 msgstr "Server state"
 
@@ -799,47 +811,49 @@ msgstr "Server state"
 #~ msgid "Session summary"
 #~ msgstr "Session summary"
 
-#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:54
+#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:57
 msgid "Session timeout"
 msgstr "Session timeout"
 
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:23
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:25
 msgid "Share ratio"
 msgstr "Share ratio"
 
-#: src/meridian/login/loginPage.tsx:69
+#: src/meridian/login/loginPage.tsx:72
 msgid "Sign in"
 msgstr "Sign in"
 
-#: src/meridian/torrent/card/fileInfo.tsx:15
-#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:22
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:22
+#: src/meridian/torrent/card/fileInfo.tsx:18
+#: src/meridian/torrentProperties/modals/tabs/contentsTab.tsx:25
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:24
 msgid "Size"
 msgstr "Size"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:97
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:100
 msgid "Skip checking"
 msgstr "Skip checking"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:33
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:38
 msgid "Speed"
 msgstr "Speed"
 
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:91
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:94
 msgid "Start paused"
 msgstr "Start paused"
 
-#: src/meridian/home/drawerContent.tsx:61
+#: src/meridian/home/drawerContent.tsx:65
 msgid "States"
 msgstr "States"
 
-#: src/meridian/torrent/card/statusInfo.tsx:28
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:22
+#: src/meridian/torrent/card/statusInfo.tsx:31
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:25
 msgid "Status"
 msgstr "Status"
 
-#: src/meridian/tags/modals/useCreateTagModal.tsx:25
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:113
+#: src/meridian/categories/modals/useCreateCategoryModal.tsx:30
+#: src/meridian/categories/modals/useEditCategoryModal.tsx:33
+#: src/meridian/tags/modals/useCreateTagModal.tsx:29
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:116
 msgid "Submit"
 msgstr "Submit"
 
@@ -847,61 +861,61 @@ msgstr "Submit"
 #~ msgid "Tag name"
 #~ msgstr "Tag name"
 
-#: src/meridian/home/drawerContent.tsx:75
-#: src/meridian/home/hooks/useHeaderMenuItems.tsx:46
-#: src/meridian/tags/modals/useTagsModal.tsx:43
-#: src/meridian/torrent/card/statusInfo.tsx:33
-#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:83
-#: src/meridian/torrent/useContextMenuItems.tsx:60
+#: src/meridian/home/drawerContent.tsx:79
+#: src/meridian/home/hooks/useHeaderMenuItems.tsx:48
+#: src/meridian/tags/modals/useTagsModal.tsx:49
+#: src/meridian/torrent/card/statusInfo.tsx:36
+#: src/meridian/torrent/modals/useAddTorrentsModal.tsx:86
+#: src/meridian/torrent/useContextMenuItems.tsx:63
 msgid "Tags"
 msgstr "Tags"
 
-#: src/meridian/tags/state/saga.ts:19
+#: src/meridian/tags/state/saga.ts:21
 msgid "Tags added successfully!"
 msgstr "Tags added successfully!"
 
-#: src/meridian/tags/state/saga.ts:29
+#: src/meridian/tags/state/saga.ts:31
 msgid "Tags deleted successfully!"
 msgstr "Tags deleted successfully!"
 
-#: src/meridian/torrent/state/saga.ts:113
+#: src/meridian/torrent/state/saga.ts:115
 msgid "Tags removed successfully!"
 msgstr "Tags removed successfully!"
 
-#: src/meridian/torrent/state/saga.ts:102
+#: src/meridian/torrent/state/saga.ts:104
 msgid "Tags set successfully!"
 msgstr "Tags set successfully!"
 
-#: src/meridian/login/loginPage.tsx:65
+#: src/meridian/login/loginPage.tsx:68
 msgid "Theme"
 msgstr "Theme"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/seedingLimitsSection.tsx:37
+#: src/meridian/preferences/modals/sections/bitTorrent/seedingLimitsSection.tsx:41
 msgid "Then"
 msgstr "Then"
 
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:42
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:45
 msgid "This server requires a secure connection (SSL)"
 msgstr "This server requires a secure connection (SSL)"
 
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:23
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:26
 msgid "Tier"
 msgstr "Tier"
 
-#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:24
+#: src/meridian/torrentProperties/modals/tabs/generalTab.tsx:26
 msgid "Time elapsed"
 msgstr "Time elapsed"
 
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:26
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:73
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:29
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:77
 msgid "To"
 msgstr "To"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:17
+#: src/meridian/preferences/modals/sections/bitTorrent/bitTorrentSection.tsx:21
 msgid "Torrent Queueing"
 msgstr "Torrent Queueing"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:64
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:67
 msgid "Torrent inactivity timer"
 msgstr "Torrent inactivity timer"
 
@@ -909,31 +923,31 @@ msgstr "Torrent inactivity timer"
 #~ msgid "Torrent state badge colors"
 #~ msgstr "Torrent state badge colors"
 
-#: src/meridian/home/drawerContent.tsx:50
+#: src/meridian/home/drawerContent.tsx:54
 msgid "Torrents"
 msgstr "Torrents"
 
-#: src/meridian/torrent/state/saga.ts:124
+#: src/meridian/torrent/state/saga.ts:126
 msgid "Torrents added successfully!"
 msgstr "Torrents added successfully!"
 
-#: src/meridian/torrent/state/saga.ts:50
+#: src/meridian/torrent/state/saga.ts:52
 msgid "Torrents deleted successfully!"
 msgstr "Torrents deleted successfully!"
 
-#: src/meridian/torrent/state/saga.ts:28
+#: src/meridian/torrent/state/saga.ts:30
 msgid "Torrents paused successfully!"
 msgstr "Torrents paused successfully!"
 
-#: src/meridian/settings/modals/useSettingsModal.tsx:16
+#: src/meridian/settings/modals/useSettingsModal.tsx:21
 msgid "Torrents per page"
 msgstr "Torrents per page"
 
-#: src/meridian/torrent/state/saga.ts:39
+#: src/meridian/torrent/state/saga.ts:41
 msgid "Torrents resumed successfully!"
 msgstr "Torrents resumed successfully!"
 
-#: src/meridian/torrent/state/saga.ts:62
+#: src/meridian/torrent/state/saga.ts:64
 msgid "Torrents successfully set to force download!"
 msgstr "Torrents successfully set to force download!"
 
@@ -941,15 +955,15 @@ msgstr "Torrents successfully set to force download!"
 #~ msgid "Total downloaded"
 #~ msgstr "Total downloaded"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:32
+#: src/meridian/mainData/modals/useServerStateModal.tsx:36
 msgid "Total downloaded ( alltime )"
 msgstr "Total downloaded ( alltime )"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:42
+#: src/meridian/mainData/modals/useServerStateModal.tsx:46
 msgid "Total downloaded ( session )"
 msgstr "Total downloaded ( session )"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:58
+#: src/meridian/mainData/modals/useServerStateModal.tsx:62
 msgid "Total peers"
 msgstr "Total peers"
 
@@ -957,19 +971,19 @@ msgstr "Total peers"
 #~ msgid "Total uploaded"
 #~ msgstr "Total uploaded"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:37
+#: src/meridian/mainData/modals/useServerStateModal.tsx:41
 msgid "Total uploaded ( alltime )"
 msgstr "Total uploaded ( alltime )"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:47
+#: src/meridian/mainData/modals/useServerStateModal.tsx:51
 msgid "Total uploaded ( session )"
 msgstr "Total uploaded ( session )"
 
-#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:29
+#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:35
 msgid "Trackers"
 msgstr "Trackers"
 
-#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:23
+#: src/meridian/torrentProperties/modals/useTorrentPropertiesModal.tsx:29
 msgid "Transfer"
 msgstr "Transfer"
 
@@ -977,11 +991,11 @@ msgstr "Transfer"
 #~ msgid "Transfer info"
 #~ msgstr "Transfer info"
 
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:11
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:15
 msgid "Type"
 msgstr "Type"
 
-#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:21
+#: src/meridian/torrentProperties/modals/tabs/trackersTab.tsx:24
 msgid "URL"
 msgstr "URL"
 
@@ -989,74 +1003,74 @@ msgstr "URL"
 msgid "Updating"
 msgstr "Updating"
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:47
-#: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:9
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:51
+#: src/meridian/preferences/modals/sections/speed/globalRateLimitsSection.tsx:12
 msgid "Upload"
 msgstr "Upload"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:55
+#: src/meridian/preferences/modals/sections/bitTorrent/queueingSection.tsx:58
 msgid "Upload rate threshold"
 msgstr "Upload rate threshold"
 
-#: src/meridian/mainData/modals/useServerStateModal.tsx:27
-#: src/meridian/torrent/card/statusInfo.tsx:43
-#: src/meridian/transferInfo/card.tsx:24
+#: src/meridian/mainData/modals/useServerStateModal.tsx:31
+#: src/meridian/torrent/card/statusInfo.tsx:46
+#: src/meridian/transferInfo/card.tsx:27
 msgid "Upload speed"
 msgstr "Upload speed"
 
-#: src/meridian/transferInfo/card.tsx:28
+#: src/meridian/transferInfo/card.tsx:31
 msgid "Uploaded"
 msgstr "Uploaded"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:33
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:36
 msgid "Uploaded ( alltime )"
 msgstr "Uploaded ( alltime )"
 
-#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:34
+#: src/meridian/torrentProperties/modals/tabs/transferTab.tsx:37
 msgid "Uploaded ( session )"
 msgstr "Uploaded ( session )"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:48
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:52
 msgid "Use HTTPS instead of HTTP"
 msgstr "Use HTTPS instead of HTTP"
 
-#: src/meridian/preferences/modals/sections/connection/listeningPortSection.tsx:15
+#: src/meridian/preferences/modals/sections/connection/listeningPortSection.tsx:18
 msgid "Use UPnP / NAT-PMP port forwarding from my router"
 msgstr "Use UPnP / NAT-PMP port forwarding from my router"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:42
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:46
 msgid "Use UPnP / NAT-PMP to forward the port from my router"
 msgstr "Use UPnP / NAT-PMP to forward the port from my router"
 
-#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:13
+#: src/meridian/preferences/modals/sections/webui/webUiSection.tsx:17
 msgid "Use alternative Web UI"
 msgstr "Use alternative Web UI"
 
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:35
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:39
 msgid "Use proxy for peer connections"
 msgstr "Use proxy for peer connections"
 
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:43
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:47
 msgid "Use proxy only for torrents"
 msgstr "Use proxy only for torrents"
 
-#: src/meridian/login/loginPage.tsx:47
-#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:55
-#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:65
-#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:10
+#: src/meridian/login/loginPage.tsx:50
+#: src/meridian/preferences/modals/sections/connection/proxyServerSection.tsx:59
+#: src/meridian/preferences/modals/sections/downloads/emailSection.tsx:68
+#: src/meridian/preferences/modals/sections/webui/authenticationSection.tsx:13
 msgid "Username"
 msgstr "Username"
 
-#: src/meridian/preferences/modals/usePreferencesModal.tsx:39
+#: src/meridian/preferences/modals/usePreferencesModal.tsx:44
 msgid "Web UI"
 msgstr "Web UI"
 
-#: src/meridian/home/hooks/useHeaderMenuItems.tsx:31
-#: src/meridian/settings/modals/useSettingsModal.tsx:44
+#: src/meridian/home/hooks/useHeaderMenuItems.tsx:33
+#: src/meridian/settings/modals/useSettingsModal.tsx:49
 msgid "WebUI Settings"
 msgstr "WebUI Settings"
 
-#: src/meridian/login/loginPage.tsx:44
+#: src/meridian/login/loginPage.tsx:47
 msgid "Welcome to QBitUI"
 msgstr "Welcome to QBitUI"
 
@@ -1064,30 +1078,30 @@ msgstr "Welcome to QBitUI"
 #~ msgid "Welcome to QBitUI!"
 #~ msgstr "Welcome to QBitUI!"
 
-#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:80
+#: src/meridian/preferences/modals/sections/speed/alternativeRateLimitsSection.tsx:84
 msgid "When"
 msgstr "When"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:67
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:71
 msgid "When Category Save Path changed"
 msgstr "When Category Save Path changed"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:50
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:54
 msgid "When Default Save Path changed"
 msgstr "When Default Save Path changed"
 
-#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:33
+#: src/meridian/preferences/modals/sections/downloads/savingManagementSection.tsx:37
 msgid "When Torrent Category changed"
 msgstr "When Torrent Category changed"
 
-#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:39
+#: src/meridian/preferences/modals/sections/downloads/downloadsSection.tsx:43
 msgid "When adding a torrent"
 msgstr "When adding a torrent"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/seedingLimitsSection.tsx:11
+#: src/meridian/preferences/modals/sections/bitTorrent/seedingLimitsSection.tsx:15
 msgid "When ratio reaches"
 msgstr "When ratio reaches"
 
-#: src/meridian/preferences/modals/sections/bitTorrent/seedingLimitsSection.tsx:23
+#: src/meridian/preferences/modals/sections/bitTorrent/seedingLimitsSection.tsx:27
 msgid "When seeding time reaches"
 msgstr "When seeding time reaches"

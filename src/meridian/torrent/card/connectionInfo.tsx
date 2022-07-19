@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Group, MantineStyleSystemProps } from '@mantine/core';
+
 import { LabelWithText } from 'meridian/generic';
 import { TORRENT_INVALID_ETA } from 'meridian/models';
 import { calculateEtaString } from 'meridian/utils';

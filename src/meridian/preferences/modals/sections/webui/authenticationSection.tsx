@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
-import { NumberInput, PasswordInput, Switch, Textarea, TextInput } from '@mantine/core';
+
+import { NumberInput, PasswordInput, Switch, TextInput, Textarea } from '@mantine/core';
+
 import { SectionProps } from '../types';
 
 const AuthenticationSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

@@ -1,12 +1,15 @@
 import React from 'react';
-import { Download, Upload } from 'tabler-icons-react';
+
 import { t } from '@lingui/macro';
-import { Box, createStyles, Group, MantineStyleSystemProps } from '@mantine/core';
+import { Download, Upload } from 'tabler-icons-react';
+
+import { Box, Group, MantineStyleSystemProps, createStyles } from '@mantine/core';
+
 import { LabelWithBadge, LabelWithText } from 'meridian/generic';
 import {
-    getTorrentStateDescription,
     TorrentState,
     TorrentStateDescriptionCollorMapping,
+    getTorrentStateDescription,
 } from 'meridian/models';
 import { bytesToSize } from 'meridian/utils';
 
@@ -17,6 +20,16 @@ interface Props extends MantineStyleSystemProps {
     dlSpeed: number;
     upSpeed: number;
 }
+
+const DownloadIcon = () => {
+    const { theme } = useStyles();
+    return <Download color={theme.colors.green[7]} />;
+};
+
+const UploadIcon = () => {
+    const { theme } = useStyles();
+    return <Upload color={theme.colors.cyan[4]} />;
+};
 
 const StatusInfo = ({ state, category, tags, dlSpeed, upSpeed, ...props }: Props) => {
     const styles = useStyles();
@@ -37,13 +50,13 @@ const StatusInfo = ({ state, category, tags, dlSpeed, upSpeed, ...props }: Props
                     label={t`Download speed`}
                     text={bytesToSize(dlSpeed)}
                     color={styles.theme.colors.green[7]}
-                    icon={<Download color={styles.theme.colors.green[7]} />}
+                    icon={<DownloadIcon />}
                 />
                 <LabelWithText
                     label={t`Upload speed`}
                     text={bytesToSize(upSpeed)}
                     color={styles.theme.colors.cyan[4]}
-                    icon={<Upload color={styles.theme.colors.cyan[4]} />}
+                    icon={<UploadIcon />}
                 />
             </Group>
         </Box>

@@ -1,13 +1,18 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Accordion, Select } from '@mantine/core';
+
 import { BittorrentProtocolNameMapping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
+
 import { SectionProps } from '../types';
-import ListeningPortSection from './listeningPortSection';
+
 import ConnectionLimitsSection from './connectionLimitsSection';
-import ProxyServerSection from './proxyServerSection';
 import IpFilteringSection from './ipFilteringSection';
+import ListeningPortSection from './listeningPortSection';
+import ProxyServerSection from './proxyServerSection';
 
 const ConnectionSection = (props: SectionProps) => {
     const { preferences, updatePreferencesKey } = props;

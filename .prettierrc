@@ -8,5 +8,15 @@
   "bracketSameLine": false,
   "useTabs": false,
   "arrowParens": "always",
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "importOrder": [
+    "^react.*$",
+    "<THIRD_PARTY_MODULES>",
+    "^@mantine.*$",
+    "^meridian/(.*)$",
+    "^../.*$",
+    "^./.*$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

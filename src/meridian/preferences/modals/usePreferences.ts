@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Preferences } from 'meridian/models';
 import { Resource, createResourceSetAction } from 'meridian/resource';
+
 import { selectPreferences } from '../state';
 
 interface PreferencesModalState {

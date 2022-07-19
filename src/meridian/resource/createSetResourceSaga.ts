@@ -1,10 +1,12 @@
-import { Api } from 'meridian/api';
 import { apply, put } from 'redux-saga/effects';
+
+import { Api } from 'meridian/api';
+
 import {
     ResourceSetAction,
-    createResourceSetSuccessAction,
-    createResourceSetFailAction,
     createResourceFetchAction,
+    createResourceSetFailAction,
+    createResourceSetSuccessAction,
 } from './createResourceReducer';
 import { Resource } from './types';
 

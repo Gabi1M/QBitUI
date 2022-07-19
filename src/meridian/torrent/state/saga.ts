@@ -1,14 +1,16 @@
 import { t } from '@lingui/macro';
 import { apply, call, put, takeLatest } from 'redux-saga/effects';
+
+import { Api } from 'meridian/api';
 import {
+    Resource,
+    ResourceSetAction,
     createFetchResourceSaga,
     createResourceFetchAction,
     createSetResourceSaga,
-    Resource,
-    ResourceSetAction,
 } from 'meridian/resource';
-import { Api } from 'meridian/api';
 import { showSnackbarAction } from 'meridian/snackbar';
+
 import {
     AddTorrentsTagsAction,
     DeleteTorrentsAction,

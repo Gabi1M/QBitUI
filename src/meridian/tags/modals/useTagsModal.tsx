@@ -1,13 +1,19 @@
 import React from 'react';
-import { t } from '@lingui/macro';
 import { useSelector } from 'react-redux';
-import { ActionIcon, Box, Button, createStyles, Group, Text } from '@mantine/core';
-import { useModals } from '@mantine/modals';
+
+import { t } from '@lingui/macro';
 import { Trash } from 'tabler-icons-react';
+
+import { ActionIcon, Box, Button, Group, LoadingOverlay, Text, createStyles } from '@mantine/core';
+import { useModals } from '@mantine/modals';
+
+import { commonModalConfiguration } from 'meridian/generic';
 import { useDeleteResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
-import useCreateTagModal from './useCreateTagModal';
+
 import { selectTags } from '../state';
+
+import useCreateTagModal from './useCreateTagModal';
 
 const TagsModal = () => {
     const styles = useStyles();
@@ -16,8 +22,10 @@ const TagsModal = () => {
     const deleteTags = useDeleteResource(Resource.TAGS);
 
     if (!tags) {
-        return <Button fullWidth mt='md' onClick={openCreateTagModal}>{t`New`}</Button>;
+        return <LoadingOverlay visible />;
     }
+
+    const createOnDeleteClickHandler = (tag: string) => () => deleteTags([tag]);
 
     return (
         <>
@@ -25,7 +33,7 @@ const TagsModal = () => {
                 <Group mt='md' key={key}>
                     <Text>{tag}</Text>
                     <Box className={styles.classes.space} />
-                    <ActionIcon onClick={() => deleteTags([tag])}>
+                    <ActionIcon onClick={createOnDeleteClickHandler(tag)}>
                         <Trash />
                     </ActionIcon>
                 </Group>
@@ -42,8 +50,7 @@ const useTagsModal = () => {
         modals.openModal({
             title: t`Tags`,
             children: <TagsModal />,
-            centered: true,
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

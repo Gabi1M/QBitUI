@@ -1,11 +1,14 @@
 import React from 'react';
+
 import { Card, createStyles } from '@mantine/core';
+
 import { TorrentInfo } from 'meridian/models';
+
+import ConnectionInfo from './connectionInfo';
+import FileInfo from './fileInfo';
+import ProgressIndicator from './progressIndicator';
 import StatusInfo from './statusInfo';
 import TitleAndMenu from './titleAndMenu';
-import ProgressIndicator from './progressIndicator';
-import FileInfo from './fileInfo';
-import ConnectionInfo from './connectionInfo';
 
 interface Props {
     torrent: TorrentInfo;
@@ -28,7 +31,7 @@ const TorrentCard = ({ torrent, selectable, selected, onSelectionChanged }: Prop
             className={styles.classes.root}
             onClick={selectable ? toggleSelection : undefined}
         >
-            <TitleAndMenu torrent={torrent} />
+            <TitleAndMenu hash={torrent.hash} name={torrent.name} />
             <StatusInfo
                 mt='lg'
                 state={torrent.state}

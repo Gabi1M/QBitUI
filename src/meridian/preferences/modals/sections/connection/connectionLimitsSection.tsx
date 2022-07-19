@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { NumberInput } from '@mantine/core';
+
 import { SectionProps } from '../types';
 
 const ConnectionLimitsSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

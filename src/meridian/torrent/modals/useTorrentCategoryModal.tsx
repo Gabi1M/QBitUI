@@ -1,11 +1,15 @@
 import React from 'react';
-import { t } from '@lingui/macro';
-import { useModals } from '@mantine/modals';
-import { LoadingOverlay, Select } from '@mantine/core';
 import { useSelector } from 'react-redux';
+
+import { t } from '@lingui/macro';
+
+import { LoadingOverlay, Select } from '@mantine/core';
+import { useModals } from '@mantine/modals';
+
 import { selectCategories } from 'meridian/categories';
-import { TorrentInfo } from 'meridian/models';
+import { commonModalConfiguration } from 'meridian/generic';
 import { selectMainData } from 'meridian/mainData';
+
 import { useSetTorrentCategory } from '../hooks';
 
 interface Props {
@@ -38,12 +42,11 @@ const TorrentCategoryModal = ({ hash }: Props) => {
 const useTorrentCategoryModal = () => {
     const modals = useModals();
 
-    return (torrent: TorrentInfo) =>
+    return (hash: string, name: string) =>
         modals.openModal({
-            title: torrent.name,
-            children: <TorrentCategoryModal hash={torrent.hash} />,
-            centered: true,
-            overlayBlur: 5,
+            title: name,
+            children: <TorrentCategoryModal hash={hash} />,
+            ...commonModalConfiguration,
         });
 };
 

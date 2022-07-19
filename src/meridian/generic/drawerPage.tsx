@@ -1,7 +1,11 @@
-import { ActionIcon, Avatar, Box, createStyles, Drawer, Header } from '@mantine/core';
-import { Icons } from 'meridian/icons';
 import React, { useState } from 'react';
+
 import { Menu2 } from 'tabler-icons-react';
+
+import { ActionIcon, Avatar, Box, Drawer, Header, createStyles } from '@mantine/core';
+
+import { Icons } from 'meridian/icons';
+
 import { ColorSchemeToggle } from './colorSchemeToggle';
 
 interface Props {

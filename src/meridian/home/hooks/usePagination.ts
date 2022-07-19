@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectTorrentFilters } from 'meridian/torrentFilters';
+
 import { selectSettings } from 'meridian/settings';
+import { selectTorrentFilters } from 'meridian/torrentFilters';
 
 type PaginationResult<T> = {
     numberOfPages: number;

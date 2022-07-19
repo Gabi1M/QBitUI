@@ -1,14 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Box, createStyles, Pagination } from '@mantine/core';
-import { TorrentCard } from 'meridian/torrent';
-import { TorrentInfo } from 'meridian/models';
-import { ScrollToTopAffix, DrawerPage } from 'meridian/generic';
+
+import { Box, Pagination, createStyles } from '@mantine/core';
+
+import { DrawerPage, ScrollToTopAffix } from 'meridian/generic';
 import { selectSettings } from 'meridian/settings';
+import { TorrentCard } from 'meridian/torrent';
+
 import DrawerContent from './drawerContent';
 import HeaderContent from './headerContent';
+import { useFetchTimer, useFilteredTorrents, useManageSelection, usePagination } from './hooks';
 import SelectionAffix from './selectionAffix';
-import { useFilteredTorrents, useManageSelection, usePagination, useFetchTimer } from './hooks';
 
 const HomePage = () => {
     const styles = useStyles();
@@ -29,7 +31,7 @@ const HomePage = () => {
                 {currentItems.map((torrent) => (
                     <TorrentCard
                         key={torrent.hash}
-                        torrent={torrent as TorrentInfo}
+                        torrent={torrent}
                         selectable={selectionEnabled}
                         selected={keys.includes(torrent.hash)}
                         onSelectionChanged={onSelectionChanged}

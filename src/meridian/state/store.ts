@@ -1,21 +1,23 @@
+import { composeWithDevTools } from '@redux-devtools/extension';
 import { applyMiddleware, combineReducers, createStore as createReduxStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { snackbarSaga } from 'meridian/snackbar';
-import { torrentReducer, torrentSaga } from 'meridian/torrent';
-import { torrentPropertiesReducer, torrentPropertiesSaga } from 'meridian/torrentProperties';
-import { transferInfoReducer, transferInfoSaga } from 'meridian/transferInfo';
-import { preferencesReducer, preferencesSaga } from 'meridian/preferences';
+
 import { categoriesReducer, categoriesSaga } from 'meridian/categories';
-import { tagsReducer, tagsSaga } from 'meridian/tags';
+import { mainDataReducer, mainDataSaga } from 'meridian/mainData';
+import { preferencesReducer, preferencesSaga } from 'meridian/preferences';
 import { sessionReducer, sessionSaga } from 'meridian/session';
 import { settingsReducer } from 'meridian/settings';
-import { torrentFiltersReducer } from 'meridian/torrentFilters';
-import { composeWithDevTools } from '@redux-devtools/extension';
-import { mainDataReducer, mainDataSaga } from 'meridian/mainData';
+import { snackbarSaga } from 'meridian/snackbar';
+import { tagsReducer, tagsSaga } from 'meridian/tags';
+import { torrentReducer, torrentSaga } from 'meridian/torrent';
 import { torrentContentReducer, torrentContentSaga } from 'meridian/torrentContent';
+import { torrentFiltersReducer } from 'meridian/torrentFilters';
+import { torrentPropertiesReducer, torrentPropertiesSaga } from 'meridian/torrentProperties';
 import { torrentTrackersReducer, torrentTrackersSaga } from 'meridian/torrentTrackers';
-import { GlobalState } from './types';
+import { transferInfoReducer, transferInfoSaga } from 'meridian/transferInfo';
+
 import { startupSaga } from './sagas';
+import { GlobalState } from './types';
 
 export const createStore = () => {
     const appSagas = [

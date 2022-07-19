@@ -1,7 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import { t } from '@lingui/macro';
-import { createStyles, LoadingOverlay, ScrollArea, Table, Tooltip } from '@mantine/core';
+
+import { LoadingOverlay, ScrollArea, Table, Tooltip, createStyles } from '@mantine/core';
+
 import { FilePriorityDescription, TorrentContent } from 'meridian/models';
 import { selectTorrentContent } from 'meridian/torrentContent';
 import { bytesToSize, truncateLongText } from 'meridian/utils';

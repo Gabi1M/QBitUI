@@ -2,7 +2,8 @@ import { Language } from 'meridian/i18n/types';
 import { LocalStorage, LocalStorageKey } from 'meridian/localStorage';
 import { Settings } from 'meridian/models';
 import { BaseAction } from 'meridian/resource';
-import { SettingsActions, SetSettingsAction } from './actions';
+
+import { SetSettingsAction, SettingsActions } from './actions';
 import { SettingsState } from './types';
 
 export const defaultSettings: Settings = {

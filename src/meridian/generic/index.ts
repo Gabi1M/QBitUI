@@ -9,4 +9,5 @@ export { default as ScrollToTopAffix } from './scrollToTopAffix';
 export { default as LabelWithText } from './labelWithText';
 export { default as LabelWithBadge } from './labelWithBadge';
 export { default as ResponsiveText } from './responsiveText';
+export * from './commonConfigs';
 export type { ContextMenuItem } from './contextMenu';

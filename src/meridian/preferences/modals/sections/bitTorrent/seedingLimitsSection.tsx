@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { NumberInput, Select, Switch } from '@mantine/core';
+
 import { BitTorrentMaxRatioActNameMaping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
+
 import { SectionProps } from '../types';
 
 const SeedingLimitsSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

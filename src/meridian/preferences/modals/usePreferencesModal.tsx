@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Accordion, Button } from '@mantine/core';
 import { useModals } from '@mantine/modals';
-import usePreferences from './usePreferences';
+
+import { commonModalConfiguration } from 'meridian/generic';
+
 import {
     BitTorrentSection,
     ConnectionSection,
@@ -10,6 +14,7 @@ import {
     SpeedSection,
     WebUiSection,
 } from './sections';
+import usePreferences from './usePreferences';
 
 const PreferencesModal = () => {
     const { onSave, preferences, updatePreferencesKey, updateBulkPreferencesKey } =
@@ -52,9 +57,8 @@ const usePreferencesModal = () => {
         modals.openModal({
             title: t`Preferences`,
             children: <PreferencesModal />,
-            centered: true,
             size: 'xl',
-            overlayBlur: 5,
+            ...commonModalConfiguration,
         });
 };
 

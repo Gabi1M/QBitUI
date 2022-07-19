@@ -1,10 +1,11 @@
+import { apply, call, put } from 'redux-saga/effects';
+
 import { LocalStorage, LocalStorageKey } from 'meridian/localStorage';
 import { Settings, TorrentFilters } from 'meridian/models';
-import { createResourceFetchAction, Resource } from 'meridian/resource';
+import { Resource, createResourceFetchAction } from 'meridian/resource';
 import { createFetchVersionsAction } from 'meridian/session';
 import { createSetSettingsAction } from 'meridian/settings';
 import { createSetTorrentFiltersAction } from 'meridian/torrentFilters';
-import { apply, call, put } from 'redux-saga/effects';
 
 function* hydrateFromStorageSaga() {
     const settings: Settings = yield apply(LocalStorage, LocalStorage.getValue, [

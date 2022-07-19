@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { Switch } from '@mantine/core';
+
 import { SectionProps } from '../types';
 
 const RateLimitsSettingsSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

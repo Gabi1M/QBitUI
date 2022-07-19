@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { t } from '@lingui/macro';
+
 import { NumberInput, Switch } from '@mantine/core';
+
 import { SectionProps } from '../types';
 
 const QueueingSection = ({ preferences, updatePreferencesKey }: SectionProps) => (

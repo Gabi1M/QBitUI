@@ -1,17 +1,20 @@
 import React from 'react';
-import { ActionIcon, Affix, Transition } from '@mantine/core';
+
+import { t } from '@lingui/macro';
 import {
+    ClearAll,
     Download,
     FileCheck,
+    FoldDown,
+    FoldUp,
     PlayerPause,
     PlayerPlay,
     Trash,
-    FoldUp,
-    FoldDown,
-    ClearAll,
 } from 'tabler-icons-react';
+
+import { ActionIcon, Affix, Transition } from '@mantine/core';
+
 import { useDeleteTorrentsModal, useTorrentActions } from 'meridian/torrent';
-import { t } from '@lingui/macro';
 
 interface Props {
     hashes: string[];
@@ -79,6 +82,8 @@ const SelectionAffix = ({
         ],
     );
 
+    const toggleSelection = () => setSelectionEnabled(!selectionEnabled);
+
     return (
         <Affix position={{ bottom: 20, right: 20 }}>
             <Transition transition='slide-up' mounted={selectionEnabled}>
@@ -104,7 +109,7 @@ const SelectionAffix = ({
             </Transition>
             <ActionIcon
                 title={t`Manage selection`}
-                onClick={() => setSelectionEnabled(!selectionEnabled)}
+                onClick={toggleSelection}
                 mt={10}
                 variant='filled'
                 color='blue'
