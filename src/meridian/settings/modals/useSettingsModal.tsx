@@ -13,6 +13,14 @@ import useSettings from './useSettings';
 const SettingsModal = () => {
     const { settings, handleSettingsChange } = useSettings();
 
+    const handlers = {
+        torrentsPerPage: (value: string) => handleSettingsChange('torrentsPerPage', Number(value)),
+        autoRefresh: (event: React.ChangeEvent<HTMLInputElement>) =>
+            handleSettingsChange('autoRefresh', event.target.checked),
+        autoRefreshInterval: (value: string) =>
+            handleSettingsChange('autoRefreshInterval', Number(value)),
+    };
+
     return (
         <>
             <LanguagePicker />
@@ -21,13 +29,13 @@ const SettingsModal = () => {
                 label={t`Torrents per page`}
                 value={settings.torrentsPerPage.toString()}
                 data={[5, 10, 30, 60].map((x) => x.toString())}
-                onChange={(value) => handleSettingsChange('torrentsPerPage', Number(value))}
+                onChange={handlers['torrentsPerPage']}
             />
             <Switch
                 mt='md'
                 label={t`Auto refresh`}
                 checked={settings.autoRefresh}
-                onChange={(event) => handleSettingsChange('autoRefresh', event.target.checked)}
+                onChange={handlers['autoRefresh']}
             />
             <Select
                 mt='md'
@@ -35,7 +43,7 @@ const SettingsModal = () => {
                 label={t`Auto refresh interval`}
                 value={settings.autoRefreshInterval.toString()}
                 data={[1, 5, 10, 30, 60].map((x) => x.toString())}
-                onChange={(value) => handleSettingsChange('autoRefreshInterval', Number(value))}
+                onChange={handlers['autoRefreshInterval']}
             />
         </>
     );
