@@ -28,6 +28,14 @@ const TorrentTagsModal = ({ hash }: Props) => {
 
     const torrentTags = torrent.tags === '' ? [] : torrent.tags.split(',').map((x) => x.trim());
 
+    const createOnChangeHandler = (tag: string, event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked) {
+            addTags([torrent.hash], [tag]);
+        } else {
+            removeTags([torrent.hash], [tag]);
+        }
+    };
+
     return (
         <>
             {tags.map((tag, key) => (
@@ -36,13 +44,7 @@ const TorrentTagsModal = ({ hash }: Props) => {
                     mt='md'
                     label={tag}
                     checked={torrentTags.includes(tag)}
-                    onChange={(value) => {
-                        if (value.target.checked) {
-                            addTags([torrent.hash], [tag]);
-                        } else {
-                            removeTags([torrent.hash], [tag]);
-                        }
-                    }}
+                    onChange={(event) => createOnChangeHandler(tag, event)}
                 />
             ))}
         </>
