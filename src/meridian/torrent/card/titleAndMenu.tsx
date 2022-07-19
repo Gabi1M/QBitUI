@@ -31,4 +31,4 @@ const useStyles = createStyles({
     },
 });
 
-export default TitleAndMenu;
+export default React.memo(TitleAndMenu);
