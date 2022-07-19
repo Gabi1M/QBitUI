@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { Box, Pagination, createStyles } from '@mantine/core';
 
 import { DrawerPage, ScrollToTopAffix } from 'meridian/generic';
-import { TorrentInfo } from 'meridian/models';
 import { selectSettings } from 'meridian/settings';
 import { TorrentCard } from 'meridian/torrent';
 
@@ -32,7 +31,7 @@ const HomePage = () => {
                 {currentItems.map((torrent) => (
                     <TorrentCard
                         key={torrent.hash}
-                        torrent={torrent as TorrentInfo}
+                        torrent={torrent}
                         selectable={selectionEnabled}
                         selected={keys.includes(torrent.hash)}
                         onSelectionChanged={onSelectionChanged}
