@@ -1,5 +1,5 @@
-import { composeWithDevTools } from '@redux-devtools/extension';
-import { applyMiddleware, combineReducers, createStore as createReduxStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import { categoriesReducer, categoriesSaga } from 'meridian/categories';
@@ -21,6 +21,7 @@ import { GlobalState } from './types';
 
 export const createStore = () => {
     const appSagas = [
+        snackbarSaga,
         sessionSaga,
         mainDataSaga,
         torrentPropertiesSaga,
@@ -35,8 +36,9 @@ export const createStore = () => {
     ];
 
     const sagaMiddleware = createSagaMiddleware();
-    const store = createReduxStore(
-        combineReducers<GlobalState>({
+
+    const store = configureStore({
+        reducer: combineReducers<GlobalState>({
             mainDataState: mainDataReducer,
             torrentPropertiesState: torrentPropertiesReducer,
             torrentContentState: torrentContentReducer,
@@ -50,10 +52,10 @@ export const createStore = () => {
             categoriesState: categoriesReducer,
             tagsState: tagsReducer,
         }),
-        composeWithDevTools(applyMiddleware(sagaMiddleware)),
-    );
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+        devTools: import.meta.env.DEV,
+    });
 
     appSagas.forEach((saga) => sagaMiddleware.run(saga));
-    sagaMiddleware.run(snackbarSaga);
     return store;
 };

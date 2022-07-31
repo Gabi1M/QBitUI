@@ -12,6 +12,32 @@ import HeaderContent from './headerContent';
 import { useFetchTimer, useFilteredTorrents, useManageSelection, usePagination } from './hooks';
 import SelectionAffix from './selectionAffix';
 
+const PaginationContainer = ({
+    numberOfPages,
+    page,
+    setPage,
+}: {
+    numberOfPages: number;
+    page: number;
+    setPage: (page: number) => void;
+}) => {
+    const styles = useStyles();
+
+    if (!numberOfPages) {
+        return null;
+    }
+
+    return (
+        <Pagination
+            className={styles.classes.pagination}
+            mb={10}
+            onChange={setPage}
+            page={page}
+            total={numberOfPages}
+        />
+    );
+};
+
 const HomePage = () => {
     const styles = useStyles();
     const torrents = useFilteredTorrents();
@@ -38,15 +64,7 @@ const HomePage = () => {
                     />
                 ))}
             </Box>
-            {numberOfPages > 1 ? (
-                <Pagination
-                    className={styles.classes.pagination}
-                    mb={10}
-                    onChange={setPage}
-                    page={page}
-                    total={numberOfPages}
-                />
-            ) : null}
+            <PaginationContainer numberOfPages={numberOfPages} page={page} setPage={setPage} />
             <ScrollToTopAffix />
             <SelectionAffix
                 hashes={keys}
