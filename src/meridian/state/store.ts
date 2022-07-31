@@ -21,6 +21,7 @@ import { GlobalState } from './types';
 
 export const createStore = () => {
     const appSagas = [
+        snackbarSaga,
         sessionSaga,
         mainDataSaga,
         torrentPropertiesSaga,
@@ -54,6 +55,5 @@ export const createStore = () => {
     );
 
     appSagas.forEach((saga) => sagaMiddleware.run(saga));
-    sagaMiddleware.run(snackbarSaga);
     return store;
 };
