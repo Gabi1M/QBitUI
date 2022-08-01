@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useRefreshMainData } from 'meridian/mainData';
@@ -8,7 +8,7 @@ const useFetchTimer = () => {
     const refreshMainData = useRefreshMainData();
     const settings = useSelector(selectSettings);
 
-    React.useEffect(() => {
+    useEffect(() => {
         let timer: NodeJS.Timer;
         refreshMainData();
         if (settings.autoRefresh) {

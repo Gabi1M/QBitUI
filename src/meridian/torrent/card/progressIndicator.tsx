@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Box, MantineStyleSystemProps, Progress, Text, createStyles } from '@mantine/core';
 
@@ -40,4 +40,4 @@ const useStyles = createStyles({
     },
 });
 
-export default React.memo(ProgressIndicator);
+export default memo(ProgressIndicator);

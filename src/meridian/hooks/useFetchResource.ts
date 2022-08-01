@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { FetchResourceParams, Resource, createResourceFetchAction } from 'meridian/resource';
@@ -6,7 +6,7 @@ import { FetchResourceParams, Resource, createResourceFetchAction } from 'meridi
 export const useFetchResource = <T extends Resource = Resource>(resourceName: T) => {
     const dispatch = useDispatch();
 
-    return React.useCallback(
+    return useCallback(
         (params?: FetchResourceParams[T]) => {
             dispatch(createResourceFetchAction(resourceName, params));
         },

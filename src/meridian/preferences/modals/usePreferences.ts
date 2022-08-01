@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Preferences } from 'meridian/models';
@@ -15,7 +15,7 @@ const usePreferences = () => {
     const selectedPreferences = useSelector(selectPreferences);
     const dispatch = useDispatch();
 
-    const [preferencesState, setPreferencesState] = React.useState<PreferencesModalState>({
+    const [preferencesState, setPreferencesState] = useState<PreferencesModalState>({
         current: selectedPreferences,
         changed: {},
     });
@@ -48,7 +48,7 @@ const usePreferences = () => {
         }));
     };
 
-    const onSave = React.useCallback(() => {
+    const onSave = useCallback(() => {
         if (preferencesState.current) {
             if (preferencesState.changed.web_ui_password?.trim() === '') {
                 preferencesState.changed.web_ui_password = undefined;
@@ -70,7 +70,7 @@ const usePreferences = () => {
         }
     }, [preferencesState, dispatch]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setPreferencesState((prev) => ({
             ...prev,
             current: selectedPreferences,

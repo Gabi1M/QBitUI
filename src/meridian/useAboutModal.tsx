@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { Anchor, Avatar, Box, Text, createStyles } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
+import { getVersion } from 'meridian/importMetaUtils';
+
 import { commonModalConfiguration } from './generic';
 import { Icons } from './icons';
 import { selectVersions } from './session';
@@ -16,7 +18,7 @@ const AboutModal = () => {
         <Box className={styles.classes.logo}>
             <Avatar size='xl' src={Icons.LOGO} />
             <Text mt='lg' size='lg'>
-                Version {import.meta.env.VITE_VERSION}
+                Version {getVersion()}
             </Text>
             <Anchor<'a'> href='https://www.qbittorrent.org/' mt='lg' weight={700}>
                 QBitTorrent {versions.version} API {versions.apiVersion}

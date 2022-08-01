@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { t } from '@lingui/macro';
 
@@ -27,4 +27,4 @@ const ConnectionInfo = ({ seeders, leechers, ratio, progress, eta, ...props }: P
     </Group>
 );
 
-export default React.memo(ConnectionInfo);
+export default memo(ConnectionInfo);

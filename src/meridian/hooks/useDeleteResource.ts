@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { DeleteResourceParams, Resource, createResourceDeleteAction } from 'meridian/resource';
@@ -6,7 +6,7 @@ import { DeleteResourceParams, Resource, createResourceDeleteAction } from 'meri
 export const useDeleteResource = <T extends Resource = Resource>(resourceName: T) => {
     const dispatch = useDispatch();
 
-    return React.useCallback(
+    return useCallback(
         (params: DeleteResourceParams[T]) => {
             dispatch(createResourceDeleteAction(resourceName, params));
         },

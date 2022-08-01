@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { t } from '@lingui/macro';
 
@@ -19,4 +19,4 @@ const FileInfo = ({ savePath, size, ...props }: Props) => (
     </Group>
 );
 
-export default React.memo(FileInfo);
+export default memo(FileInfo);

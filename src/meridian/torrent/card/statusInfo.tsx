@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { t } from '@lingui/macro';
 import { Download, Upload } from 'tabler-icons-react';
@@ -75,4 +75,4 @@ const useStyles = createStyles({
     },
 });
 
-export default React.memo(StatusInfo);
+export default memo(StatusInfo);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { i18n } from '@lingui/core';
@@ -24,7 +24,7 @@ i18n.activate(Language.ENGLISH);
 const I18nProvider = ({ children }: Props) => {
     const settings = useSelector(selectSettings);
 
-    React.useEffect(() => {
+    useEffect(() => {
         i18n.activate(settings.language || Language.ENGLISH);
     }, [settings]);
 

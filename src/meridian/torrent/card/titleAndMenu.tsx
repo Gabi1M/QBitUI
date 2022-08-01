@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Box, MantineStyleSystemProps, createStyles } from '@mantine/core';
 
@@ -31,4 +31,4 @@ const useStyles = createStyles({
     },
 });
 
-export default React.memo(TitleAndMenu);
+export default memo(TitleAndMenu);

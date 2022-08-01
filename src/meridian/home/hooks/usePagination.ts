@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { selectSettings } from 'meridian/settings';
@@ -12,11 +12,11 @@ type PaginationResult<T> = {
 };
 
 const usePagination = <T>(items: T[] | undefined, itemsPerPage: number): PaginationResult<T> => {
-    const [page, setPage] = React.useState(1);
+    const [page, setPage] = useState(1);
     const torrentFilters = useSelector(selectTorrentFilters);
     const settings = useSelector(selectSettings);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setPage(1);
     }, [torrentFilters, settings.torrentsPerPage]);
 

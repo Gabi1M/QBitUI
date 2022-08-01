@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Route, Router, Routes } from 'react-router-dom';
 
 import HomePage from 'meridian/home/homePage';
@@ -8,12 +8,12 @@ import { history } from './history';
 import { AppRoutes } from './types';
 
 const AppRouter = () => {
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         action: history.action,
         location: history.location,
     });
 
-    React.useLayoutEffect(() => history.listen(setState), []);
+    useLayoutEffect(() => history.listen(setState), []);
 
     return (
         <Router navigator={history} navigationType={state.action} location={state.location}>

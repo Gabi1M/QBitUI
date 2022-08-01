@@ -1,1 +1,3 @@
-export const isMockEnabled = import.meta.env.VITE_MOCK_ENABLED === 'true';
+import { getIsMockEnabled } from 'meridian/importMetaUtils';
+
+export const isMockEnabled = getIsMockEnabled();

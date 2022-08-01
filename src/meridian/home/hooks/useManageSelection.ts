@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 const useManageSelection = () => {
-    const [selectionEnabled, setSelectionEnabled] = React.useState(false);
-    const [keys, setKeys] = React.useState<string[]>([]);
+    const [selectionEnabled, setSelectionEnabled] = useState(false);
+    const [keys, setKeys] = useState<string[]>([]);
 
-    const onSelectionChanged = React.useCallback(
+    const onSelectionChanged = useCallback(
         (key: string, selected: boolean) => {
             if (!selected && keys.includes(key)) {
                 setKeys(keys.filter((x) => x !== key));

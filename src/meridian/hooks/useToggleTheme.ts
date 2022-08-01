@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { createSetSettingsAction, selectSettings } from 'meridian/settings';
@@ -8,7 +8,7 @@ export const useToggleTheme = () => {
     const dispatch = useDispatch();
 
     const theme = settings.darkMode ? 'dark' : 'light';
-    const toggleTheme = React.useCallback(() => {
+    const toggleTheme = useCallback(() => {
         dispatch(
             createSetSettingsAction({
                 ...settings,

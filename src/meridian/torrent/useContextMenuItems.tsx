@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { t } from '@lingui/macro';
 import {
@@ -26,7 +26,7 @@ const useContextMenuItems = (hash: string, name: string): ContextMenuItem[] => {
     const openTagsModal = useTorrentTagsModal();
     const openPropertiesModal = useTorrentPropertiesModal();
 
-    return React.useMemo(
+    return useMemo(
         () => [
             {
                 text: t`Pause`,
