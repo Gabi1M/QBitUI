@@ -1,13 +1,15 @@
 {
-    "presets": [
-      "@babel/preset-typescript",
-      [
-        "@babel/preset-react",
-        {
-          "runtime": "automatic",
-          "importSource": "react"
-        }
-      ]
-    ],
-    "plugins": ["macros"]
-  }
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic",
+        "importSource": "react"
+      }
+    ]
+  ],
+  "plugins": [
+    "macros"
+  ]
+}
