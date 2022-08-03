@@ -22,19 +22,25 @@ const TorrentPropertiesModal = () => {
     }
 
     return (
-        <Tabs>
-            <Tabs.Tab label={t`General`}>
+        <Tabs variant='outline' radius='md' defaultValue='general'>
+            <Tabs.List>
+                <Tabs.Tab value='general'>{t`General`}</Tabs.Tab>
+                <Tabs.Tab value='transfer'>{t`Transfer`}</Tabs.Tab>
+                <Tabs.Tab value='contents'>{t`Contents`}</Tabs.Tab>
+                <Tabs.Tab value='trackers'>{t`Trackers`}</Tabs.Tab>
+            </Tabs.List>
+            <Tabs.Panel value='general'>
                 <GeneralTab {...torrentProperties} />
-            </Tabs.Tab>
-            <Tabs.Tab label={t`Transfer`}>
+            </Tabs.Panel>
+            <Tabs.Panel value='transfer'>
                 <TransferTab {...torrentProperties} />
-            </Tabs.Tab>
-            <Tabs.Tab label={t`Contents`}>
+            </Tabs.Panel>
+            <Tabs.Panel value='contents'>
                 <ContentsTab />
-            </Tabs.Tab>
-            <Tabs.Tab label={t`Trackers`}>
+            </Tabs.Panel>
+            <Tabs.Panel value='trackers'>
                 <TrackersTab />
-            </Tabs.Tab>
+            </Tabs.Panel>
         </Tabs>
     );
 };

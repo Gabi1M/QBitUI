@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { NumberInput, PasswordInput, Switch, TextInput, Textarea } from '@mantine/core';
+import { Accordion, NumberInput, PasswordInput, Switch, TextInput, Textarea } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const AuthenticationSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <TextInput
             autoComplete='new-password'
             label={t`Username`}
@@ -58,7 +58,7 @@ const AuthenticationSection = ({ preferences, updatePreferencesKey }: SectionPro
             value={preferences?.web_ui_session_timeout || 0}
             onChange={(value) => updatePreferencesKey('web_ui_session_timeout', value as number)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default AuthenticationSection;

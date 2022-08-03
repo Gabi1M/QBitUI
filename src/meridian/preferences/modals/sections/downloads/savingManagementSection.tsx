@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Select, Switch, TextInput } from '@mantine/core';
+import { Accordion, Select, Switch, TextInput } from '@mantine/core';
 
 import {
     TorrentManagementCategoryChangedNameMapping,
@@ -20,7 +20,7 @@ const SavingManagementSection = ({ preferences, updatePreferencesKey }: SectionP
             preferences?.export_dir_fin !== undefined && preferences.export_dir_fin !== '',
     });
     return (
-        <>
+        <Accordion.Panel>
             <Select
                 label={t`Default Torrent Management Mode`}
                 value={TorrentManagementModeNameMapping[preferences?.auto_tmm_enabled ? 1 : 0]}
@@ -137,7 +137,7 @@ const SavingManagementSection = ({ preferences, updatePreferencesKey }: SectionP
                 value={preferences?.export_dir_fin || ''}
                 onChange={(value) => updatePreferencesKey('export_dir_fin', value.target.value)}
             />
-        </>
+        </Accordion.Panel>
     );
 };
 

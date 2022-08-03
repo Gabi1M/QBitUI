@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Switch, Textarea } from '@mantine/core';
+import { Accordion, Switch, Textarea } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const SecuritySection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Switch
             label={t`Enable clickjacking protection`}
             checked={preferences?.web_ui_clickjacking_protection_enabled || false}
@@ -47,7 +47,7 @@ const SecuritySection = ({ preferences, updatePreferencesKey }: SectionProps) =>
             value={preferences?.web_ui_domain_list || ''}
             onChange={(value) => updatePreferencesKey('web_ui_domain_list', value.target.value)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default SecuritySection;

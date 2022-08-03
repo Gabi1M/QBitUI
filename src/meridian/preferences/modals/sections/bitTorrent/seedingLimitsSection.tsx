@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { NumberInput, Select, Switch } from '@mantine/core';
+import { Accordion, NumberInput, Select, Switch } from '@mantine/core';
 
 import { BitTorrentMaxRatioActNameMaping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
@@ -10,7 +10,7 @@ import { getKeyForRecordValue } from 'meridian/utils';
 import { SectionProps } from '../types';
 
 const SeedingLimitsSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Switch
             label={t`When ratio reaches`}
             checked={preferences?.max_ratio_enabled || false}
@@ -49,7 +49,7 @@ const SeedingLimitsSection = ({ preferences, updatePreferencesKey }: SectionProp
                 )
             }
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default SeedingLimitsSection;

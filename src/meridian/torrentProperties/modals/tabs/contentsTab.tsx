@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
 
-import { LoadingOverlay, ScrollArea, Table, Tooltip, createStyles } from '@mantine/core';
+import { LoadingOverlay, ScrollArea, Table, Text, Tooltip, createStyles } from '@mantine/core';
 
 import { FilePriorityDescription, TorrentContent } from 'meridian/models';
 import { selectTorrentContent } from 'meridian/torrentContent';
@@ -44,8 +44,8 @@ interface FileItemProps {
 const FileItem = ({ file }: FileItemProps) => (
     <tr key={file.name}>
         <td>
-            <Tooltip wrapLines label={file.name}>
-                {truncateLongText(file.name, 100)}
+            <Tooltip multiline label={file.name}>
+                <Text>{truncateLongText(file.name, 100)}</Text>
             </Tooltip>
         </td>
         <td>{bytesToSize(file.size)}</td>

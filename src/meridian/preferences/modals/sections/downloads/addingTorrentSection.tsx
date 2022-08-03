@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Switch } from '@mantine/core';
+import { Accordion, Switch } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const AddingTorrentSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Switch
             label={t`Do not start the download automatically`}
             checked={preferences?.start_paused_enabled || false}
@@ -21,7 +21,7 @@ const AddingTorrentSection = ({ preferences, updatePreferencesKey }: SectionProp
                 updatePreferencesKey('create_subfolder_enabled', value.target.checked)
             }
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default AddingTorrentSection;

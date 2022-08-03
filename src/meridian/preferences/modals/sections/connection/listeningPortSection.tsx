@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { NumberInput, Switch } from '@mantine/core';
+import { Accordion, NumberInput, Switch } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const ListeningPortSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <NumberInput
             label={t`Port used for incoming connections`}
             value={preferences?.listen_port || 0}
@@ -19,7 +19,7 @@ const ListeningPortSection = ({ preferences, updatePreferencesKey }: SectionProp
             checked={preferences?.upnp || false}
             onChange={(value) => updatePreferencesKey('upnp', value.target.checked)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default ListeningPortSection;

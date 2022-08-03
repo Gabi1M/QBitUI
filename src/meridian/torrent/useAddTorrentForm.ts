@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useForm } from '@mantine/hooks';
+import { useForm } from '@mantine/form';
 
 import { AddTorrentsParams } from 'meridian/api';
 

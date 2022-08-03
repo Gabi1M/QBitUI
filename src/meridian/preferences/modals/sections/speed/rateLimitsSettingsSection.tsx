@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Switch } from '@mantine/core';
+import { Accordion, Switch } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const RateLimitsSettingsSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Switch
             label={t`Apply rate limit to µTP protocol`}
             checked={preferences?.limit_utp_rate || false}
@@ -25,7 +25,7 @@ const RateLimitsSettingsSection = ({ preferences, updatePreferencesKey }: Sectio
             checked={preferences?.limit_lan_peers || false}
             onChange={(value) => updatePreferencesKey('limit_lan_peers', value.target.checked)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default RateLimitsSettingsSection;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Select, Switch } from '@mantine/core';
+import { Accordion, Select, Switch } from '@mantine/core';
 
 import { BitTorrentEncryptionNameMapping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
@@ -10,7 +10,7 @@ import { getKeyForRecordValue } from 'meridian/utils';
 import { SectionProps } from '../types';
 
 const PrivacySection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Switch
             label={t`Enable DHT (decentralized network) to find more peers`}
             checked={preferences?.dht || false}
@@ -46,7 +46,7 @@ const PrivacySection = ({ preferences, updatePreferencesKey }: SectionProps) => 
             checked={preferences?.anonymous_mode || false}
             onChange={(value) => updatePreferencesKey('anonymous_mode', value.target.checked)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default PrivacySection;

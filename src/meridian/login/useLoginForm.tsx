@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { useForm } from '@mantine/hooks';
+import { useForm } from '@mantine/form';
 
 import { LoginData } from 'meridian/models';
 
@@ -14,13 +14,9 @@ const useLoginForm = () => {
 
     return useForm({
         initialValues,
-        validationRules: {
-            username: (value) => value !== '',
-            password: (value) => value !== '',
-        },
-        errorMessages: {
-            username: t`Username cannot be empty`,
-            password: t`Password cannot be empty`,
+        validate: {
+            username: (value) => (value !== '' ? null : t`Username cannot be empty`),
+            password: (value) => (value !== '' ? null : t`Password cannot be empty`),
         },
     });
 };

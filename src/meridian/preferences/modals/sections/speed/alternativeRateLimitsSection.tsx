@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Box, NumberInput, Select, Switch, createStyles } from '@mantine/core';
+import { Accordion, Box, NumberInput, Select, Switch, createStyles } from '@mantine/core';
 import { TimeInput } from '@mantine/dates';
 
 import { SchedulerDayNameMapping } from 'meridian/models';
@@ -46,7 +46,7 @@ const AlternativeRateLimitsSection = ({
     };
 
     return (
-        <>
+        <Accordion.Panel>
             <NumberInput
                 label={t`Upload`}
                 value={preferences?.alt_up_limit || 0}
@@ -91,7 +91,7 @@ const AlternativeRateLimitsSection = ({
                     )
                 }
             />
-        </>
+        </Accordion.Panel>
     );
 };
 

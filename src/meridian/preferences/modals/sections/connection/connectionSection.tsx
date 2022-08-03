@@ -17,7 +17,7 @@ import ProxyServerSection from './proxyServerSection';
 const ConnectionSection = (props: SectionProps) => {
     const { preferences, updatePreferencesKey } = props;
     return (
-        <>
+        <Accordion.Panel>
             <Select
                 label={t`Peer connection protocol`}
                 value={BittorrentProtocolNameMapping[preferences?.bittorrent_protocol as number]}
@@ -29,21 +29,25 @@ const ConnectionSection = (props: SectionProps) => {
                     )
                 }
             />
-            <Accordion mt='md' multiple offsetIcon={false}>
-                <Accordion.Item label={t`Listening Port`}>
+            <Accordion mt='md' multiple variant='separated' radius='xl'>
+                <Accordion.Item value={t`Listening Port`}>
+                    <Accordion.Control>{t`Listening Port`}</Accordion.Control>
                     <ListeningPortSection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`Connection Limits`}>
+                <Accordion.Item value={t`Connection Limits`}>
+                    <Accordion.Control>{t`Connection Limits`}</Accordion.Control>
                     <ConnectionLimitsSection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`Proxy Server`}>
+                <Accordion.Item value={t`Proxy Server`}>
+                    <Accordion.Control>{t`Proxy Server`}</Accordion.Control>
                     <ProxyServerSection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`IP Filtering`}>
+                <Accordion.Item value={t`IP Filtering`}>
+                    <Accordion.Control>{t`IP Filtering`}</Accordion.Control>
                     <IpFilteringSection {...props} />
                 </Accordion.Item>
             </Accordion>
-        </>
+        </Accordion.Panel>
     );
 };
 

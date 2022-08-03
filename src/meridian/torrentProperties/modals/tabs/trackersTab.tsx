@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
 
-import { LoadingOverlay, ScrollArea, Table, Tooltip, createStyles } from '@mantine/core';
+import { LoadingOverlay, ScrollArea, Table, Text, Tooltip, createStyles } from '@mantine/core';
 
 import { TorrentTracker, TorrentTrackerStatusDescription } from 'meridian/models';
 import { selectTorrentTrackers } from 'meridian/torrentTrackers';
@@ -48,8 +48,8 @@ interface TrackerItemProps {
 const TrackerItem = ({ tracker }: TrackerItemProps) => (
     <tr key={tracker.url}>
         <td>
-            <Tooltip wrapLines label={tracker.url}>
-                {truncateLongText(tracker.url)}
+            <Tooltip multiline label={tracker.url}>
+                <Text>{truncateLongText(tracker.url)}</Text>
             </Tooltip>
         </td>
         <td>{TorrentTrackerStatusDescription[tracker.status]}</td>
@@ -59,8 +59,8 @@ const TrackerItem = ({ tracker }: TrackerItemProps) => (
         <td>{tracker.num_leeches}</td>
         <td>{tracker.num_downloaded}</td>
         <td>
-            <Tooltip wrapLines label={tracker.msg}>
-                {truncateLongText(tracker.msg, 50)}
+            <Tooltip multiline label={tracker.msg}>
+                <Text>{truncateLongText(tracker.msg, 50)}</Text>
             </Tooltip>
         </td>
     </tr>

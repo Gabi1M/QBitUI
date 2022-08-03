@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { NumberInput, PasswordInput, Select, Switch, TextInput } from '@mantine/core';
+import { Accordion, NumberInput, PasswordInput, Select, Switch, TextInput } from '@mantine/core';
 
 import { ProxyTypeNameMapping } from 'meridian/models';
 import { getKeyForRecordValue } from 'meridian/utils';
@@ -10,7 +10,7 @@ import { getKeyForRecordValue } from 'meridian/utils';
 import { SectionProps } from '../types';
 
 const ProxyServerSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Select
             label={t`Type`}
             value={ProxyTypeNameMapping[preferences?.proxy_type as number]}
@@ -69,7 +69,7 @@ const ProxyServerSection = ({ preferences, updatePreferencesKey }: SectionProps)
             value={preferences?.proxy_password || ''}
             onChange={(value) => updatePreferencesKey('proxy_password', value.target.value)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default ProxyServerSection;
