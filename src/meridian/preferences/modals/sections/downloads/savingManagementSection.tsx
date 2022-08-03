@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { t } from '@lingui/macro';
 
@@ -14,7 +14,7 @@ import { getKeyForRecordValue } from 'meridian/utils';
 import { SectionProps } from '../types';
 
 const SavingManagementSection = ({ preferences, updatePreferencesKey }: SectionProps) => {
-    const [localState, setLocalState] = React.useState({
+    const [localState, setLocalState] = useState({
         copyFilesToEnabled: preferences?.export_dir !== undefined && preferences.export_dir !== '',
         copyFinishedFilesToEnabled:
             preferences?.export_dir_fin !== undefined && preferences.export_dir_fin !== '',

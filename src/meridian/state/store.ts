@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import { categoriesReducer, categoriesSaga } from 'meridian/categories';
+import { getIsDevEnv } from 'meridian/importMetaUtils';
 import { mainDataReducer, mainDataSaga } from 'meridian/mainData';
 import { preferencesReducer, preferencesSaga } from 'meridian/preferences';
 import { sessionReducer, sessionSaga } from 'meridian/session';
@@ -19,7 +20,7 @@ import { transferInfoReducer, transferInfoSaga } from 'meridian/transferInfo';
 import { startupSaga } from './sagas';
 import { GlobalState } from './types';
 
-export const createStore = () => {
+export const createStore = (preloadedState?: GlobalState) => {
     const appSagas = [
         snackbarSaga,
         sessionSaga,
@@ -52,8 +53,9 @@ export const createStore = () => {
             categoriesState: categoriesReducer,
             tagsState: tagsReducer,
         }),
+        preloadedState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
-        devTools: import.meta.env.DEV,
+        devTools: getIsDevEnv(),
     });
 
     appSagas.forEach((saga) => sagaMiddleware.run(saga));

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { t } from '@lingui/macro';
 
@@ -16,10 +16,10 @@ interface Props {
 
 const DeleteTorrentsModal = ({ hashes }: Props) => {
     const closeLastModal = useCloseLastModal();
-    const [deleteFiles, setDeleteFiles] = React.useState(false);
+    const [deleteFiles, setDeleteFiles] = useState(false);
     const deleteTorrents = useDeleteTorrents();
 
-    const onSubmit = React.useCallback(() => {
+    const onSubmit = useCallback(() => {
         deleteTorrents(hashes, deleteFiles);
         closeLastModal();
     }, [closeLastModal, deleteFiles, deleteTorrents, hashes]);

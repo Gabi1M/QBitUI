@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { t } from '@lingui/macro';
 import {
@@ -39,7 +39,7 @@ const SelectionAffix = ({
         useTorrentActions();
     const deleteTorrents = useDeleteTorrentsModal();
 
-    const actions: TorrentActionButton[] = React.useMemo(
+    const actions: TorrentActionButton[] = useMemo(
         () => [
             {
                 icon: <PlayerPause />,

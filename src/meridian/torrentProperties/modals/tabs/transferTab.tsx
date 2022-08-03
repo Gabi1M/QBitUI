@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { t } from '@lingui/macro';
 
@@ -66,4 +66,4 @@ const useStyles = createStyles({
     },
 });
 
-export default React.memo(TransferTab);
+export default memo(TransferTab);

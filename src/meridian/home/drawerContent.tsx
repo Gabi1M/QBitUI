@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
@@ -27,7 +27,7 @@ const DrawerContent = () => {
     const torrentFilters = useSelector(selectTorrentFilters);
     const dispatch = useDispatch();
 
-    const onTorrentFilterChanged = React.useCallback(
+    const onTorrentFilterChanged = useCallback(
         (field: keyof TorrentFilters, value: TorrentFilters[keyof TorrentFilters]) => {
             dispatch(
                 createSetTorrentFiltersAction({

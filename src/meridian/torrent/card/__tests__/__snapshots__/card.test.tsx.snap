@@ -1,0 +1,941 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render as expected 1`] = `
+<DocumentFragment>
+   
+  @keyframes animation-0 {
+  from {
+    -webkit-background-position: 0 0;
+    background-position: 0 0;
+  }
+
+  to {
+    -webkit-background-position: 40px 0;
+    background-position: 40px 0;
+  }
+}
+
+.emotion-2 {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #000;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid #dee2e6;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-left-width: 10px;
+  cursor: default;
+  padding: 12px;
+  margin: 12px;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.emotion-5 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+  font-size: 20px;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-5:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-5:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-8 {
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  background-color: transparent;
+  text-align: left;
+  color: #000;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #868e96;
+  border: 1px solid transparent;
+  position: relative;
+  height: 28px;
+  min-height: 28px;
+  width: 28px;
+  min-width: 28px;
+  border-radius: 4px;
+  padding: 0;
+  line-height: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-8:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-8:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (hover: hover) {
+  .emotion-8:hover {
+    background-color: rgba(248, 249, 250, 1);
+  }
+}
+
+@media (hover: none) {
+  .emotion-8:active {
+    background-color: rgba(248, 249, 250, 1);
+  }
+}
+
+.emotion-8:active {
+  -webkit-transform: translateY(1px);
+  -moz-transform: translateY(1px);
+  -ms-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+.emotion-8[data-disabled] {
+  color: #ced4da;
+  cursor: not-allowed;
+  background-color: #f1f3f5;
+  border-color: #f1f3f5;
+}
+
+.emotion-8[data-disabled]:active {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.emotion-8[data-loading] {
+  pointer-events: none;
+}
+
+.emotion-8[data-loading]::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 4px;
+  cursor: not-allowed;
+}
+
+.emotion-9 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.emotion-11 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.emotion-14 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 700;
+}
+
+.emotion-14:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-14:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-16 {
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 11px;
+  height: 20px;
+  line-height: 18px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0 10.666666666666666px;
+  box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  text-transform: uppercase;
+  border-radius: 32px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  cursor: default;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: rgba(235, 251, 238, 1);
+  color: #40c057;
+  border: 1px solid transparent;
+  margin-right: 5px;
+}
+
+.emotion-16:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-16:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-17 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emotion-23 {
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 11px;
+  height: 20px;
+  line-height: 18px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0 10.666666666666666px;
+  box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: auto;
+  text-transform: uppercase;
+  border-radius: 32px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  cursor: default;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: rgba(231, 245, 255, 1);
+  color: #228be6;
+  border: 1px solid transparent;
+  margin-right: 5px;
+}
+
+.emotion-23:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-23:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-38 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.emotion-39 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-40 {
+  margin-left: 10px;
+}
+
+.emotion-42 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: #37b24d;
+  font-size: inherit;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 700;
+}
+
+.emotion-42:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-42:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-44 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: #37b24d;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-44:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-44:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-48 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: #3bc9db;
+  font-size: inherit;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 700;
+}
+
+.emotion-48:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-48:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-50 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: #3bc9db;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-50:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-50:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-52 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.emotion-58 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: #868e96;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-58:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-58:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-91 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.emotion-93 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: #15aabf;
+  font-size: inherit;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.emotion-93:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-93:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-95 {
+  position: relative;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-left: 12px;
+}
+
+.emotion-96 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #15aabf;
+  -webkit-transition: width 100ms linear;
+  transition: width 100ms linear;
+  -webkit-animation: animation-0 1000ms linear infinite;
+  animation: animation-0 1000ms linear infinite;
+  -webkit-background-size: 20px 20px;
+  background-size: 20px 20px;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+
+.emotion-96:last-of-type {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.emotion-96:first-of-type {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+@media (prefers-reduced-motion) {
+  .emotion-96 {
+    transition-duration: 0ms;
+  }
+}
+
+<div
+    class="emotion-0 emotion-1 emotion-2"
+  >
+    <div
+      class="emotion-3"
+    >
+      <div
+        class="emotion-4 emotion-5"
+      >
+        Torrent 1
+      </div>
+      <button
+        aria-controls="mantine-r1-dropdown"
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="emotion-6 emotion-7 emotion-8"
+        id="mantine-r1-target"
+        type="button"
+      >
+        <svg
+          class="icon icon-tabler icon-tabler-menu"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+            stroke="none"
+          />
+          <line
+            x1="4"
+            x2="20"
+            y1="8"
+            y2="8"
+          />
+          <line
+            x1="4"
+            x2="20"
+            y1="16"
+            y2="16"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="emotion-9"
+    >
+      <div
+        class="emotion-10 emotion-11"
+      >
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-15 emotion-16"
+          >
+            <span
+              class="emotion-17 emotion-18"
+            >
+              Downloading
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-15 emotion-23"
+          >
+            <span
+              class="emotion-17 emotion-18"
+            >
+              Category 1
+            </span>
+          </div>
+        </div>
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-15 emotion-23"
+          >
+            <span
+              class="emotion-17 emotion-18"
+            >
+              Tag 1
+            </span>
+          </div>
+          <div
+            class="emotion-15 emotion-23"
+          >
+            <span
+              class="emotion-17 emotion-18"
+            >
+              Tag 2
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-10 emotion-38"
+      >
+        <div
+          class="emotion-39"
+        >
+          <svg
+            class="icon icon-tabler icon-tabler-download"
+            fill="none"
+            height="24"
+            stroke="#37b24d"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+              stroke="none"
+            />
+            <path
+              d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"
+            />
+            <polyline
+              points="7 11 12 16 17 11"
+            />
+            <line
+              x1="12"
+              x2="12"
+              y1="4"
+              y2="16"
+            />
+          </svg>
+          <div
+            class="emotion-40"
+          >
+            <div
+              class="emotion-4 emotion-42"
+            />
+            <div
+              class="emotion-4 emotion-44"
+            >
+              95.37 MB
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-39"
+        >
+          <svg
+            class="icon icon-tabler icon-tabler-upload"
+            fill="none"
+            height="24"
+            stroke="#3bc9db"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+              stroke="none"
+            />
+            <path
+              d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"
+            />
+            <polyline
+              points="7 9 12 4 17 9"
+            />
+            <line
+              x1="12"
+              x2="12"
+              y1="4"
+              y2="16"
+            />
+          </svg>
+          <div
+            class="emotion-40"
+          >
+            <div
+              class="emotion-4 emotion-48"
+            />
+            <div
+              class="emotion-4 emotion-50"
+            >
+              9.77 KB
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-10 emotion-52"
+    >
+      <div
+        class="emotion-39"
+      >
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-4 emotion-58"
+          >
+            some/save/path
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-39"
+      >
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-4 emotion-58"
+          >
+            3.25 MB
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-10 emotion-52"
+    >
+      <div
+        class="emotion-39"
+      >
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-4 emotion-58"
+          >
+            5
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-39"
+      >
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-4 emotion-58"
+          >
+            8
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-39"
+      >
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-4 emotion-58"
+          >
+            5.14
+          </div>
+        </div>
+      </div>
+      <div
+        class="emotion-39"
+      >
+        <div
+          class="emotion-12"
+        >
+          <div
+            class="emotion-4 emotion-14"
+          />
+          <div
+            class="emotion-4 emotion-58"
+          >
+            10
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-91"
+    >
+      <div
+        class="emotion-4 emotion-93"
+      >
+        89%
+      </div>
+      <div
+        class="emotion-94 emotion-95"
+      >
+        <div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="89"
+          class="emotion-96 emotion-97"
+          role="progressbar"
+          style="width: 89%;"
+        />
+      </div>
+    </div>
+  </div>
+    
+</DocumentFragment>
+`;

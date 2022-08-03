@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { DefaultMantineColor } from '@mantine/core';
@@ -11,7 +11,7 @@ const useSettings = () => {
     const settings = useSelector(selectSettings);
     const dispatch = useDispatch();
 
-    const handleSettingsChange = React.useCallback(
+    const handleSettingsChange = useCallback(
         (
             key: keyof Settings,
             value: boolean | number | string | Record<TorrentStateDescription, DefaultMantineColor>,
