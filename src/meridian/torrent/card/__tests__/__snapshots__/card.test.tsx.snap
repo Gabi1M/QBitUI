@@ -2,7 +2,6 @@
 
 exports[`Card should render as expected 1`] = `
 <DocumentFragment>
-   
   @keyframes animation-0 {
   from {
     -webkit-background-position: 0 0;
@@ -936,6 +935,5 @@ exports[`Card should render as expected 1`] = `
       </div>
     </div>
   </div>
-    
 </DocumentFragment>
 `;
