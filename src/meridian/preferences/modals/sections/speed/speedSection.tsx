@@ -11,17 +11,22 @@ import GlobalRateLimitsSection from './globalRateLimitsSection';
 import RateLimitsSettingsSection from './rateLimitsSettingsSection';
 
 const SpeedSection = (props: SectionProps) => (
-    <Accordion multiple offsetIcon={false}>
-        <Accordion.Item label={t`Global Rate Limits`}>
-            <GlobalRateLimitsSection {...props} />
-        </Accordion.Item>
-        <Accordion.Item label={t`Alternative Rate Limits`}>
-            <AlternativeRateLimitsSection {...props} />
-        </Accordion.Item>
-        <Accordion.Item label={t`Rate Limits Settings`}>
-            <RateLimitsSettingsSection {...props} />
-        </Accordion.Item>
-    </Accordion>
+    <Accordion.Panel>
+        <Accordion multiple variant='separated' radius='xl'>
+            <Accordion.Item value={t`Global Rate Limits`}>
+                <Accordion.Control>{t`Global Rate Limits`}</Accordion.Control>
+                <GlobalRateLimitsSection {...props} />
+            </Accordion.Item>
+            <Accordion.Item value={t`Alternative Rate Limits`}>
+                <Accordion.Control>{t`Alternative Rate Limits`}</Accordion.Control>
+                <AlternativeRateLimitsSection {...props} />
+            </Accordion.Item>
+            <Accordion.Item value={t`Rate Limits Settings`}>
+                <Accordion.Control>{t`Rate Limits Settings`}</Accordion.Control>
+                <RateLimitsSettingsSection {...props} />
+            </Accordion.Item>
+        </Accordion>
+    </Accordion.Panel>
 );
 
 export default SpeedSection;

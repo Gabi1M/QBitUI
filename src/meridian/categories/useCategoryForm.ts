@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { useForm } from '@mantine/hooks';
+import { useForm } from '@mantine/form';
 
 import { Category } from 'meridian/models';
 
@@ -14,13 +14,9 @@ const useCategoryForm = (category?: Category) => {
 
     return useForm({
         initialValues,
-        validationRules: {
-            name: (value) => value !== '',
-            savePath: (value) => value !== '',
-        },
-        errorMessages: {
-            name: t`Name cannot be empty`,
-            savePath: t`Save path cannot be empty`,
+        validate: {
+            name: (value) => (value !== '' ? null : t`Name cannot be empty`),
+            savePath: (value) => (value !== '' ? null : t`Save path cannot be empty`),
         },
     });
 };

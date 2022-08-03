@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { NumberInput } from '@mantine/core';
+import { Accordion, NumberInput } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const ConnectionLimitsSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <NumberInput
             label={t`Global maximum number of connections`}
             value={preferences?.max_connec || 0}
@@ -31,7 +31,7 @@ const ConnectionLimitsSection = ({ preferences, updatePreferencesKey }: SectionP
             value={preferences?.max_uploads_per_torrent || 0}
             onChange={(value) => updatePreferencesKey('max_uploads_per_torrent', value as number)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default ConnectionLimitsSection;

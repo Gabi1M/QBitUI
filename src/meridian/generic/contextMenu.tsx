@@ -10,16 +10,19 @@ export interface ContextMenuItem {
 
 interface Props extends MantineStyleSystemProps {
     items: ContextMenuItem[];
-    control?: React.ReactElement;
+    control: React.ReactElement;
 }
 
 const ContextMenu = ({ items, control, ...props }: Props) => (
-    <Menu {...props} control={control}>
-        {items.map((item) => (
-            <Menu.Item key={item.text} icon={item.icon} onClick={item.callback}>
-                {item.text}
-            </Menu.Item>
-        ))}
+    <Menu withinPortal withArrow position='bottom-end' transition='pop' {...props}>
+        <Menu.Target>{control}</Menu.Target>
+        <Menu.Dropdown>
+            {items.map((item) => (
+                <Menu.Item key={item.text} icon={item.icon} onClick={item.callback}>
+                    {item.text}
+                </Menu.Item>
+            ))}
+        </Menu.Dropdown>
     </Menu>
 );
 

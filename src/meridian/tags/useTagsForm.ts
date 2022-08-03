@@ -2,7 +2,7 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { useForm } from '@mantine/hooks';
+import { useForm } from '@mantine/form';
 
 const useTagForm = () => {
     const initialValues = {
@@ -11,11 +11,8 @@ const useTagForm = () => {
 
     return useForm({
         initialValues,
-        validationRules: {
-            tagName: (value) => value !== '',
-        },
-        errorMessages: {
-            tagName: t`Name cannot be empty`,
+        validate: {
+            tagName: (value) => (value !== '' ? null : t`Name cannot be empty`),
         },
     });
 };

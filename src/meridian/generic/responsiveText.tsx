@@ -6,7 +6,7 @@ import { truncateLongText } from 'meridian/utils';
 
 import useIsSmallDevice from './useIsSmallDevice';
 
-const ResponsiveText = ({ children, ...props }: TextProps<'div'>) => {
+const ResponsiveText = ({ children, ...props }: TextProps) => {
     const isSmallDevice = useIsSmallDevice();
     const text = children?.toString() || '';
     return <Text {...props}>{isSmallDevice ? truncateLongText(text) : text}</Text>;

@@ -13,7 +13,7 @@ import SavingManagementSection from './savingManagementSection';
 const DownloadsSection = (props: SectionProps) => {
     const { preferences, updatePreferencesKey } = props;
     return (
-        <>
+        <Accordion.Panel>
             <Switch
                 label={t`Pre-allocate disk space for all files`}
                 checked={preferences?.preallocate_all || false}
@@ -39,18 +39,21 @@ const DownloadsSection = (props: SectionProps) => {
                 value={preferences?.autorun_program || ''}
                 onChange={(value) => updatePreferencesKey('autorun_program', value.target.value)}
             />
-            <Accordion mt='md' multiple offsetIcon={false}>
-                <Accordion.Item label={t`When adding a torrent`}>
+            <Accordion mt='md' multiple variant='separated' radius='xl'>
+                <Accordion.Item value={t`When adding a torrent`}>
+                    <Accordion.Control>{t`When adding a torrent`}</Accordion.Control>
                     <AddingTorrentSection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`Saving Management`}>
+                <Accordion.Item value={t`Saving Management`}>
+                    <Accordion.Control>{t`Saving Management`}</Accordion.Control>
                     <SavingManagementSection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`Email notification upon download completion`}>
+                <Accordion.Item value={t`Email notification upon download completion`}>
+                    <Accordion.Control>{t`Email notification upon download completion`}</Accordion.Control>
                     <EmailSection {...props} />
                 </Accordion.Item>
             </Accordion>
-        </>
+        </Accordion.Panel>
     );
 };
 

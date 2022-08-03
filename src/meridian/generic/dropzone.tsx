@@ -4,7 +4,7 @@ import { t } from '@lingui/macro';
 import { X } from 'tabler-icons-react';
 
 import { ActionIcon, Badge, Group, Text } from '@mantine/core';
-import { DropzoneStatus, Dropzone as LibDropzone } from '@mantine/dropzone';
+import { Dropzone as LibDropzone } from '@mantine/dropzone';
 
 import { truncateLongText } from 'meridian/utils';
 
@@ -36,11 +36,11 @@ const FileBadge = ({ file, onRemove }: FileBadgeProps) => {
     );
 };
 
-export const DropzoneChildren = (status: DropzoneStatus) => {
+export const DropzoneChildren = ({ status }: { status: 'accept' | 'reject' | 'idle' }) => {
     let text = t`Drag torrent files here or click to select files`;
-    if (status.accepted) {
+    if (status === 'accept') {
         text = t`Files selected. Drag here or click to select again.`;
-    } else if (status.rejected) {
+    } else if (status === 'reject') {
         text = t`Failed to select files. Drag here or click to select again.`;
     }
     return (
@@ -64,7 +64,15 @@ interface Props {
 const Dropzone = ({ files, onDrop, onRemove, accept }: Props) => (
     <>
         <LibDropzone mb={10} accept={accept} onDrop={onDrop} maxSize={3 * 1024 ** 2}>
-            {DropzoneChildren}
+            <LibDropzone.Accept>
+                <DropzoneChildren status='accept' />
+            </LibDropzone.Accept>
+            <LibDropzone.Reject>
+                <DropzoneChildren status='reject' />
+            </LibDropzone.Reject>
+            <LibDropzone.Idle>
+                <DropzoneChildren status='idle' />
+            </LibDropzone.Idle>
         </LibDropzone>
         {files.map((file, key) => (
             <FileBadge key={key} file={file} onRemove={onRemove} />

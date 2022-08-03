@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { NumberInput, Switch } from '@mantine/core';
+import { Accordion, NumberInput, Switch } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const QueueingSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Switch
             label={t`Enabled`}
             checked={preferences?.queueing_enabled || false}
@@ -70,7 +70,7 @@ const QueueingSection = ({ preferences, updatePreferencesKey }: SectionProps) =>
                 updatePreferencesKey('slow_torrent_inactive_timer', value as number)
             }
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default QueueingSection;

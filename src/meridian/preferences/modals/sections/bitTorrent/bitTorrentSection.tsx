@@ -13,15 +13,18 @@ import SeedingLimitsSection from './seedingLimitsSection';
 const BitTorrentSection = (props: SectionProps) => {
     const { preferences, updatePreferencesKey } = props;
     return (
-        <>
-            <Accordion multiple offsetIcon={false}>
-                <Accordion.Item label={t`Privacy`}>
+        <Accordion.Panel>
+            <Accordion multiple variant='separated' radius='xl'>
+                <Accordion.Item value={t`Privacy`}>
+                    <Accordion.Control>{t`Privacy`}</Accordion.Control>
                     <PrivacySection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`Torrent Queueing`}>
+                <Accordion.Item value={t`Torrent Queueing`}>
+                    <Accordion.Control>{t`Torrent Queueing`}</Accordion.Control>
                     <QueueingSection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`Seeding Limits`}>
+                <Accordion.Item value={t`Seeding Limits`}>
+                    <Accordion.Control>{t`Seeding Limits`}</Accordion.Control>
                     <SeedingLimitsSection {...props} />
                 </Accordion.Item>
             </Accordion>
@@ -39,7 +42,7 @@ const BitTorrentSection = (props: SectionProps) => {
                 value={preferences?.add_trackers || ''}
                 onChange={(value) => updatePreferencesKey('add_trackers', value.target.value)}
             />
-        </>
+        </Accordion.Panel>
     );
 };
 

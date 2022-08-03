@@ -12,7 +12,7 @@ import SecuritySection from './securitySection';
 const WebUiSection = (props: SectionProps) => {
     const { preferences, updatePreferencesKey } = props;
     return (
-        <>
+        <Accordion.Panel>
             <Switch
                 label={t`Use alternative Web UI`}
                 checked={preferences?.alternative_webui_enabled || false}
@@ -91,15 +91,17 @@ const WebUiSection = (props: SectionProps) => {
                 }
             />
 
-            <Accordion mt='md' multiple offsetIcon={false}>
-                <Accordion.Item label={t`Authentication`}>
+            <Accordion mt='md' multiple variant='separated' radius='xl'>
+                <Accordion.Item value={t`Authentication`}>
+                    <Accordion.Control>{t`Authentication`}</Accordion.Control>
                     <AuthenticationSection {...props} />
                 </Accordion.Item>
-                <Accordion.Item label={t`Security`}>
+                <Accordion.Item value={t`Security`}>
+                    <Accordion.Control>{t`Security`}</Accordion.Control>
                     <SecuritySection {...props} />
                 </Accordion.Item>
             </Accordion>
-        </>
+        </Accordion.Panel>
     );
 };
 

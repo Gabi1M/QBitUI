@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { PasswordInput, Switch, TextInput } from '@mantine/core';
+import { Accordion, PasswordInput, Switch, TextInput } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const EmailSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <Switch
             label={t`Enabled`}
             checked={preferences?.mail_notification_enabled || false}
@@ -84,7 +84,7 @@ const EmailSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
                 updatePreferencesKey('mail_notification_password', value.target.value)
             }
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default EmailSection;

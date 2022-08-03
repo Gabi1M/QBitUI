@@ -2,12 +2,12 @@ import React from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Switch, TextInput, Textarea } from '@mantine/core';
+import { Accordion, Switch, TextInput, Textarea } from '@mantine/core';
 
 import { SectionProps } from '../types';
 
 const IpFilteringSection = ({ preferences, updatePreferencesKey }: SectionProps) => (
-    <>
+    <Accordion.Panel>
         <TextInput
             label={t`Filter path`}
             value={preferences?.ip_filter_path || ''}
@@ -25,7 +25,7 @@ const IpFilteringSection = ({ preferences, updatePreferencesKey }: SectionProps)
             value={preferences?.banned_IPs || ''}
             onChange={(value) => updatePreferencesKey('banned_IPs', value.target.value)}
         />
-    </>
+    </Accordion.Panel>
 );
 
 export default IpFilteringSection;
