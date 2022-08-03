@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
@@ -24,13 +24,13 @@ const AddTorrentsModal = () => {
     const addTorrents = useCreateResource(Resource.TORRENT);
 
     const form = useAddTorrentForm();
-    const [files, setFiles] = React.useState<File[]>([]);
+    const [files, setFiles] = useState<File[]>([]);
 
     const onRemoveFile = (file: File) => {
         setFiles(files.filter((x) => x.name !== file.name));
     };
 
-    const onSubmit = React.useCallback(
+    const onSubmit = useCallback(
         (data: AddTorrentsParams) => {
             console.log(data);
             if (!files?.length) {

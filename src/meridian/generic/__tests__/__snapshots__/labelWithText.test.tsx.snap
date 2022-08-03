@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelWithText should render as expected 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 700;
+}
+
+.emotion-3:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-3:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-5 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  -webkit-tap-highlight-color: transparent;
+  color: #868e96;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-5:focus {
+  outline-offset: 2px;
+  outline: 2px solid #339af0;
+}
+
+.emotion-5:focus:not(:focus-visible) {
+  outline: none;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2 emotion-3"
+      >
+        Something
+      </div>
+      <div
+        class="emotion-2 emotion-5"
+      >
+        Some text
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

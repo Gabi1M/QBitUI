@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -14,7 +14,7 @@ import {
 
 export const usePauseTorrents = () => {
     const dispatch = useDispatch();
-    return React.useCallback(
+    return useCallback(
         (hashes: string[]) => {
             dispatch(createPauseTorrentAction(hashes));
         },
@@ -24,7 +24,7 @@ export const usePauseTorrents = () => {
 
 export const useResumeTorrents = () => {
     const dispatch = useDispatch();
-    return React.useCallback(
+    return useCallback(
         (hashes: string[]) => {
             dispatch(createResumeTorrentAction(hashes));
         },
@@ -34,7 +34,7 @@ export const useResumeTorrents = () => {
 
 export const useDeleteTorrents = () => {
     const dispatch = useDispatch();
-    return React.useCallback(
+    return useCallback(
         (hashes: string[], deleteFiles = false) => {
             dispatch(createDeleteTorrentAction(hashes, deleteFiles));
         },
@@ -44,7 +44,7 @@ export const useDeleteTorrents = () => {
 
 export const useForceDownloadTorrents = () => {
     const dispatch = useDispatch();
-    return React.useCallback(
+    return useCallback(
         (hashes: string[]) => {
             dispatch(createForceDownloadTorrentsAction(hashes));
         },
@@ -54,7 +54,7 @@ export const useForceDownloadTorrents = () => {
 
 export const useRecheckTorrents = () => {
     const dispatch = useDispatch();
-    return React.useCallback(
+    return useCallback(
         (hashes: string[]) => {
             dispatch(createRecheckTorrentsAction(hashes));
         },
@@ -64,7 +64,7 @@ export const useRecheckTorrents = () => {
 
 export const useSetTorrentCategory = () => {
     const dispatch = useDispatch();
-    return React.useCallback(
+    return useCallback(
         (hashes: string[], categoryName: string) => {
             dispatch(createSetTorrentCategoryAction(hashes, categoryName));
         },
@@ -75,14 +75,14 @@ export const useSetTorrentCategory = () => {
 export const useManageTorrentTags = () => {
     const dispatch = useDispatch();
 
-    const addTags = React.useCallback(
+    const addTags = useCallback(
         (hashes: string[], tags: string[]) => {
             dispatch(createAddTorrentsTagsAction(hashes, tags));
         },
         [dispatch],
     );
 
-    const removeTags = React.useCallback(
+    const removeTags = useCallback(
         (hashes: string[], tags: string[]) => {
             dispatch(createRemoveTorrentsTagsAction(hashes, tags));
         },

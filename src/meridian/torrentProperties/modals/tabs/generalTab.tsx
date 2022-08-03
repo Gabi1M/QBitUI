@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { t } from '@lingui/macro';
 
@@ -39,4 +39,4 @@ const GeneralTab = (props: Props) => {
     );
 };
 
-export default React.memo(GeneralTab);
+export default memo(GeneralTab);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { MantineProvider, MantineThemeOverride } from '@mantine/core';
@@ -11,7 +11,7 @@ interface Props {
 
 const ThemeProvider = ({ children }: Props) => {
     const settings = useSelector(selectSettings);
-    const theme: MantineThemeOverride = React.useMemo(
+    const theme: MantineThemeOverride = useMemo(
         () => ({
             colorScheme: settings.darkMode ? 'dark' : 'light',
         }),

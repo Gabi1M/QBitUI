@@ -1,3 +1,4 @@
+import { getApiUrl } from 'meridian/importMetaUtils';
 import {
     MockCategories,
     MockMainData,
@@ -85,7 +86,7 @@ export class Api {
     static getInstance() {
         if (!Api.instance) {
             Api.instance = new Api({
-                url: import.meta.env.VITE_API_URL || '',
+                url: getApiUrl() || '',
             });
         }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
@@ -51,7 +51,7 @@ const useTorrentPropertiesModal = () => {
     const fetchTorrentContents = useFetchResource(Resource.TORRENT_CONTENT);
     const fetchTorrentTrackers = useFetchResource(Resource.TORRENT_TRACKERS);
 
-    return React.useCallback(
+    return useCallback(
         (hash: string, name: string) => {
             fetchTorrentProperties({ hash });
             fetchTorrentContents({ hash });

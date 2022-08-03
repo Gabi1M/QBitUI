@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Text, TextProps } from '@mantine/core';
 
@@ -12,4 +12,4 @@ const ResponsiveText = ({ children, ...props }: TextProps) => {
     return <Text {...props}>{isSmallDevice ? truncateLongText(text) : text}</Text>;
 };
 
-export default React.memo(ResponsiveText);
+export default memo(ResponsiveText);

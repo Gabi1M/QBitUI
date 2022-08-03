@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { selectMainData } from 'meridian/mainData';
@@ -9,7 +9,7 @@ const useFilteredTorrents = () => {
     const mainData = useSelector(selectMainData);
     const torrentFilters = useSelector(selectTorrentFilters);
 
-    return React.useMemo(() => {
+    return useMemo(() => {
         if (!mainData?.torrents) {
             return undefined;
         }

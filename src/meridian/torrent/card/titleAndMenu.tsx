@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Menu } from 'tabler-icons-react';
 
@@ -40,4 +40,4 @@ const useStyles = createStyles({
     },
 });
 
-export default React.memo(TitleAndMenu);
+export default memo(TitleAndMenu);
