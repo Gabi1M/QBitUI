@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import { getApiUrl } from 'meridian/importMetaUtils';
 import {
     MockCategories,

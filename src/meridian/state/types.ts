@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import { Resource, ResourceState } from 'meridian/resource';
 import { SessionState } from 'meridian/session/state/types';
 import { SettingsState } from 'meridian/settings/state/types';
