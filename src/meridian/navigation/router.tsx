@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import React, { useLayoutEffect, useState } from 'react';
 import { Route, Router, Routes } from 'react-router-dom';
 

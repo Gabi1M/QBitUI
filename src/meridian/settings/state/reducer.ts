@@ -1,3 +1,4 @@
+/* eslint-disable-next-line no-restricted-imports */
 import { Language } from 'meridian/i18n/types';
 import { LocalStorage, LocalStorageKey } from 'meridian/localStorage';
 import { Settings } from 'meridian/models';

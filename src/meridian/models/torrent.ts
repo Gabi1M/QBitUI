@@ -139,4 +139,5 @@ export const getTorrentStateDescription = (torrentState: TorrentState): TorrentS
         x[1].includes(torrentState),
     )[0][0] as TorrentStateDescription;
 
+/* eslint-disable-next-line @typescript-eslint/naming-convention */
 export const TORRENT_INVALID_ETA = 8640000;
