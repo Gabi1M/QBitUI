@@ -62,6 +62,10 @@ const useStyles = (selectable: boolean, selected: boolean) =>
             borderLeftColor: selectable && selected ? theme.colors.blue : undefined,
             borderLeftWidth: 10,
             cursor: selectable ? 'pointer' : 'default',
+            '@media (min-width: 1000px)': {
+                width: 1000,
+                alignSelf: 'center',
+            },
         },
     }))();
 
