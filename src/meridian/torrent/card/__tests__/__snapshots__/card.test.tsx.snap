@@ -42,6 +42,15 @@ exports[`Card should render as expected 1`] = `
   margin: 12px;
 }
 
+@media (min-width: 1000px) {
+  .emotion-2 {
+    width: 1000px;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+}
+
 .emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
