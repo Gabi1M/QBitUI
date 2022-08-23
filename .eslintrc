@@ -51,6 +51,8 @@
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-uses-react": 2,
+    "react/react-in-jsx-scope": 2,
     "prettier/prettier": [
       "warn",
       {
