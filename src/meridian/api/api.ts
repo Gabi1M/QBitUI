@@ -503,7 +503,7 @@ export class Api {
             urls: params.urls.join('\n'),
             savepath: params.savepath,
             cookie: params.cookie,
-            category: params.category?.name,
+            category: params.category,
             tags: params.tags?.join(','),
             skip_checking: params.skipChecking ? 'true' : 'false',
             paused: params.paused ? 'true' : 'false',
