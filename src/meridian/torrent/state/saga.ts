@@ -1,5 +1,5 @@
 import { t } from '@lingui/macro';
-import { apply, call, put, takeLatest } from 'redux-saga/effects';
+import { apply, put, takeLatest } from 'redux-saga/effects';
 
 import { Api } from 'meridian/api';
 import {
@@ -7,7 +7,8 @@ import {
     ResourceSetAction,
     createFetchResourceSaga,
     createResourceFetchAction,
-    createSetResourceSaga,
+    createResourceSetFailAction,
+    createResourceSetSuccessAction,
 } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
 
@@ -120,12 +121,20 @@ function* removeTorrentsTagsSaga(action: RemoveTorrentsTagsAction) {
 }
 
 function* setTorrentSaga(action: ResourceSetAction<Resource.TORRENT>) {
+    const paramsWithoutTorrents = {
+        ...action.params,
+        torrents: [],
+    };
     try {
-        yield call(createSetResourceSaga(Resource.TORRENT), action);
-        yield put(createResourceFetchAction(Resource.TORRENT));
+        const api = Api.getInstance();
+        yield apply(api, api.setResource, [Resource.TORRENT, action.params]);
+        yield put(createResourceSetSuccessAction(Resource.TORRENT, paramsWithoutTorrents)); // passing the blobs here will result in a state mutation somehow
         yield put(showSnackbarAction(t`Torrents added successfully!`, 'success', 2000));
         yield put(createResourceFetchAction(Resource.MAIN_DATA));
     } catch (error) {
+        yield put(
+            createResourceSetFailAction(Resource.TORRENT, paramsWithoutTorrents, error as Error),
+        );
         yield put(showSnackbarAction(t`Failed to add torrents!`, 'error', 2000));
     }
 }
