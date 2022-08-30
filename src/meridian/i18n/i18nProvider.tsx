@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 
 import { i18n } from '@lingui/core';
 import { I18nProvider as LibProvider } from '@lingui/react';
+
+/* eslint-disable-next-line no-restricted-imports */
 import { messages as enMessages } from 'locales/en/messages';
+
+/* eslint-disable-next-line no-restricted-imports */
 import { messages as roMessages } from 'locales/ro/messages';
 
 import { selectSettings } from 'meridian/settings';

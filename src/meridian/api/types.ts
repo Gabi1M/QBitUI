@@ -1,5 +1,3 @@
-import { Category } from 'meridian/models';
-
 export interface AddTorrentsFormDataScheme {
     urls: string;
     savepath?: string;
@@ -24,7 +22,7 @@ export interface AddTorrentsParams {
     torrents: Blob[];
     savepath?: string;
     cookie?: string;
-    category?: Category;
+    category?: string;
     tags?: string[];
     skipChecking?: boolean;
     paused?: boolean;

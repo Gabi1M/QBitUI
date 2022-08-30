@@ -32,7 +32,6 @@ const AddTorrentsModal = () => {
 
     const onSubmit = useCallback(
         (data: AddTorrentsParams) => {
-            console.log(data);
             if (!files?.length) {
                 dispatch(showSnackbarAction(t`Cannot add torrent without files!`, 'error', 2000));
                 return;

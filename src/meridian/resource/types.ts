@@ -1,3 +1,4 @@
+/* eslint-disable-next-line no-restricted-imports */
 import { AddTorrentsParams } from 'meridian/api/types';
 import {
     Category,

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import { t } from '@lingui/macro';
 import { apply, put, takeLatest } from 'redux-saga/effects';
 
