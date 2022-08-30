@@ -26,4 +26,4 @@ workflows:
       - lint_and_test:
           filters:
             branches:
-              only: ^(master|dev)$
+              only: dev
