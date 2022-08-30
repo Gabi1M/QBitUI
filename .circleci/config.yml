@@ -27,13 +27,7 @@ jobs:
                   name: Run tests
 
 workflows:
-    sample:
+    lint_and_test:
         jobs:
-            - lint:
-                  filters:
-                      branches:
-                          only: [dev, master]
-            - test:
-                  filters:
-                      branches:
-                          only: [dev, master]
+            - lint
+            - test
