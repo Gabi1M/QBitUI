@@ -4,6 +4,8 @@
 
 # QBitUI
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Gabi1M/QBitUI/tree/master.svg?style=svg&circle-token=0f38055040690d5c0343cc67fc83f955a6d28227)](https://dl.circleci.com/status-badge/redirect/gh/Gabi1M/QBitUI/tree/master)
+
 Minimalist web interface for qBitTorrent.
 Implemented using `React`, `Typescript` and `Mantine`.
 
