@@ -24,8 +24,6 @@ exports[`LabelWithText should render as expected 1`] = `
   line-height: 1.55;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-family: Greycliff CF,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-weight: 700;
 }
 
 .emotion-3:focus {

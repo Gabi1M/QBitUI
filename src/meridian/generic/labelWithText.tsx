@@ -22,9 +22,7 @@ const LabelWithText = ({ label, text, color, icon, ...rest }: Props) => {
         <Box {...rest} className={styles.classes.root}>
             {icon}
             <Box ml={icon ? 'xs' : undefined}>
-                <Text color={color} className={styles.classes.label}>
-                    {label}
-                </Text>
+                <Text color={color}>{label}</Text>
                 <Text size='sm' color={color || 'dimmed'}>
                     {text}
                 </Text>
@@ -33,16 +31,12 @@ const LabelWithText = ({ label, text, color, icon, ...rest }: Props) => {
     );
 };
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles({
     root: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
     },
-    label: {
-        fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-        fontWeight: 700,
-    },
-}));
+});
 
 export default LabelWithText;
