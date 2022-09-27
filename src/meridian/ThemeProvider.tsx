@@ -14,6 +14,7 @@ const ThemeProvider = ({ children }: Props) => {
     const theme: MantineThemeOverride = useMemo(
         () => ({
             colorScheme: settings.darkMode ? 'dark' : 'light',
+            fontFamily: 'Inter var',
         }),
         [settings],
     );
