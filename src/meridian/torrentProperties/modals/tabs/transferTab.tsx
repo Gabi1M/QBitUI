@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { t } from '@lingui/macro';
 
-import { Box, createStyles } from '@mantine/core';
+import { Box, ScrollArea, createStyles } from '@mantine/core';
 
 import { LabelWithText } from 'meridian/generic';
 import { TorrentProperties } from 'meridian/models';
@@ -40,23 +40,28 @@ const TransferTab = (props: Props) => {
     };
 
     return (
-        <Box className={styles.classes.root}>
-            <Box>
-                {Object.entries(leftItems).map(([label, text], index) => (
-                    <LabelWithText key={index} my='sm' label={label} text={text} />
-                ))}
+        <ScrollArea className={styles.classes.scroll}>
+            <Box className={styles.classes.root}>
+                <Box>
+                    {Object.entries(leftItems).map(([label, text], index) => (
+                        <LabelWithText key={index} my='sm' label={label} text={text} />
+                    ))}
+                </Box>
+                <Box className={styles.classes.space} />
+                <Box>
+                    {Object.entries(rightItems).map(([label, text], index) => (
+                        <LabelWithText key={index} my='sm' label={label} text={text} />
+                    ))}
+                </Box>
             </Box>
-            <Box className={styles.classes.space} />
-            <Box>
-                {Object.entries(rightItems).map(([label, text], index) => (
-                    <LabelWithText key={index} my='sm' label={label} text={text} />
-                ))}
-            </Box>
-        </Box>
+        </ScrollArea>
     );
 };
 
 const useStyles = createStyles({
+    scroll: {
+        height: '50vh',
+    },
     root: {
         display: 'flex',
         flexDirection: 'row',

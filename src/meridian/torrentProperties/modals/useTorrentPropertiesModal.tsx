@@ -22,7 +22,16 @@ const TorrentPropertiesModal = () => {
     }
 
     return (
-        <Tabs variant='outline' radius='md' defaultValue='general'>
+        <Tabs
+            styles={{
+                tab: {
+                    paddingInline: 8,
+                },
+            }}
+            variant='outline'
+            radius='md'
+            defaultValue='general'
+        >
             <Tabs.List>
                 <Tabs.Tab value='general'>{t`General`}</Tabs.Tab>
                 <Tabs.Tab value='transfer'>{t`Transfer`}</Tabs.Tab>
