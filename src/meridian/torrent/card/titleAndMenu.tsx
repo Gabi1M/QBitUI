@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 
 import { Menu } from 'tabler-icons-react';
 
-import { ActionIcon, Box, MantineStyleSystemProps, createStyles } from '@mantine/core';
+import { ActionIcon, Box, MantineStyleSystemProps, Text, createStyles } from '@mantine/core';
 
-import { ContextMenu, ResponsiveText } from 'meridian/generic';
+import { ContextMenu } from 'meridian/generic';
 
 import useContextMenuItems from '../useContextMenuItems';
 
@@ -19,7 +19,9 @@ const TitleAndMenu = ({ hash, name, ...props }: Props) => {
 
     return (
         <Box {...props} className={styles.classes.root}>
-            <ResponsiveText size='xl'>{name}</ResponsiveText>
+            <Text lineClamp={1} size='xl'>
+                {name}
+            </Text>
             <ContextMenu
                 items={contextMenuItems}
                 control={
