@@ -26,17 +26,17 @@ const TransferTab = (props: Props) => {
     const styles = useStyles();
     const leftItems = {
         [t`Average download speed`]: bytesToSize(props.dl_speed_avg),
-        [t`Downloaded ( alltime )`]: bytesToSize(props.total_downloaded),
-        [t`Downloaded ( session )`]: bytesToSize(props.total_downloaded_session),
+        [t`Downloaded (alltime)`]: bytesToSize(props.total_downloaded),
+        [t`Downloaded (session)`]: bytesToSize(props.total_downloaded_session),
         [t`Peers`]: props.peers.toString(),
-        [t`Peers ( total )`]: props.peers_total.toString(),
+        [t`Peers (total)`]: props.peers_total.toString(),
     };
     const rightItems = {
         [t`Average upload speed`]: bytesToSize(props.up_speed_avg),
-        [t`Uploaded ( alltime )`]: bytesToSize(props.total_uploaded),
-        [t`Uploaded ( session )`]: bytesToSize(props.total_uploaded_session),
+        [t`Uploaded (alltime)`]: bytesToSize(props.total_uploaded),
+        [t`Uploaded (session)`]: bytesToSize(props.total_uploaded_session),
         [t`Seeds`]: props.seeds.toString(),
-        [t`Seeds ( total )`]: props.seeds_total.toString(),
+        [t`Seeds (total)`]: props.seeds_total.toString(),
     };
 
     return (
