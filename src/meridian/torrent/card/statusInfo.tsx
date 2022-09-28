@@ -45,7 +45,7 @@ const StatusInfo = ({ state, category, tags, dlSpeed, upSpeed, ...props }: Props
                 {category !== '' ? <LabelWithBadge label={t`Category`} text={category} /> : null}
                 {tags !== '' ? <LabelWithBadge label={t`Tags`} text={tags} /> : null}
             </Group>
-            <Group className={styles.classes.speeds}>
+            <Group>
                 <LabelWithText
                     label={t`Download speed`}
                     text={bytesToSize(dlSpeed)}
@@ -69,9 +69,6 @@ const useStyles = createStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-    },
-    speeds: {
-        justifyContent: 'flex-end',
     },
 });
 
