@@ -74,15 +74,17 @@ const useStyles = createStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: theme.colors.dark[6],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
         borderRadius: theme.radius.md,
     },
     container: {
+        flex: 1,
         display: 'flex',
         flexDirection: 'column',
         marginLeft: 10,
     },
     container2: {
+        flex: 1,
         display: 'flex',
         justifyContent: 'space-between',
     },

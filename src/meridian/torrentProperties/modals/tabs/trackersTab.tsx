@@ -72,7 +72,7 @@ const useStyles = createStyles((theme) => ({
         marginBlock: 10,
         padding: 5,
         alignItems: 'center',
-        backgroundColor: theme.colors.dark[6],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
         borderRadius: theme.radius.md,
     },
     dataIcon: {
