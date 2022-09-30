@@ -1,6 +1,9 @@
+/* eslint-disable no-restricted-imports */
 import { apply, put } from 'redux-saga/effects';
 
-import { Api } from 'meridian/api';
+import { Api, ApiError } from 'meridian/api';
+import { history } from 'meridian/navigation/history';
+import { AppRoutes } from 'meridian/navigation/types';
 
 import {
     ResourceFetchAction,
@@ -19,6 +22,10 @@ export const createFetchResourceSaga = <T extends Resource = Resource>(resourceN
             ]);
             yield put(createResourceFetchSuccessAction(resourceName, data, action.params));
         } catch (error) {
+            const { status } = error as ApiError;
+            if (status === 403) {
+                history.replace(AppRoutes.LOGIN);
+            }
             yield put(createResourceFetchFailAction(resourceName, action.params, error as Error));
         }
     }

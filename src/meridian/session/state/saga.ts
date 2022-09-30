@@ -2,7 +2,7 @@
 import { t } from '@lingui/macro';
 import { apply, put, takeLatest } from 'redux-saga/effects';
 
-import { Api } from 'meridian/api';
+import { Api, ApiError } from 'meridian/api';
 import { LoginResponse } from 'meridian/models';
 import { history } from 'meridian/navigation/history';
 import { AppRoutes } from 'meridian/navigation/types';
@@ -66,6 +66,10 @@ function* fetchVersionsSaga() {
         const apiVersion: string = yield apply(api, api.fetchApiVersion, []);
         yield put(createSetVersionsAction(version, apiVersion));
     } catch (error) {
+        const { status } = error as ApiError;
+        if (status === 403) {
+            history.replace(AppRoutes.LOGIN);
+        }
         yield put(createSetVersionsAction('unknown', 'unknown'));
     }
 }
