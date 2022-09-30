@@ -1,6 +1,6 @@
 /* eslint-disable */
-
 import { MainData, TorrentInfo } from 'meridian/models';
+
 import { MockCategories } from './categories';
 import { MockTags } from './tags';
 import { MockTorrents } from './torrents';
@@ -16,7 +16,7 @@ export const MockMainData: MainData = {
     tags_removed: [],
     torrents: (MockTorrents as TorrentInfo[]).reduce(
         (res, el) => ((res[el.hash] = el), res),
-        {} as Record<string, TorrentInfo>
+        {} as Record<string, TorrentInfo>,
     ),
     torrents_removed: [],
     trackers: {},

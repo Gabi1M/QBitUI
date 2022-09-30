@@ -14,6 +14,9 @@ jobs:
                   command: yarn lint
                   name: Check linting rules
             - run:
+                  command: yarn formatting
+                  name: Check formatting rules
+            - run:
                   command: yarn types
                   name: Check types
     test:

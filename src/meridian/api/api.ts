@@ -14,7 +14,6 @@ import {
 } from 'meridian/mock';
 import {
     Category,
-    ConnectionSettings,
     LoginResponse,
     MainData,
     Preferences,
@@ -24,8 +23,6 @@ import {
     TorrentTracker,
     TransferInfo,
 } from 'meridian/models';
-import { history } from 'meridian/navigation/history';
-import { AppRoutes } from 'meridian/navigation/types';
 import {
     DeleteResourceParams,
     FetchResourceParams,
@@ -34,176 +31,192 @@ import {
 } from 'meridian/resource/types';
 import { transformMainData } from 'meridian/transformers';
 
-import { AddTorrentsFormDataScheme, AddTorrentsParams } from './types';
+import {
+    AddTorrentsFormDataScheme,
+    AddTorrentsParams,
+    ApiError,
+    ApiPath,
+    ContentType,
+    Headers,
+    RequestMethod,
+} from './types';
 
-enum ApiPath {
-    LOGIN = 'auth/login',
-    LOGOUT = 'auth/logout',
-    VERSION = 'app/version',
-    API_VERSION = 'app/webapiVersion',
-    MAIN_DATA = 'sync/maindata',
-    ADD_TORRENTS = 'torrents/add',
-    TORRENTS = 'torrents/info',
-    TORRENT_PROPERTIES = 'torrents/properties',
-    TORRENT_CONTENT = 'torrents/files',
-    TORRENT_TRACKERS = 'torrents/trackers',
-    TRANSFER_INFO = 'transfer/info',
-    PREFERENCES = 'app/preferences',
-    SET_PREFERENCES = 'app/setPreferences',
-    CATEGORIES = 'torrents/categories',
-    CREATE_CATEGORY = 'torrents/createCategory',
-    EDIT_CATEGORY = 'torrents/editCategory',
-    REMOVE_CATEGORIES = 'torrents/removeCategories',
-    TAGS = 'torrents/tags',
-    CREATE_TAGS = 'torrents/createTags',
-    DELETE_TAGS = 'torrents/deleteTags',
-    PAUSE_TORRENTS = 'torrents/pause',
-    RESUME_TORRENTS = 'torrents/resume',
-    DELETE_TORRENTS = 'torrents/delete',
-    FORCE_DOWNLOAD_TORRENTS = 'torrents/setForceStart',
-    RECHECK_TORRENTS = 'torrents/recheck',
-    SET_TORRENT_CATEGORY = 'torrents/setCategory',
-    ADD_TORRENT_TAGS = 'torrents/addTags',
-    REMOVE_TORRENT_TAGS = 'torrents/removeTags',
-}
+const isSuccessStatusCode = (code: number) => code >= 200 && code < 400;
 
-enum RequestMethod {
-    GET = 'GET',
-    POST = 'POST',
-}
+const handleResponse = async <T>(response: Response): Promise<T> => {
+    const contentType = response.headers.get(Headers.CONTENT_TYPE);
+    if (contentType && contentType.indexOf(ContentType.APPLICATION_JSON) !== -1) {
+        return (await response.json()) as T;
+    }
+
+    return (await response.text()) as unknown as T;
+};
 
 export class Api {
-    private static instance: Api | null;
-
-    private connectionSettings: ConnectionSettings;
-
     private baseUrl: string;
 
-    constructor(connectionSettings: ConnectionSettings) {
-        this.connectionSettings = connectionSettings;
-        this.baseUrl = `${connectionSettings.url}/api/v2`;
+    constructor() {
+        this.baseUrl = `${getApiUrl()}/api/v2`;
     }
 
-    static getInstance() {
-        if (!Api.instance) {
-            Api.instance = new Api({
-                url: getApiUrl() || '',
-            });
+    //#region Generic
+
+    async get<T>(url: string, params?: URLSearchParams): Promise<T> {
+        const finalUrl = new URL(`${this.baseUrl}/${url}`);
+        if (params) {
+            params.forEach((value, key) => finalUrl.searchParams.append(key, value));
         }
 
-        return Api.instance;
-    }
-
-    private static async getJSON<T>(url: string, params?: URLSearchParams) {
-        const finalUrl = params ? `${url}?${params.toString()}` : url;
-
-        const response = await fetch(finalUrl, {
+        const response = await fetch(finalUrl.toString(), {
             method: RequestMethod.GET,
-            credentials: 'same-origin',
+            credentials: 'include',
         });
 
-        if (response.status !== 200) {
-            if (response.status === 403) {
-                history.replace(AppRoutes.LOGIN);
-            }
-            throw new Error(`GET request for ${finalUrl} failed with status: ${response.status}`);
+        if (!isSuccessStatusCode(response.status)) {
+            throw new ApiError(
+                response.status,
+                `GET request for ${finalUrl.toString()} failed with status: ${response.status}`,
+            );
         }
 
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.indexOf('application/json') !== -1) {
-            return (await response.json()) as T;
-        }
-
-        return (await response.text()) as unknown as T;
+        return handleResponse<T>(response);
     }
 
-    private static async postJSON<T>(url: string, data: Record<string, string>) {
-        const response = await fetch(url, {
-            method: RequestMethod.POST,
-            credentials: 'same-origin',
-            // referrerPolicy: 'strict-origin-when-cross-origin',
-            body: new URLSearchParams(Object.entries(data)),
-        });
-
-        if (response.status !== 200) {
-            if (response.status === 403) {
-                history.replace(AppRoutes.LOGIN);
-            }
-            throw new Error(`POST request for ${url} failed with status: ${response.status}`);
-        }
-
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.indexOf('application/json') !== -1) {
-            return (await response.json()) as T;
-        }
-
-        return (await response.text()) as unknown as T;
-    }
-
-    private static async postFormData<T>(url: string, data: FormData) {
-        const response = await fetch(url, {
+    async post<T>(url: string, data: string | FormData): Promise<T> {
+        const finalUrl = new URL(`${this.baseUrl}/${url}`);
+        const requestContentType =
+            typeof data === 'string'
+                ? ContentType.APPLICATION_JSON
+                : ContentType.MULTIPART_FORM_DATA;
+        const response = await fetch(finalUrl.toString(), {
             method: RequestMethod.POST,
             credentials: 'include',
-            referrerPolicy: 'strict-origin-when-cross-origin',
+            headers: {
+                [Headers.CONTENT_TYPE]: requestContentType,
+            },
             body: data,
         });
 
-        if (response.status !== 200) {
-            throw new Error(`POST request for ${url} failed with status: ${response.status}`);
+        if (!isSuccessStatusCode(response.status)) {
+            throw new ApiError(
+                response.status,
+                `POST request for ${finalUrl.toString()} failed with status: ${response.status}`,
+            );
         }
 
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.indexOf('application/json') !== -1) {
-            return (await response.json()) as T;
-        }
-
-        return (await response.text()) as unknown as T;
+        return handleResponse<T>(response);
     }
 
-    private async torrentAction(
-        action: ApiPath,
-        hashes: string[],
-        additionalData?: Record<string, string>,
-    ) {
-        return Api.postJSON<string>(`${this.baseUrl}/${action}`, {
-            hashes: hashes.join('|'),
-            ...additionalData,
+    async delete<T>(url: string, params?: URLSearchParams): Promise<T> {
+        const finalUrl = new URL(`${this.baseUrl}/${url}`);
+        if (params) {
+            params.forEach((value, key) => finalUrl.searchParams.append(key, value));
+        }
+
+        const response = await fetch(finalUrl.toString(), {
+            method: RequestMethod.DELETE,
+            credentials: 'include',
         });
-    }
 
-    async login(username: string, password: string) {
-        if (isMockEnabled) {
-            return Promise.resolve(LoginResponse.SUCCESS);
+        if (!isSuccessStatusCode(response.status)) {
+            throw new ApiError(
+                response.status,
+                `DELETE request for ${finalUrl.toString()} failed with status: ${response.status}`,
+            );
         }
 
-        return Api.postJSON<LoginResponse>(`${this.baseUrl}/${ApiPath.LOGIN}`, {
-            username,
-            password,
-        });
+        return handleResponse<T>(response);
     }
 
-    async logout() {
+    //#endregion
+
+    //#region GET
+
+    async fetchMainData(rid?: number) {
         if (isMockEnabled) {
-            return Promise.resolve('Ok.');
+            return Promise.resolve(MockMainData);
         }
 
-        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.LOGOUT}`, {});
+        let data: MainData | null = null;
+        if (rid) {
+            data = await this.get<MainData>(`${ApiPath.MAIN_DATA}?rid=${rid}`);
+        } else {
+            data = await this.get<MainData>(ApiPath.MAIN_DATA);
+        }
+
+        return transformMainData(data);
     }
 
-    async version() {
+    async fetchTorrents() {
         if (isMockEnabled) {
-            return Promise.resolve('1.1.1.1');
+            return Promise.resolve(MockTorrents as TorrentInfo[]);
         }
-
-        return Api.getJSON<string>(`${this.baseUrl}/${ApiPath.VERSION}`);
+        return this.get<TorrentInfo[]>(ApiPath.TORRENTS);
     }
 
-    async apiVersion() {
+    async fetchTorrentProperties(hash: string) {
         if (isMockEnabled) {
-            return Promise.resolve('1.1.1.1');
+            return Promise.resolve(MockTorrentProperties);
+        }
+        return this.get<TorrentProperties>(
+            ApiPath.TORRENT_PROPERTIES,
+            new URLSearchParams({
+                hash,
+            }),
+        );
+    }
+
+    async fetchTorrentContent(hash: string) {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTorrentContent);
+        }
+        return this.get<TorrentContent[]>(
+            ApiPath.TORRENT_CONTENT,
+            new URLSearchParams({
+                hash,
+            }),
+        );
+    }
+
+    async fetchTorrentTrackers(hash: string) {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTorrentTrackers);
+        }
+        return this.get<TorrentTracker[]>(
+            ApiPath.TORRENT_TRACKERS,
+            new URLSearchParams({
+                hash,
+            }),
+        );
+    }
+
+    async fetchTransferInfo() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTransferInfo);
+        }
+        return this.get<TransferInfo>(ApiPath.TRANSFER_INFO);
+    }
+
+    async fetchPreferences() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockPreferences);
+        }
+        return this.get<Preferences>(ApiPath.PREFERENCES);
+    }
+
+    async fetchCategories() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockCategories);
         }
 
-        return Api.getJSON<string>(`${this.baseUrl}/${ApiPath.API_VERSION}`);
+        return this.get<Record<string, Category>>(ApiPath.CATEGORIES);
+    }
+
+    async fetchTags() {
+        if (isMockEnabled) {
+            return Promise.resolve(MockTags);
+        }
+        return this.get<string[]>(ApiPath.TAGS);
     }
 
     async fetchResource<T extends Resource = Resource>(
@@ -212,42 +225,129 @@ export class Api {
     ) {
         switch (resourceName) {
             case Resource.MAIN_DATA: {
-                return this.mainData((params as FetchResourceParams[Resource.MAIN_DATA])?.rid);
+                return this.fetchMainData((params as FetchResourceParams[Resource.MAIN_DATA])?.rid);
             }
             case Resource.TORRENT: {
-                return this.torrents();
+                return this.fetchTorrents();
             }
             case Resource.TORRENT_PROPERTIES: {
-                return this.torrentProperties(
+                return this.fetchTorrentProperties(
                     (params as FetchResourceParams[Resource.TORRENT_PROPERTIES]).hash,
                 );
             }
             case Resource.TORRENT_CONTENT: {
-                return this.torrentContent(
+                return this.fetchTorrentContent(
                     (params as FetchResourceParams[Resource.TORRENT_CONTENT]).hash,
                 );
             }
             case Resource.TORRENT_TRACKERS: {
-                return this.torrentTrackers(
+                return this.fetchTorrentTrackers(
                     (params as FetchResourceParams[Resource.TORRENT_TRACKERS]).hash,
                 );
             }
             case Resource.TRANSFER_INFO: {
-                return this.transferInfo();
+                return this.fetchTransferInfo();
             }
             case Resource.PREFERENCES: {
-                return this.preferences();
+                return this.fetchPreferences();
             }
             case Resource.CATEGORIES: {
-                return this.categories();
+                return this.fetchCategories();
             }
             case Resource.TAGS: {
-                return this.tags();
+                return this.fetchTags();
             }
             default: {
                 return null;
             }
         }
+    }
+
+    //#endregion
+
+    //#region SET
+
+    async setPreferences(preferences: Preferences) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
+
+        return this.post<string>(
+            ApiPath.SET_PREFERENCES,
+            JSON.stringify({
+                json: JSON.stringify(preferences),
+            }),
+        );
+    }
+
+    async setCategory({
+        category,
+        editExisting = false,
+    }: {
+        category: Category;
+        editExisting: boolean;
+    }) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
+        return this.post<string>(
+            editExisting ? ApiPath.EDIT_CATEGORY : ApiPath.CREATE_CATEGORY,
+            JSON.stringify({
+                category: category.name,
+                savePath: category.savePath,
+            }),
+        );
+    }
+
+    async createTags(tagsToCreate: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
+        return this.post<string>(
+            ApiPath.CREATE_TAGS,
+            JSON.stringify({
+                tags: tagsToCreate.join(','),
+            }),
+        );
+    }
+
+    async addTorrents(params: AddTorrentsParams) {
+        const formDataScheme: AddTorrentsFormDataScheme = {
+            urls: params.urls.join('\n'),
+            savepath: params.savepath,
+            cookie: params.cookie,
+            category: params.category,
+            tags: params.tags?.join(','),
+            skip_checking: params.skipChecking ? 'true' : 'false',
+            paused: params.paused ? 'true' : 'false',
+            root_folder: params.rootFolder ? 'true' : 'false',
+            rename: params.rename,
+            upLimit: params.upLimit,
+            dlLimit: params.dlLimit,
+            ratioLimit: params.ratioLimit,
+            seedingTimeLimit: params.seedingTimeLimit,
+            autoTMM: params.autoTMM,
+            sequentialDownload: params.sequentialDownload ? 'true' : 'false',
+            firstLastPiecePrio: params.firstLastPiecePrio ? 'true' : 'false',
+        };
+
+        const formData = new FormData();
+
+        Object.entries(formDataScheme).forEach((entry) => {
+            if (entry[1]) {
+                formData.append(entry[0], entry[1]);
+            }
+        });
+
+        params.torrents.forEach((torrent) => {
+            formData.append('torrents', torrent);
+        });
+
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
+
+        return this.post<string>(ApiPath.ADD_TORRENTS, formData);
     }
 
     async setResource<T extends Resource = Resource>(
@@ -259,7 +359,7 @@ export class Api {
                 return this.setPreferences(params as Preferences);
             }
             case Resource.CATEGORIES: {
-                return this.createCategory(params as { category: Category; editExisting: boolean });
+                return this.setCategory(params as { category: Category; editExisting: boolean });
             }
             case Resource.TAGS: {
                 return this.createTags(params as string[]);
@@ -273,13 +373,41 @@ export class Api {
         }
     }
 
+    //#endregion
+
+    //#region DELETE
+
+    async deleteCategories(categories: Category[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
+        return this.post<string>(
+            ApiPath.REMOVE_CATEGORIES,
+            JSON.stringify({
+                categories: categories.map((x) => x.name).join('\n'),
+            }),
+        );
+    }
+
+    async deleteTags(tagsToDelete: string[]) {
+        if (isMockEnabled) {
+            return Promise.resolve('Ok.');
+        }
+        return this.post<string>(
+            ApiPath.DELETE_TAGS,
+            JSON.stringify({
+                tags: tagsToDelete.join(','),
+            }),
+        );
+    }
+
     async deleteResource<T extends Resource = Resource>(
         resourceName: T,
         params: DeleteResourceParams[T],
     ) {
         switch (resourceName) {
             case Resource.CATEGORIES: {
-                return this.removeCategories(params as Category[]);
+                return this.deleteCategories(params as Category[]);
             }
             case Resource.TAGS: {
                 return this.deleteTags(params as string[]);
@@ -290,146 +418,22 @@ export class Api {
         }
     }
 
-    async mainData(rid?: number) {
-        if (isMockEnabled) {
-            return Promise.resolve(MockMainData);
-        }
+    //#endregion
 
-        let data: MainData | null = null;
-        if (rid) {
-            data = await Api.getJSON<MainData>(`${this.baseUrl}/${ApiPath.MAIN_DATA}?rid=${rid}`);
-        } else {
-            data = await Api.getJSON<MainData>(`${this.baseUrl}/${ApiPath.MAIN_DATA}`);
-        }
+    //#region TORRENT
 
-        return transformMainData(data);
-    }
-
-    async torrents() {
-        if (isMockEnabled) {
-            return Promise.resolve(MockTorrents as TorrentInfo[]);
-        }
-        return Api.getJSON<TorrentInfo[]>(`${this.baseUrl}/${ApiPath.TORRENTS}`);
-    }
-
-    async torrentProperties(hash: string) {
-        if (isMockEnabled) {
-            return Promise.resolve(MockTorrentProperties);
-        }
-        return Api.getJSON<TorrentProperties>(
-            `${this.baseUrl}/${ApiPath.TORRENT_PROPERTIES}`,
-            new URLSearchParams({
-                hash,
+    private async torrentAction(
+        action: ApiPath,
+        hashes: string[],
+        additionalData?: Record<string, string>,
+    ) {
+        return this.post<string>(
+            action,
+            JSON.stringify({
+                hashes: hashes.join('|'),
+                ...additionalData,
             }),
         );
-    }
-
-    async torrentContent(hash: string) {
-        if (isMockEnabled) {
-            return Promise.resolve(MockTorrentContent);
-        }
-        return Api.getJSON<TorrentContent[]>(
-            `${this.baseUrl}/${ApiPath.TORRENT_CONTENT}`,
-            new URLSearchParams({
-                hash,
-            }),
-        );
-    }
-
-    async torrentTrackers(hash: string) {
-        if (isMockEnabled) {
-            return Promise.resolve(MockTorrentTrackers);
-        }
-        return Api.getJSON<TorrentTracker[]>(
-            `${this.baseUrl}/${ApiPath.TORRENT_TRACKERS}`,
-            new URLSearchParams({
-                hash,
-            }),
-        );
-    }
-
-    async transferInfo() {
-        if (isMockEnabled) {
-            return Promise.resolve(MockTransferInfo);
-        }
-        return Api.getJSON<TransferInfo>(`${this.baseUrl}/${ApiPath.TRANSFER_INFO}`);
-    }
-
-    async preferences() {
-        if (isMockEnabled) {
-            return Promise.resolve(MockPreferences);
-        }
-        return Api.getJSON<Preferences>(`${this.baseUrl}/${ApiPath.PREFERENCES}`);
-    }
-
-    async setPreferences(preferences: Preferences) {
-        if (isMockEnabled) {
-            return Promise.resolve('Ok.');
-        }
-        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.SET_PREFERENCES}`, {
-            json: JSON.stringify(preferences),
-        });
-    }
-
-    async categories() {
-        if (isMockEnabled) {
-            return Promise.resolve(MockCategories);
-        }
-
-        return Api.getJSON<Record<string, Category>>(`${this.baseUrl}/${ApiPath.CATEGORIES}`);
-    }
-
-    async createCategory({
-        category,
-        editExisting = false,
-    }: {
-        category: Category;
-        editExisting: boolean;
-    }) {
-        if (isMockEnabled) {
-            return Promise.resolve('Ok.');
-        }
-        return Api.postJSON<string>(
-            `${this.baseUrl}/${editExisting ? ApiPath.EDIT_CATEGORY : ApiPath.CREATE_CATEGORY}`,
-            {
-                category: category.name,
-                savePath: category.savePath,
-            },
-        );
-    }
-
-    async removeCategories(categories: Category[]) {
-        if (isMockEnabled) {
-            return Promise.resolve('Ok.');
-        }
-        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.REMOVE_CATEGORIES}`, {
-            categories: categories.map((x) => x.name).join('\n'),
-        });
-    }
-
-    async tags() {
-        if (isMockEnabled) {
-            return Promise.resolve(MockTags);
-        }
-        return Api.getJSON<string[]>(`${this.baseUrl}/${ApiPath.TAGS}`);
-    }
-
-    async createTags(tagsToCreate: string[]) {
-        if (isMockEnabled) {
-            return Promise.resolve('Ok.');
-        }
-        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.CREATE_TAGS}`, {
-            tags: tagsToCreate.join(','),
-        });
-    }
-
-    async deleteTags(tagsToDelete: string[]) {
-        if (isMockEnabled) {
-            return Promise.resolve('Ok.');
-        }
-        return Api.postJSON<string>(`${this.baseUrl}/${ApiPath.DELETE_TAGS}`, {
-            tags: tagsToDelete.join(','),
-        });
     }
 
     async pauseTorrents(hashes: string[]) {
@@ -498,42 +502,43 @@ export class Api {
         });
     }
 
-    async addTorrents(params: AddTorrentsParams) {
-        const formDataScheme: AddTorrentsFormDataScheme = {
-            urls: params.urls.join('\n'),
-            savepath: params.savepath,
-            cookie: params.cookie,
-            category: params.category,
-            tags: params.tags?.join(','),
-            skip_checking: params.skipChecking ? 'true' : 'false',
-            paused: params.paused ? 'true' : 'false',
-            root_folder: params.rootFolder ? 'true' : 'false',
-            rename: params.rename,
-            upLimit: params.upLimit,
-            dlLimit: params.dlLimit,
-            ratioLimit: params.ratioLimit,
-            seedingTimeLimit: params.seedingTimeLimit,
-            autoTMM: params.autoTMM,
-            sequentialDownload: params.sequentialDownload ? 'true' : 'false',
-            firstLastPiecePrio: params.firstLastPiecePrio ? 'true' : 'false',
-        };
+    //#endregion
 
-        const formData = new FormData();
+    async login(username: string, password: string) {
+        if (isMockEnabled) {
+            return Promise.resolve(LoginResponse.SUCCESS);
+        }
 
-        Object.entries(formDataScheme).forEach((entry) => {
-            if (entry[1]) {
-                formData.append(entry[0], entry[1]);
-            }
-        });
+        return this.post<LoginResponse>(
+            ApiPath.LOGIN,
+            JSON.stringify({
+                username,
+                password,
+            }),
+        );
+    }
 
-        params.torrents.forEach((torrent) => {
-            formData.append('torrents', torrent);
-        });
-
+    async logout() {
         if (isMockEnabled) {
             return Promise.resolve('Ok.');
         }
 
-        return Api.postFormData<string>(`${this.baseUrl}/${ApiPath.ADD_TORRENTS}`, formData);
+        return this.post<string>(ApiPath.LOGOUT, JSON.stringify({}));
+    }
+
+    async fetchVersion() {
+        if (isMockEnabled) {
+            return Promise.resolve('1.1.1.1');
+        }
+
+        return this.get<string>(ApiPath.VERSION);
+    }
+
+    async fetchApiVersion() {
+        if (isMockEnabled) {
+            return Promise.resolve('1.1.1.1');
+        }
+
+        return this.get<string>(ApiPath.API_VERSION);
     }
 }
