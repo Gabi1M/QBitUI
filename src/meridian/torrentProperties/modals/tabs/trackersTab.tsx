@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
+import { User, Users } from 'tabler-icons-react';
 
-import { LoadingOverlay, ScrollArea, Table, Text, Tooltip, createStyles } from '@mantine/core';
+import { Badge, Box, LoadingOverlay, ScrollArea, Text, Tooltip, createStyles } from '@mantine/core';
 
 import { TorrentTracker, TorrentTrackerStatusDescription } from 'meridian/models';
 import { selectTorrentTrackers } from 'meridian/torrentTrackers';
-import { truncateLongText } from 'meridian/utils';
 
 const TrackersTab = () => {
     const styles = useStyles();
@@ -17,26 +17,10 @@ const TrackersTab = () => {
     }
 
     return (
-        <ScrollArea className={styles.classes.root} scrollbarSize={2}>
-            <Table highlightOnHover striped>
-                <thead>
-                    <tr>
-                        <th>{t`URL`}</th>
-                        <th>{t`Status`}</th>
-                        <th>{t`Tier`}</th>
-                        <th>{t`Peers`}</th>
-                        <th>{t`Seeds`}</th>
-                        <th>{t`Leeches`}</th>
-                        <th>{t`Downloaded`}</th>
-                        <th>{t`Message`}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {trackers.map((tracker) => (
-                        <TrackerItem key={tracker.url} tracker={tracker} />
-                    ))}
-                </tbody>
-            </Table>
+        <ScrollArea className={styles.classes.scroll}>
+            {trackers.map((tracker) => (
+                <TrackerItem key={tracker.url} tracker={tracker} />
+            ))}
         </ScrollArea>
     );
 };
@@ -45,31 +29,61 @@ interface TrackerItemProps {
     tracker: TorrentTracker;
 }
 
-const TrackerItem = ({ tracker }: TrackerItemProps) => (
-    <tr key={tracker.url}>
-        <td>
-            <Tooltip multiline label={tracker.url}>
-                <Text>{truncateLongText(tracker.url)}</Text>
-            </Tooltip>
-        </td>
-        <td>{TorrentTrackerStatusDescription[tracker.status]}</td>
-        <td>{tracker.tier}</td>
-        <td>{tracker.num_peers}</td>
-        <td>{tracker.num_seeds}</td>
-        <td>{tracker.num_leeches}</td>
-        <td>{tracker.num_downloaded}</td>
-        <td>
-            <Tooltip multiline label={tracker.msg}>
-                <Text>{truncateLongText(tracker.msg, 50)}</Text>
-            </Tooltip>
-        </td>
-    </tr>
-);
+const TrackerItem = ({ tracker }: TrackerItemProps) => {
+    const styles = useStyles();
 
-const useStyles = createStyles({
-    root: {
+    return (
+        <Box className={styles.classes.item}>
+            <Tooltip label={tracker.url} multiline>
+                <Text lineClamp={1}>{tracker.url}</Text>
+            </Tooltip>
+            <Box className={styles.classes.container}>
+                <Tooltip label={t`Peers`}>
+                    <Box className={styles.classes.dataIcon}>
+                        <Text size='sm'>{tracker.num_peers}</Text>
+                        <Users size={14} color={styles.theme.colors.blue[8]} />
+                    </Box>
+                </Tooltip>
+                <Tooltip label={t`Seeds`}>
+                    <Box className={styles.classes.dataIcon}>
+                        <Text size='sm'>{tracker.num_seeds}</Text>
+                        <User size={14} color={styles.theme.colors.green[5]} />
+                    </Box>
+                </Tooltip>
+                <Tooltip label={`Leeches`}>
+                    <Box className={styles.classes.dataIcon}>
+                        <Text size='sm'>{tracker.num_leeches}</Text>
+                        <User size={14} color={styles.theme.colors.red[5]} />
+                    </Box>
+                </Tooltip>
+                <Tooltip label={t`Status`}>
+                    <Badge>{TorrentTrackerStatusDescription[tracker.status]}</Badge>
+                </Tooltip>
+            </Box>
+        </Box>
+    );
+};
+
+const useStyles = createStyles((theme) => ({
+    scroll: {
         height: '50vh',
     },
-});
+    item: {
+        marginBlock: 10,
+        padding: 5,
+        alignItems: 'center',
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+        borderRadius: theme.radius.md,
+    },
+    dataIcon: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'space-between',
+    },
+}));
 
 export default TrackersTab;

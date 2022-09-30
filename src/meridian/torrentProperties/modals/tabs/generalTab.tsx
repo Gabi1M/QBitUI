@@ -2,6 +2,8 @@ import React, { memo } from 'react';
 
 import { t } from '@lingui/macro';
 
+import { ScrollArea, createStyles } from '@mantine/core';
+
 import { LabelWithText } from 'meridian/generic';
 import { TorrentProperties } from 'meridian/models';
 import { bytesToSize, calculateEtaString } from 'meridian/utils';
@@ -19,6 +21,7 @@ type Props = Pick<
 >;
 
 const GeneralTab = (props: Props) => {
+    const styles = useStyles();
     const items = {
         [t`Save path`]: props.save_path,
         [t`Size`]: bytesToSize(props.total_size),
@@ -31,12 +34,18 @@ const GeneralTab = (props: Props) => {
     };
 
     return (
-        <>
+        <ScrollArea className={styles.classes.scroll}>
             {Object.entries(items).map(([label, text], index) => (
                 <LabelWithText key={index} my='sm' label={label} text={text} />
             ))}
-        </>
+        </ScrollArea>
     );
 };
+
+const useStyles = createStyles({
+    scroll: {
+        height: '50vh',
+    },
+});
 
 export default memo(GeneralTab);
