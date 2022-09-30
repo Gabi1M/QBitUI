@@ -62,9 +62,9 @@ export class Api {
     //#region Generic
 
     async get<T>(url: string, params?: URLSearchParams): Promise<T> {
-        const finalUrl = new URL(`${this.baseUrl}/${url}`);
+        let finalUrl = `${this.baseUrl}/${url}`;
         if (params) {
-            params.forEach((value, key) => finalUrl.searchParams.append(key, value));
+            finalUrl = `${finalUrl}?${params.toString()}`;
         }
 
         const response = await fetch(finalUrl.toString(), {
@@ -83,7 +83,7 @@ export class Api {
     }
 
     async post<T>(url: string, data: string | FormData): Promise<T> {
-        const finalUrl = new URL(`${this.baseUrl}/${url}`);
+        const finalUrl = `${this.baseUrl}/${url}`;
         const requestContentType =
             typeof data === 'string'
                 ? ContentType.APPLICATION_JSON
@@ -108,9 +108,9 @@ export class Api {
     }
 
     async delete<T>(url: string, params?: URLSearchParams): Promise<T> {
-        const finalUrl = new URL(`${this.baseUrl}/${url}`);
+        let finalUrl = `${this.baseUrl}/${url}`;
         if (params) {
-            params.forEach((value, key) => finalUrl.searchParams.append(key, value));
+            finalUrl = `${finalUrl}?${params.toString()}`;
         }
 
         const response = await fetch(finalUrl.toString(), {
