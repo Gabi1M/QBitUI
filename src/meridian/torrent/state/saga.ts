@@ -25,7 +25,7 @@ import {
 } from './reducer';
 
 function* pauseTorrentsSaga(action: PauseTorrentsAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.pauseTorrents, [action.hashes]);
         yield put(showSnackbarAction(t`Torrents paused successfully!`, 'success', 2000));
@@ -36,7 +36,7 @@ function* pauseTorrentsSaga(action: PauseTorrentsAction) {
 }
 
 function* resumeTorrentsSaga(action: ResumeTorrentsAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.resumeTorrents, [action.hashes]);
         yield put(showSnackbarAction(t`Torrents resumed successfully!`, 'success', 2000));
@@ -47,7 +47,7 @@ function* resumeTorrentsSaga(action: ResumeTorrentsAction) {
 }
 
 function* deleteTorrentsSaga(action: DeleteTorrentsAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.deleteTorrents, [action.hashes, action.deleteFiles]);
         yield put(showSnackbarAction(t`Torrents deleted successfully!`, 'success', 2000));
@@ -58,7 +58,7 @@ function* deleteTorrentsSaga(action: DeleteTorrentsAction) {
 }
 
 function* forceDownloadTorrentsSaga(action: ForceDownloadTorrentsAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.forceDownloadTorrents, [action.hashes]);
         yield put(
@@ -71,7 +71,7 @@ function* forceDownloadTorrentsSaga(action: ForceDownloadTorrentsAction) {
 }
 
 function* recheckTorrentsSaga(action: RecheckTorrentsAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.recheckTorrents, [action.hashes]);
         yield put(
@@ -88,7 +88,7 @@ function* recheckTorrentsSaga(action: RecheckTorrentsAction) {
 }
 
 function* setTorrentCategorySaga(action: SetTorrentCategoryAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.setTorrentCategory, [action.hashes, action.categoryName]);
         yield put(showSnackbarAction(t`Category set successfully!`, 'success', 2000));
@@ -99,7 +99,7 @@ function* setTorrentCategorySaga(action: SetTorrentCategoryAction) {
 }
 
 function* addTorrentsTagsSaga(action: AddTorrentsTagsAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.addTorrentsTags, [action.hashes, action.tags]);
         yield put(showSnackbarAction(t`Tags set successfully!`, 'success', 2000));
@@ -110,7 +110,7 @@ function* addTorrentsTagsSaga(action: AddTorrentsTagsAction) {
 }
 
 function* removeTorrentsTagsSaga(action: RemoveTorrentsTagsAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         yield apply(api, api.removeTorrentsTags, [action.hashes, action.tags]);
         yield put(showSnackbarAction(t`Tags removed successfully!`, 'success', 2000));
@@ -126,7 +126,7 @@ function* setTorrentSaga(action: ResourceSetAction<Resource.TORRENT>) {
         torrents: [],
     };
     try {
-        const api = Api.getInstance();
+        const api = new Api();
         yield apply(api, api.setResource, [Resource.TORRENT, action.params]);
         yield put(createResourceSetSuccessAction(Resource.TORRENT, paramsWithoutTorrents)); // passing the blobs here will result in a state mutation somehow
         yield put(showSnackbarAction(t`Torrents added successfully!`, 'success', 2000));

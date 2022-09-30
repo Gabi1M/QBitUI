@@ -6,7 +6,7 @@ import { Api } from 'meridian/api';
 import { LoginResponse } from 'meridian/models';
 import { history } from 'meridian/navigation/history';
 import { AppRoutes } from 'meridian/navigation/types';
-import { BaseAction, Resource, createResourceFetchAction } from 'meridian/resource';
+import { Resource, createResourceFetchAction } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
 
 import {
@@ -21,7 +21,7 @@ import {
 } from './actions';
 
 function* loginSaga(action: LoginAction) {
-    const api = Api.getInstance();
+    const api = new Api();
     try {
         const response: LoginResponse = yield apply(api, api.login, [
             action.username,
@@ -46,9 +46,8 @@ function* loginSaga(action: LoginAction) {
     }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function* logoutSaga(action: BaseAction) {
-    const api = Api.getInstance();
+function* logoutSaga() {
+    const api = new Api();
     try {
         yield apply(api, api.logout, []);
         yield put(logoutSuccessAction());
@@ -60,12 +59,11 @@ function* logoutSaga(action: BaseAction) {
     }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function* fetchVersionsSaga(action: BaseAction) {
-    const api = Api.getInstance();
+function* fetchVersionsSaga() {
+    const api = new Api();
     try {
-        const version: string = yield apply(api, api.version, []);
-        const apiVersion: string = yield apply(api, api.apiVersion, []);
+        const version: string = yield apply(api, api.fetchVersion, []);
+        const apiVersion: string = yield apply(api, api.fetchApiVersion, []);
         yield put(createSetVersionsAction(version, apiVersion));
     } catch (error) {
         yield put(createSetVersionsAction('unknown', 'unknown'));

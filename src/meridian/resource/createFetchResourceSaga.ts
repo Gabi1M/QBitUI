@@ -11,7 +11,7 @@ import { Resource, ResourceDataType } from './types';
 
 export const createFetchResourceSaga = <T extends Resource = Resource>(resourceName: T) => {
     function* fetchResource(action: ResourceFetchAction<T>) {
-        const api = Api.getInstance();
+        const api = new Api();
         try {
             const data: ResourceDataType[T] = yield apply(api, api.fetchResource, [
                 resourceName,

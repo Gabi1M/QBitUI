@@ -12,7 +12,7 @@ import { Resource } from './types';
 
 export const createSetResourceSaga = <T extends Resource = Resource>(resourceName: T) => {
     function* setResource(action: ResourceSetAction<T>) {
-        const api = Api.getInstance();
+        const api = new Api();
         try {
             yield apply(api, api.setResource, [resourceName, action.params]);
             yield put(createResourceSetSuccessAction(resourceName, action.params));
