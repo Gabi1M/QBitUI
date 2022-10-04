@@ -82,18 +82,11 @@ export class Api {
         return handleResponse<T>(response);
     }
 
-    async post<T>(url: string, data: string | FormData): Promise<T> {
+    async post<T>(url: string, data: string | URLSearchParams | FormData): Promise<T> {
         const finalUrl = `${this.baseUrl}/${url}`;
-        const requestContentType =
-            typeof data === 'string'
-                ? ContentType.APPLICATION_JSON
-                : ContentType.MULTIPART_FORM_DATA;
         const response = await fetch(finalUrl.toString(), {
             method: RequestMethod.POST,
             credentials: 'include',
-            headers: {
-                [Headers.CONTENT_TYPE]: requestContentType,
-            },
             body: data,
         });
 
@@ -274,7 +267,7 @@ export class Api {
 
         return this.post<string>(
             ApiPath.SET_PREFERENCES,
-            JSON.stringify({
+            new URLSearchParams({
                 json: JSON.stringify(preferences),
             }),
         );
@@ -429,7 +422,7 @@ export class Api {
     ) {
         return this.post<string>(
             action,
-            JSON.stringify({
+            new URLSearchParams({
                 hashes: hashes.join('|'),
                 ...additionalData,
             }),
@@ -511,7 +504,7 @@ export class Api {
 
         return this.post<LoginResponse>(
             ApiPath.LOGIN,
-            JSON.stringify({
+            new URLSearchParams({
                 username,
                 password,
             }),
@@ -523,7 +516,7 @@ export class Api {
             return Promise.resolve('Ok.');
         }
 
-        return this.post<string>(ApiPath.LOGOUT, JSON.stringify({}));
+        return this.post<string>(ApiPath.LOGOUT, new URLSearchParams());
     }
 
     async fetchVersion() {

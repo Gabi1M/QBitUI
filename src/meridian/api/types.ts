@@ -60,6 +60,7 @@ export enum ContentType {
     APPLICATION_JSON = 'application/json',
     TEXT_PLAIN = 'text/plain',
     MULTIPART_FORM_DATA = 'multipart/form-data',
+    URL_FORM_ENCODED = 'application/x-www-form-urlencoded',
 }
 
 export enum ApiPath {

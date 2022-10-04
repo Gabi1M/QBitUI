@@ -117,7 +117,6 @@ describe('Api', () => {
             );
             expect(response).toStrictEqual(testObject);
             expect(fetchMock).toHaveBeenCalledWith(`${getApiUrl()}/api/v2/something`, {
-                headers: { [Headers.CONTENT_TYPE]: ContentType.APPLICATION_JSON },
                 credentials: 'include',
                 method: RequestMethod.POST,
                 body: JSON.stringify(testObject),
@@ -137,7 +136,6 @@ describe('Api', () => {
             );
             expect(response).toStrictEqual('Correct response');
             expect(fetchMock).toHaveBeenCalledWith(`${getApiUrl()}/api/v2/something`, {
-                headers: { [Headers.CONTENT_TYPE]: ContentType.APPLICATION_JSON },
                 credentials: 'include',
                 method: RequestMethod.POST,
                 body: JSON.stringify(testObject),
@@ -156,9 +154,6 @@ describe('Api', () => {
             const response = await api.post<TestObjectType>('something', formData);
             expect(response).toStrictEqual(testObject);
             expect(fetchMock).toHaveBeenCalledWith(`${getApiUrl()}/api/v2/something`, {
-                headers: {
-                    [Headers.CONTENT_TYPE]: ContentType.MULTIPART_FORM_DATA,
-                },
                 credentials: 'include',
                 method: RequestMethod.POST,
                 body: formData,
