@@ -48,7 +48,7 @@ exports[`LabelWithBadge should render as expected 1`] = `
   border-radius: 32px;
   font-weight: 700;
   letter-spacing: 0.25px;
-  cursor: default;
+  cursor: inherit;
   text-overflow: ellipsis;
   overflow: hidden;
   background: rgba(231, 245, 255, 1);
