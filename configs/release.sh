@@ -1,3 +1,3 @@
 export VITE_MOCK_ENABLED="false"
 export VITE_API_URL=""
-export DEPLOY_PATH="/home/gabi/QBitUI/public"
+export DEPLOY_PATH="./public"
