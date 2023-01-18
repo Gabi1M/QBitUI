@@ -297,12 +297,9 @@ export class Api {
         if (isMockEnabled) {
             return Promise.resolve('Ok.');
         }
-        return this.post<string>(
-            ApiPath.CREATE_TAGS,
-            JSON.stringify({
-                tags: tagsToCreate.join(','),
-            }),
-        );
+        const formData = new FormData();
+        formData.append('tags', tagsToCreate.join(','));
+        return this.post<string>(ApiPath.CREATE_TAGS, formData);
     }
 
     async addTorrents(params: AddTorrentsParams) {
@@ -384,12 +381,9 @@ export class Api {
         if (isMockEnabled) {
             return Promise.resolve('Ok.');
         }
-        return this.post<string>(
-            ApiPath.DELETE_TAGS,
-            JSON.stringify({
-                tags: tagsToDelete.join(','),
-            }),
-        );
+        const formData = new FormData();
+        formData.append('tags', tagsToDelete.join(','));
+        return this.post<string>(ApiPath.DELETE_TAGS, formData);
     }
 
     async deleteResource<T extends Resource = Resource>(
