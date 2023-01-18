@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
 
-import { Button, Checkbox, MultiSelect, Select } from '@mantine/core';
+import { Button, Checkbox, Select } from '@mantine/core';
 import { useModals } from '@mantine/modals';
 
 import { AddTorrentsParams } from 'meridian/api';
@@ -12,7 +12,6 @@ import { Dropzone, commonModalConfiguration } from 'meridian/generic';
 import { useCloseLastModal, useCreateResource } from 'meridian/hooks';
 import { Resource } from 'meridian/resource';
 import { showSnackbarAction } from 'meridian/snackbar';
-import { selectTags } from 'meridian/tags';
 
 import useAddTorrentForm from '../useAddTorrentForm';
 
@@ -20,7 +19,6 @@ const AddTorrentsModal = () => {
     const closeLastModal = useCloseLastModal();
     const dispatch = useDispatch();
     const categories = useSelector(selectCategories);
-    const tags = useSelector(selectTags);
     const addTorrents = useCreateResource(Resource.TORRENT);
 
     const form = useAddTorrentForm();
@@ -72,13 +70,6 @@ const AddTorrentsModal = () => {
                         : []
                 }
                 {...form.getInputProps('category')}
-            />
-            <MultiSelect
-                mt='md'
-                label={t`Tags`}
-                placeholder={t`None selected`}
-                data={tags ? tags.map((tag) => ({ value: tag, label: tag })) : []}
-                {...form.getInputProps('tags')}
             />
             <Checkbox
                 mt='md'
