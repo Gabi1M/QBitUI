@@ -67,6 +67,7 @@ const useCategoriesModal = () => {
 const useStyles = createStyles({
     space: {
         flexGrow: 1,
+        backgroundColor: 'transparent', // does not flex without this?
     },
 });
 

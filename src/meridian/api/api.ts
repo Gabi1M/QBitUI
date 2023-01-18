@@ -283,12 +283,13 @@ export class Api {
         if (isMockEnabled) {
             return Promise.resolve('Ok.');
         }
+
+        const formData = new FormData();
+        formData.append('category', category.name);
+        formData.append('savePath', category.savePath);
         return this.post<string>(
             editExisting ? ApiPath.EDIT_CATEGORY : ApiPath.CREATE_CATEGORY,
-            JSON.stringify({
-                category: category.name,
-                savePath: category.savePath,
-            }),
+            formData,
         );
     }
 
