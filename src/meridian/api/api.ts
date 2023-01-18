@@ -375,12 +375,9 @@ export class Api {
         if (isMockEnabled) {
             return Promise.resolve('Ok.');
         }
-        return this.post<string>(
-            ApiPath.REMOVE_CATEGORIES,
-            JSON.stringify({
-                categories: categories.map((x) => x.name).join('\n'),
-            }),
-        );
+        const formData = new FormData();
+        formData.append('categories', categories.map((x) => x.name).join('\n'));
+        return this.post<string>(ApiPath.REMOVE_CATEGORIES, formData);
     }
 
     async deleteTags(tagsToDelete: string[]) {
