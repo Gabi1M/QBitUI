@@ -3,15 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { t } from '@lingui/macro';
 
-import {
-    Box,
-    LoadingOverlay,
-    MultiSelect,
-    Text,
-    TextInput,
-    Title,
-    createStyles,
-} from '@mantine/core';
+import { Box, LoadingOverlay, MultiSelect, Text, Title, createStyles } from '@mantine/core';
 
 import { selectMainData } from 'meridian/mainData';
 import { TorrentFilters, TorrentStateDescription } from 'meridian/models';
@@ -40,8 +32,6 @@ const DrawerContent = () => {
     );
 
     const handlers = {
-        name: (value: React.ChangeEvent<HTMLInputElement>) =>
-            onTorrentFilterChanged('name', value.target.value),
         states: (value: string[]) => onTorrentFilterChanged('states', value),
         categories: (value: string[]) => onTorrentFilterChanged('categories', value),
         tags: (value: string[]) => onTorrentFilterChanged('tags', value),
@@ -62,12 +52,6 @@ const DrawerContent = () => {
                 <Text size='xl'>{text}</Text>
             </Box>
             <Title order={4} align='center'>{t`Filters`}</Title>
-            <TextInput
-                label={t`Name`}
-                placeholder={t`Enter a name`}
-                value={torrentFilters.name}
-                onChange={handlers['name']}
-            />
             <MultiSelect
                 label={t`States`}
                 placeholder={t`All`}
