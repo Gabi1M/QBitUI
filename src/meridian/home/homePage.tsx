@@ -1,11 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Box, Pagination, createStyles } from '@mantine/core';
+import { t } from '@lingui/macro';
+
+import { Box, Pagination, TextInput, createStyles } from '@mantine/core';
 
 import { DrawerPage, ScrollToTopAffix } from 'meridian/generic';
 import { selectSettings } from 'meridian/settings';
 import { TorrentCard } from 'meridian/torrent';
+import { createSetTorrentFiltersAction, selectTorrentFilters } from 'meridian/torrentFilters';
 
 import DrawerContent from './drawerContent';
 import HeaderContent from './headerContent';
@@ -38,6 +41,34 @@ const PaginationContainer = ({
     );
 };
 
+const HeaderLeftContent = () => {
+    const dispatch = useDispatch();
+    const torrentFilters = useSelector(selectTorrentFilters);
+
+    const onNameChanged = useCallback(
+        (value: React.ChangeEvent<HTMLInputElement>) => {
+            dispatch(
+                createSetTorrentFiltersAction({
+                    ...torrentFilters,
+                    name: value.target.value,
+                }),
+            );
+        },
+        [dispatch, torrentFilters],
+    );
+
+    return (
+        <Box>
+            <TextInput
+                ml='xl'
+                placeholder={t`Enter a name`}
+                value={torrentFilters.name}
+                onChange={onNameChanged}
+            />
+        </Box>
+    );
+};
+
 const HomePage = () => {
     const styles = useStyles();
     const torrents = useFilteredTorrents();
@@ -52,7 +83,11 @@ const HomePage = () => {
         useManageSelection();
 
     return (
-        <DrawerPage headerRightContent={<HeaderContent />} drawerContent={<DrawerContent />}>
+        <DrawerPage
+            headerLeftContent={<HeaderLeftContent />}
+            headerRightContent={<HeaderContent />}
+            drawerContent={<DrawerContent />}
+        >
             <Box className={styles.classes.root}>
                 {currentItems.map((torrent) => (
                     <TorrentCard

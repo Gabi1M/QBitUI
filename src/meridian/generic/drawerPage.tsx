@@ -11,10 +11,11 @@ import { ColorSchemeToggle } from './colorSchemeToggle';
 interface Props {
     children: React.ReactNode;
     drawerContent?: React.ReactNode;
+    headerLeftContent?: React.ReactNode;
     headerRightContent?: React.ReactNode;
 }
 
-const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
+const DrawerPage = ({ children, drawerContent, headerLeftContent, headerRightContent }: Props) => {
     const styles = useStyles();
     const [opened, setOpened] = useState(false);
 
@@ -35,6 +36,7 @@ const DrawerPage = ({ children, drawerContent, headerRightContent }: Props) => {
                 <ActionIcon onClick={() => setOpened(true)}>
                     <Menu2 />
                 </ActionIcon>
+                {headerLeftContent}
                 <Box className={styles.classes.space} />
                 <ColorSchemeToggle />
                 {headerRightContent}
