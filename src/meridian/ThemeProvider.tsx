@@ -15,6 +15,9 @@ const ThemeProvider = ({ children }: Props) => {
         () => ({
             colorScheme: settings.darkMode ? 'dark' : 'light',
             fontFamily: 'Inter var',
+            fontSizes: {
+                sm: 16,
+            },
         }),
         [settings],
     );
